@@ -83,23 +83,30 @@ $error = false;
 
 <?php
 switch ($installed_version) {
+	case '2.4':
+	require_once 'upgrade_sql/2.4-to-2.5.php';
+	break;
 	case '2.3':
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '2.2':
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '2.1':
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '2.0':
 	require_once 'upgrade_sql/2.0-to-2.1.php';
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.8':
 	require_once 'upgrade_sql/1.8-to-2.0.php';
@@ -107,6 +114,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.7':
 	require_once 'upgrade_sql/1.7-to-1.8.php';
@@ -115,6 +123,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.6':
 	require_once 'upgrade_sql/1.6-to-1.7.php';
@@ -124,6 +133,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.5':
 	require_once 'upgrade_sql/1.5-to-1.6.php';
@@ -134,6 +144,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.4':
 	require_once 'upgrade_sql/1.4-to-1.5.php';
@@ -145,6 +156,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.3.5':
 	require_once 'upgrade_sql/1.3.5-to-1.4.php';
@@ -157,6 +169,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.3':
 	require_once 'upgrade_sql/1.3-to-1.3.5.php';
@@ -170,6 +183,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.2':
 	require_once 'upgrade_sql/1.2-to-1.3.php';
@@ -184,6 +198,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.1':
 	require_once 'upgrade_sql/1.1-to-1.2.php';
@@ -199,6 +214,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 	case '1.0':
 	require_once 'upgrade_sql/1.0-to-1.1.php';
@@ -215,6 +231,7 @@ switch ($installed_version) {
 	require_once 'upgrade_sql/2.1-to-2.2.php';
 	require_once 'upgrade_sql/2.2-to-2.3.php';
 	require_once 'upgrade_sql/2.3-to-2.4.php';
+	require_once 'upgrade_sql/2.4-to-2.5.php';
 	break;
 }
 ?>
