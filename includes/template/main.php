@@ -25,6 +25,14 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 <?php if (!defined('IN_COMMENTICS')) { die('Access Denied.'); } ?>
 
+<script type="text/javascript">
+// <![CDATA[
+if (typeof jQuery == 'undefined') {
+document.write("<scr" + "ipt type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></scr" + "ipt>");
+}
+// ]]>
+</script>
+
 <?php
 if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first
 
