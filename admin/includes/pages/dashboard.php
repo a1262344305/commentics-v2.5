@@ -304,7 +304,7 @@ $data = file_get_contents('../includes/words/admin_notes.txt');
 <div style="clear: left;"></div>
 <form name="admin_notes" id="admin_notes" action="index.php?page=dashboard" method="post">
 <div class="dashboard_title notes"><?php echo CMTX_DASH_ADMIN_NOTES; ?></div>
-<textarea name="admin_notes" cols="" rows="8" style="width:100%;"><?php echo $data; ?></textarea>
+<textarea name="admin_notes" cols="" rows="8" style="width:100%; margin-top:-1px;"><?php echo $data; ?></textarea>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit_notes" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>
