@@ -41,26 +41,44 @@ function cmtx_subscriber_exists ($email, $page_id) { //check whether subscriber 
 } //end of subscriber-exists function
 
 
-function cmtx_subscriber_bad ($email) { //check whether subscriber has any pending subscriptions
+function cmtx_subscriber_email_attempts ($email) { //check whether email address has any unconfirmed subscriptions
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
 	$email = strtolower($email); //temporarily convert to lowercase
 
-	//check whether any unconfirmed subscriptions for any page
+	//check whether email address has any unconfirmed subscriptions for any page
 	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `email` = '$email' AND `is_confirmed` = '0'"))) {
 		return true;
 	} else {
 		return false;
 	}
 
-} //end of subscriber-bad function
+} //end of subscriber-email-attempts function
+
+
+function cmtx_subscriber_ip_attempts() { //check whether IP address has any unconfirmed subscriptions
+
+	global $cmtx_mysql_table_prefix; //globalise variables
+
+	$ip_address = cmtx_get_ip_address();
+
+	//check whether IP address has any unconfirmed subscriptions for any page
+	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `ip_address` = '$ip_address' AND `is_confirmed` = '0'"))) {
+		return true;
+	} else {
+		return false;
+	}
+
+} //end of subscriber-ip-attempts function
 
 
 function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 
 	global $cmtx_mysql_table_prefix, $cmtx_path; //globalise variables
 
+	$ip_address = cmtx_get_ip_address();
+	
 	$is_unique = false; //initialise flag as false
 
 	while (!$is_unique) { //while the token is not unique
@@ -74,7 +92,7 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 	}
 
 	//insert subscriber into 'subscribers' database table
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '0', NOW())");
+	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `ip_address`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '0', '$ip_address', NOW())");
 
 	$name = cmtx_prepare_name_for_email($name); //prepare name for email
 	$email = cmtx_prepare_email_for_email($email); //prepare email address for email

@@ -527,7 +527,7 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		$cmtx_box .= "<div style='clear: left;'></div>";
 		
 		//add new subscriber
-		if (cmtx_setting('enabled_notify') && isset($_POST['cmtx_notify']) && cmtx_setting('enabled_email') && !empty($cmtx_email) && !cmtx_subscriber_exists($cmtx_email, $cmtx_page_id) && !cmtx_subscriber_bad($cmtx_email)) {
+		if (cmtx_setting('enabled_notify') && isset($_POST['cmtx_notify']) && cmtx_setting('enabled_email') && !empty($cmtx_email) && !cmtx_subscriber_exists($cmtx_email, $cmtx_page_id) && !cmtx_subscriber_email_attempts($cmtx_email) && !cmtx_subscriber_ip_attempts() && !$cmtx_is_admin) {
 			cmtx_add_subscriber($cmtx_name, $cmtx_email, $cmtx_page_id);
 		}
 		
@@ -572,7 +572,7 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		$cmtx_box .= "<div style='clear: left;'></div>";
 		
 		//add new subscriber
-		if (cmtx_setting('enabled_notify') && isset($_POST['cmtx_notify']) && cmtx_setting('enabled_email') && !empty($cmtx_email) && !cmtx_subscriber_exists($cmtx_email, $cmtx_page_id) && !cmtx_subscriber_bad($cmtx_email) && !$cmtx_is_admin) {
+		if (cmtx_setting('enabled_notify') && isset($_POST['cmtx_notify']) && cmtx_setting('enabled_email') && !empty($cmtx_email) && !cmtx_subscriber_exists($cmtx_email, $cmtx_page_id) && !cmtx_subscriber_email_attempts($cmtx_email) && !cmtx_subscriber_ip_attempts() && !$cmtx_is_admin) {
 			cmtx_add_subscriber($cmtx_name, $cmtx_email, $cmtx_page_id);
 		}
 		

@@ -26,6 +26,8 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '2000' WHERE `title` = 'scroll_speed'");
 
+mysql_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `ip_address` varchar(250) NOT NULL default ''");
+
 if (mysql_errno()) {
 echo mysql_errno() . ': ' . mysql_error() . '<br />';
 $error = true;

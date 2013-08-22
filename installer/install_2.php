@@ -699,6 +699,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "subscri
   `page_id` int(10) NOT NULL default '0',
   `token` varchar(20) NOT NULL default '',
   `is_confirmed` tinyint(1) unsigned NOT NULL default '0',
+  `ip_address` varchar(250) NOT NULL default '',
   `dated` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
