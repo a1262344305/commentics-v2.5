@@ -26,11 +26,10 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_NOTE_CHARS', 'characters');
 
+define('CMTX_NOTE_MILLISECONDS', 'milliseconds');
 define('CMTX_NOTE_SECONDS', 'seconds');
 define('CMTX_NOTE_HOURS', 'hours');
 define('CMTX_NOTE_DAYS', 'days');
-
-define('CMTX_NOTE_STEPS', 'steps');
 
 define('CMTX_NOTE_PIXELS', 'pixels');
 
