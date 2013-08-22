@@ -942,11 +942,13 @@ function cmtx_set_form_cookie($name, $email, $website, $town, $country) { //save
 } //end of set-form-cookie function
 
 
-function cmtx_purify ($comment) { //purifies html
+function cmtx_purify ($comment) { //purifies HTML
 
 	global $cmtx_path; //globalise variables
 
-	require_once $cmtx_path . 'includes/htmLawed/htmLawed.php'; //load htmLawed script
+	if (!function_exists('htmLawed')) {
+		require_once $cmtx_path . 'includes/htmLawed/htmLawed.php'; //load htmLawed script
+	}
 
 	$comment = htmLawed($comment); //purify
 
