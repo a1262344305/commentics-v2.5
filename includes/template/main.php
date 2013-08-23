@@ -33,6 +33,14 @@ document.write("<scr" + "ipt type=\"text/javascript\" src=\"http://ajax.googleap
 // ]]>
 </script>
 
+<script type="text/javascript">
+// <![CDATA[
+if (typeof jQuery.ui == 'undefined') {
+document.write("<scr" + "ipt type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js\"></scr" + "ipt>");
+}
+// ]]>
+</script>
+
 <?php
 if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first
 

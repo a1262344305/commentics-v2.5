@@ -131,6 +131,16 @@ document.getElementById("cmtx_comment_more_" + id).style.display = "inline";
 </script>
 <?php } ?>
 
+<?php if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) { ?>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+	jQuery('#cmtx_perm_<?php echo $_GET['cmtx_perm']; ?>').effect("highlight", {}, 1500);
+});
+// ]]>
+</script>
+<?php } ?>
+
 <?php
 //Permalink (Calculation Only)
 if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) {
