@@ -26,13 +26,13 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 $cmtx_countries = '<select name="cmtx_country" class="cmtx_country_field" title="' . cmtx_define(CMTX_TITLE_COUNTRY) . '">
 <option value="">' . cmtx_define(CMTX_TOP_COUNTRY)  . '</option>
-<option value=""></option>
+<option value="">---</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_US) . '">' . cmtx_define(CMTX_COUNTRY_US)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_UK) . '">' . cmtx_define(CMTX_COUNTRY_UK)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_IRELAND) . '">' . cmtx_define(CMTX_COUNTRY_IRELAND)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_CANADA) . '">' . cmtx_define(CMTX_COUNTRY_CANADA)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_AUSTRALIA) . '">' . cmtx_define(CMTX_COUNTRY_AUSTRALIA)  . '</option>
-<option value=""></option>
+<option value="">---</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_AFGHANISTAN) . '">' . cmtx_define(CMTX_COUNTRY_AFGHANISTAN)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_ALBANIA) . '">' . cmtx_define(CMTX_COUNTRY_ALBANIA)  . '</option>
 <option value="' . cmtx_define(CMTX_COUNTRY_ALGERIA) . '">' . cmtx_define(CMTX_COUNTRY_ALGERIA)  . '</option>
