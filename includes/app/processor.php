@@ -30,7 +30,7 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		return; //exit file
 	}
 	
-	define('CMTX_PROCESSING', '1'); //define that the form was submitted
+	define('CMTX_PROCESSING', true); //define that the form was submitted
 	
 	$cmtx_ip_address = cmtx_get_ip_address(); //get user's IP address
 	

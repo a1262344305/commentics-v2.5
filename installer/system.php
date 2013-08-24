@@ -50,8 +50,8 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php
-define('IN_COMMENTICS', 'true');
-define('CMTX_IN_INSTALLER', 'true');
+define('IN_COMMENTICS', true);
+define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php

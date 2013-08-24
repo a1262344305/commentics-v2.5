@@ -51,7 +51,7 @@ require_once dirname(__FILE__) . '/securimage.php';
 
 $img = new Securimage();
 
-define('IN_COMMENTICS', 'true');
+define('IN_COMMENTICS', true);
 
 require '../includes/db/connect.php';
 if (!$cmtx_db_ok) { die(); }

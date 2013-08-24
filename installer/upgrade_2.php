@@ -43,8 +43,8 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 ?>
 
 <?php
-define('IN_COMMENTICS', 'true');
-define('CMTX_IN_INSTALLER', 'true');
+define('IN_COMMENTICS', true);
+define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php

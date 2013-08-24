@@ -66,7 +66,7 @@ background-image: url('images/messages/error.png');
 <body>
 
 <?php
-define('IN_COMMENTICS', 'true');
+define('IN_COMMENTICS', true);
 
 //temporary solution while transitioning from 'uid' to 'id'
 if (isset($_GET['uid'])) {
