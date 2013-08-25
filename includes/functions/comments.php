@@ -252,11 +252,21 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 		$cmtx_website_attribute = ""; //initialize variable
 		if (cmtx_setting('website_new_window')) { $cmtx_website_attribute = " target='_blank'"; } //if website should open in new window
 		if (cmtx_setting('website_nofollow')) { $cmtx_website_attribute .= " rel='nofollow'";	} //if website should contain nofollow tag
-		$cmtx_box .= "<a class='cmtx_name_with_website_text' href='" . $website . "'$cmtx_website_attribute>" . $name . "</a>";
+		if ($is_admin) {
+			$cmtx_box .= "<a class='cmtx_admin_name_with_website_text' href='" . $website . "'$cmtx_website_attribute>" . $name . "</a>";
+		} else {
+			$cmtx_box .= "<a class='cmtx_name_with_website_text' href='" . $website . "'$cmtx_website_attribute>" . $name . "</a>";
+		}
 	} else {
-		$cmtx_box .= "<span class='cmtx_name_without_website_text'>";
-		$cmtx_box .= $name;
-		$cmtx_box .= "</span>";
+		if ($is_admin) {
+			$cmtx_box .= "<span class='cmtx_admin_name_without_website_text'>";
+			$cmtx_box .= $name;
+			$cmtx_box .= "</span>";
+		} else {
+			$cmtx_box .= "<span class='cmtx_name_without_website_text'>";
+			$cmtx_box .= $name;
+			$cmtx_box .= "</span>";
+		}
 	}
 
 	//Town and Country

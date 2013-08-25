@@ -136,8 +136,6 @@ overflow: hidden;
 }
 
 .cmtx_admin_comment_box_1 {
-background: url("../images/misc/admin.png") no-repeat;
-background-position: 50% 8px;
 padding: 5px;
 background-color: #FFF8DC;
 border: 1px solid #828282;
@@ -145,8 +143,6 @@ overflow: hidden;
 }
 
 .cmtx_admin_comment_box_2 {
-background: url("../images/misc/admin.png") no-repeat;
-background-position: 50% 8px;
 padding: 5px;
 background-color: #FFF8DC;
 border: 1px solid #828282;
@@ -154,8 +150,6 @@ overflow: hidden;
 }
 
 .cmtx_admin_reply_box_1 {
-background: url("../images/misc/admin.png") no-repeat;
-background-position: 50% 8px;
 padding: 5px;
 background-color: #FFF8DC;
 border: 1px solid #828282;
@@ -163,8 +157,6 @@ overflow: hidden;
 }
 
 .cmtx_admin_reply_box_2 {
-background: url("../images/misc/admin.png") no-repeat;
-background-position: 50% 8px;
 padding: 5px;
 background-color: #FFF8DC;
 border: 1px solid #828282;
@@ -173,6 +165,11 @@ overflow: hidden;
 
 .cmtx_permalink_box {
 border: 2px solid #828282;
+}
+
+.cmtx_sticky_image {
+background: url("../images/misc/sticky.png") no-repeat;
+background-position: 50% 0px;
 }
 
 .cmtx_height_between_comments {
@@ -200,9 +197,20 @@ float: right;
 .cmtx_star_image {
 }
 
+.cmtx_admin_name_with_website_text {
+color: #006400;
+font-weight: bold;
+text-decoration: none;
+}
+
 .cmtx_name_with_website_text {
 font-weight: bold;
 text-decoration: none;
+}
+
+.cmtx_admin_name_without_website_text {
+color: #006400;
+font-weight: bold;
 }
 
 .cmtx_name_without_website_text {
@@ -250,11 +258,6 @@ margin-bottom: 12px;
 .cmtx_date_text {
 color: #828282;
 font-size: 0.8em;
-}
-
-.cmtx_sticky_image {
-background: url("../images/misc/sticky.png") no-repeat;
-background-position: 50% 99%;
 }
 
 .cmtx_buttons_block {
