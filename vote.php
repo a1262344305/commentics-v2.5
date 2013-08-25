@@ -21,7 +21,18 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
-
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vote</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="robots" content="noindex"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+</head>
+<body>
+<?php
 define('IN_COMMENTICS', true);
 
 //set the path
@@ -101,27 +112,19 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 	}
 
 	if (!$issue) {
-	
+
 		if ($type == 'like' && cmtx_setting('show_like')) {
-		
+
 			mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `likes` = `likes` + 1 WHERE `id` = '$id'");
 			mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
-			
-			if (cmtx_setting('js_vote_ok')) {
-				echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_LIKE) . "');</script>";
-			}
 
 		} else if ($type == 'dislike' && cmtx_setting('show_dislike')) {
-		
+
 			mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `dislikes` = `dislikes` + 1 WHERE `id` = '$id'");
 			mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
-			if (cmtx_setting('js_vote_ok')) {
-				echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_DISLIKE) . "');</script>";
-			}
-			
 		}
-		
+
 	}
 	
 	if ($type == 'like') {
@@ -133,7 +136,7 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 		} else {
 			$likes = 0;
 		}
-		echo "<img src='" . cmtx_comments_folder() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/>" . $likes;
+		echo "<img src='" . cmtx_comments_folder() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/><span id='cmtx_flash_like_$id'>" . $likes . "</span>";
 	
 	} else if ($type == 'dislike') {
 	
@@ -144,9 +147,33 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 		} else {
 			$dislikes = 0;
 		}
-		echo "<img src='" . cmtx_comments_folder() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/>" . $dislikes;
+		echo "<img src='" . cmtx_comments_folder() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/><span id='cmtx_flash_dislike_$id'>" . $dislikes . "</span>";
 		
+	}
+	
+	if (!$issue) {
+	
+		if ($type == 'like') {
+		
+			?><script type="text/javascript">
+			// <![CDATA[
+			jQuery('#cmtx_flash_like_<?php echo $id; ?>').effect("highlight", {color: '#529214'}, 1000);
+			// ]]>
+			</script><?php
+		
+		} else if ($type == 'dislike') {
+		
+			?><script type="text/javascript">
+			// <![CDATA[
+			jQuery('#cmtx_flash_dislike_<?php echo $id; ?>').effect("highlight", {color: '#D12F19'}, 1000);
+			// ]]>
+			</script><?php
+		
+		}
+	
 	}
 
 }
 ?>
+</body>
+</html>

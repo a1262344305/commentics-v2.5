@@ -69,8 +69,6 @@ define('CMTX_YESTERDAY', 'Ontem');
 /* Like Dislike */
 define('CMTX_TITLE_LIKE', 'Marqu este comentário como legal');
 define('CMTX_TITLE_DISLIKE', 'Marque este comentário como ruim');
-define('CMTX_VOTE_LIKE', 'Obrigado pelo seu voto');
-define('CMTX_VOTE_DISLIKE', 'Obrigado pelo seu voto');
 define('CMTX_VOTE_NO_COMMENT', 'Este comentário não existe mais');
 define('CMTX_VOTE_OWN_COMMENT', 'Você não pode votar em seu próprio comentário');
 define('CMTX_VOTE_ALREADY_VOTED', 'você já votou para este comentário');

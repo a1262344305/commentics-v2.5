@@ -69,8 +69,6 @@ define('CMTX_YESTERDAY', 'Ayer');
 /* Like Dislike */
 define('CMTX_TITLE_LIKE', 'Voto positivo');
 define('CMTX_TITLE_DISLIKE', 'Voto negativo');
-define('CMTX_VOTE_LIKE', 'Gracias por el voto');
-define('CMTX_VOTE_DISLIKE', 'Gracias por el voto');
 define('CMTX_VOTE_NO_COMMENT', 'Este comentario ya no existe');
 define('CMTX_VOTE_OWN_COMMENT', 'Usted no puede votar por tu opinión');
 define('CMTX_VOTE_ALREADY_VOTED', 'Ya ha votado para este comentario');

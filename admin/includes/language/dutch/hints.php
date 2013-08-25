@@ -32,7 +32,6 @@ define('CMTX_HINT_LOCKED', 'Lock reacties voor deze reactie.');
 define('CMTX_HINT_COMMENTS_ORDER', 'De standaard volgorde van weergave van de opmerkingen.');
 define('CMTX_HINT_DISPLAY_COMMENT_COUNT', 'Geef het commentaar telling na de titel.');
 define('CMTX_HINT_DISPLAY_SAYS', 'Toont het woord <i>zegt</i> achter de naam van de gebruiker.');
-define('CMTX_HINT_JS_VOTE_OK', 'Toon een JavaScript berichten box als de Like/Dislike stem okay is.');
 
 define('CMTX_HINT_PAGINATION_ENABLED', 'Moeten de berichten over meerdere paginas worden verdeeld?');
 define('CMTX_HINT_PAGINATION_TOP', 'Toon de paginatie links boven het berichten gebied.');

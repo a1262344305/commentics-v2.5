@@ -69,8 +69,6 @@ define('CMTX_YESTERDAY', 'Včeraj');
 /* Like Dislike */
 define('CMTX_TITLE_LIKE', 'Glasujte za ta komentar');
 define('CMTX_TITLE_DISLIKE', 'Glasujte proti temu komentarju');
-define('CMTX_VOTE_LIKE', 'Hvala za vaš glas');
-define('CMTX_VOTE_DISLIKE', 'Hvala za vaš glas');
 define('CMTX_VOTE_NO_COMMENT', 'Ta komentar ne obstaja več');
 define('CMTX_VOTE_OWN_COMMENT', 'Ne moreš glasovati za svoj komentar');
 define('CMTX_VOTE_ALREADY_VOTED', 'Za ta komentar ste že glasovali');

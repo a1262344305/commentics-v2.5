@@ -32,7 +32,6 @@ define('CMTX_HINT_LOCKED', 'Lock replies for this comment.');
 define('CMTX_HINT_COMMENTS_ORDER', 'The default display order of the comments.');
 define('CMTX_HINT_DISPLAY_COMMENT_COUNT', 'Display the comment count after the heading.');
 define('CMTX_HINT_DISPLAY_SAYS', 'Display the word <i>says</i> after the name of user.');
-define('CMTX_HINT_JS_VOTE_OK', 'Display a JavaScript message box if the Like/Dislike vote is okay.');
 
 define('CMTX_HINT_PAGINATION_ENABLED', 'Should the comments be spread over multiple pages?');
 define('CMTX_HINT_PAGINATION_TOP', 'Display the pagination links above the comments area.');

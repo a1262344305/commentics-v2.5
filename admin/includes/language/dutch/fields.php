@@ -81,7 +81,6 @@ define('CMTX_FIELD_LABEL_PAGE_NUMBER', 'Paginanummer:');
 define('CMTX_FIELD_LABEL_ORDER', 'Volgorde:');
 define('CMTX_FIELD_LABEL_DISPLAY_COMMENT_COUNT', 'Display Tellen:');
 define('CMTX_FIELD_LABEL_DISPLAY_SAYS', 'Display "zegt":');
-define('CMTX_FIELD_LABEL_JS_VOTE_OK', 'JS Stemmen OK:');
 define('CMTX_FIELD_LABEL_TIME_FORMAT', 'Time Format:');
 define('CMTX_FIELD_LABEL_DATE_TIME', 'Datum/Tijd:');
 define('CMTX_FIELD_LABEL_TOP', 'Top:');

@@ -45,7 +45,6 @@ cmtx_check_csrf_form_key();
 $comments_order = $_POST['comments_orders'];
 if (isset($_POST['show_comment_count'])) { $show_comment_count = 1; } else { $show_comment_count = 0; }
 if (isset($_POST['show_says'])) { $show_says = 1; } else { $show_says = 0; }
-if (isset($_POST['js_vote_ok'])) { $js_vote_ok = 1; } else { $js_vote_ok = 0; }
 $time_format = $_POST['time_format'];
 $date_time_format = $_POST['date_time_format'];
 
@@ -56,7 +55,6 @@ $date_time_format_san = cmtx_sanitize($date_time_format);
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comments_order_san' WHERE `title` = 'comments_order'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_comment_count' WHERE `title` = 'show_comment_count'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_says' WHERE `title` = 'show_says'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$js_vote_ok' WHERE `title` = 'js_vote_ok'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_format_san' WHERE `title` = 'time_format'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$date_time_format_san' WHERE `title` = 'date_time_format'");
 ?>
@@ -91,9 +89,6 @@ echo $comments_orders;
 <p />
 <label class='layout_comments_general'><?php echo CMTX_FIELD_LABEL_DISPLAY_SAYS; ?></label> <?php if (cmtx_setting('show_says')) { ?> <input type="checkbox" checked="checked" name="show_says"/> <?php } else { ?> <input type="checkbox" name="show_says"/> <?php } ?>
 <?php cmtx_generate_hint(CMTX_HINT_DISPLAY_SAYS); ?>
-<p />
-<label class='layout_comments_general'><?php echo CMTX_FIELD_LABEL_JS_VOTE_OK; ?></label> <?php if (cmtx_setting('js_vote_ok')) { ?> <input type="checkbox" checked="checked" name="js_vote_ok"/> <?php } else { ?> <input type="checkbox" name="js_vote_ok"/> <?php } ?>
-<?php cmtx_generate_hint(CMTX_HINT_JS_VOTE_OK); ?>
 <p />
 <label class='layout_comments_general'><?php echo CMTX_FIELD_LABEL_TIME_FORMAT; ?></label> <input type="text" required name="time_format" size="2" maxlength="250" value="<?php echo cmtx_setting('time_format'); ?>"/> &nbsp; <a href="http://www.commentics.org/support/knowledgebase.php?article=20" target="_blank"><?php echo CMTX_LINK_FAQ; ?></a>
 <p />

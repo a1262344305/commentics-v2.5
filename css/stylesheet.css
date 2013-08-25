@@ -2,6 +2,10 @@ img {
 border-style: none;
 }
 
+a {
+outline: 0;
+}
+
 /**************************** Page ******************************/
 
 .cmtx_page_alert {
@@ -168,6 +172,7 @@ overflow: hidden;
 }
 
 .cmtx_permalink_box {
+border: 2px solid #828282;
 }
 
 .cmtx_height_between_comments {

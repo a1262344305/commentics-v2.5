@@ -32,7 +32,6 @@ define('CMTX_HINT_LOCKED', 'Bloquear respostas para este comentário.');
 define('CMTX_HINT_COMMENTS_ORDER', 'A ordem de exibição padrão dos comentários.');
 define('CMTX_HINT_DISPLAY_COMMENT_COUNT', 'Mostrar a quantidade de comentários após o título.');
 define('CMTX_HINT_DISPLAY_SAYS', 'Mostrar a palavra <i>diz</i> após o nome do usuário.');
-define('CMTX_HINT_JS_VOTE_OK', 'Exibir uma mensagem JavaScript se o voto de Curtir / Não Curtir estiver ok.');
 
 define('CMTX_HINT_PAGINATION_ENABLED', 'Devem ser distribuídos os comentários através de várias páginas?');
 define('CMTX_HINT_PAGINATION_TOP', 'Exibir os links de paginação acima da área de comentários.');

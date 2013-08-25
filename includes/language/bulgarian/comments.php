@@ -69,8 +69,6 @@ define('CMTX_YESTERDAY', 'Вчера');
 /* Like Dislike */
 define('CMTX_TITLE_LIKE', 'Гласувай позитивно за този коментар');
 define('CMTX_TITLE_DISLIKE', 'Гласувай негативно за този коментар');
-define('CMTX_VOTE_LIKE', 'Благорадим Ви за гласа');
-define('CMTX_VOTE_DISLIKE', 'Благорадим Ви за гласа');
 define('CMTX_VOTE_NO_COMMENT', 'Този коментар вече не съществува');
 define('CMTX_VOTE_OWN_COMMENT', 'Не можете да гласувате за собствения си коментар');
 define('CMTX_VOTE_ALREADY_VOTED', 'Вие вече сте гласували за този коментар');
