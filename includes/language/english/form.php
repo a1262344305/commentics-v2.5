@@ -75,7 +75,7 @@ define('CMTX_TITLE_SUBMIT', 'Add Comment');
 define('CMTX_TITLE_PREVIEW', 'Preview');
 
 /* Note displayed after email field */
-define('CMTX_NOTE_EMAIL', '(will not be published)');
+define('CMTX_NOTE_EMAIL', '(will not be displayed)');
 
 /* Text displayed for JavaScript BB Code prompts */
 define('CMTX_PROMPT_ENTER_BULLET', 'Enter a list item. Click cancel or leave blank to end the list.');
