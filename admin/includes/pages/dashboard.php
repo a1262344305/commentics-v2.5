@@ -79,6 +79,8 @@ $version_url = "http://www.commentics.org/version.txt";
 $latest_version = "";
 $issue = false;
 
+@ini_set('user_agent', 'Commentics'); //set user-agent
+
 if (extension_loaded('curl')) { //if cURL is available
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -89,11 +91,11 @@ if (extension_loaded('curl')) { //if cURL is available
 	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)");
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Commentics');
 	curl_setopt($ch, CURLOPT_URL, $version_url);
 	$latest_version = curl_exec($ch);
 	curl_close($ch);
-} else if ((bool)ini_get('allow_url_fopen')) {
+} else if ((bool)ini_get('allow_url_fopen')) { //if allow_url_fopen is available
 	$latest_version = file_get_contents($version_url);
 } else {
 	?><span class='negative'><?php echo CMTX_DASH_VERSION_CHECK_UNABLE; ?></span><?php
@@ -239,6 +241,7 @@ if ($issue) {
 } else {
 	$news_url = "http://www.commentics.org/news.txt";
 	$news = "";
+	@ini_set('user_agent', 'Commentics'); //set user-agent
 	if (extension_loaded('curl')) { //if cURL is available
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -249,11 +252,11 @@ if ($issue) {
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)");
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Commentics');
 		curl_setopt($ch, CURLOPT_URL, $news_url);
 		$news = curl_exec($ch);
 		curl_close($ch);
-	} else if ((bool)ini_get('allow_url_fopen')) {
+	} else if ((bool)ini_get('allow_url_fopen')) { //if allow_url_fopen is available
 		$news = file_get_contents($news_url);
 	}
 	$news = cmtx_sanitize($news, true, false);
