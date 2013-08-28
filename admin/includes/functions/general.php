@@ -100,6 +100,15 @@ function cmtx_url_decode_spaces ($value) { //decode URL spaces
 } //end of url-decode-spaces function
 
 
+function cmtx_current_page() { //gets the URL of the current page
+
+	$url = cmtx_url_decode("http" . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "s" : "") . "://" . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
+
+	return $url;
+
+} //end of current-page function
+
+
 function cmtx_define ($value) { //prepare define string for output
 
 	$value = cmtx_sanitize($value, true, false); //encode string

@@ -383,22 +383,21 @@ die();
 }
 }
 
-if (cmtx_setting('check_comments_url') && !isset($_SESSION['cmtx_comments_url'])) {
-	if (cmtx_setting('check_referrer')) {
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$referrer = cmtx_url_decode($_SERVER['HTTP_REFERER']);
-			$host = cmtx_url_decode(str_ireplace("www.", "", parse_url(cmtx_setting('url_to_comments_folder'), PHP_URL_HOST)));
-			if (!empty($host) && !preg_match('/\.[0-9]+\./i', $host)) {
-				if (!stristr($referrer, $host)) {
-					?>
-					<span class='negative'>The referrer has external origin.</span>
-					<p />
-					You have arrived at this page from outside of the admin panel.
-					<p />
-					Please access this page through the menu above.
-					<?php
-					die();
-				}
+/* Check Referrer */
+if (cmtx_setting('check_referrer')) {
+	if (isset($_SERVER['HTTP_REFERER'])) { //if referrer available
+		$referrer = cmtx_url_decode($_SERVER['HTTP_REFERER']); //get referrer
+		$host = cmtx_url_decode(str_ireplace('www.', '', parse_url(cmtx_current_page(), PHP_URL_HOST))); //get host of current page
+		if (!empty($host)) { //if host is not empty
+			if (!stristr($referrer, $host)) { //if referrer does not contain host of current page
+				?>
+				<span class='negative'>The referrer has external origin.</span>
+				<p />
+				You have arrived at this page from outside of the admin panel.
+				<p />
+				Please access this page through the menu above.
+				<?php
+				die();
 			}
 		}
 	}
