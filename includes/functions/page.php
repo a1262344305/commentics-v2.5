@@ -130,6 +130,10 @@ function cmtx_strip_slashes ($value) { //strip slashes
 function cmtx_page_setup() { //page setup
 
 	global $cmtx_page_id; //globalise variables
+	
+	if (isset($_SERVER['HTTP_USER_AGENT']) && $_SERVER['HTTP_USER_AGENT'] == 'Commentics') {
+		die();
+	}
 
 	cmtx_identifier_exists(); //check identifier exists
 	cmtx_get_page_details(); //get page details
@@ -198,14 +202,12 @@ function cmtx_get_page_details() { //get page details
 
 	//get title/heading
 	if (stristr($cmtx_identifier, "cmtx_title") || stristr($cmtx_reference, "cmtx_title") || stristr($cmtx_identifier, "cmtx_h1") || stristr($cmtx_reference, "cmtx_h1")) {
-		if (cmtx_get_ip_address() == "127.0.0.1") { //if on localhost
-			$path = $_SERVER['SCRIPT_FILENAME'];
-		} else {
-			$path = cmtx_url_encode($url);
-		}
-		if ((bool)ini_get('allow_url_fopen')) {
-			$file = file_get_contents($path);
-		} else if (extension_loaded('curl') && cmtx_get_ip_address() != "127.0.0.1") { //if cURL is available and not on localhost
+
+		@ini_set('user_agent', 'Commentics'); //set user-agent
+		
+		$path = cmtx_url_encode($url);
+		
+		if (extension_loaded('curl')) { //if cURL is available
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_HEADER, false);
@@ -215,12 +217,14 @@ function cmtx_get_page_details() { //get page details
 			curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-			curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)");
+			curl_setopt($ch, CURLOPT_USERAGENT, "Commentics");
 			curl_setopt($ch, CURLOPT_URL, $path);
 			$file = curl_exec($ch);
 			curl_close($ch);
+		} else if ((bool)ini_get('allow_url_fopen')) { //if allow_url_fopen is available
+			$file = file_get_contents($path);
 		}
-		if (isset($file)) {
+		if (isset($file) && !empty($file)) {
 			if (stristr($cmtx_identifier, "cmtx_title") || stristr($cmtx_reference, "cmtx_title")) {
 				if (preg_match("/<title>(.+?)<\/title>/i", $file, $match)) {
 					$cmtx_identifier = str_ireplace("cmtx_title", $match[1], $cmtx_identifier);
