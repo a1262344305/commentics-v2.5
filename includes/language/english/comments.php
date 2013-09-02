@@ -70,8 +70,8 @@ define('CMTX_YESTERDAY', 'Yesterday');
 define('CMTX_TITLE_LIKE', 'Like this comment');
 define('CMTX_TITLE_DISLIKE', 'Dislike this comment');
 define('CMTX_VOTE_NO_COMMENT', 'This comment no longer exists');
-define('CMTX_VOTE_OWN_COMMENT', 'You cannot vote for your own comment');
-define('CMTX_VOTE_ALREADY_VOTED', 'You have already voted for this comment');
+define('CMTX_VOTE_OWN_COMMENT', 'You can\'t vote for yourself');
+define('CMTX_VOTE_ALREADY_VOTED', 'You have already voted');
 define('CMTX_VOTE_BANNED', 'You have previously been banned');
 
 /* Flag */

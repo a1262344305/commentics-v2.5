@@ -1,38 +1,4 @@
 <?php
-/*
-Copyright © 2009-2013 Commentics Development Team [commentics.org]
-License: GNU General Public License v3.0
-		 http://www.commentics.org/license/
-
-This file is part of Commentics.
-
-Commentics is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-Commentics is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with Commentics. If not, see <http://www.gnu.org/licenses/>.
-
-Text to help preserve UTF-8 file encoding: 汉语漢語.
-*/
-?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Vote</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="robots" content="noindex"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-</head>
-<body>
-<?php
 define('IN_COMMENTICS', true);
 
 //set the path
@@ -77,53 +43,43 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 	$type = $_POST['type'];
 	if ($type != 'like' && $type != 'dislike') { die(); }
 	
-	$issue = false;
-	
 	//check if comment exists
 	$query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$count = mysql_num_rows($query);
 	if ($count == 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_NO_COMMENT) . "');</script>";
-		$issue = true;
+		echo CMTX_VOTE_NO_COMMENT; return;
 	}
 	
 	//check if user is voting own comment
 	$query = mysql_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' and `ip_address` = '$ip_address'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_OWN_COMMENT) . "');</script>";
-		$issue = true;
+		echo CMTX_VOTE_OWN_COMMENT; return;
 	}
 
 	//check if user has already voted
 	$query = mysql_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id' and `ip_address` = '$ip_address'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_ALREADY_VOTED) . "');</script>";
-		$issue = true;
+		echo CMTX_VOTE_ALREADY_VOTED; return;
 	}
 	
 	//check if user is banned
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_VOTE_BANNED) . "');</script>";
-		$issue = true;
+		echo CMTX_VOTE_BANNED; return;
 	}
 
-	if (!$issue) {
+	if ($type == 'like' && cmtx_setting('show_like')) {
 
-		if ($type == 'like' && cmtx_setting('show_like')) {
+		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `likes` = `likes` + 1 WHERE `id` = '$id'");
+		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
-			mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `likes` = `likes` + 1 WHERE `id` = '$id'");
-			mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
+	} else if ($type == 'dislike' && cmtx_setting('show_dislike')) {
 
-		} else if ($type == 'dislike' && cmtx_setting('show_dislike')) {
-
-			mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `dislikes` = `dislikes` + 1 WHERE `id` = '$id'");
-			mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
-
-		}
+		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `dislikes` = `dislikes` + 1 WHERE `id` = '$id'");
+		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
 	}
 	
@@ -136,6 +92,7 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 		} else {
 			$likes = 0;
 		}
+		
 		echo "<img src='" . cmtx_comments_folder() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/><span id='cmtx_flash_like_$id'>" . $likes . "</span>";
 	
 	} else if ($type == 'dislike') {
@@ -147,33 +104,10 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 		} else {
 			$dislikes = 0;
 		}
+		
 		echo "<img src='" . cmtx_comments_folder() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/><span id='cmtx_flash_dislike_$id'>" . $dislikes . "</span>";
 		
-	}
-	
-	if (!$issue) {
-	
-		if ($type == 'like') {
-		
-			?><script type="text/javascript">
-			// <![CDATA[
-			jQuery('#cmtx_flash_like_<?php echo $id; ?>').effect("highlight", {color: '#529214'}, 1000);
-			// ]]>
-			</script><?php
-		
-		} else if ($type == 'dislike') {
-		
-			?><script type="text/javascript">
-			// <![CDATA[
-			jQuery('#cmtx_flash_dislike_<?php echo $id; ?>').effect("highlight", {color: '#D12F19'}, 1000);
-			// ]]>
-			</script><?php
-		
-		}
-	
 	}
 
 }
 ?>
-</body>
-</html>

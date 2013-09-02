@@ -64,7 +64,7 @@ margin-bottom: 20px;
 .cmtx_average_rating_block {
 float: left;
 text-align: left;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 width: 32%;
 border-color: transparent !important;
 }
@@ -80,7 +80,7 @@ font-size: 0.7em;
 
 .cmtx_social_block {
 text-align: center;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 margin-right: 32%;
 border-color: transparent !important;
 }
@@ -98,7 +98,7 @@ vertical-align: bottom;
 .cmtx_pagination_block_top {
 float: right;
 text-align: right;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 width: 32%;
 border-color: transparent !important;
 }
@@ -317,6 +317,21 @@ margin-right: 8px;
 cursor: text;
 }
 
+.cmtx_error_vote {
+cursor: default;
+position: absolute;
+margin-top: 10px;
+margin-left: 10px;
+padding: 3px;
+color: #FF0000;
+font-size: 0.8em;
+font-weight: bold;
+font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+border: 1px solid #FF0000;
+background-color: #FFFFFF;
+display: none;
+}
+
 .cmtx_height_below_comment_boxes {
 margin-bottom: 10px;
 }
@@ -324,7 +339,7 @@ margin-bottom: 10px;
 .cmtx_rss_block {
 float: left;
 text-align: left;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 width: 32%;
 border-color: transparent !important;
 }
@@ -335,7 +350,7 @@ height: 12px;
 
 .cmtx_page_number_block {
 text-align: center;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 margin-right: 32%;
 border-color: transparent !important;
 }
@@ -347,7 +362,7 @@ color: #424242;
 .cmtx_pagination_block_bottom {
 float: right;
 text-align: right;
-border: 1px solid white;
+border: 1px solid #FFFFFF;
 width: 32%;
 border-color: transparent !important;
 }

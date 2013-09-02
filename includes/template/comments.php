@@ -49,27 +49,38 @@ jQuery(document).ready(function() {
 // <![CDATA[
 jQuery(document).ready(function() {
 
-jQuery(".cmtx_vote").click(function() {
+jQuery('.cmtx_vote').click(function(e) {
 
-var id = jQuery(this).attr("id");
+var id = jQuery(this).attr('id');
 var parent = jQuery(this);
 
 if (id.indexOf('dislike') != -1) {
-	var type = "dislike";
+	var type = 'dislike';
 } else {
-	var type = "like";
+	var type = 'like';
 }
-
 
 jQuery.ajax({
-type: "POST",
-url: "<?php echo cmtx_comments_folder() . "vote.php"?>",
-data: {id: id, type: type},
-cache: false,
 
-success: function(html) {
-	parent.html(html);
-}
+	type: 'POST',
+	url: '<?php echo cmtx_comments_folder() . 'vote.php'?>',
+	data: {id: id, type: type},
+	cache: false,
+
+	success: function(response) {
+		if (response.indexOf('<') != -1) { //success
+			parent.html(response);
+			if (type == 'like') {
+				jQuery('#cmtx_flash_like_' + id.replace('cmtx_like_', '')).effect('highlight', {color: '#529214'}, 2000);
+			} else {
+				jQuery('#cmtx_flash_dislike_' + id.replace('cmtx_dislike_', '')).effect('highlight', {color: '#D12F19'}, 2000);
+			}
+		} else { //error
+			jQuery('.cmtx_error_vote').clearQueue();
+			jQuery('.cmtx_error_vote').text(response);
+			jQuery('.cmtx_error_vote').css({'top':e.pageY, 'left':e.pageX,}).fadeIn(500).delay(2000).fadeOut(500);
+		}
+	}
 
 });
 
@@ -120,6 +131,8 @@ return false;
 </script>
 <?php } ?>
 
+<div class='cmtx_error_vote'></div>
+
 <?php if (cmtx_setting('show_read_more')) { ?>
 <script type="text/javascript">
 // <![CDATA[
@@ -135,7 +148,7 @@ document.getElementById("cmtx_comment_more_" + id).style.display = "inline";
 <script type="text/javascript">
 // <![CDATA[
 jQuery(document).ready(function() {
-	jQuery('#cmtx_perm_<?php echo $_GET['cmtx_perm']; ?>').effect("highlight", {}, 1500);
+	jQuery('#cmtx_perm_<?php echo $_GET['cmtx_perm']; ?>').effect('highlight', {}, 2000);
 });
 // ]]>
 </script>
