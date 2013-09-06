@@ -77,7 +77,10 @@ define('CMTX_VOTE_BANNED', 'Вы были забанены');
 /* Flag */
 define('CMTX_FLAG', 'Метка');
 define('CMTX_TITLE_FLAG', 'Пожаловаться на отзыв');
-define('CMTX_FLAG_CONFIRM', 'Вы уверены, что хотите пожаловаться на данный отзыв?');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', 'Вы уверены, что хотите пожаловаться на данный отзыв?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
 define('CMTX_FLAG_NO_COMMENT', 'Данный комментарий больше не существует');
 define('CMTX_FLAG_OWN_COMMENT', 'Вы не можете пожаловаться на собственный отзыв');
 define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');

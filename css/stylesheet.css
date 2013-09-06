@@ -317,7 +317,22 @@ margin-right: 8px;
 cursor: text;
 }
 
-.cmtx_error_vote {
+.cmtx_success_ajax {
+cursor: default;
+position: absolute;
+margin-top: 10px;
+margin-left: 10px;
+padding: 3px;
+color: #006400;
+font-size: 0.8em;
+font-weight: bold;
+font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+border: 1px solid #006400;
+background-color: #FFFFFF;
+display: none;
+}
+
+.cmtx_error_ajax {
 cursor: default;
 position: absolute;
 margin-top: 10px;
@@ -683,4 +698,19 @@ font-size: 0.7em;
 
 iframe[src="about:blank"] {
 display: none;
+}
+
+/**************************** jQuery UI Dialog ******************/
+
+.ui-widget-header {
+background: 0;
+border: 0;
+}
+
+.ui-dialog, .ui-widget, .ui-widget-content, .ui-corner-all, .ui-front, .ui-dialog-buttons, .ui-draggable {
+font-size: 13px;
+}
+
+.ui-dialog {
+box-shadow: 1px 1px 5px #333;
 }

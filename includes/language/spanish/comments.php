@@ -77,7 +77,10 @@ define('CMTX_VOTE_BANNED', 'Usted ha sido bloquedado previamente');
 /* Flag */
 define('CMTX_FLAG', 'Resaltar');
 define('CMTX_TITLE_FLAG', 'Reportar este comentario');
-define('CMTX_FLAG_CONFIRM', '¿Estás seguro de reportar de este comentario?');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', '¿Estás seguro de reportar de este comentario?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
 define('CMTX_FLAG_NO_COMMENT', 'Este comentario ya no existe');
 define('CMTX_FLAG_OWN_COMMENT', 'No se puede informar también tu opinión');
 define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');

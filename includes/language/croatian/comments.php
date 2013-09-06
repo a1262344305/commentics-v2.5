@@ -77,7 +77,10 @@ define('CMTX_VOTE_BANNED', 'Prethodno ste bili blokirani');
 /* Flag */
 define('CMTX_FLAG', 'Obilježite');
 define('CMTX_TITLE_FLAG', 'Prijavite ovaj komentar');
-define('CMTX_FLAG_CONFIRM', 'Jeste li sigurni da želite prijaviti ovaj komentar?');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', 'Jeste li sigurni da želite prijaviti ovaj komentar?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
 define('CMTX_FLAG_NO_COMMENT', 'Ovaj komentar više ne postoji');
 define('CMTX_FLAG_OWN_COMMENT', 'Ne možete prijaviti svoj ​​komentar');
 define('CMTX_FLAG_ADMIN_COMMENT', 'Ne možete prijaviti komentara administratora');

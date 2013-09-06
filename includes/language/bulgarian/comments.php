@@ -77,7 +77,10 @@ define('CMTX_VOTE_BANNED', 'Вие сте били вече баннати!');
 /* Flag */
 define('CMTX_FLAG', 'Флаг');
 define('CMTX_TITLE_FLAG', 'Докладвай коментара');
-define('CMTX_FLAG_CONFIRM', 'Сигурни ли сте, че искате да докладвате този коментар?');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', 'Сигурни ли сте, че искате да докладвате този коментар?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
 define('CMTX_FLAG_NO_COMMENT', 'Този коментар вече не съществува');
 define('CMTX_FLAG_OWN_COMMENT', 'Не можете да докладвате собствения си коментар');
 define('CMTX_FLAG_ADMIN_COMMENT', 'Не можете да докладвате коментар на админа');

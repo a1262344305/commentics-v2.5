@@ -249,21 +249,21 @@ function cmtx_enable_submit() {
 
 	<?php if (cmtx_setting('enabled_terms') && !cmtx_setting('enabled_privacy')) { ?>
 	if (frm.cmtx_terms.checked) {
-	frm.cmtx_submit.disabled = false;
+		frm.cmtx_submit.disabled = false;
 	} else {
-	frm.cmtx_submit.disabled = true;
+		frm.cmtx_submit.disabled = true;
 	}
 	<?php } else if (!cmtx_setting('enabled_terms') && cmtx_setting('enabled_privacy')) { ?>
 	if (frm.cmtx_privacy.checked) {
-	frm.cmtx_submit.disabled = false;
+		frm.cmtx_submit.disabled = false;
 	} else {
-	frm.cmtx_submit.disabled = true;
+		frm.cmtx_submit.disabled = true;
 	}
 	<?php } else if (cmtx_setting('enabled_terms') && cmtx_setting('enabled_privacy')) { ?>
 	if ( (frm.cmtx_terms.checked) && (frm.cmtx_privacy.checked) ) {
-	frm.cmtx_submit.disabled = false;
+		frm.cmtx_submit.disabled = false;
 	} else {
-	frm.cmtx_submit.disabled = true;
+		frm.cmtx_submit.disabled = true;
 	}
 	<?php } ?>
 
@@ -281,21 +281,21 @@ function cmtx_enable_preview() {
 
 	<?php if (cmtx_setting('enabled_terms') && !cmtx_setting('enabled_privacy')) { ?>
 	if (frm.cmtx_terms.checked) {
-	frm.cmtx_preview.disabled = false;
+		frm.cmtx_preview.disabled = false;
 	} else {
-	frm.cmtx_preview.disabled = true;
+		frm.cmtx_preview.disabled = true;
 	}
 	<?php } else if (!cmtx_setting('enabled_terms') && cmtx_setting('enabled_privacy')) { ?>
 	if (frm.cmtx_privacy.checked) {
-	frm.cmtx_preview.disabled = false;
+		frm.cmtx_preview.disabled = false;
 	} else {
-	frm.cmtx_preview.disabled = true;
+		frm.cmtx_preview.disabled = true;
 	}
 	<?php } else if (cmtx_setting('enabled_terms') && cmtx_setting('enabled_privacy')) { ?>
 	if ( (frm.cmtx_terms.checked) && (frm.cmtx_privacy.checked) ) {
-	frm.cmtx_preview.disabled = false;
+		frm.cmtx_preview.disabled = false;
 	} else {
-	frm.cmtx_preview.disabled = true;
+		frm.cmtx_preview.disabled = true;
 	}
 	<?php } ?>
 
@@ -352,8 +352,8 @@ function cmtx_process_submit() {
 	frm.cmtx_submit.value = '<?php echo cmtx_escape_js(CMTX_PROCESSING_BUTTON) ?>';
 
 	<?php if (cmtx_setting('enabled_preview')) { ?>
-		frm.cmtx_preview.disabled = true;
-		frm.cmtx_preview.value = '<?php echo cmtx_escape_js(CMTX_PROCESSING_BUTTON) ?>';
+	frm.cmtx_preview.disabled = true;
+	frm.cmtx_preview.value = '<?php echo cmtx_escape_js(CMTX_PROCESSING_BUTTON) ?>';
 	<?php } ?>
 
 	frm.cmtx_sub_def.name = 'cmtx_sub';
@@ -377,12 +377,12 @@ function cmtx_open_form() {
 </script>
 <?php } ?>
 
-<?php if (cmtx_setting('enabled_captcha')) { ?>
+<?php if (cmtx_setting('enabled_captcha') && cmtx_setting('captcha_type') == 'recaptcha') { ?>
 <script type="text/javascript">
 // <![CDATA[
 var RecaptchaOptions = {
-lang : '<?php echo cmtx_setting('recaptcha_language'); ?>',
-theme : '<?php echo cmtx_setting('recaptcha_theme'); ?>'
+	lang : '<?php echo cmtx_setting('recaptcha_language'); ?>',
+	theme : '<?php echo cmtx_setting('recaptcha_theme'); ?>'
 };
 // ]]>
 </script>

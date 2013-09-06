@@ -77,7 +77,10 @@ define('CMTX_VOTE_BANNED', 'Du er tidligere blevet banned');
 /* Flag */
 define('CMTX_FLAG', 'Rapporter');
 define('CMTX_TITLE_FLAG', 'Rapporter denne kommentar');
-define('CMTX_FLAG_CONFIRM', 'Er du sikker på, at du vil rapportere denne kommentar?');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', 'Er du sikker på, at du vil rapportere denne kommentar?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
 define('CMTX_FLAG_NO_COMMENT', 'Denne kommentar findes ikke længere');
 define('CMTX_FLAG_OWN_COMMENT', 'Du kan ikke rapportere dine egne kommentarer');
 define('CMTX_FLAG_ADMIN_COMMENT', 'Du kan ikke rapportere en kommentar fra admin');

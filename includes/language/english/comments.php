@@ -69,24 +69,27 @@ define('CMTX_YESTERDAY', 'Yesterday');
 /* Like Dislike */
 define('CMTX_TITLE_LIKE', 'Like this comment');
 define('CMTX_TITLE_DISLIKE', 'Dislike this comment');
-define('CMTX_VOTE_NO_COMMENT', 'This comment no longer exists');
+define('CMTX_VOTE_NO_COMMENT', 'This no longer exists');
 define('CMTX_VOTE_OWN_COMMENT', 'You can\'t vote for yourself');
-define('CMTX_VOTE_ALREADY_VOTED', 'You have already voted');
-define('CMTX_VOTE_BANNED', 'You have previously been banned');
+define('CMTX_VOTE_ALREADY_VOTED', 'You\'ve already voted');
+define('CMTX_VOTE_BANNED', 'You\'ve been banned');
 
 /* Flag */
 define('CMTX_FLAG', 'Flag');
 define('CMTX_TITLE_FLAG', 'Report this comment');
-define('CMTX_FLAG_CONFIRM', 'Are you sure you want to report this comment?');
-define('CMTX_FLAG_NO_COMMENT', 'This comment no longer exists');
-define('CMTX_FLAG_OWN_COMMENT', 'You cannot report your own comment');
-define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
-define('CMTX_FLAG_BANNED', 'You have previously been banned');
-define('CMTX_FLAG_REPORT_LIMIT', 'You cannot report anymore comments');
-define('CMTX_FLAG_ALREADY_REPORTED', 'You have already reported this comment');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'This comment has already been flagged');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'This comment has already been verified');
-define('CMTX_FLAG_REPORT_SENT', 'Thank you for the report');
+define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_CONTENT', 'Are you sure you want to report it?');
+define('CMTX_FLAG_DIALOG_YES', 'Yes');
+define('CMTX_FLAG_DIALOG_NO', 'No');
+define('CMTX_FLAG_NO_COMMENT', 'This no longer exists');
+define('CMTX_FLAG_OWN_COMMENT', 'You can\'t report yourself');
+define('CMTX_FLAG_ADMIN_COMMENT', 'You can\'t report an admin');
+define('CMTX_FLAG_BANNED', 'You\'ve been banned');
+define('CMTX_FLAG_REPORT_LIMIT', 'You can\'t report anymore');
+define('CMTX_FLAG_ALREADY_REPORTED', 'You\'ve already reported');
+define('CMTX_FLAG_ALREADY_FLAGGED', 'This is already flagged');
+define('CMTX_FLAG_ALREADY_VERIFIED', 'This is already verified');
+define('CMTX_FLAG_REPORT_SENT', 'Thanks for the report');
 
 /* Permalink */
 define('CMTX_PERMALINK', 'Permalink');

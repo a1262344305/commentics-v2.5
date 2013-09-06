@@ -55,8 +55,6 @@ cmtx_set_time_zone(cmtx_setting('time_zone'));
 
 $ip_address = cmtx_get_ip_address(); //get user's IP address
 
-echo "<img src='" . cmtx_comments_folder() . "images/buttons/flag.png' alt='Flag' title='" . CMTX_TITLE_FLAG . "'/>" . CMTX_FLAG;
-
 if (isset($_POST['id'])) {
 
 	$id = $_POST['id'];
@@ -68,32 +66,32 @@ if (isset($_POST['id'])) {
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$count = mysql_num_rows($query);
 	if ($count == 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_NO_COMMENT) . "');</script>";
-		die();
+		echo CMTX_FLAG_NO_COMMENT;
+		return;
 	}
 
 	//check if user is reporting own comment
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `ip_address` = '$ip_address'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_OWN_COMMENT) . "');</script>";
-		die();
+		echo CMTX_FLAG_OWN_COMMENT;
+		return;
 	}
 
 	//check if user is reporting admin comment
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_admin` = '1'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_ADMIN_COMMENT) . "');</script>";
-		die();
+		echo CMTX_FLAG_ADMIN_COMMENT;
+		return;
 	}
 
 	//check if user is banned
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
 	$count = mysql_num_rows($query);
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_BANNED) . "');</script>";
-		die();
+		echo CMTX_FLAG_BANNED;
+		return;
 	}
 
 	//check how many reports user has submitted
@@ -101,8 +99,8 @@ if (isset($_POST['id'])) {
 	$count = mysql_num_rows($query);
 
 	if ($count >= cmtx_setting('flag_max_per_user')) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_REPORT_LIMIT) . "');</script>";
-		die();
+		echo CMTX_FLAG_REPORT_LIMIT;
+		return;
 	}
 
 	//check if user has already reported this comment
@@ -110,8 +108,8 @@ if (isset($_POST['id'])) {
 	$count = mysql_num_rows($query);
 
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_ALREADY_REPORTED) . "');</script>";
-		die();
+		echo CMTX_FLAG_ALREADY_REPORTED;
+		return;
 	}
 
 	//check if comment has already been flagged
@@ -120,8 +118,8 @@ if (isset($_POST['id'])) {
 	$count = $result["reports"];
 
 	if ($count >= cmtx_setting('flag_min_per_comment')) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_ALREADY_FLAGGED) . "');</script>";
-		die();
+		echo CMTX_FLAG_ALREADY_FLAGGED;
+		return;
 	}
 
 	//check if comment has already been verified
@@ -129,18 +127,17 @@ if (isset($_POST['id'])) {
 	$count = mysql_num_rows($query);
 
 	if ($count > 0) {
-		echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_ALREADY_VERIFIED) . "');</script>";
-		die();
-	}	
-
+		echo CMTX_FLAG_ALREADY_VERIFIED;
+		return;
+	}
+	
 
 	//report comment
 
+	echo CMTX_FLAG_REPORT_SENT;
+	
 	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reports` = `reports` + 1 WHERE `id` = '$id'");
 	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "reporters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
-
-	echo "<script language='javascript' type='text/javascript'>alert('" . cmtx_escape_js(CMTX_FLAG_REPORT_SENT) . "');</script>";
-
 
 	//check if comment should be flagged
 	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
