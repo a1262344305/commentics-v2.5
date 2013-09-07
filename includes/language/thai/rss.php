@@ -26,6 +26,4 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_RSS_FEATURE_DISABLED', 'คุณสมบัตินี้ ไม่ได้เปิดใช้งาน');
 
-define('CMTX_RSS_COMMENT_POSTER', 'ข้อความคิดเห็นจากในเว็บไซต์ \');
-
 ?>

@@ -26,6 +26,4 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_RSS_FEATURE_DISABLED', 'Ova funkcionalnost je onemogućena.');
 
-define('CMTX_RSS_COMMENT_POSTER', ' - komentar');
-
 ?>

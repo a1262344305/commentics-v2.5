@@ -26,6 +26,4 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_RSS_FEATURE_DISABLED', 'Ta funkcija je bila onemogočena.');
 
-define('CMTX_RSS_COMMENT_POSTER', ' - komentar');
-
 ?>

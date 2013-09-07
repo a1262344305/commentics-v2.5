@@ -26,6 +26,4 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_RSS_FEATURE_DISABLED', 'This feature has been disabled.');
 
-define('CMTX_RSS_COMMENT_POSTER', '\'s Comment');
-
 ?>
