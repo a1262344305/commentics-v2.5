@@ -88,8 +88,8 @@ if (!isset($_GET['page']) || (!file_exists("includes/pages/" . basename($_GET['p
 <?php } else { ?>
 <link rel="stylesheet" type="text/css" href="table/css/demo_page.css"/>
 <link rel="stylesheet" type="text/css" href="table/css/demo_table.css"/>
-<script type="text/javascript" language="javascript" src="table/js/jquery.js"></script>
-<script type="text/javascript" language="javascript" src="table/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="table/js/jquery.js"></script>
+<script type="text/javascript" src="table/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 // <![CDATA[
 $(document).ready(function() {
