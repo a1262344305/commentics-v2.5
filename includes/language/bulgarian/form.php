@@ -116,10 +116,10 @@ define('CMTX_TEXT_NOTIFY', 'Информирай ме за нови комент
 define('CMTX_TEXT_REMEMBER', 'Запомни детайлите ми на този компютър.');
 
 /* Text displayed after privacy checkbox */
-define('CMTX_TEXT_PRIVACY', 'Прочетох и разбрах <a href="' . cmtx_comments_folder() . 'agreement/bulgarian/privacy_policy.html" title="Разгледай Условията за защита на личните данни" target="_blank" rel="nofollow">Условията за защита на личните данни</a>.');
+define('CMTX_TEXT_PRIVACY', 'Прочетох и разбрах <a href="' . cmtx_comments_folder() . 'agreement/bulgarian/privacy_policy.html" class="cmtx_privacy_link" title="Разгледай Условията за защита на личните данни" target="_blank" rel="nofollow">Условията за защита на личните данни</a>.');
 
 /* Text displayed after terms checkbox */
-define('CMTX_TEXT_TERMS', 'Прочетох и се съгласявам с <a href="' . cmtx_comments_folder() . 'agreement/bulgarian/terms_and_conditions.html" title="Разгледай другите условия" target="_blank" rel="nofollow">другите условия</a>.');
+define('CMTX_TEXT_TERMS', 'Прочетох и се съгласявам с <a href="' . cmtx_comments_folder() . 'agreement/bulgarian/terms_and_conditions.html" class="cmtx_terms_link" title="Разгледай другите условия" target="_blank" rel="nofollow">другите условия</a>.');
 
 /* Text for form submit button */
 define('CMTX_SUBMIT_BUTTON', 'Добави коментар');

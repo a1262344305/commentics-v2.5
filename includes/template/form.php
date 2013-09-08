@@ -388,6 +388,17 @@ var RecaptchaOptions = {
 </script>
 <?php } ?>
 
+<?php if (cmtx_setting('enabled_privacy') || cmtx_setting('enabled_terms')) { ?>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+	jQuery('.cmtx_privacy_link').colorbox();
+	jQuery('.cmtx_terms_link').colorbox();
+});
+// ]]>
+</script>
+<?php } ?>
+
 <h3 class="cmtx_form_heading">
 <a id="<?php echo str_ireplace("#", "", CMTX_ANCHOR_FORM); ?>"></a>
 <?php echo CMTX_FORM_HEADING; ?>
@@ -761,7 +772,7 @@ function cmtx_output_captcha () {
 			if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 			</label>
 			<img id="cmtx_securimage" class="cmtx_securimage" src="<?php echo cmtx_comments_folder(); ?>securimage/securimage_show.php" alt="Captcha" title="Captcha"/>
-			<object type="application/x-shockwave-flash" data="<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.swf?audio_file=<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_comments_folder(); ?>securimage/images/audio_icon.png" title="<?php echo CMTX_TITLE_SECURIMAGE_AUDIO; ?>" class="cmtx_securimage_audio_icon">
+			<object type="application/x-shockwave-flash" wmode="transparent" data="<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.swf?audio_file=<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_comments_folder(); ?>securimage/images/audio_icon.png" title="<?php echo CMTX_TITLE_SECURIMAGE_AUDIO; ?>" class="cmtx_securimage_audio_icon">
 			<param name="movie" value="<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.swf?audio_file=<?php echo cmtx_comments_folder(); ?>securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_comments_folder(); ?>securimage/images/audio_icon.png"/>
 			</object>
 			<br/>

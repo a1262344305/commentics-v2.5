@@ -662,10 +662,16 @@ margin-bottom: 18px;
 .cmtx_privacy_text {
 }
 
+.cmtx_privacy_link {
+}
+
 .cmtx_terms_field {
 }
 
 .cmtx_terms_text {
+}
+
+.cmtx_terms_link {
 }
 
 .cmtx_height_above_buttons {
@@ -713,4 +719,10 @@ font-size: 13px;
 
 .ui-dialog {
 box-shadow: 1px 1px 5px #333;
+}
+
+/**************************** Colorbox **************************/
+
+#cboxTitle {
+display: none !important;
 }
