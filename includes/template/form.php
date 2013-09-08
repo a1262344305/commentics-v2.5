@@ -399,6 +399,15 @@ jQuery(document).ready(function() {
 </script>
 <?php } ?>
 
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+	jQuery('.cmtx_approval_box').delay(3000).fadeOut(2000);
+	jQuery('.cmtx_success_box').delay(3000).fadeOut(2000);
+});
+// ]]>
+</script>
+
 <h3 class="cmtx_form_heading">
 <a id="<?php echo str_ireplace("#", "", CMTX_ANCHOR_FORM); ?>"></a>
 <?php echo CMTX_FORM_HEADING; ?>
@@ -426,7 +435,7 @@ if (!cmtx_is_form_enabled(true)) { //if form is disabled
 
 <?php
 if (isset($cmtx_box) && !empty($cmtx_box)) { //if a box exists
-	echo $cmtx_box . "<br />"; //display box
+	echo $cmtx_box; //display box
 }
 ?>
 

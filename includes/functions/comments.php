@@ -427,6 +427,10 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 		}
 		$cmtx_box .= "</div>";
 	}
+	
+	if ($is_preview) {
+		$cmtx_box .= "<div class='cmtx_height_below_preview_box'></div>";
+	}
 
 	return $cmtx_box;
 

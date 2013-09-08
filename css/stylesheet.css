@@ -393,6 +393,7 @@ border: 2px solid #e11;
 color: #e11;
 background: #FFFFFF;
 overflow: auto;
+margin-bottom: 20px;
 }
 
 .cmtx_error_message_line_1 {
@@ -415,6 +416,7 @@ border: 2px solid #006400;
 color: #006400;
 background: #FFFFFF;
 overflow: auto;
+margin-bottom: 20px;
 }
 
 .cmtx_approval_message_line_1 {
@@ -434,6 +436,7 @@ border: 2px solid #006400;
 color: #006400;
 background: #FFFFFF;
 overflow: auto;
+margin-bottom: 20px;
 }
 
 .cmtx_success_message_line_1 {
@@ -449,6 +452,10 @@ float: right;
 color: #636363;
 font-size: 0.8em;
 font-weight: bold;
+}
+
+.cmtx_height_below_preview_box {
+margin-bottom: 20px;
 }
 
 /**************************** Form ******************************/
