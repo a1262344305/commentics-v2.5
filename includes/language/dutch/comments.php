@@ -77,13 +77,13 @@ define('CMTX_VOTE_BANNED', 'U bent al eerder gebanned van de site');
 /* Flag */
 define('CMTX_FLAG', 'Melding');
 define('CMTX_TITLE_FLAG', 'Rapporteer dit bericht');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+define('CMTX_FLAG_DIALOG_HEADING', 'Rapporteer bericht');
 define('CMTX_FLAG_DIALOG_CONTENT', 'Weet je zeker dat je dit bericht wilt rapporteren?');
 define('CMTX_FLAG_DIALOG_YES', 'Yes');
 define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Dit breicht bestaat niet meer');
+define('CMTX_FLAG_NO_COMMENT', 'Dit bericht bestaat niet meer');
 define('CMTX_FLAG_OWN_COMMENT', 'Je kan geen misbruik van uw eigen reactie');
-define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
+define('CMTX_FLAG_ADMIN_COMMENT', 'Je kunt geen admin bericht rapporteren');
 define('CMTX_FLAG_BANNED', 'U bent al eerder gebanned van de site');
 define('CMTX_FLAG_REPORT_LIMIT', 'u kunt geen berichten meer rapporteren');
 define('CMTX_FLAG_ALREADY_REPORTED', 'U hebt al eerder een melding voor dit bericht gemaakt');
@@ -93,7 +93,7 @@ define('CMTX_FLAG_REPORT_SENT', 'Bedankt voor uw bericht');
 
 /* Permalink */
 define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
+define('CMTX_TITLE_PERMALINK', 'Permalink voor dit bericht');
 
 /* Reply */
 define('CMTX_REPLY', 'Beantwoord');

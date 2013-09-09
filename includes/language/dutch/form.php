@@ -72,7 +72,7 @@ define('CMTX_TITLE_REMEMBER', 'Onthoud mijn vorm ingangen');
 define('CMTX_TITLE_PRIVACY', 'Akkoord met privacy policy');
 define('CMTX_TITLE_TERMS', 'Akkoord met voorwaarden');
 define('CMTX_TITLE_SUBMIT', 'Voeg bericht toe');
-define('CMTX_TITLE_PREVIEW', 'Preview');
+define('CMTX_TITLE_PREVIEW', 'Voorbeeld');
 
 /* Note displayed after email field */
 define('CMTX_NOTE_EMAIL', '(wordt niet getoond)');
@@ -102,13 +102,13 @@ define('CMTX_TEXT_COUNTER', '%s');
 define('CMTX_TEXT_QUESTION', 'Voer antwoord in:');
 
 /* Text displayed for Securimage captcha */
-define('CMTX_TEXT_SECURIMAGE', 'Enter code:');
-define('CMTX_TITLE_SECURIMAGE', 'Enter code from image');
+define('CMTX_TEXT_SECURIMAGE', 'Geef decode in:');
+define('CMTX_TITLE_SECURIMAGE', 'Geef de code van de afbeelding in');
 define('CMTX_TITLE_SECURIMAGE_AUDIO', 'Audio');
-define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Refresh');
+define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Ververs');
 
 /* Text displayed if ReCaptcha key missing */
-define('CMTX_RECAPTCHA_NO_KEY', 'API key(s) missing in ReCaptcha admin page');
+define('CMTX_RECAPTCHA_NO_KEY', 'API-sleutel(s) ontbreekt in de ReCaptcha admin pagina.');
 
 /* Text displayed after notify checkbox */
 define('CMTX_TEXT_NOTIFY', 'Meld me over nieuwe berichten via email.');
@@ -117,7 +117,7 @@ define('CMTX_TEXT_NOTIFY', 'Meld me over nieuwe berichten via email.');
 define('CMTX_TEXT_REMEMBER', 'Onthoud mijn gegevens op deze computer.');
 
 /* Text displayed after privacy checkbox */
-define('CMTX_TEXT_PRIVACY', 'Ik begrijp en heb de privacy policy gelezen <a href="' . cmtx_comments_folder() . 'agreement/dutch/privacy_policy.html" class="cmtx_privacy_link" title="Privacy policy" target="_blank" rel="nofollow">Privacy policy</a>.');
+define('CMTX_TEXT_PRIVACY', 'Ik begrijp en heb het Privacybeleid gelezen <a href="' . cmtx_comments_folder() . 'agreement/dutch/privacy_policy.html" class="cmtx_privacy_link" title="Privacybeleid" target="_blank" rel="nofollow">Privacybeleid</a>.');
 
 /* Text displayed after terms checkbox */
 define('CMTX_TEXT_TERMS', 'Ik begrijp de voorwaarden en heb ze gelezen <a href="' . cmtx_comments_folder() . 'agreement/dutch/terms_and_conditions.html" class="cmtx_terms_link" title="Voorwaarden" target="_blank" rel="nofollow">Voorwaarden</a>.');
@@ -126,12 +126,12 @@ define('CMTX_TEXT_TERMS', 'Ik begrijp de voorwaarden en heb ze gelezen <a href="
 define('CMTX_SUBMIT_BUTTON', 'Voeg bericht toe');
 
 /* Text for form preview button */
-define('CMTX_PREVIEW_BUTTON', 'Preview');
+define('CMTX_PREVIEW_BUTTON', 'Voorbeeld');
 
 /* Text for form buttons when processing */
 define('CMTX_PROCESSING_BUTTON', 'Aub wachten..');
 
 /* Text for 'powered by' statement */
-define('CMTX_POWERED_BY', 'Powered by');
+define('CMTX_POWERED_BY', 'Aangedreven door');
 
 ?>
