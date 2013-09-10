@@ -52,7 +52,7 @@ define('CMTX_TITLE_FORM_REQUIRED', 'Formulier: Verplicht');
 define('CMTX_TITLE_FORM_DEFAULTS', 'Formulier: Standaard');
 define('CMTX_TITLE_FORM_GENERAL', 'Formulier: Algemeen');
 define('CMTX_TITLE_FORM_MAXIMUMS', 'Form: Maximums');
-define('CMTX_TITLE_FORM_SORT_ORDER', 'Formulier: Sortering volgeorde');
+define('CMTX_TITLE_FORM_ORDER', 'Formulier: Volgeorde');
 define('CMTX_TITLE_FORM_BB_CODE', 'Formulier: BB Code');
 define('CMTX_TITLE_FORM_SMILIES', 'Formulier: Smilies');
 define('CMTX_TITLE_FORM_QUESTIONS', 'Formulier: Vragen');

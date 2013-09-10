@@ -41,8 +41,7 @@ define('CMTX_DESC_LAYOUT_FORM_REQUIRED', 'These settings determine which parts o
 define('CMTX_DESC_LAYOUT_FORM_DEFAULTS', 'This section allows default values to be set.');
 define('CMTX_DESC_LAYOUT_FORM_GENERAL', 'This section contains general form settings.');
 define('CMTX_DESC_LAYOUT_FORM_MAXIMUMS', 'These settings determine the maximum lengths.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_FIELDS', 'Drag & drop the elements below to determine the sort order of the form fields.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_BUTTONS', 'Drag & drop the elements below to determine the sort order of the form buttons.');
+define('CMTX_DESC_LAYOUT_FORM_ORDER', 'Drag & drop the elements below to determine the sort order.');
 define('CMTX_DESC_LAYOUT_FORM_BB_CODE', 'These settings are for the form\'s BB Code tags.');
 define('CMTX_DESC_LAYOUT_FORM_SMILIES', 'These settings are for the form\'s smiley images.');
 define('CMTX_DESC_LAYOUT_FORM_SECURIMAGE', 'Securimage is a built-in image captcha. You can customize the look below.');

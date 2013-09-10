@@ -190,9 +190,7 @@ echo cmtx_page_checkbox("layout", $id, "0") . "<span class='menu_checkbox'>Layou
 			echo cmtx_page_checkbox("layout_form_defaults", $id, "40") . "Defaults" . "<br />";
 			echo cmtx_page_checkbox("layout_form_general", $id, "40") . "General" . "<br />";
 			echo cmtx_page_checkbox("layout_form_maximums", $id, "40") . "Maximums" . "<br />";
-			echo cmtx_page_checkbox("layout_form_sort_order", $id, "40") . "<b>Sort Order</b>" . "<br />";
-				echo cmtx_page_checkbox("layout_form_sort_order_fields", $id, "60") . "Fields" . "<br />";
-				echo cmtx_page_checkbox("layout_form_sort_order_buttons", $id, "60") . "Buttons" . "<br />";
+			echo cmtx_page_checkbox("layout_form_order", $id, "40") . "Order" . "<br />";
 			echo cmtx_page_checkbox("layout_form_bb_code", $id, "40") . "BB Code" . "<br />";
 			echo cmtx_page_checkbox("layout_form_smilies", $id, "40") . "Smilies" . "<br />";
 			echo cmtx_page_checkbox("layout_form_questions", $id, "40") . "Questions" . "<br />";

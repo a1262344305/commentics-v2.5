@@ -41,8 +41,7 @@ define('CMTX_DESC_LAYOUT_FORM_REQUIRED', 'Deze instellingen bepalen welke delen 
 define('CMTX_DESC_LAYOUT_FORM_DEFAULTS', 'Deze sectie staat het instellen van standaard waarden toe.');
 define('CMTX_DESC_LAYOUT_FORM_GENERAL', 'Deze sectie bevat algemene formulier instellingen.');
 define('CMTX_DESC_LAYOUT_FORM_MAXIMUMS', 'These settings determine the maximum lengths.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_FIELDS', 'Drag & drop de elementen hieronder om de sorteer volgorde van de formulier velden te bepalen.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_BUTTONS', 'Drag & drop de elementen hieronder om de volgorde van de formulier knoppen te bepalen.');
+define('CMTX_DESC_LAYOUT_FORM_ORDER', 'Drag & drop de elementen hieronder om de sorteer volgorde van de formulier velden te bepalen.');
 define('CMTX_DESC_LAYOUT_FORM_BB_CODE', 'Deze instellingen zijn voor de formulier BB Code tags.');
 define('CMTX_DESC_LAYOUT_FORM_SMILIES', 'Deze instellingen zijn voor de formulier smiley images.');
 define('CMTX_DESC_LAYOUT_FORM_SECURIMAGE', 'Securimage is a built-in image captcha. You can customize the look below.');

@@ -361,30 +361,6 @@ color: #838B8B;
 cursor: default;
 }
 
-ul.parts {
-cursor: default;
-}
-
-ul.fields {
-cursor: default;
-}
-
-ul.comment {
-cursor: default;
-}
-
-ul.captchas {
-cursor: default;
-}
-
-ul.checkboxes {
-cursor: default;
-}
-
-ul.buttons {
-cursor: default;
-}
-
 span.note {
 color: #838B8B;
 font-size: 0.9em;
@@ -512,4 +488,19 @@ float: left;
 border: 1px solid #DBDBDB;
 background-color: #F7F7F7;
 padding: 4px;
+}
+
+.sortable div {
+margin: 0 3px 5px 3px;
+padding: 0.4em;
+padding-left: 1.5em;
+font-size: 1.2em;
+height: 15px;
+width: 500px;
+cursor: default;
+}
+
+.sortable span {
+position: absolute;
+margin-left: -1.3em;
 }

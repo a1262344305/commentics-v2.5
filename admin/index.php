@@ -76,24 +76,23 @@ if (!isset($_GET['page']) || (!file_exists("includes/pages/" . basename($_GET['p
 <link rel="stylesheet" type="text/css" href="css/panel.css"/>
 <link rel="stylesheet" type="text/css" href="css/general.css"/>
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css"/>
+
 <link rel="stylesheet" type="text/css" href="menu/ddlevelsmenu-base.css"/>
 <link rel="stylesheet" type="text/css" href="menu/ddlevelsmenu-topbar.css"/>
 <script type="text/javascript" src="menu/ddlevelsmenu.js"></script>
 
 <script type="text/javascript" src="js/tooltip.js"></script>
 
-<?php if ($_GET['page'] == "layout_order" || $_GET['page'] == "layout_form_sort_order_fields" || $_GET['page'] == "layout_form_sort_order_buttons") { ?>
-<script type="text/javascript" src="js/scriptaculous/lib/prototype.js"></script>
-<script type="text/javascript" src="js/scriptaculous/src/scriptaculous.js"></script>
-<?php } else { ?>
-<link rel="stylesheet" type="text/css" href="table/css/demo_page.css"/>
 <link rel="stylesheet" type="text/css" href="table/css/demo_table.css"/>
-<script type="text/javascript" src="table/js/jquery.js"></script>
 <script type="text/javascript" src="table/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 // <![CDATA[
 $(document).ready(function() {
-$('#data').dataTable( {
+$('#data').dataTable({
 "aaSorting": [ ]
 <?php switch ($_GET['page']) { ?>
 <?php case "manage_comments":?>,"aoColumns": [{ "bSearchable": false, "bSortable": false },null,null,null,null,<?php if (cmtx_setting('enabled_notify')) { echo "null,"; } if (cmtx_setting('show_flag')) { echo "null,null,"; } ?>null,{ "bSearchable": false, "bSortable": false }] <?php break; ?>
@@ -104,11 +103,10 @@ $('#data').dataTable( {
 <?php case "layout_form_questions": ?>,"aoColumns": [{ "bSearchable": false, "bSortable": false },null,null,{ "bSearchable": false, "bSortable": false }] <?php break; ?>
 <?php case "tool_db_backup": ?>,"aoColumns": [{ "bSearchable": false, "bSortable": false },null,null,null,{ "bSearchable": false, "bSortable": false }] <?php break; ?>
 <?php } ?>
-} );
-} );
+});
+});
 // ]]>
 </script>
-<?php } ?>
 
 <?php if ($_GET['page'] == "edit_comment" && cmtx_setting('enabled_wysiwyg')) { ?>
 <script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
@@ -161,12 +159,12 @@ tinyMCE.init({
 <script type="text/javascript">
 // <![CDATA[
 function check_passwords() {
-if (document.administrator.password_1.value == document.administrator.password_2.value) {
-return true;
-} else {
-alert('<?php echo cmtx_escape_js(CMTX_PROMPT_PASSWORDS) ?>');
-return false;
-}
+	if (document.administrator.password_1.value == document.administrator.password_2.value) {
+		return true;
+	} else {
+		alert('<?php echo cmtx_escape_js(CMTX_PROMPT_PASSWORDS) ?>');
+		return false;
+	}
 }
 // ]]>
 </script>
@@ -174,12 +172,12 @@ return false;
 <script type="text/javascript">
 // <![CDATA[
 function delete_confirmation() {
-var answer = confirm('<?php echo cmtx_escape_js(CMTX_PROMPT_DELETE) ?>')
-if (answer) {
-return true;
-} else {
-return false;
-}
+	var answer = confirm('<?php echo cmtx_escape_js(CMTX_PROMPT_DELETE) ?>')
+	if (answer) {
+		return true;
+	} else {
+		return false;
+	}
 }
 // ]]>
 </script>
@@ -187,12 +185,12 @@ return false;
 <script type="text/javascript">
 // <![CDATA[
 function delete_bulk_confirmation() {
-var answer = confirm('<?php echo cmtx_escape_js(CMTX_PROMPT_DELETE_BULK) ?>')
-if (answer) {
-return true;
-} else {
-return false;
-}
+	var answer = confirm('<?php echo cmtx_escape_js(CMTX_PROMPT_DELETE_BULK) ?>')
+	if (answer) {
+		return true;
+	} else {
+		return false;
+	}
 }
 // ]]>
 </script>
@@ -200,41 +198,41 @@ return false;
 <script type="text/javascript">
 // <![CDATA[
 function show_hide(id) {
-if (id == "php") {
-	document.getElementById('smtp').style.display = "none";
-	document.getElementById('sendmail').style.display = "none";
-} else if (id == "smtp") {
-	document.getElementById('smtp').style.display = "inline";
-	document.getElementById('sendmail').style.display = "none";
-} else if (id == "sendmail") {
-	document.getElementById('smtp').style.display = "none";
-	document.getElementById('sendmail').style.display = "inline";
-} else if (id == "wildcards") {
-	if (document.getElementById('wildcards').style.display == 'none') {
-		document.getElementById('wildcards').style.display = "inline";
-	} else {
-		document.getElementById('wildcards').style.display = "none";
+	if (id == "php") {
+		document.getElementById('smtp').style.display = "none";
+		document.getElementById('sendmail').style.display = "none";
+	} else if (id == "smtp") {
+		document.getElementById('smtp').style.display = "inline";
+		document.getElementById('sendmail').style.display = "none";
+	} else if (id == "sendmail") {
+		document.getElementById('smtp').style.display = "none";
+		document.getElementById('sendmail').style.display = "inline";
+	} else if (id == "wildcards") {
+		if (document.getElementById('wildcards').style.display == 'none') {
+			document.getElementById('wildcards').style.display = "inline";
+		} else {
+			document.getElementById('wildcards').style.display = "none";
+		}
+	} else if (id == "pages") {
+		if (document.getElementById('pages').style.display == 'none') {
+			document.getElementById('pages').style.display = "inline";
+		} else {
+			document.getElementById('pages').style.display = "none";
+		}
+	} else if (id == "allowed_pages") {
+		if (document.getElementById('allowed_pages').style.display == 'none') {
+			document.getElementById('allowed_pages').style.display = "inline";
+		} else {
+			document.getElementById('allowed_pages').style.display = "none";
+		}
+	} else if (id == "gravatar") {
+		var e = document.getElementById('gravatar_defaults');
+		if (e.options[e.selectedIndex].value == 'custom') {
+			document.getElementById('gravatar_custom').style.display = "inline";
+		} else {
+			document.getElementById('gravatar_custom').style.display = "none";
+		}
 	}
-} else if (id == "pages") {
-	if (document.getElementById('pages').style.display == 'none') {
-		document.getElementById('pages').style.display = "inline";
-	} else {
-		document.getElementById('pages').style.display = "none";
-	}
-} else if (id == "allowed_pages") {
-	if (document.getElementById('allowed_pages').style.display == 'none') {
-		document.getElementById('allowed_pages').style.display = "inline";
-	} else {
-		document.getElementById('allowed_pages').style.display = "none";
-	}
-} else if (id == "gravatar") {
-	var e = document.getElementById('gravatar_defaults');
-	if (e.options[e.selectedIndex].value == 'custom') {
-		document.getElementById('gravatar_custom').style.display = "inline";
-	} else {
-		document.getElementById('gravatar_custom').style.display = "none";
-	}
-}
 }
 // ]]>
 </script>
@@ -242,15 +240,15 @@ if (id == "php") {
 <script type="text/javascript">
 // <![CDATA[
 function bulk_select() {
-if (document.getElementById('select_all').checked) {
-	for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
-		document.getElementById('datatables').elements[i].checked = true;
+	if (document.getElementById('select_all').checked) {
+		for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
+			document.getElementById('datatables').elements[i].checked = true;
+		}
+	} else {
+		for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
+			document.getElementById('datatables').elements[i].checked = false;
+		}
 	}
-} else {
-	for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
-		document.getElementById('datatables').elements[i].checked = false;
-	}
-}
 }
 // ]]>
 </script>
@@ -258,17 +256,17 @@ if (document.getElementById('select_all').checked) {
 <script type="text/javascript">
 // <![CDATA[
 function bulk_check() {
-var all_checked = true;
-for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
-	if (document.getElementById('datatables').elements[i].type == 'checkbox' && document.getElementById('datatables').elements[i].id != 'select_all'  && !document.getElementById('datatables').elements[i].checked) {
-		all_checked = false;
+	var all_checked = true;
+	for (var i = 0; i < document.getElementById('datatables').elements.length; i++) {
+		if (document.getElementById('datatables').elements[i].type == 'checkbox' && document.getElementById('datatables').elements[i].id != 'select_all'  && !document.getElementById('datatables').elements[i].checked) {
+			all_checked = false;
+		}
 	}
-}
-if (all_checked) {
-	document.getElementById('select_all').checked = true;
-} else {
-	document.getElementById('select_all').checked = false;
-}
+	if (all_checked) {
+		document.getElementById('select_all').checked = true;
+	} else {
+		document.getElementById('select_all').checked = false;
+	}
 }
 // ]]>
 </script>

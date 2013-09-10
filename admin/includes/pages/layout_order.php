@@ -60,42 +60,42 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$s
 
 <p />
 
+<script type="text/javascript">
+// <![CDATA[
+$(document).ready(function() {
+	$('#parts').sortable({
+		update: function() {
+			var newOrder = $(this).sortable('toArray').toString();
+			newOrder = newOrder.replace(/part_/g, '');
+			$('#sort_order_parts').val(newOrder);
+		}
+	});
+});
+// ]]>
+</script>
+
 <form name="layout_order" id="layout_order" action="index.php?page=layout_order" method="post">
 
-<ul id="parts" class="parts">
+<div id="parts" class="sortable">
 
 	<?php
-	$elements = explode(",", cmtx_setting('sort_order_parts'));
+	$elements = explode(',', cmtx_setting('sort_order_parts'));
 	foreach ($elements as $element) {
 		switch ($element) {
-			case "1":
+			case '1':
 			output_comments();
 			break;
-			case "2":
+			case '2':
 			output_form();
 			break;
 		}
 	}
 	?>
 	
-	<?php function output_comments() { ?> <li id="item_1"><?php echo CMTX_FIELD_VALUE_COMMENTS; ?></li> <?php } ?>
-    <?php function output_form() { ?> <li id="item_2"><?php echo CMTX_FIELD_VALUE_FORM; ?></li> <?php } ?>
+	<?php function output_comments() { ?> <div id="part_1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo CMTX_FIELD_VALUE_COMMENTS; ?></div> <?php } ?>
+    <?php function output_form() { ?> <div id="part_2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo CMTX_FIELD_VALUE_FORM; ?></div> <?php } ?>
 	
-</ul>
-
-<script type="text/javascript">
-  Sortable.create('parts',{ghosting:false,constraint:true,hoverclass:'over',
-    onChange:function(element){
-		var totElement = 2;
-		var newOrder = Sortable.serialize(element.parentNode);
-		for(i=1; i<=totElement; i++){
-			newOrder = newOrder.replace("parts[]=","");
-			newOrder = newOrder.replace("&",",");
-		}
-		$('sort_order_parts').value = newOrder;
-	}
-  });
-</script>
+</div>
 
 <input type="hidden" name="sort_order_parts" id="sort_order_parts" value="<?php echo cmtx_setting('sort_order_parts'); ?>"/>
 

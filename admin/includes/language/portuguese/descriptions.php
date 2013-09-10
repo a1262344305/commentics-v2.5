@@ -41,8 +41,7 @@ define('CMTX_DESC_LAYOUT_FORM_REQUIRED', 'Estas configurações determinam quais
 define('CMTX_DESC_LAYOUT_FORM_DEFAULTS', 'Esta seção permite que valores padrão sejam configurados.');
 define('CMTX_DESC_LAYOUT_FORM_GENERAL', 'Esta seção contém configurações gerais dos formulários.');
 define('CMTX_DESC_LAYOUT_FORM_MAXIMUMS', 'These settings determine the maximum lengths.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_FIELDS', 'Arraste e solte os elementos abaixo para determinar a ordem dos campos no formulário.');
-define('CMTX_DESC_LAYOUT_FORM_SORT_ORDER_BUTTONS', 'Arraste e solte os elementos abaixo para determinar a ordem dos botões no formulário.');
+define('CMTX_DESC_LAYOUT_FORM_ORDER', 'Arraste e solte os elementos abaixo para determinar a ordem dos campos no formulário.');
 define('CMTX_DESC_LAYOUT_FORM_BB_CODE', 'Estas configurações são para as tags de BB Code no formulário.');
 define('CMTX_DESC_LAYOUT_FORM_SMILIES', 'Estas configurações são para as imagens de emoticons no formulário.');
 define('CMTX_DESC_LAYOUT_FORM_SECURIMAGE', 'Securimage is a built-in image captcha. You can customize the look below.');

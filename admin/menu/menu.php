@@ -82,15 +82,7 @@ ddlevelsmenu.setup("ddtopmenubar", "topbar");
 	<?php if (!cmtx_restrict_page("layout_form_defaults")) { ?> <li><a href="index.php?page=layout_form_defaults"><?php echo CMTX_MENU_LAYOUT_FORM_DEFAULTS; ?></a></li> <?php } ?>
 	<?php if (!cmtx_restrict_page("layout_form_general")) { ?> <li><a href="index.php?page=layout_form_general"><?php echo CMTX_MENU_LAYOUT_FORM_GENERAL; ?></a></li> <?php } ?>
 	<?php if (!cmtx_restrict_page("layout_form_maximums")) { ?> <li><a href="index.php?page=layout_form_maximums"><?php echo CMTX_MENU_LAYOUT_FORM_MAXIMUMS; ?></a></li> <?php } ?>
-	<?php if (!cmtx_restrict_page("layout_form_sort_order")) { ?>
-	<li>
-	<a href="#"><?php echo CMTX_MENU_LAYOUT_FORM_SORT_ORDER; ?></a>
-		<ul>
-		<?php if (!cmtx_restrict_page("layout_form_sort_order_fields")) { ?> <li><a href="index.php?page=layout_form_sort_order_fields"><?php echo CMTX_MENU_LAYOUT_FORM_SORT_ORDER_FIELDS; ?></a></li> <?php } ?>
-		<?php if (!cmtx_restrict_page("layout_form_sort_order_buttons")) { ?> <li><a href="index.php?page=layout_form_sort_order_buttons"><?php echo CMTX_MENU_LAYOUT_FORM_SORT_ORDER_BUTTONS; ?></a></li> <?php } ?>
-		</ul>
-	</li>
-	<?php } ?>
+	<?php if (!cmtx_restrict_page("layout_form_order")) { ?> <li><a href="index.php?page=layout_form_order"><?php echo CMTX_MENU_LAYOUT_FORM_ORDER; ?></a></li> <?php } ?>
 	<?php if (!cmtx_restrict_page("layout_form_bb_code")) { ?> <li><a href="index.php?page=layout_form_bb_code"><?php echo CMTX_MENU_LAYOUT_FORM_BB_CODE; ?></a></li> <?php } ?>
 	<?php if (!cmtx_restrict_page("layout_form_smilies")) { ?> <li><a href="index.php?page=layout_form_smilies"><?php echo CMTX_MENU_LAYOUT_FORM_SMILIES; ?></a></li> <?php } ?>
 	<?php if (!cmtx_restrict_page("layout_form_questions")) { ?> <li><a href="index.php?page=layout_form_questions"><?php echo CMTX_MENU_LAYOUT_FORM_QUESTIONS; ?></a></li> <?php } ?>
