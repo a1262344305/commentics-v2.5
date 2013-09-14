@@ -569,6 +569,7 @@ margin-bottom: 5px;
 }
 
 .cmtx_bb_code_block {
+letter-spacing: 0;
 }
 
 .cmtx_bb_code_image {
@@ -581,6 +582,7 @@ margin-bottom: 4px;
 }
 
 .cmtx_smilies_block {
+letter-spacing: 0;
 }
 
 .cmtx_smiley_image {
