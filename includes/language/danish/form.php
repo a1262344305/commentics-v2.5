@@ -77,17 +77,46 @@ define('CMTX_TITLE_PREVIEW', 'Smugkig');
 /* Note displayed after email field */
 define('CMTX_NOTE_EMAIL', '(offentliggøres ikke)');
 
-/* Text displayed for JavaScript BB Code prompts */
-define('CMTX_PROMPT_ENTER_BULLET', 'Indtast et listeelement. Klik på fortryd eller efterlad tom for at afslutte listen.');
-define('CMTX_PROMPT_ENTER_ANOTHER_BULLET', 'Indtast endnu et listeelement. Klik på fortryd eller efterlad tom for at afslutte listen.');
-define('CMTX_PROMPT_ENTER_NUMERIC', 'Indtast et listeelement. Klik på fortryd eller efterlad tom for at afslutte listen.');
-define('CMTX_PROMPT_ENTER_ANOTHER_NUMERIC', 'Indtast endnu et listeelement. Klik på fortryd eller efterlad tom for at afslutte listen.');
-define('CMTX_PROMPT_ENTER_LINK', 'Indtast link til hjemmesiden');
-define('CMTX_PROMPT_ENTER_LINK_TITLE', 'Du kan indtaste en titel til linket (valgfrit)');
-define('CMTX_PROMPT_ENTER_EMAIL', 'Indtast mailadresse');
-define('CMTX_PROMPT_ENTER_EMAIL_TITLE', 'Du kan indtaste en titel til mailadressen (valgfrit)');
-define('CMTX_PROMPT_ENTER_IMAGE', 'Indtast et link til billedet.');
-define('CMTX_PROMPT_ENTER_VIDEO', 'Indtast et link til videoen. Understøttede sider:\nYouTube, Vimeo, MetaCafe og Dailymotion.');
+/* Text displayed for BB Code bullet dialog */
+define('CMTX_BULLET_DIALOG_HEADING', 'Insert Bullet List');
+define('CMTX_BULLET_DIALOG_CONTENT_1', 'Please enter at least one item.');
+define('CMTX_BULLET_DIALOG_CONTENT_2', 'Item:');
+define('CMTX_BULLET_DIALOG_INSERT', 'Insert');
+define('CMTX_BULLET_DIALOG_CANCEL', 'Cancel');
+
+/* Text displayed for BB Code numeric dialog */
+define('CMTX_NUMERIC_DIALOG_HEADING', 'Insert Numeric List');
+define('CMTX_NUMERIC_DIALOG_CONTENT_1', 'Please enter at least one item.');
+define('CMTX_NUMERIC_DIALOG_CONTENT_2', 'Item:');
+define('CMTX_NUMERIC_DIALOG_INSERT', 'Insert');
+define('CMTX_NUMERIC_DIALOG_CANCEL', 'Cancel');
+
+/* Text displayed for BB Code link dialog */
+define('CMTX_LINK_DIALOG_HEADING', 'Insert Link');
+define('CMTX_LINK_DIALOG_CONTENT_1', 'Please enter the link of the website');
+define('CMTX_LINK_DIALOG_CONTENT_2', 'Optionally you can add display text');
+define('CMTX_LINK_DIALOG_INSERT', 'Insert');
+define('CMTX_LINK_DIALOG_CANCEL', 'Cancel');
+
+/* Text displayed for BB Code email dialog */
+define('CMTX_EMAIL_DIALOG_HEADING', 'Insert Email');
+define('CMTX_EMAIL_DIALOG_CONTENT_1', 'Please enter the email address');
+define('CMTX_EMAIL_DIALOG_CONTENT_2', 'Optionally add any display text');
+define('CMTX_EMAIL_DIALOG_INSERT', 'Insert');
+define('CMTX_EMAIL_DIALOG_CANCEL', 'Cancel');
+
+/* Text displayed for BB Code image dialog */
+define('CMTX_IMAGE_DIALOG_HEADING', 'Insert Image');
+define('CMTX_IMAGE_DIALOG_CONTENT', 'Please enter the link of the image');
+define('CMTX_IMAGE_DIALOG_INSERT', 'Insert');
+define('CMTX_IMAGE_DIALOG_CANCEL', 'Cancel');
+
+/* Text displayed for BB Code video dialog */
+define('CMTX_VIDEO_DIALOG_HEADING', 'Insert Video');
+define('CMTX_VIDEO_DIALOG_CONTENT_1', 'Please enter the link of the video. Supports:');
+define('CMTX_VIDEO_DIALOG_CONTENT_2', 'YouTube - Vimeo - MetaCafe - Dailymotion');
+define('CMTX_VIDEO_DIALOG_INSERT', 'Insert');
+define('CMTX_VIDEO_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for invalid BB Code entries */
 define('CMTX_BB_INVALID_LINK', '<i>(ugyldigt link)</i>');

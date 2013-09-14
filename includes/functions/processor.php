@@ -692,7 +692,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 		$comment = preg_replace("/\[CODE\](.*?)\[\/CODE\]/is", "<div style='" . $code_box_styling . "'>$1</div>", $comment);
 	}
 
-	if (cmtx_setting('enabled_bb_code_php_code')) {
+	if (cmtx_setting('enabled_bb_code_php')) {
 		$comment = preg_replace("/\[PHP\]\s*\[\/PHP\]/is", "", $comment);
 		while (preg_match("/\[PHP\](.*?)\[\/PHP\]/is", $comment, $matches)) {
 			$code = html_entity_decode($matches[1]);
@@ -714,42 +714,42 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 		$comment = str_ireplace("[LINE]", "<hr style='" . $line_styling . "'/>", $comment);
 	}
 
-	if (cmtx_setting('enabled_bb_code_list_bullet')) {
+	if (cmtx_setting('enabled_bb_code_bullet')) {
 		$comment = str_ireplace("[BULLET]\r\n", "<ul>", $comment);
 		$comment = str_ireplace("[ITEM]", "<li>", $comment);
 		$comment = str_ireplace("[/ITEM]\r\n", "</li>", $comment);
 		$comment = str_ireplace("[/BULLET]", "</ul>", $comment);
 	}
 
-	if (cmtx_setting('enabled_bb_code_list_numeric')) {
+	if (cmtx_setting('enabled_bb_code_numeric')) {
 		$comment = str_ireplace("[NUMERIC]\r\n", "<ol>", $comment);
 		$comment = str_ireplace("[ITEM]", "<li>", $comment);
 		$comment = str_ireplace("[/ITEM]\r\n", "</li>", $comment);		
 		$comment = str_ireplace("[/NUMERIC]", "</ol>", $comment);
 	}
 
-	if (cmtx_setting('enabled_bb_code_url')) {
+	if (cmtx_setting('enabled_bb_code_link')) {
 
-		global $cmtx_bb_code_url_attribute;
+		global $cmtx_bb_code_link_attribute;
 
-		$cmtx_bb_code_url_attribute = ""; //initialize variable
+		$cmtx_bb_code_link_attribute = ""; //initialize variable
 
 		if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
-			$cmtx_bb_code_url_attribute = " target=\"_blank\"";
+			$cmtx_bb_code_link_attribute = " target=\"_blank\"";
 		}
 
 		if (cmtx_setting('comment_links_nofollow')) { //if links should contain nofollow tag
-			$cmtx_bb_code_url_attribute .= " rel=\"nofollow\"";
+			$cmtx_bb_code_link_attribute .= " rel=\"nofollow\"";
 		}
 
 		function cmtx_link_1 (array $matches) {
 
-			global $cmtx_bb_code_url_attribute;
+			global $cmtx_bb_code_link_attribute;
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				return "<a href='" . $matches[1] . "'$cmtx_bb_code_url_attribute>" . $matches[1] . "</a>";
+				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[1] . "</a>";
 			} else {
 				return CMTX_BB_INVALID_LINK;
 			}
@@ -759,12 +759,18 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 		function cmtx_link_2 (array $matches) {
 
-			global $cmtx_bb_code_url_attribute;
+			global $cmtx_bb_code_link_attribute;
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
+			
+			$matches[2] = trim($matches[2]);
+			
+			if (empty($matches[2])) {
+				return CMTX_BB_INVALID_LINK;
+			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				return "<a href='" . $matches[1] . "'$cmtx_bb_code_url_attribute>" . $matches[2] . "</a>";
+				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[2] . "</a>";
 			} else {
 				return CMTX_BB_INVALID_LINK;
 			}
@@ -808,6 +814,12 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			global $cmtx_bb_code_email_attribute;
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
+			
+			$matches[2] = trim($matches[2]);
+			
+			if (empty($matches[2])) {
+				return CMTX_BB_INVALID_EMAIL;
+			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_EMAIL)) {
 				return "<a href='mailto:" . $matches[1] . "'$cmtx_bb_code_email_attribute>" . $matches[2] . "</a>";

@@ -89,28 +89,210 @@ function cmtx_text_counter() {
 // ]]>
 </script>
 
-<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_url')) { ?>
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_bullet')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-function cmtx_enter_link() {
+jQuery(document).ready(function() {
 
-	var link = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_LINK) ?>', 'http://');
+	jQuery('#cmtx_bb_code_bullet').click(function(e) {
 
-	if (link != null && link != "" && link != "http://") {
+		e.preventDefault();
 
-		var text = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_LINK_TITLE) ?>', '');
+		jQuery('#cmtx_bullet_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_BULLET_DIALOG_INSERT); ?>': function() {
 
-		if (text != null && text != "") {
-			var tag = "[LINK=" + link + "]" + text + "[/LINK]";
-			cmtx_add_tags('', tag);
-		} else {
-			var tag = "[LINK]" + link + "[/LINK]";
-			cmtx_add_tags('', tag);
-		}
+					var tag = '';
+					
+					var item_1 = jQuery('#cmtx_bullet_dialog_field_1').val();
+					var item_2 = jQuery('#cmtx_bullet_dialog_field_2').val();
+					var item_3 = jQuery('#cmtx_bullet_dialog_field_3').val();
+					var item_4 = jQuery('#cmtx_bullet_dialog_field_4').val();
+					var item_5 = jQuery('#cmtx_bullet_dialog_field_5').val();
+					
+					var items = new Array(item_1, item_2, item_3, item_4, item_5);
+					
+					for (var i = 0; i < 5; i++) {
+							var item = items[i];
+							item = jQuery.trim(item);
+							if (item != null && item != '') {
+								tag = tag + '[ITEM]' + item + '[/ITEM]\r\n';
+							}
+					}
+					
+					if (tag != null && tag != '') {
+						tag = '[BULLET]\r\n' + tag + '[/BULLET]';
+						cmtx_add_tags('', tag);
+					}
+					
+					jQuery('#cmtx_bullet_dialog_field_1').val('');
+					jQuery('#cmtx_bullet_dialog_field_2').val('');
+					jQuery('#cmtx_bullet_dialog_field_3').val('');
+					jQuery('#cmtx_bullet_dialog_field_4').val('');
+					jQuery('#cmtx_bullet_dialog_field_5').val('');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_BULLET_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_bullet_dialog_field_1').val('');
+					jQuery('#cmtx_bullet_dialog_field_2').val('');
+					jQuery('#cmtx_bullet_dialog_field_3').val('');
+					jQuery('#cmtx_bullet_dialog_field_4').val('');
+					jQuery('#cmtx_bullet_dialog_field_5').val('');
+					jQuery(this).dialog('close');
+				}
+			}
+		});
 
-	}
+		jQuery('#cmtx_bullet_dialog').dialog('open');
 
-}
+		return false;
+
+	});
+});
+// ]]>
+</script>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_numeric')) { ?>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+
+	jQuery('#cmtx_bb_code_numeric').click(function(e) {
+
+		e.preventDefault();
+
+		jQuery('#cmtx_numeric_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_NUMERIC_DIALOG_INSERT); ?>': function() {
+
+					var tag = '';
+					
+					var item_1 = jQuery('#cmtx_numeric_dialog_field_1').val();
+					var item_2 = jQuery('#cmtx_numeric_dialog_field_2').val();
+					var item_3 = jQuery('#cmtx_numeric_dialog_field_3').val();
+					var item_4 = jQuery('#cmtx_numeric_dialog_field_4').val();
+					var item_5 = jQuery('#cmtx_numeric_dialog_field_5').val();
+					
+					var items = new Array(item_1, item_2, item_3, item_4, item_5);
+					
+					for (var i = 0; i < 5; i++) {
+							var item = items[i];
+							item = jQuery.trim(item);
+							if (item != null && item != '') {
+								tag = tag + '[ITEM]' + item + '[/ITEM]\r\n';
+							}
+					}
+					
+					if (tag != null && tag != '') {
+						tag = '[NUMERIC]\r\n' + tag + '[/NUMERIC]';
+						cmtx_add_tags('', tag);
+					}
+					
+					jQuery('#cmtx_numeric_dialog_field_1').val('');
+					jQuery('#cmtx_numeric_dialog_field_2').val('');
+					jQuery('#cmtx_numeric_dialog_field_3').val('');
+					jQuery('#cmtx_numeric_dialog_field_4').val('');
+					jQuery('#cmtx_numeric_dialog_field_5').val('');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_NUMERIC_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_numeric_dialog_field_1').val('');
+					jQuery('#cmtx_numeric_dialog_field_2').val('');
+					jQuery('#cmtx_numeric_dialog_field_3').val('');
+					jQuery('#cmtx_numeric_dialog_field_4').val('');
+					jQuery('#cmtx_numeric_dialog_field_5').val('');
+					jQuery(this).dialog('close');
+				}
+			}
+		});
+
+		jQuery('#cmtx_numeric_dialog').dialog('open');
+
+		return false;
+
+	});
+});
+// ]]>
+</script>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_link')) { ?>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+
+	jQuery('#cmtx_bb_code_link').click(function(e) {
+
+		e.preventDefault();
+
+		jQuery('#cmtx_link_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_LINK_DIALOG_INSERT); ?>': function() {
+
+					var link = jQuery('#cmtx_link_dialog_field_1').val();
+					
+					link = jQuery.trim(link);
+					
+					if (link != null && link != '' && link != 'http://') {
+					
+						var text = jQuery('#cmtx_link_dialog_field_2').val();
+						
+						text = jQuery.trim(text);
+						
+						if (text != null && text != '') {
+						
+							var tag = '[LINK=' + link + ']' + text + '[/LINK]';
+							cmtx_add_tags('', tag);
+						
+						} else {
+					
+							var tag = '[LINK]' + link + '[/LINK]';
+							cmtx_add_tags('', tag);
+						
+						}
+					
+					}
+					
+					jQuery('#cmtx_link_dialog_field_1').val('http://');
+					jQuery('#cmtx_link_dialog_field_2').val('');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_LINK_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_link_dialog_field_1').val('http://');
+					jQuery('#cmtx_link_dialog_field_2').val('');
+					jQuery(this).dialog('close');
+				}
+			}
+		});
+
+		jQuery('#cmtx_link_dialog').dialog('open');
+
+		return false;
+
+	});
+});
 // ]]>
 </script>
 <?php } ?>
@@ -118,25 +300,65 @@ function cmtx_enter_link() {
 <?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_email')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-function cmtx_enter_email() {
+jQuery(document).ready(function() {
 
-	var email = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_EMAIL) ?>', '');
+	jQuery('#cmtx_bb_code_email').click(function(e) {
 
-	if (email != null && email != "") {
+		e.preventDefault();
 
-		var text = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_EMAIL_TITLE) ?>', '');
+		jQuery('#cmtx_email_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_EMAIL_DIALOG_INSERT); ?>': function() {
 
-		if (text != null && text != "") {
-			var tag = "[EMAIL=" + email + "]" + text + "[/EMAIL]";
-			cmtx_add_tags('', tag);
-		} else {
-			var tag = "[EMAIL]" + email + "[/EMAIL]";
-			cmtx_add_tags('', tag);
-		}
+					var email = jQuery('#cmtx_email_dialog_field_1').val();
+					
+					email = jQuery.trim(email);
+					
+					if (email != null && email != '') {
+					
+						var text = jQuery('#cmtx_email_dialog_field_2').val();
+						
+						text = jQuery.trim(text);
+						
+						if (text != null && text != '') {
+						
+							var tag = '[EMAIL=' + email + ']' + text + '[/EMAIL]';
+							cmtx_add_tags('', tag);
+						
+						} else {
+					
+							var tag = '[EMAIL]' + email + '[/EMAIL]';
+							cmtx_add_tags('', tag);
+						
+						}
+					
+					}
+					
+					jQuery('#cmtx_email_dialog_field_1').val('');
+					jQuery('#cmtx_email_dialog_field_2').val('');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_EMAIL_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_email_dialog_field_1').val('');
+					jQuery('#cmtx_email_dialog_field_2').val('');
+					jQuery(this).dialog('close');
+				}
+			}
+		});
 
-	}
+		jQuery('#cmtx_email_dialog').dialog('open');
 
-}
+		return false;
+
+	});
+});
 // ]]>
 </script>
 <?php } ?>
@@ -144,16 +366,50 @@ function cmtx_enter_email() {
 <?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_image')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-function cmtx_enter_image() {
+jQuery(document).ready(function() {
 
-	var image = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_IMAGE) ?>', 'http://');
+	jQuery('#cmtx_bb_code_image').click(function(e) {
 
-	if (image != null && image != "" && image != "http://") {
-		var tag = "[IMG]" + image + "[/IMG]";
-		cmtx_add_tags('', tag);
-	}
+		e.preventDefault();
 
-}
+		jQuery('#cmtx_image_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_IMAGE_DIALOG_INSERT); ?>': function() {
+
+					var image = jQuery('#cmtx_image_dialog_field').val();
+					
+					image = jQuery.trim(image);
+					
+					if (image != null && image != '' && image != 'http://') {
+					
+						var tag = '[IMG]' + image + '[/IMG]';
+						cmtx_add_tags('', tag);
+					
+					}
+					
+					jQuery('#cmtx_image_dialog_field').val('http://');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_IMAGE_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_image_dialog_field').val('http://');
+					jQuery(this).dialog('close');
+				}
+			}
+		});
+
+		jQuery('#cmtx_image_dialog').dialog('open');
+
+		return false;
+
+	});
+});
 // ]]>
 </script>
 <?php } ?>
@@ -161,82 +417,50 @@ function cmtx_enter_image() {
 <?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_video')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-function cmtx_enter_video() {
+jQuery(document).ready(function() {
 
-	var video = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_VIDEO) ?>', 'http://');
+	jQuery('#cmtx_bb_code_video').click(function(e) {
 
-	if (video != null && video != "" && video != "http://") {
-		var tag = "[VIDEO]" + video + "[/VIDEO]";
-		cmtx_add_tags('', tag);
-	}
+		e.preventDefault();
 
-}
-// ]]>
-</script>
-<?php } ?>
+		jQuery('#cmtx_video_dialog').dialog({
+			modal: true,
+			height: 'auto',
+			width: 'auto',
+			resizable: false,
+			draggable: false,
+			center: true,
+			buttons: {
+				'<?php echo cmtx_escape_js(CMTX_VIDEO_DIALOG_INSERT); ?>': function() {
 
-<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_list_bullet')) { ?>
-<script type="text/javascript">
-// <![CDATA[
-function cmtx_enter_bullet() {
-
-	var item = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_BULLET) ?>', '');
-
-	if (item != null && item != "") {
-
-		var tag = "[BULLET]\r\n";
-
-		tag = tag + "[ITEM]" + item + "[/ITEM]\r\n";
-
-		while (item != null && item != "") {
-
-			var item = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_ANOTHER_BULLET) ?>', '');
-
-			if (item != null && item != "") {
-				tag = tag + "[ITEM]" + item + "[/ITEM]\r\n";
+					var video = jQuery('#cmtx_video_dialog_field').val();
+					
+					video = jQuery.trim(video);
+					
+					if (video != null && video != '' && video != 'http://') {
+					
+						var tag = '[VIDEO]' + video + '[/VIDEO]';
+						cmtx_add_tags('', tag);
+					
+					}
+					
+					jQuery('#cmtx_video_dialog_field').val('http://');
+					jQuery(this).dialog('close');
+					
+				},
+				'<?php echo cmtx_escape_js(CMTX_VIDEO_DIALOG_CANCEL); ?>': function() {
+					jQuery('#cmtx_video_dialog_field').val('http://');
+					jQuery(this).dialog('close');
+				}
 			}
+		});
 
-		}
+		jQuery('#cmtx_video_dialog').dialog('open');
 
-		tag = tag + "[/BULLET]";
+		return false;
 
-		cmtx_add_tags('', tag);
-	}
-
-}
-// ]]>
-</script>
-<?php } ?>
-
-<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_list_numeric')) { ?>
-<script type="text/javascript">
-// <![CDATA[
-function cmtx_enter_numeric() {
-
-	var item = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_NUMERIC) ?>', '');
-
-	if (item != null && item != "") {
-
-		var tag = "[NUMERIC]\r\n";
-
-		tag = tag + "[ITEM]" + item + "[/ITEM]\r\n";
-
-		while (item != null && item != "") {
-
-			var item = prompt('<?php echo cmtx_escape_js(CMTX_PROMPT_ENTER_ANOTHER_NUMERIC) ?>', '');
-
-			if (item != null && item != "") {
-				tag = tag + "[ITEM]" + item + "[/ITEM]\r\n";
-			}
-
-		}
-
-		tag = tag + "[/NUMERIC]";
-
-		cmtx_add_tags('', tag);
-	}
-
-}
+	});
+});
 // ]]>
 </script>
 <?php } ?>
@@ -407,6 +631,104 @@ jQuery(document).ready(function() {
 });
 // ]]>
 </script>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_bullet')) { ?>
+<div id="cmtx_bullet_dialog" title="<?php echo CMTX_BULLET_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_1; ?>
+		<div style="margin-top:10px;"></div>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_bullet_dialog_field_1" id="cmtx_bullet_dialog_field_1" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_bullet_dialog_field_2" id="cmtx_bullet_dialog_field_2" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_bullet_dialog_field_3" id="cmtx_bullet_dialog_field_3" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_bullet_dialog_field_4" id="cmtx_bullet_dialog_field_4" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_BULLET_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_bullet_dialog_field_5" id="cmtx_bullet_dialog_field_5" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_numeric')) { ?>
+<div id="cmtx_numeric_dialog" title="<?php echo CMTX_NUMERIC_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_1; ?>
+		<div style="margin-top:10px;"></div>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_numeric_dialog_field_1" id="cmtx_numeric_dialog_field_1" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_numeric_dialog_field_2" id="cmtx_numeric_dialog_field_2" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_numeric_dialog_field_3" id="cmtx_numeric_dialog_field_3" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_numeric_dialog_field_4" id="cmtx_numeric_dialog_field_4" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+		<br/>
+		<?php echo CMTX_NUMERIC_DIALOG_CONTENT_2; ?> <input type="text" name="cmtx_numeric_dialog_field_5" id="cmtx_numeric_dialog_field_5" style="width:250px;" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_link')) { ?>
+<div id="cmtx_link_dialog" title="<?php echo CMTX_LINK_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_LINK_DIALOG_CONTENT_1; ?>
+		<br/>
+		<input type="text" name="cmtx_link_dialog_field_1" id="cmtx_link_dialog_field_1" style="width:235px;" value="http://" class="text ui-widget-content ui-corner-all"/>
+		<div style="margin-top:15px;"></div>
+		<?php echo CMTX_LINK_DIALOG_CONTENT_2; ?>
+		<br/>
+		<input type="text" name="cmtx_link_dialog_field_2" id="cmtx_link_dialog_field_2" style="width:235px;" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_email')) { ?>
+<div id="cmtx_email_dialog" title="<?php echo CMTX_EMAIL_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_EMAIL_DIALOG_CONTENT_1; ?>
+		<br/>
+		<input type="text" name="cmtx_email_dialog_field_1" id="cmtx_email_dialog_field_1" style="width:205px;" class="text ui-widget-content ui-corner-all"/>
+		<div style="margin-top:15px;"></div>
+		<?php echo CMTX_EMAIL_DIALOG_CONTENT_2; ?>
+		<br/>
+		<input type="text" name="cmtx_email_dialog_field_2" id="cmtx_email_dialog_field_2" style="width:205px;" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_image')) { ?>
+<div id="cmtx_image_dialog" title="<?php echo CMTX_IMAGE_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_IMAGE_DIALOG_CONTENT; ?>
+		<br/>
+		<input type="text" name="cmtx_image_dialog_field" id="cmtx_image_dialog_field" style="width:222px;" value="http://" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
+
+<?php if (cmtx_setting('enabled_bb_code') && cmtx_setting('enabled_bb_code_video')) { ?>
+<div id="cmtx_video_dialog" title="<?php echo CMTX_VIDEO_DIALOG_HEADING; ?>" style="display:none;">
+	<div style="margin-top:10px;">
+	<form>
+		<?php echo CMTX_VIDEO_DIALOG_CONTENT_1; ?>
+		<br/>
+		<?php echo CMTX_VIDEO_DIALOG_CONTENT_2; ?>
+		<br/>
+		<input type="text" name="cmtx_video_dialog_field" id="cmtx_video_dialog_field" style="width:293px;" value="http://" class="text ui-widget-content ui-corner-all"/>
+	</form>
+	</div>
+</div>
+<?php } ?>
 
 <h3 class="cmtx_form_heading">
 <a id="<?php echo str_ireplace("#", "", CMTX_ANCHOR_FORM); ?>"></a>
@@ -634,8 +956,8 @@ echo $cmtx_ratings;
 <?php if (cmtx_setting('enabled_bb_code_code')) { ?>
 <img src="<?php echo cmtx_comments_folder() . "images/bb_code/code.png";?>" title="Code" alt="Code" class="cmtx_bb_code_image" onclick="cmtx_add_tags('[CODE]', '[/CODE]')"/>
 <?php } ?>
-<?php if (cmtx_setting('enabled_bb_code_php_code')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/php_code.png";?>" title="PHP Code" alt="PHP Code" class="cmtx_bb_code_image" onclick="cmtx_add_tags('[PHP]', '[/PHP]')"/>
+<?php if (cmtx_setting('enabled_bb_code_php')) { ?>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/php.png";?>" title="PHP Code" alt="PHP Code" class="cmtx_bb_code_image" onclick="cmtx_add_tags('[PHP]', '[/PHP]')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_quote')) { ?>
 <img src="<?php echo cmtx_comments_folder() . "images/bb_code/quote.png";?>" title="Quote" alt="Quote" class="cmtx_bb_code_image" onclick="cmtx_add_tags('[QUOTE]', '[/QUOTE]')"/>
@@ -643,23 +965,23 @@ echo $cmtx_ratings;
 <?php if (cmtx_setting('enabled_bb_code_line')) { ?>
 <img src="<?php echo cmtx_comments_folder() . "images/bb_code/line.png";?>" title="Insert line" alt="Insert line" class="cmtx_bb_code_image" onclick="cmtx_add_tags('', '[LINE]')"/>
 <?php } ?>
-<?php if (cmtx_setting('enabled_bb_code_list_bullet')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/list_bullet.png";?>" title="Insert bullet list" alt="Bullet list" class="cmtx_bb_code_image" onclick="cmtx_enter_bullet()"/>
+<?php if (cmtx_setting('enabled_bb_code_bullet')) { ?>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/bullet.png";?>" title="Insert bullet list" alt="Bullet list" class="cmtx_bb_code_image" id="cmtx_bb_code_bullet"/>
 <?php } ?>
-<?php if (cmtx_setting('enabled_bb_code_list_numeric')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/list_numeric.png";?>" title="Insert numeric list" alt="Numeric list" class="cmtx_bb_code_image" onclick="cmtx_enter_numeric()"/>
+<?php if (cmtx_setting('enabled_bb_code_numeric')) { ?>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/numeric.png";?>" title="Insert numeric list" alt="Numeric list" class="cmtx_bb_code_image" id="cmtx_bb_code_numeric"/>
 <?php } ?>
-<?php if (cmtx_setting('enabled_bb_code_url')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/link.png";?>" title="Insert web link" alt="Link" class="cmtx_bb_code_image" onclick="cmtx_enter_link()"/>
+<?php if (cmtx_setting('enabled_bb_code_link')) { ?>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/link.png";?>" title="Insert web link" alt="Link" class="cmtx_bb_code_image" id="cmtx_bb_code_link"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_email')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/email.png";?>" title="Insert email link" alt="Email" class="cmtx_bb_code_image" onclick="cmtx_enter_email()"/>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/email.png";?>" title="Insert email link" alt="Email" class="cmtx_bb_code_image" id="cmtx_bb_code_email"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_image')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/image.png";?>" title="Insert image" alt="Image" class="cmtx_bb_code_image" onclick="cmtx_enter_image()"/>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/image.png";?>" title="Insert image" alt="Image" class="cmtx_bb_code_image" id="cmtx_bb_code_image"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_video')) { ?>
-<img src="<?php echo cmtx_comments_folder() . "images/bb_code/video.png";?>" title="Insert video" alt="Video" class="cmtx_bb_code_image" onclick="cmtx_enter_video()"/>
+<img src="<?php echo cmtx_comments_folder() . "images/bb_code/video.png";?>" title="Insert video" alt="Video" class="cmtx_bb_code_image" id="cmtx_bb_code_video"/>
 <?php } ?>
 </div>
 <?php } ?>

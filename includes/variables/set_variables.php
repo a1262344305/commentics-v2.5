@@ -102,7 +102,7 @@ global $cmtx_db_orig;
 
 global $cmtx_admin_button;
 
-global $cmtx_bb_code_url_attribute;
+global $cmtx_bb_code_link_attribute;
 global $cmtx_bb_code_email_attribute;
 
 global $cmtx_default_name;

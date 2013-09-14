@@ -184,17 +184,17 @@ jQuery(document).ready(function() {
 </script>
 <?php } ?>
 
-<div class='cmtx_success_ajax'></div>
-<div class='cmtx_error_ajax'></div>
-
 <?php if (cmtx_setting('show_flag')) { ?>
 <div id="cmtx_flag_dialog" title="<?php echo CMTX_FLAG_DIALOG_HEADING; ?>" style="display:none;">
-	<div style="margin-top: 10px;">
-	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 8px 0 0;"></span>
+	<div style="margin-top:10px;">
+	<span class="ui-icon ui-icon-alert" style="float:left; margin: 0 8px 0 0;"></span>
 	<?php echo CMTX_FLAG_DIALOG_CONTENT; ?>
 	</div>
 </div>
 <?php } ?>
+
+<div class='cmtx_success_ajax'></div>
+<div class='cmtx_error_ajax'></div>
 
 <?php
 //Permalink (Calculation Only)

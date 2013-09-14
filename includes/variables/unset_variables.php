@@ -58,7 +58,7 @@ unset($cmtx_db_ok);
 
 unset($cmtx_admin_button);
 
-unset($cmtx_bb_code_url_attribute);
+unset($cmtx_bb_code_link_attribute);
 unset($cmtx_bb_code_email_attribute);
 unset($cmtx_powered_attribute);
 
