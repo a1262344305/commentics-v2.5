@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'ข้อความคิดเห็�
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'ข้อความคิดเห็นประกอบด้วยจำนวนตัวพิมพ์ใหญ่เกินจากที่กำหนด กรุณาลดจำนวนลง');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'ข้อความคิดเห็นประกอบด้วยข้อความเชื่อมโยง กรุณาลบออก');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'ข้อความคิดเห็นประกอบด้วย คำซึ่งมีอักขระเหมือนกันทั้งหมด กรุณาลบออก');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'ช่องตอบคำถามไม่สามารถเว้นว่าง กรุณาพิมพ์คำตอบที่ถูกต้องตรงกับคำถาม');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'คำตอบไม่ถูกต้อง กรุณาใช้ความพยายามอีกครั้ง');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'ช่องระบุโค้ดไม่สามารถเว้นว่าง กรุณาพิมพ์โค้ดตามที่เห็นจากภาพ');

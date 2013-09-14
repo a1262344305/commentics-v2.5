@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'The comment contains a long word. Please
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'The comment entered contains too many capitals. Please enter fewer capitals.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'The comment entered contains a link. Please remove the link.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'The comment entered contains repeating characters. Please remove them.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'The question field can not be empty. Please enter the answer.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'The answer to the question was incorrect. Please try again.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'The captcha field can not be empty. Please enter the characters.');

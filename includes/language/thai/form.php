@@ -118,12 +118,6 @@ define('CMTX_VIDEO_DIALOG_CONTENT_2', 'YouTube - Vimeo - MetaCafe - Dailymotion'
 define('CMTX_VIDEO_DIALOG_INSERT', 'Insert');
 define('CMTX_VIDEO_DIALOG_CANCEL', 'Cancel');
 
-/* Text displayed for invalid BB Code entries */
-define('CMTX_BB_INVALID_LINK', '<i>(การเชื่อมโยงไม่ถูกต้อง)</i>');
-define('CMTX_BB_INVALID_EMAIL', '<i>(ที่อยู่อีเมลไม่ถูกต้อง)</i>');
-define('CMTX_BB_INVALID_IMAGE', '<i>(ที่อยู่ไฟล์ภาพไม่ถูกต้อง)</i>');
-define('CMTX_BB_INVALID_VIDEO', '<i>(วิดีโอที่ไม่ถูกต้อง)</i>');
-
 /* Text displayed before/after the counter */
 define('CMTX_TEXT_COUNTER', '%s');
 

@@ -751,7 +751,8 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
 				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[1] . "</a>";
 			} else {
-				return CMTX_BB_INVALID_LINK;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_LINK);
+				return;
 			}
 		}
 
@@ -766,13 +767,15 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			$matches[2] = trim($matches[2]);
 			
 			if (empty($matches[2])) {
-				return CMTX_BB_INVALID_LINK;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_LINK);
+				return;
 			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
 				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[2] . "</a>";
 			} else {
-				return CMTX_BB_INVALID_LINK;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_LINK);
+				return;
 			}
 		}
 
@@ -803,7 +806,8 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			if (filter_var($matches[1], FILTER_VALIDATE_EMAIL)) {
 				return "<a href='mailto:" . $matches[1] . "'$cmtx_bb_code_email_attribute>" . $matches[1] . "</a>";
 			} else {
-				return CMTX_BB_INVALID_EMAIL;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL);
+				return;
 			}
 		}
 
@@ -818,13 +822,15 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			$matches[2] = trim($matches[2]);
 			
 			if (empty($matches[2])) {
-				return CMTX_BB_INVALID_EMAIL;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL);
+				return;
 			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_EMAIL)) {
 				return "<a href='mailto:" . $matches[1] . "'$cmtx_bb_code_email_attribute>" . $matches[2] . "</a>";
 			} else {
-				return CMTX_BB_INVALID_EMAIL;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL);
+				return;
 			}
 		}
 
@@ -843,7 +849,8 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
 				return "<img src='" . $matches[1] . "' style='" . $image_styling . "'/>";
 			} else {
-				return CMTX_BB_INVALID_IMAGE;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE);
+				return;
 			}
 
 		}
@@ -862,11 +869,13 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 				require_once $cmtx_path . 'includes/AutoEmbed/AutoEmbed.class.php';
 				$AE = new AutoEmbed();
 				if (!$AE->parseUrl($matches[1])) {
-					return CMTX_BB_INVALID_VIDEO;
+					cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO);
+					return;
 				}
 				return $AE->getEmbedCode();
 			} else {
-				return CMTX_BB_INVALID_VIDEO;
+				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO);
+				return;
 			}
 		}
 

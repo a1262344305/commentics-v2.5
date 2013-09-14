@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'Uw bericht bevat een erg lang woord. Maa
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'Uw berciht bevat teveel hoofdletters. Gebruik minder hoofdletters.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'De ingevoerde opmerking bevat een link. Verwijder de link.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'Uw bericht bevat teveel vaak terugkerende letters. Verwijder ze aub.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'Het veld Vraag mag niet leeg zijn. Voer het antwoord aub in.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'Het antwoord op de vraag was niet juist. Probeer het nog eens.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'Het veld Captcha mag niet leeg zijn. Voer de juiste tekens in.');

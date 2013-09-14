@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'El comentario introducido tiene una pala
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'El comentario introducido contiene demasiadas letras en mayúsculas. Por favor, escriba menos letras en mayúsculas.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'El comentario introducido contiene un enlace. Por favor, quítelo.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'El comentario introducido contiene caracteres repetidos. Por favor, quítelos.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'El campo Pregunta no puede quedar vacío. Por favor, escriba una respuesta.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'La respuesta a la pregunta es incorrecta. Por favor, escriba la respuesta correcta.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'El campo Captcha no puede quedar vacío. Por favor, escriba los caracteres correctamente.');

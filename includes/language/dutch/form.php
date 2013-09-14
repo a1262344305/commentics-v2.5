@@ -118,12 +118,6 @@ define('CMTX_VIDEO_DIALOG_CONTENT_2', 'YouTube - Vimeo - MetaCafe - Dailymotion'
 define('CMTX_VIDEO_DIALOG_INSERT', 'Insert');
 define('CMTX_VIDEO_DIALOG_CANCEL', 'Cancel');
 
-/* Text displayed for invalid BB Code entries */
-define('CMTX_BB_INVALID_LINK', '<i>(ongeldige-link)</i>');
-define('CMTX_BB_INVALID_EMAIL', '<i>(ongeldige-email)</i>');
-define('CMTX_BB_INVALID_IMAGE', '<i>(ongeldige-afbeelding)</i>');
-define('CMTX_BB_INVALID_VIDEO', '<i>(ongeldige-video)</i>');
-
 /* Text displayed before/after the counter */
 define('CMTX_TEXT_COUNTER', '%s');
 

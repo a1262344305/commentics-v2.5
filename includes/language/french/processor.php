@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'Le commentaire entré contient un mot lo
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'Le commentaire entré contient trop de capitales. Veuillez entrer moins de capitales.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'Le commentaire entré contient un lien. S\'il vous plaît supprimer le lien.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'Le commentaire entré contient des caractères répéter. S\'il vous plaît de les supprimer.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'Le champ question ne peut pas être vide. Veuillez entrer une réponse à la question.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'La réponse à la question était incorrecte. Veuillez essayer de nouveau.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'Le champ captcha ne peut pas être vide. Veuillez entrer les caractères de l\'image.');

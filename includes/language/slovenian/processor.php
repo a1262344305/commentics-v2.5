@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'Komentar vsebuje predolgo besedo. Prosim
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'V komentarju je preveč velikih črk. Prosimo uporabljajte manj velikih črk.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'Vpisani komentar vsebuje link. Prosimo odstranite link.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'Vpisani komentar vsebuje ponavljajoče se črke. Prosimo odstranite ponavljanje.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'Polje odgovora na vprašanje ne sme biti prazno. Prosimo vpišite odgovor.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'Na vprašanje ste odgovorili napačno. Poizkusite znova.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'Polje \'Captcha\' ne sme biti prazno. Prosimo prepišite znake s slike.');

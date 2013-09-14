@@ -85,6 +85,10 @@ define('CMTX_ERROR_MESSAGE_LONG_WORD', 'Din kommentar indeholder et ord, der er 
 define('CMTX_ERROR_MESSAGE_CAPITALS', 'Din kommentar indeholder for mange store bogstaver. Anvend færre store bogstaver.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_COMMENT', 'Din kommentar indeholder et link. Fjern linket.');
 define('CMTX_ERROR_MESSAGE_REPEATS', 'Din kommentar indeholder gentagne tegn. Fjern de gentagne tegn.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_LINK', 'The comment contains an invalid BB Code link. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL', 'The comment contains an invalid BB Code email. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE', 'The comment contains an invalid BB Code image. Please correct it.');
+define('CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO', 'The comment contains an invalid BB Code video. Please correct it.');
 define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'Spamfælden skal udfyldes. Indtast et svar.');
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'Du indtastede et forkert svar i spamfælden. Prøv igen.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'Captcha-feltet skal udfyldes. Indtast captcha.');
