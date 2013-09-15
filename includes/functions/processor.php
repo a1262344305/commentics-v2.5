@@ -658,38 +658,38 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 	$line_styling = 'color:#EDEDED;';
 
 	if (cmtx_setting('enabled_bb_code_bold')) {
-		$comment = preg_replace("/\[B\]\s*\[\/B\]/is", "", $comment); //remove bold tags with nothing visible inside
-		$comment = preg_replace("/\[B\](.*?)\[\/B\]/is", "<b>$1</b>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_BOLD_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_BOLD_2, '/') . '/is', '', $comment); //remove bold tags with nothing visible inside
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_BOLD_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_BOLD_2, '/') . '/is', '<b>$1</b>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_italic')) {
-		$comment = preg_replace("/\[I\]\s*\[\/I\]/is", "", $comment);
-		$comment = preg_replace("/\[I\](.*?)\[\/I\]/is", "<i>$1</i>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_ITALIC_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_ITALIC_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_ITALIC_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_ITALIC_2, '/') . '/is', '<i>$1</i>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_underline')) {
-		$comment = preg_replace("/\[U\]\s*\[\/U\]/is", "", $comment);
-		$comment = preg_replace("/\[U\](.*?)\[\/U\]/is", "<u>$1</u>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_UNDERLINE_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_UNDERLINE_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_UNDERLINE_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_UNDERLINE_2, '/') . '/is', '<u>$1</u>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_strike')) {
-		$comment = preg_replace("/\[STRIKE\]\s*\[\/STRIKE\]/is", "", $comment);
-		$comment = preg_replace("/\[STRIKE\](.*?)\[\/STRIKE\]/is", "<del>$1</del>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_STRIKE_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_STRIKE_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_STRIKE_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_STRIKE_2, '/') . '/is', '<del>$1</del>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_superscript')) {
-		$comment = preg_replace("/\[SUP\]\s*\[\/SUP\]/is", "", $comment);
-		$comment = preg_replace("/\[SUP\](.*?)\[\/SUP\]/is", "<sup>$1</sup>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_SUPERSCRIPT_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_SUPERSCRIPT_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_SUPERSCRIPT_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_SUPERSCRIPT_2, '/') . '/is', '<sup>$1</sup>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_subscript')) {
-		$comment = preg_replace("/\[SUB\]\s*\[\/SUB\]/is", "", $comment);
-		$comment = preg_replace("/\[SUB\](.*?)\[\/SUB\]/is", "<sub>$1</sub>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_SUBSCRIPT_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_SUBSCRIPT_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_SUBSCRIPT_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_SUBSCRIPT_2, '/') . '/is', '<sub>$1</sub>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_code')) {
-		$comment = preg_replace("/\[CODE\]\s*\[\/CODE\]/is", "", $comment);
-		$comment = preg_replace("/\[CODE\](.*?)\[\/CODE\]/is", "<div style='" . $code_box_styling . "'>$1</div>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_CODE_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_CODE_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_CODE_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_CODE_2, '/') . '/is', '<div style="' . $code_box_styling . '">$1</div>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_php')) {
@@ -706,33 +706,33 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 	}
 
 	if (cmtx_setting('enabled_bb_code_quote')) {
-		$comment = preg_replace("/\[QUOTE\]\s*\[\/QUOTE\]/is", "", $comment);
-		$comment = preg_replace("/\[QUOTE\](.*?)\[\/QUOTE\]/is", "<div style='" . $quote_box_styling . "'>$1</div>", $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_QUOTE_1, '/') . '\s*' . preg_quote(CMTX_BB_CODE_TAG_QUOTE_2, '/') . '/is', '', $comment);
+		$comment = preg_replace('/' . preg_quote(CMTX_BB_CODE_TAG_QUOTE_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_QUOTE_2, '/') . '/is', '<div style="' . $quote_box_styling . '">$1</div>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_line')) {
-		$comment = str_ireplace("[LINE]", "<hr style='" . $line_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_LINE, '<hr style="' . $line_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_bullet')) {
-		$comment = str_ireplace("[BULLET]\r\n", "<ul>", $comment);
-		$comment = str_ireplace("[ITEM]", "<li>", $comment);
-		$comment = str_ireplace("[/ITEM]\r\n", "</li>", $comment);
-		$comment = str_ireplace("[/BULLET]", "</ul>", $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_BULLET_1 . "\r\n", '<ul>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_ITEM_1, '<li>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_ITEM_2 . "\r\n", '</li>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_BULLET_2, '</ul>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_numeric')) {
-		$comment = str_ireplace("[NUMERIC]\r\n", "<ol>", $comment);
-		$comment = str_ireplace("[ITEM]", "<li>", $comment);
-		$comment = str_ireplace("[/ITEM]\r\n", "</li>", $comment);		
-		$comment = str_ireplace("[/NUMERIC]", "</ol>", $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_NUMERIC_1 . "\r\n", '<ol>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_ITEM_1, '<li>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_ITEM_2 . "\r\n", '</li>', $comment);
+		$comment = str_ireplace(CMTX_BB_CODE_TAG_NUMERIC_2, '</ol>', $comment);
 	}
 
 	if (cmtx_setting('enabled_bb_code_link')) {
 
 		global $cmtx_bb_code_link_attribute;
 
-		$cmtx_bb_code_link_attribute = ""; //initialize variable
+		$cmtx_bb_code_link_attribute = ''; //initialize variable
 
 		if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
 			$cmtx_bb_code_link_attribute = " target=\"_blank\"";
@@ -756,7 +756,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 		}
 
-		$comment = preg_replace_callback("/\[LINK\](.*?)\[\/LINK\]/is", "cmtx_link_1", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_LINK_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_LINK_4, '/') . '/is', 'cmtx_link_1', $comment);
 
 		function cmtx_link_2 (array $matches) {
 
@@ -779,7 +779,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 		}
 
-		$comment = preg_replace_callback("/\[LINK\=(.*?)\](.*?)\[\/LINK\]/is", "cmtx_link_2", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_LINK_2, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_LINK_3, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_LINK_4, '/') . '/is', 'cmtx_link_2', $comment);
 
 	}
 
@@ -787,7 +787,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 		global $cmtx_bb_code_email_attribute;
 
-		$cmtx_bb_code_email_attribute = ""; //initialize variable
+		$cmtx_bb_code_email_attribute = ''; //initialize variable
 
 		if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
 			$cmtx_bb_code_email_attribute = " target=\"_blank\"";
@@ -811,7 +811,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 		}
 
-		$comment = preg_replace_callback("/\[EMAIL\](.*?)\[\/EMAIL\]/is", "cmtx_email_1", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_4, '/') . '/is', 'cmtx_email_1', $comment);
 
 		function cmtx_email_2 (array $matches) {
 
@@ -834,7 +834,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 		}
 
-		$comment = preg_replace_callback("/\[EMAIL\=(.*?)\](.*?)\[\/EMAIL\]/is", "cmtx_email_2", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_2, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_3, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_4, '/') . '/is', 'cmtx_email_2', $comment);
 
 	}
 
@@ -855,7 +855,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 		}
 
-		$comment = preg_replace_callback("/\[IMG\](.*?)\[\/IMG\]/is", "cmtx_image_1", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_IMAGE_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_IMAGE_2, '/') . '/is', 'cmtx_image_1', $comment);
 
 	}
 
@@ -879,7 +879,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 		}
 
-		$comment = preg_replace_callback("/\[VIDEO\](.*?)\[\/VIDEO\]/is", "cmtx_video_1", $comment);
+		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_VIDEO_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_VIDEO_2, '/') . '/is', 'cmtx_video_1', $comment);
 
 	}
 
@@ -893,63 +893,63 @@ function cmtx_comment_add_smilies ($comment) { //add smilies to comment
 	$smiley_styling = 'border-style: none; vertical-align: bottom;';
 
 	if (cmtx_setting('enabled_smilies_smile')) {
-		$comment = str_ireplace(":smile:", "<img src='" . cmtx_comments_folder() . "images/smilies/smile.gif' title='Smile' alt='Smile' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SMILE, "<img src='" . cmtx_comments_folder() . "images/smilies/smile.gif' title='" . CMTX_SMILEY_TITLE_SMILE . "' alt='Smile' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sad')) {
-		$comment = str_ireplace(":sad:", "<img src='" . cmtx_comments_folder() . "images/smilies/sad.gif' title='Sad' alt='Sad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SAD, "<img src='" . cmtx_comments_folder() . "images/smilies/sad.gif' title='" . CMTX_SMILEY_TITLE_SAD . "' alt='Sad' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_huh')) {
-		$comment = str_ireplace(":huh:", "<img src='" . cmtx_comments_folder() . "images/smilies/huh.gif' title='Huh' alt='Huh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_HUH, "<img src='" . cmtx_comments_folder() . "images/smilies/huh.gif' title='" . CMTX_SMILEY_TITLE_HUH . "' alt='Huh' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_laugh')) {
-		$comment = str_ireplace(":laugh:", "<img src='" . cmtx_comments_folder() . "images/smilies/laugh.gif' title='Laugh' alt='Laugh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_LAUGH, "<img src='" . cmtx_comments_folder() . "images/smilies/laugh.gif' title='" . CMTX_SMILEY_TITLE_LAUGH . "' alt='Laugh' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_mad')) {
-		$comment = str_ireplace(":mad:", "<img src='" . cmtx_comments_folder() . "images/smilies/mad.gif' title='Mad' alt='Mad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_MAD, "<img src='" . cmtx_comments_folder() . "images/smilies/mad.gif' title='" . CMTX_SMILEY_TITLE_MAD . "' alt='Mad' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_tongue')) {
-		$comment = str_ireplace(":tongue:", "<img src='" . cmtx_comments_folder() . "images/smilies/tongue.gif' title='Tongue' alt='Tongue' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_TONGUE, "<img src='" . cmtx_comments_folder() . "images/smilies/tongue.gif' title='" . CMTX_SMILEY_TITLE_TONGUE . "' alt='Tongue' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_crying')) {
-		$comment = str_ireplace(":crying:", "<img src='" . cmtx_comments_folder() . "images/smilies/crying.gif' title='Crying' alt='Crying' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_CRYING, "<img src='" . cmtx_comments_folder() . "images/smilies/crying.gif' title='" . CMTX_SMILEY_TITLE_CRYING . "' alt='Crying' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_grin')) {
-		$comment = str_ireplace(":grin:", "<img src='" . cmtx_comments_folder() . "images/smilies/grin.gif' title='Grin' alt='Grin' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_GRIN, "<img src='" . cmtx_comments_folder() . "images/smilies/grin.gif' title='" . CMTX_SMILEY_TITLE_GRIN . "' alt='Grin' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_wink')) {
-		$comment = str_ireplace(":wink:", "<img src='" . cmtx_comments_folder() . "images/smilies/wink.gif' title='Wink' alt='Wink' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_WINK, "<img src='" . cmtx_comments_folder() . "images/smilies/wink.gif' title='" . CMTX_SMILEY_TITLE_WINK . "' alt='Wink' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_scared')) {
-		$comment = str_ireplace(":scared:", "<img src='" . cmtx_comments_folder() . "images/smilies/scared.gif' title='Scared' alt='Scared' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SCARED, "<img src='" . cmtx_comments_folder() . "images/smilies/scared.gif' title='" . CMTX_SMILEY_TITLE_SCARED . "' alt='Scared' style='" . $smiley_styling . "'/>", $comment);
 	}	
 
 	if (cmtx_setting('enabled_smilies_cool')) {
-		$comment = str_ireplace(":cool:", "<img src='" . cmtx_comments_folder() . "images/smilies/cool.gif' title='Cool' alt='Cool' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_COOL, "<img src='" . cmtx_comments_folder() . "images/smilies/cool.gif' title='" . CMTX_SMILEY_TITLE_COOL . "' alt='Cool' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sleep')) {
-		$comment = str_ireplace(":sleep:", "<img src='" . cmtx_comments_folder() . "images/smilies/sleep.gif' title='Sleep' alt='Sleep' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SLEEP, "<img src='" . cmtx_comments_folder() . "images/smilies/sleep.gif' title='" . CMTX_SMILEY_TITLE_SLEEP . "' alt='Sleep' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_blush')) {
-		$comment = str_ireplace(":blush:", "<img src='" . cmtx_comments_folder() . "images/smilies/blush.gif' title='Blush' alt='Blush' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_BLUSH, "<img src='" . cmtx_comments_folder() . "images/smilies/blush.gif' title='" . CMTX_SMILEY_TITLE_BLUSH . "' alt='Blush' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_unsure')) {
-		$comment = str_ireplace(":unsure:", "<img src='" . cmtx_comments_folder() . "images/smilies/unsure.gif' title='Unsure' alt='Unsure' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_UNSURE, "<img src='" . cmtx_comments_folder() . "images/smilies/unsure.gif' title='" . CMTX_SMILEY_TITLE_UNSURE . "' alt='Unsure' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_shocked')) {
-		$comment = str_ireplace(":shocked:", "<img src='" . cmtx_comments_folder() . "images/smilies/shocked.gif' title='Shocked' alt='Shocked' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SHOCKED, "<img src='" . cmtx_comments_folder() . "images/smilies/shocked.gif' title='" . CMTX_SMILEY_TITLE_SHOCKED . "' alt='Shocked' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	return $comment;
