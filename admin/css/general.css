@@ -2,6 +2,10 @@ img {
 border-style: none;
 }
 
+a {
+outline: 0;
+}
+
 a:link {
 color: blue;
 }
