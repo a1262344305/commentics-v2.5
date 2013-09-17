@@ -606,19 +606,25 @@ function cmtx_get_random_key ($length) { //generates a random key
 
 function cmtx_add_viewer() { //add viewer to database
 
-	global $cmtx_mysql_table_prefix, $cmtx_reference, $cmtx_url; //globalise variables
+	global $cmtx_mysql_table_prefix, $cmtx_reference, $cmtx_url, $cmtx_is_admin; //globalise variables
+	
+	cmtx_unban_viewer(); //unban viewer if requested by admin
+	
+	if (cmtx_setting('viewers_enabled') && !$cmtx_is_admin) { //if viewers feature is enabled and viewer is not admin
+	
+		$ip_address = cmtx_get_ip_address();
+		$user_agent = cmtx_get_user_agent();
+		$page_reference = cmtx_sanitize($cmtx_reference, true, true);
+		$page_url = cmtx_sanitize($cmtx_url, true, true);
 
-	$ip_address = cmtx_get_ip_address();
-	$user_agent = cmtx_get_user_agent();
-	$page_reference = cmtx_sanitize($cmtx_reference, true, true);
-	$page_url = cmtx_sanitize($cmtx_url, true, true);
+		$timestamp = time();
+		$timeout = $timestamp - cmtx_setting('viewers_timeout');
 
-	$timestamp = time();
-	$timeout = $timestamp - cmtx_setting('viewers_timeout');
-
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `ip_address` = '$ip_address'");
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "viewers` (`user_agent`, `ip_address`, `page_reference`, `page_url`, `timestamp`) VALUES ('$user_agent', '$ip_address', '$page_reference', '$page_url', '$timestamp')");
+		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
+		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `ip_address` = '$ip_address'");
+		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "viewers` (`user_agent`, `ip_address`, `page_reference`, `page_url`, `timestamp`) VALUES ('$user_agent', '$ip_address', '$page_reference', '$page_url', '$timestamp')");
+	
+	}
 
 } //end of add-viewer function
 
@@ -658,7 +664,7 @@ function cmtx_get_query ($type) { //gets query string from URL
 } //end of get-query function
 
 
-function cmtx_unban_user() { //unban user if requested
+function cmtx_unban_viewer() { //unban viewer if requested
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -667,13 +673,19 @@ function cmtx_unban_user() { //unban user if requested
 	while ($ban = mysql_fetch_assoc($bans)) {
 
 		if (cmtx_get_ip_address() == $ban['ip_address']) {
-			@setcookie("Commentics-Ban", "", time() - 3600, '/');
+
+			?><script type="text/javascript">
+			// <![CDATA[
+			jQuery.removeCookie('Commentics-Ban', { path: '/' });
+			// ]]>
+			</script><?php
+			
 			mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `id` = '" . $ban['id'] . "'");
 		}
 
 	}
 
-} //end of unban-user function
+} //end of unban-viewer function
 
 
 function cmtx_strlen($entry) { //get length of string

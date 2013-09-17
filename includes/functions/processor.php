@@ -975,8 +975,14 @@ function cmtx_set_form_cookie($name, $email, $website, $town, $country) { //save
 	$website = cmtx_strip_slashes(cmtx_decode($website));
 	$town = cmtx_strip_slashes(cmtx_decode($town));
 	$country = cmtx_strip_slashes(cmtx_decode($country));
-
-	@setcookie("Commentics-Form", $name . "|" . $email . "|" . $website . "|" . $town . "|" . $country, 60*60*24*cmtx_setting('form_cookie_days') + time(), '/'); //set form cookie
+	
+	$value = $name . '|' . $email . '|' . $website . '|' . $town . '|' . $country;
+	
+	?><script type="text/javascript">
+	// <![CDATA[
+	jQuery.cookie('Commentics-Form', "<?php echo $value; ?>", { expires: <?php echo cmtx_setting('form_cookie_days'); ?>, path: '/' });
+	// ]]>
+	</script><?php
 
 } //end of set-form-cookie function
 
@@ -1352,8 +1358,11 @@ function cmtx_ban ($reason) { //ban user
 		//insert user's IP address into 'bans' database table
 		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `dated`) VALUES ('$ip_address', '$reason', NOW())");
 
-		@setcookie("Commentics-Ban", "Banned", (60 * 60 * 24 * cmtx_setting('ban_cookie_days')) + time(), '/'); //set ban cookie
-		//time calculation: seconds * minutes * hours * days + current time
+		?><script type="text/javascript">
+		// <![CDATA[
+		jQuery.cookie('Commentics-Ban', 'Banned', { expires: <?php echo cmtx_setting('ban_cookie_days'); ?>, path: '/' });
+		// ]]>
+		</script><?php
 
 		cmtx_notify_admin_new_ban($reason); //notify admin of new ban
 
