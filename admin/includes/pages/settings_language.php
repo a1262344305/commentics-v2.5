@@ -69,7 +69,7 @@ foreach (glob('../includes/language/*', GLOB_ONLYDIR) as $dir) {
 	$dir = basename($dir);
 	echo "<option value='" . $dir . "'";
 	if ($dir == cmtx_setting('language_frontend')) { echo " selected='selected'"; }
-	echo ">" . $dir . "</option>";	
+	echo ">" . ucfirst($dir) . "</option>";	
 }
 ?>
 </select>
@@ -81,7 +81,7 @@ foreach (glob('includes/language/*', GLOB_ONLYDIR) as $dir) {
 	$dir = basename($dir);
 	echo "<option value='" . $dir . "'";
 	if ($dir == cmtx_setting('language_backend')) { echo " selected='selected'"; }
-	echo ">" . $dir . "</option>";	
+	echo ">" . ucfirst($dir) . "</option>";	
 }
 ?>
 </select>

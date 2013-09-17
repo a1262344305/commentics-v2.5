@@ -75,13 +75,13 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$g
 <label class='layout_comments_gravatar'><?php echo CMTX_FIELD_LABEL_GRAVATAR_DEFAULT; ?></label>
 <?php
 $gravatar_defaults = "<select name='gravatar_defaults' id='gravatar_defaults' onchange=\"show_hide('gravatar');\">
-<option value='default'>default</option>
-<option value='custom'>custom</option>
-<option value='mm'>mm</option>
-<option value='identicon'>identicon</option>
-<option value='monsterid'>monsterid</option>
-<option value='wavatar'>wavatar</option>
-<option value='retro'>retro</option>
+<option value='default'>Default</option>
+<option value='custom'>Custom</option>
+<option value='mm'>MM</option>
+<option value='identicon'>Identicon</option>
+<option value='monsterid'>Monsterid</option>
+<option value='wavatar'>Wavatar</option>
+<option value='retro'>Retro</option>
 </select>";
 $gravatar_defaults = str_ireplace("'".cmtx_setting('gravatar_default')."'", "'".cmtx_setting('gravatar_default')."' selected='selected'", $gravatar_defaults);
 echo $gravatar_defaults;
@@ -99,10 +99,10 @@ echo $gravatar_defaults;
 <label class='layout_comments_gravatar'><?php echo CMTX_FIELD_LABEL_GRAVATAR_RATING; ?></label>
 <?php
 $gravatar_ratings = "<select name='gravatar_ratings'>
-<option value='g'>g</option>
-<option value='pg'>pg</option>
-<option value='r'>r</option>
-<option value='x'>x</option>
+<option value='g'>G</option>
+<option value='pg'>PG</option>
+<option value='r'>R</option>
+<option value='x'>X</option>
 </select>";
 $gravatar_ratings = str_ireplace("'".cmtx_setting('gravatar_rating')."'", "'".cmtx_setting('gravatar_rating')."' selected='selected'", $gravatar_ratings);
 echo $gravatar_ratings;
