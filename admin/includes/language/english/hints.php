@@ -91,7 +91,7 @@ define('CMTX_HINT_FIX_NAME', 'Capitalizes first letter.<br />Remaining letters l
 define('CMTX_HINT_FIX_TOWN', 'Capitalizes first letter.<br />Remaining letters lowercase.');
 
 define('CMTX_HINT_APPROVE_WEBSITE', 'Manually approve the comment if the user has entered a website address in the website field.');
-define('CMTX_HINT_PING', 'Checks whether the website exists. Your server must be capable to do this.');
+define('CMTX_HINT_PING', 'Checks whether the website exists and is not simply made up.');
 define('CMTX_HINT_NEW_WIN', 'Open link(s) in new window (tab).');
 define('CMTX_HINT_NO_FOLLOW', 'Add <i>rel=nofollow</i> tag to links to stop search engines from following them. This is good for SEO.');
 define('CMTX_HINT_CONVERT_LINKS', 'Make any web links that are entered clickable.');

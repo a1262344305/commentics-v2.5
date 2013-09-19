@@ -400,25 +400,59 @@ function cmtx_validate_email ($email) { //checks whether email address was valid
 
 function cmtx_validate_website ($website) { //checks whether website was valid
 
-	$website_valid = true; //initialise flag as true
-
 	if (!filter_var($website, FILTER_VALIDATE_URL)) {
-		$website_valid = false; //set flag as false
+		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
+		return;
+	}
+	
+	$scheme = parse_url($website, PHP_URL_SCHEME); //get scheme
+	
+	if ($scheme != 'http' && $scheme != 'https') {
+		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
+		return;
+	}
+	
+	$host = parse_url($website, PHP_URL_HOST); //get host
+	
+	if (empty($host)) {
+		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
+		return;
 	}
 
 	if (cmtx_setting('validate_website_ping')) { //if website should be pinged
 
-		$headers = @get_headers($website);
-
-		if ($headers[0] == "HTTP/1.1 404 Not Found") {
-			$website_valid = false; //set flag as false
+		$record = dns_get_record($host);
+		
+		if (!$record) {
+			cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
+			return;
+		}
+		
+		if (extension_loaded('curl')) { //if cURL is available
+		
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Commentics');
+			curl_setopt($ch, CURLOPT_URL, $website);
+			curl_exec($ch);
+			$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
+			if ($http_code >= 200 && $http_code < 300) {
+				//okay
+			} else {
+				cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
+				return;
+			}
+					
 		}
 
 	} //end of if-website-should-be-pinged
-
-	if (!$website_valid) { //if invalid website was entered
-		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
-	}
 
 } //end of validate-website function
 

@@ -35,6 +35,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'en
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_numeric' WHERE `title` = 'enabled_bb_code_list_numeric'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_bullet' WHERE `title` = 'enabled_bb_code_list_bullet'");
 
+mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'validate_website_ping'");
+
 if (mysql_errno()) {
 echo mysql_errno() . ': ' . mysql_error() . '<br />';
 $error = true;

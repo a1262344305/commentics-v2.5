@@ -91,7 +91,7 @@ define('CMTX_HINT_FIX_NAME', 'Hoofdletter voor de eerste letter.<br />Overige le
 define('CMTX_HINT_FIX_TOWN', 'Hoofdletter voor de eerste letter.<br />Overige letters worden kleine letters.');
 
 define('CMTX_HINT_APPROVE_WEBSITE', 'Handmatig bericht goedkeuren als een gebruiker een website adres invult in het website veld.');
-define('CMTX_HINT_PING', 'Controleerd of de website bestaat. je server moet in staat zijn dit te kunnen doen.');
+define('CMTX_HINT_PING', 'Checks whether the website exists and is not simply made up.');
 define('CMTX_HINT_NEW_WIN', 'Open link(s) in nieuw scherm (tab).');
 define('CMTX_HINT_NO_FOLLOW', 'Voeg <i>rel=nofollow</i> tag toe aan links zodat search engines ze niet kunnen volgen. Goed voor SEO.');
 define('CMTX_HINT_CONVERT_LINKS', 'Zorg ervoor dat ingevoerde links klikbaar zijn.');
