@@ -187,7 +187,6 @@ jQuery(document).ready(function() {
 <?php if (cmtx_setting('show_flag')) { ?>
 <div id="cmtx_flag_dialog" title="<?php echo CMTX_FLAG_DIALOG_HEADING; ?>" style="display:none;">
 	<div style="margin-top:10px;">
-	<span class="ui-icon ui-icon-alert" style="float:left; margin: 0 8px 0 0;"></span>
 	<?php echo CMTX_FLAG_DIALOG_CONTENT; ?>
 	</div>
 </div>
