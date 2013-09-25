@@ -69,11 +69,18 @@ width: 32%;
 border-color: transparent !important;
 }
 
-.cmtx_star_image_avg {
+.cmtx_average_rating_stars {
+float: left;
+}
+
+.cmtx_average_rating_stars img {
 vertical-align: bottom;
 }
 
 .cmtx_average_rating_text {
+float: left;
+padding-left: 3px;
+padding-top: 6px;
 color: #424242;
 font-size: 0.7em;
 }
@@ -164,7 +171,6 @@ overflow: hidden;
 }
 
 .cmtx_permalink_box {
-border: 2px solid #828282;
 }
 
 .cmtx_sticky_image {

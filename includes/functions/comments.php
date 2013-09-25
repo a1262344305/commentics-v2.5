@@ -34,7 +34,7 @@ function cmtx_get_comment_and_replies($id) {
 	if (!cmtx_setting('enabled_pagination')) { //if pagination is disabled
 
 			if ($cmtx_comment_counter != 0) { //don't display on first run
-				echo "<div class='cmtx_height_between_comments'></div>";
+				echo '<div class="cmtx_height_between_comments"></div>';
 			}
 
 			//switch box number each time
@@ -62,7 +62,7 @@ function cmtx_get_comment_and_replies($id) {
 		if ($cmtx_loop_counter > $cmtx_offset && $cmtx_loop_counter < $cmtx_offset + (cmtx_setting('comments_per_page') + 1)) { //skip unwanted comments
 
 			if ($cmtx_comment_counter != 0) { //don't display on first run
-				echo "<div class='cmtx_height_between_comments'></div>";
+				echo '<div class="cmtx_height_between_comments"></div>';
 			}
 
 			//switch box number each time
@@ -228,23 +228,23 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 
 	//Rating
 	if (cmtx_setting('show_rating') && $rating != 0) {
-		$cmtx_box .= "<div class='cmtx_rating_block'>";
+		$cmtx_box .= '<div class="cmtx_rating_block">';
 		if ($rating == 1) {
-			$cmtx_box .= cmtx_star_full(1);
-			$cmtx_box .= cmtx_star_empty(4);
+			$cmtx_box .= cmtx_star_full(1, CMTX_RATING_ONE);
+			$cmtx_box .= cmtx_star_empty(4, CMTX_RATING_ONE);
 		} else if ($rating == 2) {
-			$cmtx_box .= cmtx_star_full(2);
-			$cmtx_box .= cmtx_star_empty(3);
+			$cmtx_box .= cmtx_star_full(2, CMTX_RATING_TWO);
+			$cmtx_box .= cmtx_star_empty(3, CMTX_RATING_TWO);
 		} else if ($rating == 3) {
-			$cmtx_box .= cmtx_star_full(3);
-			$cmtx_box .= cmtx_star_empty(2);
+			$cmtx_box .= cmtx_star_full(3, CMTX_RATING_THREE);
+			$cmtx_box .= cmtx_star_empty(2, CMTX_RATING_THREE);
 		} else if ($rating == 4) {
-			$cmtx_box .= cmtx_star_full(4);
-			$cmtx_box .= cmtx_star_empty(1);
+			$cmtx_box .= cmtx_star_full(4, CMTX_RATING_FOUR);
+			$cmtx_box .= cmtx_star_empty(1, CMTX_RATING_FOUR);
 		} else if ($rating == 5) {
-			$cmtx_box .= cmtx_star_full(5);
+			$cmtx_box .= cmtx_star_full(5, CMTX_RATING_FIVE);
 		}
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 
 	//Name and Website
@@ -464,12 +464,12 @@ function cmtx_paginate ($current_page, $range_of_pages, $total_pages) { //displa
 } //end of paginate function
 
 
-function cmtx_star_full ($amount) { //star full
+function cmtx_star_full ($amount, $title) { //star full
 
 	$star_full = '';
 
 	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_full .= "<img src='" . cmtx_comments_folder() . "images/stars/star_full.png' title='" . CMTX_TITLE_FULL_STAR . "' alt='Full Star' class='cmtx_star_image'/>";
+		$star_full .= '<img src="' . cmtx_comments_folder() . 'images/stars/star_full.png" title="' . $title . '" alt="Full Star" class="cmtx_star_image"/>';
 	}
 
 	return $star_full;
@@ -477,56 +477,17 @@ function cmtx_star_full ($amount) { //star full
 } //end of star-full function
 
 
-function cmtx_star_empty ($amount) { //star empty
+function cmtx_star_empty ($amount, $title) { //star empty
 
 	$star_empty = '';
 
 	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_empty .= "<img src='" . cmtx_comments_folder() . "images/stars/star_empty.png' title='" . CMTX_TITLE_EMPTY_STAR . "' alt='Empty Star' class='cmtx_star_image'/>";
+		$star_empty .= '<img src="' . cmtx_comments_folder() . 'images/stars/star_empty.png" title="' . $title . '" alt="Empty Star" class="cmtx_star_image"/>';
 	}
 
 	return $star_empty;
 
 } //end of star-empty function
-
-
-function cmtx_star_full_avg ($amount) { //star full for average rating
-
-	$star_full = '';
-
-	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_full .= "<img src='" . cmtx_comments_folder() . "images/stars/star_full.png' title='" . CMTX_TITLE_FULL_STAR . "' alt='Full Star' class='cmtx_star_image_avg'/>";
-	}
-
-	return $star_full;
-
-} //end of star-full-avg function
-
-
-function cmtx_star_half_avg ($amount) { //star half for average rating
-
-	$star_half = '';
-
-	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_half .= "<img src='" . cmtx_comments_folder() . "images/stars/star_half.png' title='" . CMTX_TITLE_HALF_STAR . "' alt='Half Star' class='cmtx_star_image_avg'/>";
-	}
-
-	return $star_half;
-
-} //end of star-half-avg function
-
-
-function cmtx_star_empty_avg ($amount) { //star empty for average rating
-
-	$star_empty = '';
-
-	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_empty .= "<img src='" . cmtx_comments_folder() . "images/stars/star_empty.png' title='" . CMTX_TITLE_EMPTY_STAR . "' alt='Empty Star' class='cmtx_star_image_avg'/>";
-	}
-
-	return $star_empty;
-
-} //end of star-empty-avg function
 
 
 function cmtx_number_of_comments() { //get total number of comments
@@ -546,9 +507,16 @@ function cmtx_number_of_ratings() { //get total number of ratings
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
+	//get comment ratings
 	$result = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `rating` != '0' AND `is_approved` = '1'");
-
-	$total = mysql_num_rows($result);
+	$total_1 = mysql_num_rows($result);
+	
+	//get guest ratings
+	$result = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id'");
+	$total_2 = mysql_num_rows($result);
+	
+	//calculate total
+	$total = $total_1 + $total_2;
 
 	return $total;
 
@@ -559,15 +527,44 @@ function cmtx_average_rating() { //get average rating
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
-	$result = mysql_query("SELECT AVG(rating) FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `rating` != '0' AND `page_id` = '$cmtx_page_id'");
-
+	$result = mysql_query("SELECT AVG(`rating`) 
+	FROM ( 
+	SELECT `rating` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `rating` != '0' AND `page_id` = '$cmtx_page_id' 
+	UNION ALL 
+	SELECT `rating` FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id' 
+	) 
+	AS `average`
+	");
+	
 	$average = mysql_fetch_assoc($result);
+	$average = $average["AVG(`rating`)"];
 
-	$average = round($average["AVG(rating)"] / 0.5) * 0.5;
-
+	$average = round($average, 0);
+	
 	return $average;
 
 } //end of average-rating function
+
+
+function cmtx_has_rated_comments() { //checks whether user has already rated
+
+	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
+	
+	$ip_address = cmtx_get_ip_address();
+	
+	$rated = false; //initialise flag as false
+
+	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address' AND `rating` != '0'")) != 0) {
+		$rated = true;
+	}
+	
+	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address'")) != 0) {
+		$rated = true;
+	}
+	
+	return $rated;
+	
+} //end of has-rated-comments function
 
 
 function cmtx_get_permalink($id) { //build the permalink

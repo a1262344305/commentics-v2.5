@@ -626,8 +626,8 @@ jQuery(document).ready(function() {
 <script type="text/javascript">
 // <![CDATA[
 jQuery(document).ready(function() {
-	jQuery('.cmtx_approval_box').delay(3000).fadeOut(2000);
-	jQuery('.cmtx_success_box').delay(3000).fadeOut(2000);
+	jQuery('.cmtx_approval_box').delay(2000).fadeOut(2000);
+	jQuery('.cmtx_success_box').delay(2000).fadeOut(2000);
 });
 // ]]>
 </script>
@@ -906,7 +906,7 @@ echo $cmtx_countries;
 <?php function cmtx_output_rating () { ?>
 <?php global $cmtx_default_rating, $cmtx_path; ?>
 <?php if (cmtx_setting('enabled_rating')) { ?>
-<?php if (cmtx_setting('repeat_ratings') == 'hide' && cmtx_has_rated()) {} else { ?>
+<?php if (cmtx_setting('repeat_ratings') == 'hide' && cmtx_has_rated_form()) {} else { ?>
 <div class="cmtx_height_between_fields"></div>
 <label class="cmtx_label">
 <?php echo CMTX_LABEL_RATING; ?>
@@ -914,7 +914,7 @@ echo $cmtx_countries;
 </label>
 <?php
 require_once $cmtx_path . 'includes/template/ratings.php';
-if (cmtx_setting('repeat_ratings') == 'disable' && cmtx_has_rated()) {
+if (cmtx_setting('repeat_ratings') == 'disable' && cmtx_has_rated_form()) {
 	$cmtx_ratings = $cmtx_rated;
 } else {
 	if (!empty($cmtx_default_rating)) {

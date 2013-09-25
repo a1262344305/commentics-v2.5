@@ -164,7 +164,7 @@ function cmtx_load_form_cookie() { //load cookie form field values
 } //end of load-form-cookie function
 
 
-function cmtx_has_rated() { //checks whether user has already rated
+function cmtx_has_rated_form() { //checks whether user has already rated
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 	
@@ -178,7 +178,7 @@ function cmtx_has_rated() { //checks whether user has already rated
 	
 	return $rated;
 	
-} //end of has-rated function
+} //end of has-rated-form function
 
 
 function cmtx_clean_form_defaults() { //clean default form field values

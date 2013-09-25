@@ -47,10 +47,10 @@ define('CMTX_SORT_6', 'Kritisch');
 /* Topic */
 define('CMTX_TOPIC_INTRO', 'Je dient een beoordeling');
 
-/* Star titles */
-define('CMTX_TITLE_FULL_STAR', 'Hele Ster');
-define('CMTX_TITLE_HALF_STAR', 'Halve Ster');
-define('CMTX_TITLE_EMPTY_STAR', 'Lege Ster');
+/* Average Rating */
+define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
 define('CMTX_SAYS', 'schreef...');

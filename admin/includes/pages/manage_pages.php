@@ -65,6 +65,7 @@ if (cmtx_setting('is_demo')) {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
 mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
+mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
 mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
 $comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
 while ($comment = mysql_fetch_assoc($comments)) {
@@ -92,6 +93,7 @@ for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
 	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
+	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
 	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
 	$comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
 	while ($comment = mysql_fetch_assoc($comments)) {

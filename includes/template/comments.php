@@ -25,6 +25,58 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 <?php if (!defined('IN_COMMENTICS')) { die('Access Denied.'); } ?>
 
+<?php if (cmtx_setting('show_average_rating')) { ?>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+	jQuery('.cmtx_average_rating_stars').raty({
+		cancel: false,
+		half: false,
+		halfShow: false,
+		hints: ['<?php echo cmtx_escape_js(CMTX_RATING_ONE); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_TWO); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_THREE); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_FOUR); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_FIVE); ?>'],
+		number: 5,
+		numberMax: 5,
+		path: '<?php echo cmtx_comments_folder() . 'images/stars/'?>',
+		<?php if (cmtx_has_rated_comments()) { echo 'readOnly: true,'; } ?>
+		score: <?php echo cmtx_average_rating(); ?>,
+		scoreName: 'cmtx_score',
+		single: false,
+		size: 22,
+		space: false,
+		starOff: 'star_empty.png',
+		starOn: 'star_full.png',
+		width: false,
+		click: function(rating, e) {
+		
+			jQuery.ajax({
+
+				type: 'POST',
+				url: '<?php echo cmtx_comments_folder() . 'rate.php'; ?>',
+				data: {id: <?php echo $cmtx_page_id; ?>, rating: rating},
+				cache: false,
+
+				success: function(response) {
+					if (response == '1' || response == '2' || response == '3' || response == '4' || response == '5') { //success
+						jQuery('.cmtx_average_rating_stars').fadeOut(1000, function() { jQuery('.cmtx_average_rating_stars').raty('set', { score: response, readOnly: true }).fadeIn(1000); });
+						jQuery('.cmtx_average_rating_text').fadeOut(1000, function() { jQuery('.cmtx_average_rating_text').text(response + '<?php echo '/5 (' . (cmtx_number_of_ratings() + 1) . ')'; ?>').fadeIn(1000); });
+					} else { //error
+						jQuery('.cmtx_error_ajax').clearQueue();
+						jQuery('.cmtx_error_ajax').text(response);
+						jQuery('.cmtx_error_ajax').css('top', e.pageY);
+						jQuery('.cmtx_error_ajax').css('left', e.pageX);
+						jQuery('.cmtx_error_ajax').fadeIn(500).delay(2000).fadeOut(500);
+					}
+				}
+
+			});
+			
+		}
+	});
+});
+// ]]>
+</script>
+<?php } ?>
+
 <?php if (cmtx_setting('show_reply') && cmtx_setting('scroll_reply')) { ?>
 <script type="text/javascript">
 // <![CDATA[
@@ -178,7 +230,7 @@ function cmtx_read_more(id) {
 <script type="text/javascript">
 // <![CDATA[
 jQuery(document).ready(function() {
-	jQuery('#cmtx_perm_<?php echo $_GET['cmtx_perm']; ?>').effect('highlight', {}, 2000);
+	jQuery('#cmtx_perm_<?php echo $_GET['cmtx_perm']; ?>').effect('highlight', {color: '#FFFF99'}, 2000);
 });
 // ]]>
 </script>
@@ -374,57 +426,14 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 
 
 	/* *** Average Rating *** */
-	echo "<div class='cmtx_average_rating_block'>";
+	echo '<div class="cmtx_average_rating_block">';
 	if (cmtx_setting('show_average_rating')) {
+	
+		echo '<div class="cmtx_average_rating_stars"></div>';
 
-	$cmtx_average_rating = cmtx_average_rating();
+		$cmtx_average_rating = cmtx_average_rating();
 
-	$cmtx_output_average_rating = '';
-
-	switch ($cmtx_average_rating) {
-	case 1:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(1);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(4);
-	break;
-	case 1.5:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(1);
-	$cmtx_output_average_rating .= cmtx_star_half_avg(1);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(3);
-	break;
-	case 2:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(2);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(3);
-	break;
-	case 2.5:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(2);
-	$cmtx_output_average_rating .= cmtx_star_half_avg(1);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(2);
-	break;
-	case 3:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(3);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(2);
-	break;
-	case 3.5:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(3);
-	$cmtx_output_average_rating .= cmtx_star_half_avg(1);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(1);
-	break;
-	case 4:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(4);
-	$cmtx_output_average_rating .= cmtx_star_empty_avg(1);
-	break;
-	case 4.5:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(4);
-	$cmtx_output_average_rating .= cmtx_star_half_avg(1);
-	break;
-	case 5:
-	$cmtx_output_average_rating .= cmtx_star_full_avg(5);
-	break;
-	}
-
-	if ($cmtx_average_rating != 0) {
-		echo $cmtx_output_average_rating . " ";
-		echo "<span class='cmtx_average_rating_text'>";
+		echo '<span class="cmtx_average_rating_text">';
 		if (isset($cmtx_rich_snippets)) {
 		
 			if (cmtx_setting('rich_snippets_markup') == "Microdata") {
@@ -458,10 +467,9 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 		} else {
 			echo $cmtx_average_rating . "/5 (" . cmtx_number_of_ratings() . ")</span>";
 		}
+			
 	}
-
-	}
-	echo "</div>";
+	echo '</div>';
 
 
 	

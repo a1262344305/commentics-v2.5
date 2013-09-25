@@ -37,6 +37,15 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'en
 
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'validate_website_ping'");
 
+mysql_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `page_id` int(10) unsigned NOT NULL default '0',
+  `rating` tinyint(1) unsigned NOT NULL default '0',
+  `ip_address` varchar(250) NOT NULL default '',
+  `dated` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
+
 if (mysql_errno()) {
 echo mysql_errno() . ': ' . mysql_error() . '<br />';
 $error = true;

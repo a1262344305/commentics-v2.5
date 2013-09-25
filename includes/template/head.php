@@ -62,3 +62,11 @@ document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comment
 // ]]>
 </script>
 <?php } ?>
+
+<?php if (cmtx_setting('show_average_rating')) { ?>
+<script type="text/javascript">
+// <![CDATA[
+document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comments_folder(); ?>raty/jquery.raty.min.js"></scr' + 'ipt>');
+// ]]>
+</script>
+<?php } ?>

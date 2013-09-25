@@ -525,6 +525,17 @@ function cmtx_validate_rating ($rating) { //checks whether rating was valid
 } //end of validate-rating function
 
 
+function cmtx_delete_rating () { //delete guest rating if rated
+
+	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
+	
+	$ip_address = cmtx_get_ip_address();
+
+	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id'");
+
+} //end of delete-rating function
+
+
 function cmtx_validate_reply ($reply_id, $page_id) { //checks whether reply was valid
 
 	global $cmtx_mysql_table_prefix; //globalise variables

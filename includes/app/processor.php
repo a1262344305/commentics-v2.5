@@ -273,9 +273,9 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 	}
 
 	/* Rating */
-	if (cmtx_setting('repeat_ratings') != "allow" && cmtx_has_rated()) { $cmtx_rating = 0; } else {
+	if (cmtx_setting('repeat_ratings') != 'allow' && cmtx_has_rated_form()) { $cmtx_rating = 0; } else {
 		if (!isset($_POST['cmtx_rating'])) { //if rating not submitted
-			$_POST['cmtx_rating'] = ""; //set it with an empty value
+			$_POST['cmtx_rating'] = ''; //set it with an empty value
 		}
 		if (cmtx_setting('enabled_rating')) { //if rating field is enabled
 			$cmtx_rating = trim($_POST['cmtx_rating']); //remove any space at beginning and end
@@ -551,6 +551,10 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 			$_SESSION['cmtx_captcha'] = ''; //reset session
 		}
 		
+		if ($cmtx_rating != 0) {
+			cmtx_delete_rating(); //delete guest rating if rated
+		}
+		
 	} else { //if comment is a success (no approval required)
 	
 		if (!cmtx_page_exists()) { //if page does not exist
@@ -607,6 +611,10 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		if (cmtx_session_set()) { //if there's a session
 			$_SESSION['cmtx_question'] = ''; //reset session
 			$_SESSION['cmtx_captcha'] = ''; //reset session
+		}
+		
+		if ($cmtx_rating != 0) {
+			cmtx_delete_rating(); //delete guest rating if rated
 		}
 		
 	}
