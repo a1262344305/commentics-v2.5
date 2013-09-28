@@ -25,6 +25,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 <?php if (!defined('IN_COMMENTICS')) { die('Access Denied.'); } ?>
 
+<!-- Start of Commentics -->
+
+<div class="cmtx_container">
+
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css"/>
 
 <?php if (cmtx_setting('enabled_privacy') || cmtx_setting('enabled_terms')) { ?>

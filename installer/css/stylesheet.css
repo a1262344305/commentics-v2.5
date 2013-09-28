@@ -2,6 +2,22 @@ img {
 border-style: none;
 }
 
+a:link {
+color: blue;
+}
+
+a:visited {
+color: blue;
+}
+
+a:active {
+color: blue;
+}
+
+a:hover {
+color: blue;
+}
+
 .logo {
 padding-bottom: 15px;
 }

@@ -1,12 +1,12 @@
-img {
+/**************************** Page ******************************/
+
+.cmtx_container img {
 border-style: none;
 }
 
-a {
-outline: 0;
+.cmtx_container a {
+outline-style: none;
 }
-
-/**************************** Page ******************************/
 
 .cmtx_page_alert {
 color: #FFFFFF;

@@ -75,3 +75,7 @@ if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first
 	
 }
 ?>
+
+</div>
+
+<!-- End of Commentics -->
