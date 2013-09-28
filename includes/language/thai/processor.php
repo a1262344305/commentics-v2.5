@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'ข้อความคิดเห็นของ
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'ช่องระบุชื่อไม่สามารถเว้นว่าง กรุณาพิมพ์ชื่อของคุณ');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'ช่องระบุชื่อ สำหรับระบุชื่อเพียงชื่อเดียว กรุณาพิมพ์ชื่อเพียงชื่อเดียว');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'ชื่อซึ่งระบุตรงกับชื่อที่ถูกสงวนไว้ กรุณาใช้ชื่ออื่น');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'ชื่อซึ่งระบุตรงกับชื่อต้องห้าม กรุณาใช้ชื่ออื่น');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'ชื่อซึ่งระบุไม่ใช่ชื่อของคุณ กรุณาพิมพ์ชื่อจริงของคุณ');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'ที่อยู่เ
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'ที่อยู่เว็บไซต์ซึ่งปรากฏอยู่ในข้อความคิดเห็น ตรงกับที่อยู่เว็บไซต์ต้องห้าม กรุณาลบออก');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'ที่อยู่เว็บไซต์ตามที่ระบุไม่ใช่ที่อยู่เว็บไซต์ของคุณ กรุณาพิมพ์ที่อยู่เว็บไซต์ของคุณ');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'ช่องสำหรับระบุชื่อเมืองที่คุณอาศัยอยู่ไม่สามารถเว้นว่าง กรุณาพิมพ์ชื่อเมืองซึ่งคุณอาศัยอยู่');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'ชื่อเมืองตามที่ระบุตรงกับชื่อเมืองซึ่งถูกสงวนไว้ กรุณาพิมพ์ชื่อเมืองอื่น');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'ชื่อเมืองตามที่ระบุตรงกับชื่อเมืองต้องห้าม กรุณาพิมพ์ชื่อเมืองอื่น');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'ชื่อเมืองตามที่ระบุไม่ใช่ชื่อเมืองซึ่งคุณอาศัยอยู่ กรุณาพิมพ์ชื่อเมืองซึ่งคุณอาศัยอยู่');

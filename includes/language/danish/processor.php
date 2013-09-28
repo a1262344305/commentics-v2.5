@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Din kommentar er tilføjet.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Navnefeltet skal udfyldes, indtast dit navn.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Du kan kun angive et enkelt navn i navnefeltet.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Navnet skal starte med et bogstav og kan evt. indeholde tegnene  - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Det indtastede navn benyttes allerede af en anden. Angiv et andet navn.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Det indtastede navn er ikke tilladt at bruge her. Indtast et andet navn.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Du har indtastet et falsk navn. Indtast dit tigtige navn.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Den indtastede hjemmesid
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Den indtastede hjemmesideadresse i din kommentar er ikke tilladt her.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Den indtastede hjemmesideadresse er ikke din egen. Indtast din hjemmesideadresse.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Byfeltet skal udfyldes. Indtast din by');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'Bynavnet skal starte med et bogstav og kan evt. indeholde tegnene  - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Det indtastede bynavn kan ikke bruges. Indtast en anden by.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Det indtastede bynavn er ikke tilladt. Indtast en anden by.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Det indtastede bynavn er ikke din by. Indtast din egen by.');

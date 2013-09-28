@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Il tuo commento è stato aggiunto.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Il campo nome non può essere vuoto. Inserisci il tuo nome.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Solo un nome può essere inserito in questo campo. Inserisci un nome.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Il nome deve iniziare con una lettera e contenere facoltativamente - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Il nome inserito è riservato. Scegliere un altro.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Il nome inserito è vietato. Scegliere un altro.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Il nome inserito non è tuo. Per favore inserisci il tuo nome.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'L\'indirizzo del sito we
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'L\'indirizzo del sito web nel tuo commento è vietato. Si prega di rimuoverlo.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'L\'indirizzo del sito inserito non è tuo. Inserisci il tuo sito web.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Il campo città non può essere vuoto. Inserisci la tua città.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'La città deve cominciare con una lettera e contenere facoltativamente - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'La città inserita è riservata. Si prega di inserirne un\'altra.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'La città inserita è riservata. Si prega di inserirne un\'altra.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'La città inserita non è la tua. Inserisci la tua città.');

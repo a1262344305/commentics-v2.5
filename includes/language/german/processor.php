@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Ihr Kommentar wurde hinzugefügt.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Das Eingabefeld für den Namen darf nicht leer sein. Bitte geben Sie Ihren  Namen ein.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Es darf nur ein Wort im Eingabefeld für den Namen eingeben werden. Bitte geben Sie einen neuen Namen ein.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Der Name muss mit einem Buchstaben beginnen und kann optional einen Bindestrich und Punkt enthalten - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Der eingegebene Name ist reserviert. Bitte wählen Sie einen anderen Namen.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Der eingegebene Name ist nicht erlaubt. Bitte wählen Sie einen anderen Namen.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Der eingegebene Name ist offenbar nicht Ihr Name. Bitte verwenden Sie Ihren wahren Namen.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Die eingegebene Webseite
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Die Webseiten-Adresse in Deinem Kommentar ist nicht erlaubt. Bitte entfernen Sie sie.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Die eingegebene Webseiten-Adresse ist offenbar nicht Ihre. Bitte geben Sie Ihre wahre Webseiten-Adresse ein.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Das Eingabefeld für die Stadt darf nicht leer sein. Bitte geben Sie Ihre Stadt ein.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'Der Stadtname muss mit einem Buchstaben beginnen und kann optional einen Bindestrich und Punkt enthalten - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Die eingegebene Stadt ist reserviert. Bitte geben Sie eine andere Stadt ein.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Die eingegebene Stadt ist nicht erlaubt. Bitte geben Sie eine andere Stadt ein.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Bitte geben Sie eine andere Stadt ein.');

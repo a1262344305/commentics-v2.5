@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Vaš komentar je dodan.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Polje \'Naziv\' ne može biti prazno. Molimo unesite svoje ime.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Polje \'Naziv\' uzima samo jednu riječ. Molimo unesite svoje ime.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Ime mora početi sa slovom i opcijski sadrži - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Upisano ime je rezervirana riječ. Molimo odaberite drugo ime.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Upisano ime je zabranjena riječ. Molimo odaberite drugo ime.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Upisano ime nije vaše. Molimo unesite svoje pravo ime.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Web adresa je zabranjena
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Web adresa u vašem komentaru je zabranjena. Molimo da ju uklonite.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Web adresa nije vaša. Molimo unesite vašu web stranicu.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Polje \'Grad\' ne može biti prazno. Molimo unesite svoje mjesto.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'Grad mora početi sa slovom i opcijski sadrži - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Ime grada je rezervirano. Molimo unesite drugi grad.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Ime grada je zabranjeno. Molimo unesite drugi grad.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Upisani grad nije vaš. Molimo unesite vaš grad.');

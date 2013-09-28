@@ -316,7 +316,7 @@ function cmtx_is_admin_email ($email) { //checks whether email address belongs t
 
 function cmtx_check_for_one_name ($name) { //checks whether a single name was entered
 
-	$number_of_names = count(explode(" ", $name)); //get number of names
+	$number_of_names = count(explode(' ', $name)); //get number of names
 
 	if ($number_of_names > 1) { //if more than one name
 		cmtx_error(CMTX_ERROR_MESSAGE_ONE_NAME); //reject user for entering more than one name
@@ -327,10 +327,14 @@ function cmtx_check_for_one_name ($name) { //checks whether a single name was en
 
 function cmtx_validate_name ($name) { //checks whether name was valid
 
-	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $name) || !preg_match('/^[\p{L}]+/u', $name)) { //if the submitted name does not validate
-		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_NAME); //reject user for entering invalid name	
+	if (!preg_match('/^[\p{L}]+/u', $name)) { //if the submitted name does not start with a letter
+		cmtx_error(CMTX_ERROR_MESSAGE_START_NAME); //reject user for not starting with a letter
 	}
-
+	
+	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $name)) { //if the submitted name contains invalid characters
+		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_NAME); //reject user for entering invalid characters
+	}
+	
 	// letters, ampersand, hyphen, apostrophe, period, space
 	// \p{L} (any kind of letter from any language)
 
@@ -459,10 +463,14 @@ function cmtx_validate_website ($website) { //checks whether website was valid
 
 function cmtx_validate_town ($town) { //checks whether town was valid
 
-	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $town) || !preg_match('/^[\p{L}]+/u', $town)) { //if the submitted town does not validate
-		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_TOWN); //reject user for entering invalid town
+	if (!preg_match('/^[\p{L}]+/u', $town)) { //if the submitted town does not start with a letter
+		cmtx_error(CMTX_ERROR_MESSAGE_START_TOWN); //reject user for not starting with a letter
 	}
-
+	
+	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $town)) { //if the submitted town contains invalid characters
+		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_TOWN); //reject user for entering invalid characters
+	}
+	
 	// letters, ampersand, hyphen, apostrophe, period, space
 	// \p{L} (any kind of letter from any language)
 

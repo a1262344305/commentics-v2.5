@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Вашият коментар е добавен.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Полето за името не може да бъде празно. Моля, въведете името си.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Само едно име може да бъде въведено в полето. Моля, въведете своето име.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Името трябва да започва с буква и може да съдържа знака & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Въведеното име е запазено. Моля, изберете друго име.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Въведеното име е забранено. Моля, изберете друго име.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Въведеното име не е Вашето. Моля, въведете истинското си име.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Въведеният у�
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Уеб сайтът във Вашия коментар е забранен. Моля да го изтриете.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Въведеният уеб сайт не е Ваш. Моля, въведете Вашия уеб сайт.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Полето за града не може да бъде празно. Моля, въведете Вашия град.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'Градът трябва да започва с буква и може да съдържа знака & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Въведеният град е запазен. Моля, въведете друг град.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Въведеният град е забранен. Моля, въведете друг град.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Въведеният град не е Вашият. Моля, въведете Вашия град.');

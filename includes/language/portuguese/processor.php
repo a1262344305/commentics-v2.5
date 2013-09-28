@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Seu comentário foi adicionado.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'O campo Nome não pode ser deixado vazio. Por favor, digite seu nome.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Apenas um nome pode ser colocado no campo Nome. Por favor, digite apenas um nome.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'O nome digitado é reservado. Por favor, escolha outro nome.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'O nome digitado é proibido. Por favor, escolha outro nome.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'O nome digitado não é o seu. Por favor, digite seu nome real.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'O website digitado é pr
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'O website digitado em seu comentário é proibido. Por favor, remova-o.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'O website digitado não é seu. Por favor, digite seu website.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'O campo Cidade não pode ser deixado vazio. Por favor, digete sua cidade.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'A cidade digitada é reservada. Por favor, digite outra cidade.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'A cidade digitada é proibida. Por favor, digite outra cidade.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'A cidade digitada não é sua, Por favor, digite sua cidade.');

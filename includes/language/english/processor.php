@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Your comment has been added.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'The name field can not be empty. Please enter your name.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Only one name can be entered for the name field. Please enter one name.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'The name entered is reserved. Please choose another name.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'The name entered is forbidden. Please choose another name.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'The name entered is not yours. Please enter your real name.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'The website address ente
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'The website address in your comment is forbidden. Please remove it.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'The website address entered is not yours. Please enter your website.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'The town field can not be empty. Please enter your town.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'The town entered is reserved. Please enter another town.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'The town entered is forbidden. Please enter another town.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'The town entered is not yours. Please enter your town.');

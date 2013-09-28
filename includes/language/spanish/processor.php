@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Su comentario ha sido añadido.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'El campo Nombre no puede estar vacío. por favor, escriba su nombre.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Solo un nombre puede ser escrito en el campo Nombre. Por favor escriba su nombre.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Este nombre está reservado. Por favor, elija otro nombre.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'El nombre introducido está reservado. Por favor, elija otro nombre.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'El nombre introducido no es el suyo. Por favor, introduzca su nombre real.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'La dirección web introd
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Los enlaces en los comentarios están prohibidos. Por favor, elimínelos.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Esta dirección web no es la suya. Por favor, introduzca su dirección web.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'El campo Ciudad no puede estar vacío. Por favor, introduzca su ciudad.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'La ciudad introducidad está reservada. Por favor, escriba otra ciudad.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'La ciudad introducida está prhibida. Por favor, escriba otra ciudad.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'La ciudad introducida no es la suya. Por favor, escriba su ciudad.');

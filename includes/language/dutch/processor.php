@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Uw bericht is toegevoegd.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Uw naam is verplicht. Voer aub uw naam in.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'U kunt maar 1 naam invoeren.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Deze naam is al in gebruik. Kies een andere gebruikersnaam.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Deze gebruikersnaam is verboden. Kies een andere gebruikersnaam.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Dit is niet uw gebruikersnaam. Voer uw gebruikersnaam in.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Deze website is verboden
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'De website in uw bericht is verboden. Aub verwijderen.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Deze website is niet van u. Voer aub uw website in.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Het veld plaats mag niet leeg zijn. Voer aub uw plaats in.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Deze plaatsnaam is gereserveerd. Voer een andere plaats in.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Deze plaatsnaam is verboden. Voer een andere plaats in.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Deze plaatsnaam hoort niet bij u. Voer uw plaats in.');

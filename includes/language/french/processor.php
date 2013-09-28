@@ -44,7 +44,8 @@ define('CMTX_SUCCESS_TEXT', 'Votre commentaire a été ajouté.');
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Le champ Nom ne peut pas être vide. Veuillez entrer votre nom.');
 define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Un seul nom peut être entré pour le champ Nom. Veuillez entrer un seul nom.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Le nom entré est déjà réservé. Veuillez choisir un autre nom.');
 define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Le nom saisi est interdit. Veuillez choisir un autre nom.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Le nom entré n\'est pas le vôtre. Veuillez entrer votre vrai nom.');
@@ -61,7 +62,8 @@ define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'L\'adresse du site web s
 define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'L\'adresse du site web dans votre commentaire est interdite. Veuillez la supprimer.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'L\'adresse du site web saisie n\'est pas la vôtre. Veuillez entrer votre vraie adresse site web.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Le champ Ville ne peut pas être vide. Veuillez entrer votre ville.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_START_TOWN', 'The town must start with a letter. Please start it with a letter.');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town can only contain these characters: A-Z \' & . -');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'La ville est entré est réservé. S\'il vous plaît entrer dans une autre ville.');
 define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'La ville est entrée est interdite. S\'il vous plaît entrer dans une autre ville.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'La ville est entrée n\'est pas le vôtre. S\'il vous plaît entrer votre vraie ville.');
