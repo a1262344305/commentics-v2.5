@@ -43,10 +43,10 @@ define('CMTX_SUCCESS_TEXT', 'Ihr Kommentar wurde hinzugefügt.');
 
 /* Error messages */
 define('CMTX_ERROR_MESSAGE_NO_NAME', 'Das Eingabefeld für den Namen darf nicht leer sein. Bitte geben Sie Ihren  Namen ein.');
-define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Es darf nur <strong><em>ein</em></strong> Wort im Eingabefeld für den Namen eingeben werden. Bitte geben Sie einen neuen Namen ein.');
-define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Es darf nur ein Wort im Eingabefeld für den Namen eingeben werden. Bitte geben Sie einen neuen Namen ein.');
+define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'Der Name muss mit einem Buchstaben beginnen und kann optional einen Bindestrich und Punkt enthalten - & . \'');
 define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Der eingegebene Name ist reserviert. Bitte wählen Sie einen anderen Namen.');
-define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Der eingegebene Name ist verboten. Bitte wählen Sie einen anderen Namen.');
+define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Der eingegebene Name ist nicht erlaubt. Bitte wählen Sie einen anderen Namen.');
 define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Der eingegebene Name ist offenbar nicht Ihr Name. Bitte verwenden Sie Ihren wahren Namen.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_NAME', 'Der eingegebene Name enthält einen Link. Bitte geben Sie Ihren Namen ein.');
 define('CMTX_ERROR_MESSAGE_NO_EMAIL', 'Das Eingabefeld für die E-Mail darf nicht leer sein. Bitte geben Sie Ihre  E-Mail-Adresse ein.');
@@ -57,18 +57,18 @@ define('CMTX_ERROR_MESSAGE_DUMMY_EMAIL', 'Die eingegebene eMail-Adresse ist offe
 define('CMTX_ERROR_MESSAGE_NO_WEBSITE', 'Das Eingabefeld für die Webseite darf nicht leer sein. Bitte geben Sie Ihre  Webseite ein.');
 define('CMTX_ERROR_MESSAGE_INVALID_WEBSITE', 'Die eingegebene Webseiten-Adresse scheint nicht korrekt zu sein. Bitte überprüfen Sie Ihre Eingabe.');
 define('CMTX_ERROR_MESSAGE_RESERVED_WEBSITE', 'Die eingegebene Webseiten-Adresse ist reserviert. Bitte geben Sie eine  andere Webseiten-Adresse ein.');
-define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Die eingegebene Webseiten-Adresse ist verboten. Bitte entfernen Sie sie.');
-define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Die Webseiten-Adresse in Deinem Kommentar ist verboten. Bitte entfernen Sie sie.');
+define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_WEBSITE', 'Die eingegebene Webseiten-Adresse ist nicht erlaubt. Bitte entfernen Sie sie.');
+define('CMTX_ERROR_MESSAGE_BANNED_WEBSITE_IN_COMMENT', 'Die Webseiten-Adresse in Deinem Kommentar ist nicht erlaubt. Bitte entfernen Sie sie.');
 define('CMTX_ERROR_MESSAGE_DUMMY_WEBSITE', 'Die eingegebene Webseiten-Adresse ist offenbar nicht Ihre. Bitte geben Sie Ihre wahre Webseiten-Adresse ein.');
 define('CMTX_ERROR_MESSAGE_NO_TOWN', 'Das Eingabefeld für die Stadt darf nicht leer sein. Bitte geben Sie Ihre Stadt ein.');
-define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'The town must start with a letter and optionally contain - & . \'');
+define('CMTX_ERROR_MESSAGE_INVALID_TOWN', 'Der Stadtname muss mit einem Buchstaben beginnen und kann optional einen Bindestrich und Punkt enthalten - & . \'');
 define('CMTX_ERROR_MESSAGE_RESERVED_TOWN', 'Die eingegebene Stadt ist reserviert. Bitte geben Sie eine andere Stadt ein.');
-define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Die eingegebene Stadt ist verboten. Bitte geben Sie eine andere Stadt ein.');
+define('CMTX_ERROR_MESSAGE_BANNED_TOWN', 'Die eingegebene Stadt ist nicht erlaubt. Bitte geben Sie eine andere Stadt ein.');
 define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Bitte geben Sie eine andere Stadt ein.');
 define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Die Angabe enthält einen Link. Bitte geben Sie Ihre Stadt ein.');
 define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Es wurde kein Land ausgewählt. Bitte wählen Sie Ihr Land aus.');
 define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Das ausgewählte Land ist ungültig. Bitte versuchen Sie es erneut.');
-define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'The selected country was not found. Please try again.');
+define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Das angebene Land konnte nicht gefunden werden. Bitte versuchen Sie es erneut.');
 define('CMTX_ERROR_MESSAGE_NO_RATING', 'Es wurde keine Bewertung abgegeben. Bitte wählen Sie Ihre Bewertung aus.');
 define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Die gewählte Rating ist ungültig. Bitte versuchen Sie es erneut.');
 define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Der Kommentar, den Sie zu beantworten sind, ist ungültig. Bitte versuchen Sie es erneut.');
@@ -77,7 +77,7 @@ define('CMTX_ERROR_MESSAGE_COMMENT_MIN', 'Der eingegebene Kommentar war zu kurz.
 define('CMTX_ERROR_MESSAGE_COMMENT_MAX', 'Der eingegebene Kommentar war zu lang. Bitte geben Sie einen kürzeren Kommentar ein.');
 define('CMTX_ERROR_MESSAGE_COMMENT_MAX_LINES', 'Der Kommentar enthält zu viele Zeilen. Bitte verwenden Sie weniger Zeilen.');
 define('CMTX_ERROR_MESSAGE_COMMENT_RESUBMIT', 'Der Kommentar wurde bereits abgegeben.');
-define('CMTX_ERROR_MESSAGE_SMILIES_MAX', 'Der Kommentar enthält zu viele Smilies (Max: %d)');
+define('CMTX_ERROR_MESSAGE_SMILIES_MAX', 'Der Kommentar enthält zu viele Smilies (Maximal: %d)');
 define('CMTX_ERROR_MESSAGE_MILD_SWEARING', 'Der Kommentar enthält beleidigende Worte. Bitte entfernen Sie diese Worte.');
 define('CMTX_ERROR_MESSAGE_STRONG_SWEARING', 'Beschimpfungen sind nicht erlaubt. Bitte entfernen Sie die betreffenden Worte aus Ihrem Kommentar.');
 define('CMTX_ERROR_MESSAGE_SPAMMING', 'Spam ist nicht erlaubt. Bitte entfernen Sie den Spam aus Ihrem Kommentar.');
@@ -93,17 +93,17 @@ define('CMTX_ERROR_MESSAGE_NO_ANSWER', 'Das Antwortfeld für die Frage darf nich
 define('CMTX_ERROR_MESSAGE_WRONG_ANSWER', 'Die Antwort auf die Frage war falsch. Bitte versuchen Sie es noch einmal.');
 define('CMTX_ERROR_MESSAGE_NO_CAPTCHA', 'Das Eingabefeld für das Captcha darf nicht leer sein. Bitte geben Sie die Zeichen des Bildes ein.');
 define('CMTX_ERROR_MESSAGE_WRONG_CAPTCHA', 'Die eingegebenen Zeichen des Captcha-Bildes waren nicht korrekt. Bitte versuchen Sie  es noch einmal.');
-define('CMTX_ERROR_MESSAGE_FLOOD_CONTROL_DELAY', 'Bitte warten Sie noch etwas, um einen erneuten Kommentar abgeben zu k&ouml;nnen.');
+define('CMTX_ERROR_MESSAGE_FLOOD_CONTROL_DELAY', 'Bitte warten Sie noch etwas, um einen neuen Kommentar einzugeben.');
 define('CMTX_ERROR_MESSAGE_FLOOD_CONTROL_MAXIMUM', 'Es wurde zu viele Kommentare in zu kurzer Zeit abgegeben. Bitte warten Sie noch etwas.');
 define('CMTX_ERROR_MESSAGE_NO_REFERRER', 'Bitte aktivieren Sie Ihren Web-Browser auf Referrer-Informationen zu senden.');
-define('CMTX_ERROR_MESSAGE_INCORRECT_REFERRER', 'The referrer suggests that you submitted from another website.');
+define('CMTX_ERROR_MESSAGE_INCORRECT_REFERRER', 'Bitte aktivieren Sie Ihren Web-Browser, Referrer-Informationen zu senden.');
 define('CMTX_ERROR_MESSAGE_MAXIMUMS', 'Bitte aktivieren Sie Ihren Web-Browser, um maximale Feldlängen zu respektieren.');
-define('CMTX_ERROR_MESSAGE_HONEYPOT', 'A hidden field, used to detect bots, was filled in. Please leave it empty.');
-define('CMTX_ERROR_MESSAGE_MIN_TIME', 'The form was submitted too quickly. Please take longer.');
-define('CMTX_ERROR_MESSAGE_MISSING_DATA', 'Some expected data was missing. Please submit the form again.');
+define('CMTX_ERROR_MESSAGE_HONEYPOT', 'Ein verborgenes Feld zur Abwehr von Bots wurde ausgefüllt. Bitte lassen Sie es leer.');
+define('CMTX_ERROR_MESSAGE_MIN_TIME', 'Das Formular wurde zu schnell abgeschickt. Bitte warten Sie etwas.');
+define('CMTX_ERROR_MESSAGE_MISSING_DATA', 'Einige Daten konneten nicht erkannt werden. Bitte schicken Sie das Forumlar erneut ab.');
 
 /* Messages displayed to user when banned */
-define('CMTX_BAN_MESSAGE_BANNED_NOW', '<p>Sie wurden ausgeschlossen.</p><p>Dies kann verschiedene Gründe haben wie zum Beispiel: Beschimpfungen, Spam oder ein anderer Versto&szlig; gegen die Nutzungsbedingungen.</p><p>Wenn Sie meinen, dass dies ein Fehler ist, dann melden Sie sich bitte beim Administrator.</p>');
+define('CMTX_BAN_MESSAGE_BANNED_NOW', '<p>Sie wurden ausgeschlossen.</p><p>Dies kann verschiedene Gründe haben wie zum Beispiel: Beschimpfungen, Spam oder ein anderer Verstoß gegen die Nutzungsbedingungen.</p><p>Wenn Sie meinen, dass dies ein Fehler ist, dann melden Sie sich bitte beim Administrator.</p>');
 define('CMTX_BAN_MESSAGE_BANNED_PREVIOUSLY', 'Sorry, Sie wurden bereits ausgeschlossen.');
 
 /* Ban reasons */

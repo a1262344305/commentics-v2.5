@@ -45,7 +45,7 @@ define('CMTX_SORT_5', 'Positiv');
 define('CMTX_SORT_6', 'Kritisch');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Sie überprüfen');
+define('CMTX_TOPIC_INTRO', 'Thema');
 
 /* Average Rating */
 define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
@@ -93,7 +93,7 @@ define('CMTX_FLAG_REPORT_SENT', 'Vielen Dank für den Bericht');
 
 /* Permalink */
 define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
+define('CMTX_TITLE_PERMALINK', 'Permalink für diesen Kommentar');
 
 /* Reply */
 define('CMTX_REPLY', 'Antworten');
@@ -102,8 +102,8 @@ define('CMTX_TITLE_REPLY', 'Auf diesen Kommentar antworten');
 /* RSS */
 define('CMTX_RSS_THIS_PAGE', 'Diese Seite');
 define('CMTX_RSS_ALL_PAGES', 'Alle Seiten');
-define('CMTX_TITLE_RSS_THIS', 'Holen Sie RSS-Benachrichtigungen zu dieser Seite');
-define('CMTX_TITLE_RSS_ALL', 'Holen Sie RSS-Benachrichtigungen zu allen Seiten');
+define('CMTX_TITLE_RSS_THIS', 'Abbonieren Sie RSS-Benachrichtigungen zu dieser Seite');
+define('CMTX_TITLE_RSS_ALL', 'Abbonieren Sie RSS-Benachrichtigungen zu allen Seiten');
 
 /* Page Number */
 define('CMTX_INFO_PAGE', 'Seite %d von %d');

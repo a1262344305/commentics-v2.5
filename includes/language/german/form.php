@@ -38,7 +38,7 @@ define('CMTX_THIS_FORM_DISABLED', 'Das Hinzufügen von Kommentaren für diese Se
 define('CMTX_OPEN_FORM', 'Zeigen Sie das Formular');
 
 /* JavaScript disabled message */
-define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript muß aktiviert sein, um alle Funktionen dieser Seite nutzen zu k&ouml;nnen.');
+define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript muß aktiviert sein, um alle Funktionen dieser Seite nutzen zu können.');
 
 /* Reply */
 define('CMTX_REPLY_MESSAGE', 'Sie sind zu beantworten');
@@ -216,13 +216,13 @@ define('CMTX_TEXT_COUNTER', '%s');
 define('CMTX_TEXT_QUESTION', 'Die Antwort lautet:');
 
 /* Text displayed for Securimage captcha */
-define('CMTX_TEXT_SECURIMAGE', 'Enter code:');
-define('CMTX_TITLE_SECURIMAGE', 'Enter code from image');
+define('CMTX_TEXT_SECURIMAGE', 'Code eingeben:');
+define('CMTX_TITLE_SECURIMAGE', 'Code vom Bild eingeben');
 define('CMTX_TITLE_SECURIMAGE_AUDIO', 'Audio');
-define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Refresh');
+define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Neues Bild');
 
 /* Text displayed if ReCaptcha key missing */
-define('CMTX_RECAPTCHA_NO_KEY', 'API key(s) missing in ReCaptcha admin page');
+define('CMTX_RECAPTCHA_NO_KEY', 'API Schlüssel fehlen auf der ReCaptcha Admin Seite');
 
 /* Text displayed after notify checkbox */
 define('CMTX_TEXT_NOTIFY', 'Informiere mich via E-Mail über neue Kommentare.');
