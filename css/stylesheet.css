@@ -1,11 +1,8 @@
 /**************************** Page ******************************/
 
-.cmtx_container img {
-border-style: none;
-}
-
-.cmtx_container a {
+.cmtx_container a, img {
 outline-style: none;
+border-style: none;
 }
 
 .cmtx_page_alert {
@@ -287,18 +284,18 @@ padding-right: 4px;
 }
 
 .cmtx_buttons a img {
-margin: 0 2px -3px 0 !important;
+margin: 0 2px -3px 0;
 width: 16px;
 height: 16px;
 }
 
 .cmtx_buttons a.cmtx_like {
-color: #529214;
+color: #529214 !important;
 margin-right: 8px;
 }
 
 .cmtx_buttons a.cmtx_dislike {
-color: #d12f19;
+color: #d12f19 !important;
 margin-right: 8px;
 }
 

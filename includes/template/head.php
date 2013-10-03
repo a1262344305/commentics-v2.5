@@ -32,10 +32,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css"/>
 
 <?php if (cmtx_setting('enabled_privacy') || cmtx_setting('enabled_terms')) { ?>
-<link rel="stylesheet" type="text/css" href="<?php echo cmtx_comments_folder(); ?>colorbox/colorbox.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>colorbox/colorbox.css"/>
 <?php } ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo cmtx_comments_folder(); ?>css/stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>css/stylesheet.css"/>
 
 <script type="text/javascript">
 // <![CDATA[
@@ -55,14 +55,14 @@ if (typeof jQuery.ui == 'undefined') {
 
 <script type="text/javascript">
 // <![CDATA[
-document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comments_folder(); ?>javascript/jquery.cookie.js"></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_commentics_url(); ?>javascript/jquery.cookie.js"></scr' + 'ipt>');
 // ]]>
 </script>
 
 <?php if (cmtx_setting('enabled_privacy') || cmtx_setting('enabled_terms')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comments_folder(); ?>colorbox/jquery.colorbox-min.js"></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_commentics_url(); ?>colorbox/jquery.colorbox-min.js"></scr' + 'ipt>');
 // ]]>
 </script>
 <?php } ?>
@@ -70,7 +70,7 @@ document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comment
 <?php if (cmtx_setting('show_average_rating')) { ?>
 <script type="text/javascript">
 // <![CDATA[
-document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_comments_folder(); ?>raty/jquery.raty.min.js"></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="<?php echo cmtx_commentics_url(); ?>raty/jquery.raty.min.js"></scr' + 'ipt>');
 // ]]>
 </script>
 <?php } ?>

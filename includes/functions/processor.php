@@ -100,7 +100,7 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 	$subscriber_confirmation_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt"; //build path to subscriber confirmation email file
 	$body = file_get_contents($subscriber_confirmation_email_file); //get the file's contents
 
-	$confirmation_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder')) . "subscribers.php" . "?id=" . $token . "&confirm=1"; //build confirmation link
+	$confirmation_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&confirm=1"; //build confirmation link
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
@@ -145,7 +145,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id) { //notify subscr
 
 		$token = $subscriber["token"];
 
-		$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+		$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
 
 		//convert email variables with actual variables
 		$body = str_ireplace('[name]', $name, $body);
@@ -178,7 +178,7 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 	$admin_new_ban_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_ban.txt"; //build path to admin new ban email file
 	$body = file_get_contents($admin_new_ban_email_file); //get the file's contents
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[ip address]', $ip_address, $body);
@@ -213,7 +213,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment) { //notify ad
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
@@ -251,7 +251,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment) { //notify admin
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
@@ -946,63 +946,63 @@ function cmtx_comment_add_smilies ($comment) { //add smilies to comment
 	$smiley_styling = 'border-style: none; vertical-align: bottom;';
 
 	if (cmtx_setting('enabled_smilies_smile')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SMILE, "<img src='" . cmtx_comments_folder() . "images/smilies/smile.gif' title='" . CMTX_SMILEY_TITLE_SMILE . "' alt='Smile' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SMILE, "<img src='" . cmtx_commentics_url() . "images/smilies/smile.gif' title='" . CMTX_SMILEY_TITLE_SMILE . "' alt='Smile' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sad')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SAD, "<img src='" . cmtx_comments_folder() . "images/smilies/sad.gif' title='" . CMTX_SMILEY_TITLE_SAD . "' alt='Sad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SAD, "<img src='" . cmtx_commentics_url() . "images/smilies/sad.gif' title='" . CMTX_SMILEY_TITLE_SAD . "' alt='Sad' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_huh')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_HUH, "<img src='" . cmtx_comments_folder() . "images/smilies/huh.gif' title='" . CMTX_SMILEY_TITLE_HUH . "' alt='Huh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_HUH, "<img src='" . cmtx_commentics_url() . "images/smilies/huh.gif' title='" . CMTX_SMILEY_TITLE_HUH . "' alt='Huh' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_laugh')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_LAUGH, "<img src='" . cmtx_comments_folder() . "images/smilies/laugh.gif' title='" . CMTX_SMILEY_TITLE_LAUGH . "' alt='Laugh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_LAUGH, "<img src='" . cmtx_commentics_url() . "images/smilies/laugh.gif' title='" . CMTX_SMILEY_TITLE_LAUGH . "' alt='Laugh' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_mad')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_MAD, "<img src='" . cmtx_comments_folder() . "images/smilies/mad.gif' title='" . CMTX_SMILEY_TITLE_MAD . "' alt='Mad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_MAD, "<img src='" . cmtx_commentics_url() . "images/smilies/mad.gif' title='" . CMTX_SMILEY_TITLE_MAD . "' alt='Mad' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_tongue')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_TONGUE, "<img src='" . cmtx_comments_folder() . "images/smilies/tongue.gif' title='" . CMTX_SMILEY_TITLE_TONGUE . "' alt='Tongue' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_TONGUE, "<img src='" . cmtx_commentics_url() . "images/smilies/tongue.gif' title='" . CMTX_SMILEY_TITLE_TONGUE . "' alt='Tongue' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_crying')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_CRYING, "<img src='" . cmtx_comments_folder() . "images/smilies/crying.gif' title='" . CMTX_SMILEY_TITLE_CRYING . "' alt='Crying' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_CRYING, "<img src='" . cmtx_commentics_url() . "images/smilies/crying.gif' title='" . CMTX_SMILEY_TITLE_CRYING . "' alt='Crying' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_grin')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_GRIN, "<img src='" . cmtx_comments_folder() . "images/smilies/grin.gif' title='" . CMTX_SMILEY_TITLE_GRIN . "' alt='Grin' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_GRIN, "<img src='" . cmtx_commentics_url() . "images/smilies/grin.gif' title='" . CMTX_SMILEY_TITLE_GRIN . "' alt='Grin' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_wink')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_WINK, "<img src='" . cmtx_comments_folder() . "images/smilies/wink.gif' title='" . CMTX_SMILEY_TITLE_WINK . "' alt='Wink' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_WINK, "<img src='" . cmtx_commentics_url() . "images/smilies/wink.gif' title='" . CMTX_SMILEY_TITLE_WINK . "' alt='Wink' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_scared')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SCARED, "<img src='" . cmtx_comments_folder() . "images/smilies/scared.gif' title='" . CMTX_SMILEY_TITLE_SCARED . "' alt='Scared' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SCARED, "<img src='" . cmtx_commentics_url() . "images/smilies/scared.gif' title='" . CMTX_SMILEY_TITLE_SCARED . "' alt='Scared' style='" . $smiley_styling . "'/>", $comment);
 	}	
 
 	if (cmtx_setting('enabled_smilies_cool')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_COOL, "<img src='" . cmtx_comments_folder() . "images/smilies/cool.gif' title='" . CMTX_SMILEY_TITLE_COOL . "' alt='Cool' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_COOL, "<img src='" . cmtx_commentics_url() . "images/smilies/cool.gif' title='" . CMTX_SMILEY_TITLE_COOL . "' alt='Cool' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sleep')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SLEEP, "<img src='" . cmtx_comments_folder() . "images/smilies/sleep.gif' title='" . CMTX_SMILEY_TITLE_SLEEP . "' alt='Sleep' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SLEEP, "<img src='" . cmtx_commentics_url() . "images/smilies/sleep.gif' title='" . CMTX_SMILEY_TITLE_SLEEP . "' alt='Sleep' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_blush')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_BLUSH, "<img src='" . cmtx_comments_folder() . "images/smilies/blush.gif' title='" . CMTX_SMILEY_TITLE_BLUSH . "' alt='Blush' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_BLUSH, "<img src='" . cmtx_commentics_url() . "images/smilies/blush.gif' title='" . CMTX_SMILEY_TITLE_BLUSH . "' alt='Blush' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_unsure')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_UNSURE, "<img src='" . cmtx_comments_folder() . "images/smilies/unsure.gif' title='" . CMTX_SMILEY_TITLE_UNSURE . "' alt='Unsure' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_UNSURE, "<img src='" . cmtx_commentics_url() . "images/smilies/unsure.gif' title='" . CMTX_SMILEY_TITLE_UNSURE . "' alt='Unsure' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_shocked')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SHOCKED, "<img src='" . cmtx_comments_folder() . "images/smilies/shocked.gif' title='" . CMTX_SMILEY_TITLE_SHOCKED . "' alt='Shocked' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SHOCKED, "<img src='" . cmtx_commentics_url() . "images/smilies/shocked.gif' title='" . CMTX_SMILEY_TITLE_SHOCKED . "' alt='Shocked' style='" . $smiley_styling . "'/>", $comment);
 	}
 
 	return $comment;
@@ -1062,14 +1062,14 @@ function cmtx_akismet ($name, $email, $website, $comment) { //check Akismet test
 	$name = cmtx_strip_slashes(cmtx_decode($name));
 	$email = cmtx_strip_slashes(cmtx_decode($email));
 	$website = cmtx_strip_slashes(cmtx_decode($website));
-	if ($website == "http://") { $website = ""; }
+	if ($website == 'http://') { $website = ''; }
 	$comment = cmtx_strip_slashes(cmtx_decode($comment));
 
 	require_once $cmtx_path . 'includes/akismet/akismet.php'; //load Akismet script
 
 	$WordPressAPIKey = cmtx_setting('akismet_key'); //set API key
 
-	$MyBlogURL = parse_url(cmtx_current_page(), PHP_URL_HOST);
+	$MyBlogURL = cmtx_setting('site_url');
 
 	$akismet = new Akismet($MyBlogURL, $WordPressAPIKey);
 
@@ -1077,7 +1077,7 @@ function cmtx_akismet ($name, $email, $website, $comment) { //check Akismet test
 	$akismet->setCommentAuthorEmail($email);
 	$akismet->setCommentAuthorURL($website);
 	$akismet->setCommentContent($comment);
-	$akismet->setCommentType("comment");
+	$akismet->setCommentType('comment');
 	$akismet->setPermalink(cmtx_current_page());
 
 	if ($akismet->isCommentSpam()) {

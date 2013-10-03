@@ -33,12 +33,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 <script type="text/javascript">
 // <![CDATA[
 function check_passwords() {
-if (document.install.admin_password_1.value == document.install.admin_password_2.value) {
-return true;
-} else {
-alert('The two passwords do not match.');
-return false;
-}
+	if (document.install.admin_password_1.value == document.install.admin_password_2.value) {
+		return true;
+	} else {
+		alert('The two passwords do not match.');
+		return false;
+	}
 }
 // ]]>
 </script>
@@ -62,17 +62,21 @@ define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php
+require '../includes/functions/page.php';
+?>
+
+<?php
 require '../includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 
 <?php
 if (mysql_num_rows(mysql_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_prefix . "comments'"))) {
-echo "<span class='fail'>The programme is already installed.</span>";
-echo "<p></p>";
-echo "<a href='javascript:history.back()'>back</a>";
-echo "</body>";
-echo "</html>";
+echo '<span class="fail">The programme is already installed.</span>';
+echo '<p></p>';
+echo '<a href="javascript:history.back()">back</a>';
+echo '</body>';
+echo '</html>';
 die();
 }
 ?>
@@ -85,88 +89,107 @@ The Installer will now create the tables in the database.
 
 <form name="install" id="install" action="install_2.php" method="post" onsubmit="return check_passwords()">
 
-<span class='heading'>Administrator</span>
+<span class="heading">Administrator</span>
 
 <p></p>
 
-<span class='heading_note'>These settings are for the Commentics admin panel.</span>
+<span class="heading_note">These settings are for the Commentics admin panel.</span>
 
 <p></p>
 
-<span class='field'>Admin Username:</span><br />
-<input type="text" required autofocus name="admin_username" size="20"/> <span class='field_note'>(enter your admin panel username)</span>
+<span class="field">Admin Username:</span><br />
+<input type="text" required autofocus name="admin_username" size="35"/> <span class="field_note">(enter your admin panel username)</span>
 <p></p>
-<span class='field'>Admin Password:</span><br />
-<input type="password" required name="admin_password_1" size="20"/> <span class='field_note'>(enter your admin panel password)</span>
+<span class="field">Admin Password:</span><br />
+<input type="password" required name="admin_password_1" size="35"/> <span class="field_note">(enter your admin panel password)</span>
 <p></p>
-<span class='field'>Repeat Password:</span><br />
-<input type="password" required name="admin_password_2" size="20"/> <span class='field_note'>(repeat your admin panel password)</span>
+<span class="field">Repeat Password:</span><br />
+<input type="password" required name="admin_password_2" size="35"/> <span class="field_note">(repeat your admin panel password)</span>
 <p></p>
-<span class='field'>Admin Email Address:</span><br />
-<input type="email" required name="admin_email_address" size="25"/> <span class='field_note'>(enter your admin email address)</span>
+<span class="field">Email Address:</span><br />
+<input type="email" required name="email_address" size="35"/> <span class="field_note">(enter your admin email address)</span>
 
 <p></p>
 <hr/>
 <p></p>
 
-<span class='heading'>General</span>
+<span class="heading">General</span>
 
 <p></p>
 
-<span class='heading_note'>General settings.</span>
+<span class="heading_note">General settings.</span>
 
 <p></p>
 
-<span class='field'>Time Zone:</span><br />
+<span class="field">Site Name:</span><br />
+<input type="text" required name="site_name" size="35" value="My Site"/> <span class="field_note">(enter the name of your site)</span>
+
+<p></p>
+
+<span class="field">Time Zone:</span><br />
 <?php
 $time_zones = DateTimeZone::listIdentifiers();
-echo "<select name='time_zone'>";
+echo '<select name="time_zone">';
 foreach ($time_zones as $time_zone) {
-	echo "<option value='$time_zone'>$time_zone</option>";
+	echo '<option value="' . $time_zone . '">' . $time_zone . '</option>';
 }
-echo "</select>";
+echo '</select>';
 ?>
-<span class='field_note'> (select your time zone)</span>
-
-<p></p>
-
-<span class='field'>Admin Folder:</span><br />
-<input type="text" required name="admin_folder" size="20" value="admin"/> <span class='field_note'>(enter your renamed admin folder)</span>
+<span class="field_note"> (select your time zone)</span>
 
 <p></p>
 <hr/>
 <p></p>
 
-<span class='heading'>Site</span>
+<span class="heading">Website</span>
 
 <p></p>
 
-<span class='heading_note'>The Installer can populate many of the admin settings according to the three inputs below.</span>
+<span class="heading_note">These settings are <b>auto-populated</b> so may not need editing.</span>
 
 <p></p>
 
-<span class='heading_note'>You can change these settings at any time so don't worry too much about getting it right.</span>
+<?php
+//Site Domain
+$site_domain = str_ireplace('www.', '', parse_url(cmtx_current_page(), PHP_URL_HOST));
 
-<p></p>
+//Site URL
+$site_url = 'http://' . parse_url(cmtx_current_page(), PHP_URL_HOST);
 
-<span class='field'>Site Name:</span><br />
-<input type="text" required name="site_name" size="20" value="My Site"/> <span class='field_note'>(enter the name of your site)</span>
+//Commentics Folder
+$tokens = explode('/', cmtx_current_page());
+$commentics_folder = $tokens[sizeof($tokens)-3];
+
+//Commentics URL
+$commentics_url = str_ireplace('installer/install_1.php', '', cmtx_current_page());
+
+//Admin Folder
+$folders = array();
+foreach (glob('../*', GLOB_ONLYDIR) as $dir) {
+	array_push($folders, basename($dir));
+}
+$admin_folder = 'admin';
+foreach ($folders as $folder) {
+	if ($folder != 'agreement' && $folder != 'colorbox' && $folder != 'css' && $folder != 'images' && $folder != 'includes' && $folder != 'installer' && $folder != 'javascript' && $folder != 'raty' && $folder != 'securimage') {
+		$admin_folder = $folder;
+	}
+}
+?>
+
+<span class="field">Site Domain:</span><br />
+<input type="text" required name="site_domain" size="35" value="<?php echo $site_domain; ?>"/> <span class="field_note">(the domain of your site)</span>
 <p></p>
-<span class='field'>Site Domain:</span><br />
-<input type="text" required name="site_domain" size="25" value="mysite.com"/> <span class='field_note'>(enter your domain name without the http:// or www)</span>
+<span class="field">Site URL:</span><br />
+<input type="text" required name="site_url" size="35" value="<?php echo $site_url; ?>"/> <span class="field_note">(the URL to your site)</span>
 <p></p>
-<span class='field'>URL to Comments Folder:</span><br />
-<span class='part'>http://</span><input type="text" required name="comments_url" size="25" value="www.mysite.com"/><span class='part'>/comments/</span> <span class='field_note'>(enter the URL to your comments folder)</span>
+<span class="field">Commentics Folder:</span><br />
+<input type="text" required name="commentics_folder" size="35" value="<?php echo $commentics_folder; ?>"/> <span class="field_note">(the folder you uploaded)</span>
 <p></p>
-<span class='example'>e.g. mysite.com</span> <span class='example_note'>(without www)</span>
-<br />
-<span class='example'>e.g. www.mysite.com/myfolder</span> <span class='example_note'>(in a folder)</span>
-<br />
-<span class='example'>e.g. www.subdomain.mysite.com</span> <span class='example_note'>(subdomain)</span>
-<br />
-<span class='example'>e.g. localhost</span> <span class='example_note'>(localhost)</span>
-<br />
-<span class='example'>e.g. localhost/myfolder</span> <span class='example_note'>(localhost and in a folder)</span>
+<span class="field">Commentics URL:</span><br />
+<input type="text" required name="commentics_url" size="35" value="<?php echo $commentics_url; ?>"/> <span class="field_note">(the URL to the folder)</span>
+<p></p>
+<span class="field">Admin Folder:</span><br />
+<input type="text" required name="admin_folder" size="35" value="<?php echo $admin_folder; ?>"/> <span class="field_note">(the admin folder name)</span>
 
 <p></p>
 <hr/>

@@ -124,7 +124,7 @@ unset($cmtx_social_title);
 unset($cmtx_social_attribute);
 unset($cmtx_ip_address);
 unset($cmtx_referrer);
-unset($cmtx_host);
+unset($cmtx_domain);
 unset($cmtx_rich_snippets);
 
 //htmLawed

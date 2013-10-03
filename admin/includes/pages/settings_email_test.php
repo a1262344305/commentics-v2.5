@@ -51,7 +51,7 @@ cmtx_check_csrf_form_key();
 
 $admin_email_test_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt'; //build path to admin email test email file
 $body = file_get_contents($admin_email_test_email_file); //get the file's contents
-$admin_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 $body = str_ireplace('[admin link]', $admin_link, $body);
 $body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
 cmtx_email($email, null, cmtx_setting('admin_email_test_subject'), $body, cmtx_setting('admin_email_test_from_email'), cmtx_setting('admin_email_test_from_name'), cmtx_setting('admin_email_test_reply_to'));

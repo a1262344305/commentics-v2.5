@@ -57,16 +57,18 @@ require '../includes/functions/page.php';
 if (isset($_POST['submit'])) {
 	$username = $_POST['admin_username'];
 	$password = md5($_POST['admin_password_1']);
-	$email_address = $_POST['admin_email_address'];
-	$time_zone = $_POST['time_zone'];
-	$admin_folder = $_POST['admin_folder'];
+	$email_address = $_POST['email_address'];
 	$site_name = $_POST['site_name'];
+	$time_zone = $_POST['time_zone'];
 	$site_domain = $_POST['site_domain'];
-	$comments_url = $_POST['comments_url'];
+	$site_url = $_POST['site_url'];
+	$commentics_folder = $_POST['commentics_folder'];
+	$commentics_url = $_POST['commentics_url'];
+	$admin_folder = $_POST['admin_folder'];
 } else {
-	echo "<span class='fail'>";
-	echo "Please restart the Installer.";
-	echo "</span>";
+	echo '<span class="fail">';
+	echo 'Please restart the Installer.';
+	echo '</span>';
 	die();
 }
 ?>
@@ -90,15 +92,17 @@ cmtx_set_time_zone($time_zone); //set the time zone
 <?php
 $username = cmtx_sanitize($username, false, true);
 $email_address = cmtx_sanitize($email_address, false, true);
-$time_zone = cmtx_sanitize($time_zone, false, true);
-$admin_folder = cmtx_sanitize($admin_folder, false, true);
 $site_name = cmtx_sanitize($site_name, false, true);
+$time_zone = cmtx_sanitize($time_zone, false, true);
 $site_domain = cmtx_sanitize($site_domain, false, true);
-$comments_url = cmtx_sanitize($comments_url, false, true);
+$site_url = cmtx_sanitize($site_url, false, true);
+$commentics_folder = cmtx_sanitize($commentics_folder, false, true);
+$commentics_url = cmtx_sanitize($commentics_url, false, true);
+$admin_folder = cmtx_sanitize($admin_folder, false, true);
 ?>
 
 <?php
-$signature = $site_name . '\r\n' . 'http://www.' . $site_domain;
+$signature = $site_name . '\r\n' . $site_url;
 ?>
 
 <?php
@@ -648,11 +652,11 @@ mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`,
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('processor', 'form_cookie_days', '365');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_enabled', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_title', '$site_name');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_link', 'http://www.$site_domain');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_link', '$site_url');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_description', 'Comments');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_language', 'en');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_image_enabled', '1');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_image_url', 'http://www.$site_domain/favicon.ico');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_image_url', '$site_url" . "/favicon.ico');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_image_width', '16');"); //pixels
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_image_height', '16');"); //pixels
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('rss', 'rss_most_recent_enabled', '1');");
@@ -676,11 +680,14 @@ mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`,
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('social', 'show_social_myspace', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('social', 'show_social_twitter', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('social', 'show_social_linkedin', '0');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_name', '$site_name');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'time_zone', '$time_zone');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_domain', '$site_domain');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_url', '$site_url');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'commentics_folder', '$commentics_folder');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'commentics_url', '$commentics_url');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'admin_folder', '$admin_folder');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'mysqldump_path', '');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'time_zone', '$time_zone');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'url_to_comments_folder', 'http://$comments_url/comments/');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'check_comments_url', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'enabled_wysiwyg', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'is_demo', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'limit_comments', '50');");
@@ -786,18 +793,18 @@ $error = true;
 
 <?php
 if ($error) {
-echo "<br />";
-echo "<span class='fail'>" . "Creating tables failed." . "</span>";
-echo "<p></p>";
-echo "Please consult the above error messages.";
+echo '<br />';
+echo '<span class="fail">' . 'Creating tables failed.' . '</span>';
+echo '<p></p>';
+echo 'Please consult the above error messages.';
 } else {
-echo "<span class='success'>" . "Tables created successfully." . "</span>";
-echo "<p></p>";
-echo "1. Using your FTP software (e.g. FileZilla), please now delete the /installer/ folder.";
-echo "<br />";
-echo "<i>http://www.domain.com/comments<b>/installer/</b></i>";
-echo "<p></p>";
-echo "2. Then proceed to your <a href='../$admin_folder/'>admin panel</a>.";
+echo '<span class="success">' . 'Tables created successfully.' . '</span>';
+echo '<p></p>';
+echo '1. Using your FTP software (e.g. FileZilla), please now delete the /installer/ folder.';
+echo '<br />';
+echo '<i>' . $commentics_url . '<b>installer</b>/</i>';
+echo '<p></p>';
+echo '2. Then proceed to your <a href="../' . $admin_folder . '/">admin panel</a>.';
 }
 ?>
 

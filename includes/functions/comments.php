@@ -353,10 +353,10 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 			$cmtx_box .= "document.getElementById(\"cmtx_reply_id\").value=\"" . $id . "\";";
 			$cmtx_box .= "document.getElementById(\"cmtx_reply_message\").innerHTML=\"" . cmtx_define(CMTX_REPLY_MESSAGE) . " " . $name . '. ' . "\";";
 			$cmtx_box .= "document.getElementById(\"cmtx_reset_reply\").style.display=\"inline\"'>";
-			$cmtx_box .= "<img src='" . cmtx_comments_folder() . "images/buttons/reply.png' alt='Reply' title='" . CMTX_TITLE_REPLY . "'/>" . CMTX_REPLY . "</a>";
+			$cmtx_box .= "<img src='" . cmtx_commentics_url() . "images/buttons/reply.png' alt='Reply' title='" . CMTX_TITLE_REPLY . "'/>" . CMTX_REPLY . "</a>";
 		} else {
 			$cmtx_box .= "<a href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_reply_" . $id . "' class='cmtx_reply_disabled' title='' rel='nofollow' onclick='return false;'>";
-			$cmtx_box .= "<img src='" . cmtx_comments_folder() . "images/buttons/reply.png' alt='Reply' title=''/>" . CMTX_REPLY . "</a>";
+			$cmtx_box .= "<img src='" . cmtx_commentics_url() . "images/buttons/reply.png' alt='Reply' title=''/>" . CMTX_REPLY . "</a>";
 		}
 		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
@@ -366,7 +366,7 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	if (cmtx_setting('show_permalink') && !$is_preview) {
 		$cmtx_box .= "<div class='cmtx_permalink_block'>";
 		$cmtx_box .= "<div class='cmtx_buttons'>";
-		$cmtx_box .= "<a class='cmtx_permalink' href='" . cmtx_get_permalink($id) . "' id='cmtx_permalink_" . $id . "' title='" . CMTX_TITLE_PERMALINK . "' rel='nofollow'><img src='" . cmtx_comments_folder() . "images/buttons/permalink.png' alt='Permalink' title='" . CMTX_TITLE_PERMALINK . "'/>" . CMTX_PERMALINK . "</a>";
+		$cmtx_box .= "<a class='cmtx_permalink' href='" . cmtx_get_permalink($id) . "' id='cmtx_permalink_" . $id . "' title='" . CMTX_TITLE_PERMALINK . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/permalink.png' alt='Permalink' title='" . CMTX_TITLE_PERMALINK . "'/>" . CMTX_PERMALINK . "</a>";
 		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
 	}
@@ -375,7 +375,7 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	if (cmtx_setting('show_flag') && !$is_preview) {
 		$cmtx_box .= "<div class='cmtx_flag_block'>";
 		$cmtx_box .= "<div class='cmtx_buttons'>";
-		$cmtx_box .= "<a class='cmtx_flag' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_flag_" . $id . "' title='" . CMTX_TITLE_FLAG . "' rel='nofollow'><img src='" . cmtx_comments_folder() . "images/buttons/flag.png' alt='Flag' title='" . CMTX_TITLE_FLAG . "'/>" . CMTX_FLAG . "</a>";
+		$cmtx_box .= "<a class='cmtx_flag' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_flag_" . $id . "' title='" . CMTX_TITLE_FLAG . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/flag.png' alt='Flag' title='" . CMTX_TITLE_FLAG . "'/>" . CMTX_FLAG . "</a>";
 		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
 	}
@@ -385,10 +385,10 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 		$cmtx_box .= "<div class='cmtx_like_block'>";
 		$cmtx_box .= "<div class='cmtx_buttons'>";
 		if (cmtx_setting('show_like')) {
-			$cmtx_box .= "<a class='cmtx_vote cmtx_like' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_like_" . $id . "' title='" . CMTX_TITLE_LIKE . "' rel='nofollow'><img src='" . cmtx_comments_folder() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/>" . $likes . "</a>";
+			$cmtx_box .= "<a class='cmtx_vote cmtx_like' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_like_" . $id . "' title='" . CMTX_TITLE_LIKE . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/>" . $likes . "</a>";
 		}
 		if (cmtx_setting('show_dislike')) {
-			$cmtx_box .= "<a class='cmtx_vote cmtx_dislike' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_dislike_" . $id . "' title='" . CMTX_TITLE_DISLIKE . "' rel='nofollow'><img src='" . cmtx_comments_folder() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/>" . $dislikes . "</a>";
+			$cmtx_box .= "<a class='cmtx_vote cmtx_dislike' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_dislike_" . $id . "' title='" . CMTX_TITLE_DISLIKE . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/>" . $dislikes . "</a>";
 		}
 		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
@@ -469,7 +469,7 @@ function cmtx_star_full ($amount, $title) { //star full
 	$star_full = '';
 
 	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_full .= '<img src="' . cmtx_comments_folder() . 'images/stars/star_full.png" title="' . $title . '" alt="Full Star" class="cmtx_star_image"/>';
+		$star_full .= '<img src="' . cmtx_commentics_url() . 'images/stars/star_full.png" title="' . $title . '" alt="Full Star" class="cmtx_star_image"/>';
 	}
 
 	return $star_full;
@@ -482,7 +482,7 @@ function cmtx_star_empty ($amount, $title) { //star empty
 	$star_empty = '';
 
 	for ($counter=1; $counter<=$amount; $counter++) {
-		$star_empty .= '<img src="' . cmtx_comments_folder() . 'images/stars/star_empty.png" title="' . $title . '" alt="Empty Star" class="cmtx_star_image"/>';
+		$star_empty .= '<img src="' . cmtx_commentics_url() . 'images/stars/star_empty.png" title="' . $title . '" alt="Empty Star" class="cmtx_star_image"/>';
 	}
 
 	return $star_empty;

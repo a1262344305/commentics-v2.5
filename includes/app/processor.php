@@ -88,11 +88,9 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 	if (cmtx_setting('check_referrer')) {
 		if (isset($_SERVER['HTTP_REFERER'])) { //if referrer available
 			$cmtx_referrer = cmtx_url_decode($_SERVER['HTTP_REFERER']); //get referrer
-			$cmtx_host = cmtx_url_decode(str_ireplace('www.', '', parse_url(cmtx_current_page(), PHP_URL_HOST))); //get host of current page
-			if (!empty($cmtx_host)) { //if host is not empty
-				if (!stristr($cmtx_referrer, $cmtx_host)) { //if referrer does not contain host of current page
-					cmtx_error(CMTX_ERROR_MESSAGE_INCORRECT_REFERRER); //reject user for incorrect referrer
-				}
+			$cmtx_domain = cmtx_url_decode(cmtx_setting('site_domain')); //get domain
+			if (!stristr($cmtx_referrer, $cmtx_domain)) { //if referrer does not contain domain
+				cmtx_error(CMTX_ERROR_MESSAGE_INCORRECT_REFERRER); //reject user for incorrect referrer
 			}
 		} else {
 			cmtx_error(CMTX_ERROR_MESSAGE_NO_REFERRER); //reject user for no referrer

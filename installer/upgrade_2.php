@@ -251,20 +251,20 @@ $error = true;
 
 <?php
 if ($error) {
-echo "<br />";
-echo "<span class='fail'>" . "Upgrade failed." . "</span>";
-echo "<p></p>";
-echo "Please consult the above error messages.";
+echo '<br />';
+echo '<span class="fail">' . 'Upgrade failed.' . '</span>';
+echo '<p></p>';
+echo 'Please consult the above error messages.';
 } else {
-echo "<span class='success'>" . "Upgrade successful." . "</span>";
-echo "<p></p>";
-echo "You are now using the latest version.";
-echo "<p></p>";
-echo "1. Please now delete the /installer/ folder.";
-echo "<br />";
-echo "<i>http://www.domain.com/comments<b>/installer/</b></i>";
-echo "<p></p>";
-echo "2. Then proceed to your <a href='../$admin_folder/'>admin panel</a>.";
+echo '<span class="success">' . 'Upgrade successful.' . '</span>';
+echo '<p></p>';
+echo 'You are now using the latest version.';
+echo '<p></p>';
+echo '1. Please now delete the /installer/ folder.';
+echo '<br />';
+echo '<i>' . cmtx_setting('commentics_url') . '<b>installer</b>/</i>';
+echo '<p></p>';
+echo '2. Then proceed to your <a href="../' . $admin_folder . '/">admin panel</a>.';;
 }
 ?>
 

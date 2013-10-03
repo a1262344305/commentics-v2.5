@@ -43,6 +43,21 @@ if (isset($_POST['submit'])) {
 
 <br />
 
+<?php
+define('IN_COMMENTICS', true);
+define('CMTX_IN_INSTALLER', true);
+?>
+
+<?php
+require '../includes/functions/page.php';
+?>
+
+<?php
+//Commentics Folder
+$tokens = explode('/', cmtx_current_page());
+$commentics_folder = $tokens[sizeof($tokens)-3];
+?>
+
 Welcome to the Installer for Commentics.
 
 <p></p>
@@ -53,7 +68,7 @@ If you are <b>installing</b> the programme make sure that:
 
 <ul>
 <li>You have created the database.</li>
-<li>You have entered its details in /comments/includes/db/details.php</li>
+<li>You have entered its details in /<?php echo $commentics_folder; ?>/includes/db/details.php</li>
 <li>Your MySQL user has <b>at least</b> the following privileges:
 	<ul><li>Select, Insert, Update, Delete, Create, Alter, Index and Drop.</li></ul>
 </ul>

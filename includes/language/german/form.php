@@ -231,10 +231,10 @@ define('CMTX_TEXT_NOTIFY', 'Informiere mich via E-Mail über neue Kommentare.');
 define('CMTX_TEXT_REMEMBER', 'Meine Daten auf diesem Computer.');
 
 /* Text displayed after privacy checkbox */
-define('CMTX_TEXT_PRIVACY', 'Ich habe die <a href="' . cmtx_comments_folder() . 'agreement/german/privacy_policy.html" class="cmtx_privacy_link" title="Datenschutzrichtlinien" target="_blank" rel="nofollow">Datenschutzrichtlinien</a> gelesen und verstanden.');
+define('CMTX_TEXT_PRIVACY', 'Ich habe die <a href="' . cmtx_commentics_url() . 'agreement/german/privacy_policy.html" class="cmtx_privacy_link" title="Datenschutzrichtlinien" target="_blank" rel="nofollow">Datenschutzrichtlinien</a> gelesen und verstanden.');
 
 /* Text displayed after terms checkbox */
-define('CMTX_TEXT_TERMS', 'Ich habe die <a href="' . cmtx_comments_folder() . 'agreement/german/terms_and_conditions.html" class="cmtx_terms_link" title="Nutzungsbedingungen" target="_blank" rel="nofollow">Nutzungsbedingungen</a> gelesen und stimme ihnen zu.');
+define('CMTX_TEXT_TERMS', 'Ich habe die <a href="' . cmtx_commentics_url() . 'agreement/german/terms_and_conditions.html" class="cmtx_terms_link" title="Nutzungsbedingungen" target="_blank" rel="nofollow">Nutzungsbedingungen</a> gelesen und stimme ihnen zu.');
 
 /* Text for form submit button */
 define('CMTX_SUBMIT_BUTTON', 'Kommentar hinzufügen');

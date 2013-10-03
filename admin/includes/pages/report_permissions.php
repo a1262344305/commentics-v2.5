@@ -41,284 +41,284 @@ $permissions_correct = true;
 
 if (cmtx_setting('check_db_file')) {
 
-echo "<b><u>Database Connection</u></b>";
+echo '<b><u>Database Connection</u></b>';
 
-echo "<p />";
+echo '<p />';
 
-if (is_writable("../includes/db/details.php")) {
-echo "/comments/includes/db/details.php <span class='negative'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/db/details.php')) {
+echo '/' . cmtx_setting('commentics_folder') . '/includes/db/details.php <span class="negative">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 $permissions_correct = false;
 } else {
-echo "/comments/includes/db/details.php <span class='positive'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/includes/db/details.php <span class="positive">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 }
 
-echo "<p />";
+echo '<p />';
 
 }
 
-echo "<b><u>Database Backup</u></b>";
+echo '<b><u>Database Backup</u></b>';
 
-echo "<p />";
+echo '<p />';
 
-if (is_writable("backups/")) {
-echo "/comments/" . cmtx_setting('admin_folder') . "/backups/ <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('backups/')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . cmtx_setting('admin_folder') . '/backups/ <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/" . cmtx_setting('admin_folder') . "/backups/ <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
-$permissions_correct = false;
-}
-
-echo "<p />";
-
-echo "<b><u>Emails</u></b>";
-
-echo "<p />";
-
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
-} else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . cmtx_setting('admin_folder') . '/backups/ <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<p />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+echo '<b><u>Emails</u></b>';
+
+echo '<p />';
+
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_confirmation.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_confirmation.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_confirmation.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br /><br />";
+echo '<br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/email_test.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/email_test.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/email_test.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br /><br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_ban.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_ban.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_ban.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_flag.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_flag.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_ban.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_ban.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_flag.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_ban.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_approve.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_approve.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_approve.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_okay.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_okay.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_approve.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_approve.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_okay.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_approve.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/emails/" . cmtx_setting('language_frontend') . "/admin/reset_password.txt")) {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/reset_password.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_okay.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_okay.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/emails/" . cmtx_setting('language_frontend') . "/admin/reset_password.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_okay.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<p />";
+echo '<br />';
 
-echo "<b><u>Words</u></b>";
-
-echo "<p />";
-
-if (is_writable("../includes/words/admin_notes.txt")) {
-echo "/comments/includes/words/admin_notes.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/admin/reset_password.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/reset_password.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/admin_notes.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/reset_password.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<p />';
 
-if (is_writable("../includes/words/reserved_names.txt")) {
-echo "/comments/includes/words/reserved_names.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+echo '<b><u>Words</u></b>';
+
+echo '<p />';
+
+if (is_writable('../includes/words/admin_notes.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/admin_notes.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/reserved_names.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/admin_notes.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/reserved_emails.txt")) {
-echo "/comments/includes/words/reserved_emails.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/reserved_names.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_names.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/reserved_emails.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_names.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/reserved_websites.txt")) {
-echo "/comments/includes/words/reserved_websites.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/reserved_emails.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_emails.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/reserved_websites.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_emails.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/reserved_towns.txt")) {
-echo "/comments/includes/words/reserved_towns.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/reserved_websites.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_websites.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/reserved_towns.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_websites.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/banned_names.txt")) {
-echo "/comments/includes/words/banned_names.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/reserved_towns.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_towns.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/banned_names.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/reserved_towns.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/banned_emails.txt")) {
-echo "/comments/includes/words/banned_emails.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/banned_names.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_names.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/banned_emails.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_names.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/banned_websites.txt")) {
-echo "/comments/includes/words/banned_websites.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/banned_emails.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_emails.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/banned_websites.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_emails.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/banned_towns.txt")) {
-echo "/comments/includes/words/banned_towns.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/banned_websites.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_websites.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/banned_towns.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_websites.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/dummy_names.txt")) {
-echo "/comments/includes/words/dummy_names.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/banned_towns.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_towns.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/dummy_names.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/banned_towns.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/dummy_emails.txt")) {
-echo "/comments/includes/words/dummy_emails.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/dummy_names.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_names.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/dummy_emails.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_names.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/dummy_websites.txt")) {
-echo "/comments/includes/words/dummy_websites.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/dummy_emails.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_emails.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/dummy_websites.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_emails.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/dummy_towns.txt")) {
-echo "/comments/includes/words/dummy_towns.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/dummy_websites.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_websites.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/dummy_towns.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_websites.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/mild_swear_words.txt")) {
-echo "/comments/includes/words/mild_swear_words.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/dummy_towns.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_towns.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/mild_swear_words.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/dummy_towns.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/strong_swear_words.txt")) {
-echo "/comments/includes/words/strong_swear_words.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/mild_swear_words.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/mild_swear_words.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/strong_swear_words.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/mild_swear_words.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-if (is_writable("../includes/words/spam_words.txt")) {
-echo "/comments/includes/words/spam_words.txt <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/strong_swear_words.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/strong_swear_words.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/words/spam_words.txt <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/strong_swear_words.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<p />";
+echo '<br />';
 
-echo "<b><u>Error Logs</u></b>";
-
-echo "<p />";
-
-if (is_writable("../includes/logs/errors.log")) {
-echo "/comments/includes/logs/errors.log <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+if (is_writable('../includes/words/spam_words.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/spam_words.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/includes/logs/errors.log <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/words/spam_words.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<br />";
+echo '<p />';
 
-if (is_writable("includes/logs/errors.log")) {
-echo "/comments/" . cmtx_setting('admin_folder') . "/includes/logs/errors.log <span class='positive'>" . CMTX_FIELD_VALUE_IS_WRITABLE . "</span>.";
+echo '<b><u>Error Logs</u></b>';
+
+echo '<p />';
+
+if (is_writable('../includes/logs/errors.log')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/logs/errors.log <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {
-echo "/comments/" . cmtx_setting('admin_folder') . "/includes/logs/errors.log <span class='negative'>" . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . "</span>.";
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/logs/errors.log <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 $permissions_correct = false;
 }
 
-echo "<p />";
+echo '<br />';
+
+if (is_writable('includes/logs/errors.log')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . cmtx_setting('admin_folder') . '/includes/logs/errors.log <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
+} else {
+echo '/' . cmtx_setting('commentics_folder') . '/' . cmtx_setting('admin_folder') . '/includes/logs/errors.log <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
+$permissions_correct = false;
+}
+
+echo '<p />';
 
 if ($permissions_correct) {
-echo "<span class='positive'>" . CMTX_FIELD_VALUE_PERMISSIONS_CORRECT . "</span>.";
+echo '<span class="positive">' . CMTX_FIELD_VALUE_PERMISSIONS_CORRECT . '</span>.';
 } else {
-echo "<span class='negative'>" . CMTX_FIELD_VALUE_PERMISSIONS_INCORRECT . "</span>.";
+echo '<span class="negative">' . CMTX_FIELD_VALUE_PERMISSIONS_INCORRECT . '</span>.';
 }
 
 ?>

@@ -37,6 +37,29 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'en
 
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'validate_website_ping'");
 
+$site_name = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_from_name'");
+$site_name = mysql_fetch_assoc($site_name);
+$site_name = $site_name["value"];
+
+$commentics_url = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'url_to_comments_folder'");
+$commentics_url = mysql_fetch_assoc($commentics_url);
+$commentics_url = $commentics_url["value"];
+
+$site_domain = str_ireplace('www.', '', parse_url($commentics_url, PHP_URL_HOST));
+
+$site_url = 'http://' . parse_url($commentics_url, PHP_URL_HOST);
+
+$tokens = explode('/', $commentics_url);
+$commentics_folder = $tokens[sizeof($tokens)-3];
+
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_name', '$site_name');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_domain', '$site_domain');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_url', '$site_url');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'commentics_folder', '$commentics_folder');");
+mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'commentics_url' WHERE `title` = 'url_to_comments_folder'");
+
+mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'check_comments_url'");
+
 mysql_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',

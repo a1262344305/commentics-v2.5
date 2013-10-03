@@ -271,8 +271,8 @@ function bulk_check() {
 // ]]>
 </script>
 
-<?php if ($_GET['page'] == "report_viewers" && cmtx_setting('viewers_refresh_enabled')) { ?>
-<meta http-equiv="refresh" content="<?php echo cmtx_setting('viewers_refresh_time'); ?>">
+<?php if ($_GET['page'] == 'report_viewers' && cmtx_setting('viewers_refresh_enabled')) { ?>
+	<meta http-equiv="refresh" content="<?php echo cmtx_setting('viewers_refresh_time'); ?>">
 <?php } ?>
 
 </head>
@@ -283,138 +283,104 @@ function bulk_check() {
 <?php
 require 'menu/menu.php';
 
-echo "<p />";
+echo '<p />';
 
-if (file_exists("../admin/")) {
-?>
-<span class='negative'>The admin folder has not been renamed.</span>
-<p />
-This is an important security step.
-<p />
-To rename the admin folder, load your FTP software (e.g. FileZilla) and rename the folder below:
-<br />
-<i>http://www.domain.com/comments<b>/admin/</b></i>
-<p />
-Then, in your web browser, navigate to your renamed admin folder:
-<br />
-<i>http://www.domain.com/comments<b>/renamed_admin_folder/</b></i>
-<p />
-Enter the name of your renamed admin folder in Settings -> System.
-<?php
-die();
-}
-
-if (file_exists("../installer/")) {
-?>
-<span class='negative'>The installer folder has not been deleted.</span>
-<p />
-This is an important security step.
-<p />
-To delete the installer folder, load your FTP software (e.g. FileZilla) and delete the folder below:
-<br />
-<i>http://www.domain.com/comments<b>/installer/</b></i>
-<p />
-Then refresh this page.
-<p />
-<input type="button" class="button" name="refresh" title="<?php echo CMTX_BUTTON_REFRESH; ?>" value="<?php echo CMTX_BUTTON_REFRESH; ?>" onclick="window.location.reload()"/>
-<?php
-die();
+/* Check Admin Folder */
+if (file_exists('../admin/')) {
+	?>
+	<span class='negative'>The admin folder has not been renamed.</span>
+	<p />
+	This is an important security step.
+	<p />
+	To rename the admin folder, load your FTP software (e.g. FileZilla) and rename the folder below:
+	<br />
+	<i><?php echo cmtx_setting('commentics_url'); ?><b>admin</b>/</i>
+	<p />
+	Then, in your web browser, navigate to your renamed admin folder:
+	<br />
+	<i><?php echo cmtx_setting('commentics_url'); ?><b>renamed_admin_folder</b>/</i>
+	<?php
+	die();
 }
 
-if (isset($_POST['chmod'])) {
-cmtx_check_csrf_form_key();
-@chmod("../includes/db/details.php", 0444);
-}
-if (isset($_POST['check'])) {
-cmtx_check_csrf_form_key();
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
-}
-if (cmtx_setting('check_db_file') && !isset($_POST['check']) && is_writable("../includes/db/details.php")) {
-?>
-<span class='negative'>The database file is writable.</span>
-<p />
-This is an important security step.
-<p />
-To protect this file, please click the 'Set Permission' button below.
-<p />
-If that fails then you may have to disable the check.
-<p />
-<form name="db_file" id="db_file" action="index.php?page=dashboard" method="post">
-<?php cmtx_set_csrf_form_key(); ?>
-<input type="submit" class="button" name="chmod" title="<?php echo CMTX_BUTTON_CHMOD; ?>" value="<?php echo CMTX_BUTTON_CHMOD; ?>"/>
-<input type="submit" class="button" name="check" title="<?php echo CMTX_BUTTON_CHECK; ?>" value="<?php echo CMTX_BUTTON_CHECK; ?>"/>
-</form>
-<?php
-die();
+/* Check Installer */
+if (file_exists('../installer/')) {
+	?>
+	<span class='negative'>The installer folder has not been deleted.</span>
+	<p />
+	This is an important security step.
+	<p />
+	To delete the installer folder, load your FTP software (e.g. FileZilla) and delete the folder below:
+	<br />
+	<i><?php echo cmtx_setting('commentics_url'); ?><b>installer</b>/</i>
+	<p />
+	Then refresh this page.
+	<p />
+	<input type="button" class="button" name="refresh" title="<?php echo CMTX_BUTTON_REFRESH; ?>" value="<?php echo CMTX_BUTTON_REFRESH; ?>" onclick="window.location.reload()"/>
+	<?php
+	die();
 }
 
-if (isset($_POST['check_url'])) {
+/* Check Database File */
+if (isset($_POST['db_chmod'])) {
 	cmtx_check_csrf_form_key();
-	if ($_POST['comments_url_action'] == "1") {
-		$_SESSION['cmtx_comments_url'] = "1";
-		?><script type="text/javascript">window.location.href = "index.php?page=settings_system"</script><?php
-	} else {
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_comments_url'");
-	}
+	@chmod('../includes/db/details.php', 0444);
 }
-if (cmtx_setting('check_comments_url') && !isset($_SESSION['cmtx_comments_url'])) {
-$setting = cmtx_url_decode(str_ireplace("www.", "", parse_url(cmtx_setting('url_to_comments_folder'), PHP_URL_HOST)) . parse_url(cmtx_setting('url_to_comments_folder'), PHP_URL_PATH));
-$the_url = cmtx_url_decode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-if (stripos($the_url, $setting) === false) {
-?>
-<span class='negative'>The 'Comments URL' setting is incorrect.</span>
-<p />
-The URL to the /comments/ folder in Settings -> System appears to be incorrect:
-<p />
-<?php echo cmtx_setting('url_to_comments_folder'); ?>
-<p />
-<form name="comments_url" id="comments_url" action="index.php?page=dashboard" method="post">
-<input type="radio" checked="checked" name="comments_url_action" value="1"> I will fix this now.
-<br />
-<input type="radio" name="comments_url_action" value="2"> It's actually correct.
-<p />
-<?php cmtx_set_csrf_form_key(); ?>
-<input type="submit" class="button" name="check_url" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>
-</form>
-<?php
-die();
+if (isset($_POST['db_check'])) {
+	cmtx_check_csrf_form_key();
+	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
 }
+if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/db/details.php')) {
+	?>
+	<span class='negative'>The database file is writable.</span>
+	<p />
+	This is an important security step.
+	<p />
+	To protect this file, please click the 'Set Permission' button below.
+	<p />
+	If that fails then you may have to disable the check.
+	<p />
+	<form name="db_file" id="db_file" action="index.php?page=dashboard" method="post">
+	<?php cmtx_set_csrf_form_key(); ?>
+	<input type="submit" class="button" name="db_chmod" title="<?php echo CMTX_BUTTON_CHMOD; ?>" value="<?php echo CMTX_BUTTON_CHMOD; ?>"/>
+	<input type="submit" class="button" name="db_check" title="<?php echo CMTX_BUTTON_CHECK; ?>" value="<?php echo CMTX_BUTTON_CHECK; ?>"/>
+	</form>
+	<?php
+	die();
 }
 
 /* Check Referrer */
 if (cmtx_setting('check_referrer')) {
 	if (isset($_SERVER['HTTP_REFERER'])) { //if referrer available
 		$referrer = cmtx_url_decode($_SERVER['HTTP_REFERER']); //get referrer
-		$host = cmtx_url_decode(str_ireplace('www.', '', parse_url(cmtx_current_page(), PHP_URL_HOST))); //get host of current page
-		if (!empty($host)) { //if host is not empty
-			if (!stristr($referrer, $host)) { //if referrer does not contain host of current page
-				?>
-				<span class='negative'>The referrer has external origin.</span>
-				<p />
-				You have arrived at this page from outside of the admin panel.
-				<p />
-				Please access this page through the menu above.
-				<?php
-				die();
-			}
+		$domain = cmtx_url_decode(cmtx_setting('site_domain')); //get domain
+		if (!stristr($referrer, $domain)) { //if referrer does not contain domain
+			?>
+			<span class='negative'>The referrer has external origin.</span>
+			<p />
+			You have arrived at this page from outside of the admin panel.
+			<p />
+			Please access this page through the menu above.
+			<?php
+			die();
 		}
 	}
 }
 
 if (cmtx_restrict_page($_GET['page'])) {
-	echo "<h3>Page Restricted</h3>";
-	echo "<hr class='title'/>";
-	echo "You don't have permission to view this page.";
+	echo '<h3>Page Restricted</h3>';
+	echo '<hr class="title"/>';
+	echo 'You don\'t have permission to view this page.';
 	die();
 }
 
 $access_log = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "access`");
 $total = mysql_num_rows($access_log);
 if ($total >= 100) {
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` ASC LIMIT 1");
+	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` ASC LIMIT 1");
 }
 
-if (file_exists("includes/pages/" . basename($_GET['page']) . ".php")) {
+if (file_exists('includes/pages/' . basename($_GET['page']) . '.php')) {
 
 	$admin_id = cmtx_get_admin_id();
 	$username = cmtx_sanitize($_SESSION['cmtx_username']);

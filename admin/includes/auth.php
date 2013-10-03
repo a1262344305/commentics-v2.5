@@ -150,7 +150,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 					$reset_password_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/admin/reset_password.txt"; //build path to reset password email file
 					$body = file_get_contents($reset_password_email_file); //get the file's contents
 					
-					$admin_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+					$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 					
 					//convert email variables with actual variables
 					$body = str_ireplace('[username]', $username, $body);

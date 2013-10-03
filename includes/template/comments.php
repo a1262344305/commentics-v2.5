@@ -36,7 +36,7 @@ jQuery(document).ready(function() {
 		hints: ['<?php echo cmtx_escape_js(CMTX_RATING_ONE); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_TWO); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_THREE); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_FOUR); ?>', '<?php echo cmtx_escape_js(CMTX_RATING_FIVE); ?>'],
 		number: 5,
 		numberMax: 5,
-		path: '<?php echo cmtx_comments_folder() . 'images/stars/'?>',
+		path: '<?php echo cmtx_commentics_url() . 'images/stars/'?>',
 		<?php if (cmtx_has_rated_comments()) { echo 'readOnly: true,'; } ?>
 		score: <?php echo cmtx_average_rating(); ?>,
 		scoreName: 'cmtx_score',
@@ -51,7 +51,7 @@ jQuery(document).ready(function() {
 			jQuery.ajax({
 
 				type: 'POST',
-				url: '<?php echo cmtx_comments_folder() . 'rate.php'; ?>',
+				url: '<?php echo cmtx_commentics_url() . 'rate.php'; ?>',
 				data: {id: <?php echo $cmtx_page_id; ?>, rating: rating},
 				cache: false,
 
@@ -118,7 +118,7 @@ jQuery(document).ready(function() {
 		jQuery.ajax({
 
 			type: 'POST',
-			url: '<?php echo cmtx_comments_folder() . 'vote.php'?>',
+			url: '<?php echo cmtx_commentics_url() . 'vote.php'?>',
 			data: {id: id, type: type},
 			cache: false,
 
@@ -172,7 +172,7 @@ jQuery(document).ready(function() {
 
 					jQuery.ajax({			
 						type: 'POST',
-						url: '<?php echo cmtx_comments_folder() . 'flag.php'?>',
+						url: '<?php echo cmtx_commentics_url() . 'flag.php'?>',
 						data: {id: id},
 						cache: false,
 
@@ -501,34 +501,34 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	echo "<div class='cmtx_social_images'>";
 
 	if (cmtx_setting('show_social_facebook')) {
-		echo "<a href='http://www.facebook.com/sharer.php?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/facebook.png' class='cmtx_social_image' title='Facebook' alt='Facebook'/></a>";
+		echo "<a href='http://www.facebook.com/sharer.php?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/facebook.png' class='cmtx_social_image' title='Facebook' alt='Facebook'/></a>";
 	}
 	if (cmtx_setting('show_social_delicious')) {
-		echo "<a href='http://delicious.com/post?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/delicious.png' class='cmtx_social_image' title='del.icio.us' alt='del.icio.us'/></a>";
+		echo "<a href='http://delicious.com/post?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/delicious.png' class='cmtx_social_image' title='del.icio.us' alt='del.icio.us'/></a>";
 	}
 	if (cmtx_setting('show_social_stumbleupon')) {
-		echo "<a href='http://www.stumbleupon.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/stumbleupon.png' class='cmtx_social_image' title='StumbleUpon' alt='StumbleUpon'/></a>";
+		echo "<a href='http://www.stumbleupon.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/stumbleupon.png' class='cmtx_social_image' title='StumbleUpon' alt='StumbleUpon'/></a>";
 	}
 	if (cmtx_setting('show_social_digg')) {
-		echo "<a href='http://digg.com/submit?phase=2&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/digg.png' class='cmtx_social_image' title='Digg' alt='Digg'/></a>";
+		echo "<a href='http://digg.com/submit?phase=2&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/digg.png' class='cmtx_social_image' title='Digg' alt='Digg'/></a>";
 	}
 	if (cmtx_setting('show_social_technorati')) {
-		echo "<a href='http://technorati.com/faves?add=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/technorati.png' class='cmtx_social_image' title='Technorati' alt='Technorati'/></a>";
+		echo "<a href='http://technorati.com/faves?add=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/technorati.png' class='cmtx_social_image' title='Technorati' alt='Technorati'/></a>";
 	}
 	if (cmtx_setting('show_social_google')) {
-		echo "<a href='https://plus.google.com/share?url=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/google.png' class='cmtx_social_image' title='Google+' alt='Google+'/></a>";
+		echo "<a href='https://plus.google.com/share?url=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/google.png' class='cmtx_social_image' title='Google+' alt='Google+'/></a>";
 	}
 	if (cmtx_setting('show_social_reddit')) {
-		echo "<a href='http://reddit.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/reddit.png' class='cmtx_social_image' title='Reddit' alt='Reddit'/></a>";
+		echo "<a href='http://reddit.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/reddit.png' class='cmtx_social_image' title='Reddit' alt='Reddit'/></a>";
 	}
 	if (cmtx_setting('show_social_myspace')) {
-		echo "<a href='http://www.myspace.com/Modules/PostTo/Pages/?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/myspace.png' class='cmtx_social_image' title='MySpace' alt='MySpace'/></a>";
+		echo "<a href='http://www.myspace.com/Modules/PostTo/Pages/?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/myspace.png' class='cmtx_social_image' title='MySpace' alt='MySpace'/></a>";
 	}
 	if (cmtx_setting('show_social_twitter')) {
-		echo "<a href='http://twitter.com/home?status=" . $cmtx_social_title . "%20-%20" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/twitter.png' class='cmtx_social_image' title='Twitter' alt='Twitter'/></a>";
+		echo "<a href='http://twitter.com/home?status=" . $cmtx_social_title . "%20-%20" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/twitter.png' class='cmtx_social_image' title='Twitter' alt='Twitter'/></a>";
 	}
 	if (cmtx_setting('show_social_linkedin')) {
-		echo "<a href='http://www.linkedin.com/shareArticle?mini=true&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_comments_folder() . "images/social/linkedin.png' class='cmtx_social_image' title='LinkedIn' alt='LinkedIn'/></a>";
+		echo "<a href='http://www.linkedin.com/shareArticle?mini=true&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/linkedin.png' class='cmtx_social_image' title='LinkedIn' alt='LinkedIn'/></a>";
 	}
 
 	echo "</div>";
@@ -571,13 +571,13 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	if (cmtx_setting('rss_enabled')) {
 	if (cmtx_setting('show_rss_this_page') || cmtx_setting('show_rss_all_pages')) {
 	if (cmtx_setting('show_rss_this_page')) { ?>
-	<a href="<?php echo cmtx_comments_folder() . "rss.php?id=" . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_comments_folder() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_comments_folder() . "rss.php?id=" . $cmtx_page_id;?>" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
 	&nbsp;
 	<?php }
 	if (cmtx_setting('show_rss_all_pages')) { ?>
-	<a href="<?php echo cmtx_comments_folder() . "rss.php";?>" rel="nofollow"><img src="<?php echo cmtx_comments_folder() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_comments_folder() . "rss.php";?>" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
 	<?php }
 	}
 	}

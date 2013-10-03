@@ -212,7 +212,7 @@ function cmtx_notify_subscribers ($poster, $comment, $comment_id, $page_id) { //
 		
 		$token = $subscriber["token"];
 		
-		$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('url_to_comments_folder')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+		$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
 
 		//convert email variables with actual variables
 		$body = str_ireplace('[name]', $name, $body);

@@ -231,10 +231,10 @@ define('CMTX_TEXT_NOTIFY', 'Giv mig besked via mail om nye kommentarer.');
 define('CMTX_TEXT_REMEMBER', 'Husk mine formulardata på denne computer');
 
 /* Text displayed after privacy checkbox */
-define('CMTX_TEXT_PRIVACY', 'Jeg har læst og forstået <a href="' . cmtx_comments_folder() . 'agreement/danish/privacy_policy.html" class="cmtx_privacy_link" title="Læs privatlivspolitikken" target="_blank" rel="nofollow">privatlivspolitikken</a>.');
+define('CMTX_TEXT_PRIVACY', 'Jeg har læst og forstået <a href="' . cmtx_commentics_url() . 'agreement/danish/privacy_policy.html" class="cmtx_privacy_link" title="Læs privatlivspolitikken" target="_blank" rel="nofollow">privatlivspolitikken</a>.');
 
 /* Text displayed after terms checkbox */
-define('CMTX_TEXT_TERMS', 'Jeg har læst og accepterer <a href="' . cmtx_comments_folder() . 'agreement/danish/terms_and_conditions.html" class="cmtx_terms_link" title="Læs betingelserne" target="_blank" rel="nofollow">betingelserne</a>.');
+define('CMTX_TEXT_TERMS', 'Jeg har læst og accepterer <a href="' . cmtx_commentics_url() . 'agreement/danish/terms_and_conditions.html" class="cmtx_terms_link" title="Læs betingelserne" target="_blank" rel="nofollow">betingelserne</a>.');
 
 /* Text for form submit button */
 define('CMTX_SUBMIT_BUTTON', 'Tilføj kommentar');

@@ -781,19 +781,19 @@ function cmtx_set_time_zone($time_zone) { //set the time zone
 } //end of set-time-zone function
 
 
-function cmtx_comments_folder() { //gets the URL to the /comments/ folder
+function cmtx_commentics_url() { //gets the URL to Commentics
 
-	$url = cmtx_url_decode("http" . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "s" : "") . "://" . strtolower($_SERVER['HTTP_HOST']) . parse_url(cmtx_setting('url_to_comments_folder'), PHP_URL_PATH));
+	$url = cmtx_url_decode('http' . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 's' : '') . '://' . strtolower($_SERVER['HTTP_HOST']) . parse_url(cmtx_setting('commentics_url'), PHP_URL_PATH));
 	
 	$url = cmtx_url_encode($url);
 	
-	if (!parse_url(cmtx_setting('url_to_comments_folder'), PHP_URL_PATH) || !filter_var($url, FILTER_VALIDATE_URL)) {
-		$url = cmtx_url_encode(cmtx_setting('url_to_comments_folder'));
+	if (!parse_url(cmtx_setting('commentics_url'), PHP_URL_PATH) || !filter_var($url, FILTER_VALIDATE_URL)) {
+		$url = cmtx_url_encode(cmtx_setting('commentics_url'));
 	}
 
 	return $url;
 
-} //end of comments-folder function
+} //end of commentics-url function
 
 
 function cmtx_current_page() { //gets the URL of the current page

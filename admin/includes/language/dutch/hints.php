@@ -107,9 +107,13 @@ define('CMTX_HINT_CHECK_HONEYPOT', 'Whether to add an input, hidden by CSS, to b
 define('CMTX_HINT_CHECK_TIME', 'Whether to check that it took less than 5 seconds to submit the form. Bots often submit forms instantly without waiting.');
 define('CMTX_HINT_BAN_COOKIE', 'Het aantal dagen voordat het verbod cookie verloopt.');
 
-define('CMTX_HINT_ADMIN_FOLDER', 'De naam van je hernoemde admin folder.');
-define('CMTX_HINT_TIME_ZONE', 'De tijdzone van jouw locatie/land.');
-define('CMTX_HINT_COMMENTS_URL', 'De absolute URL van jouw berichtenscript folder.');
+define('CMTX_HINT_SITE_NAME', 'The name of your website.<br/>For example: <i>My Site</i>');
+define('CMTX_HINT_TIME_ZONE', 'The time zone of your location.');
+define('CMTX_HINT_SITE_DOMAIN', 'The domain of your website.<br/>For example: <i>site.com</i>');
+define('CMTX_HINT_SITE_URL', 'The URL of your website. For<br/>example: <i>http://www.site.com</i>');
+define('CMTX_HINT_COMMENTICS_FOLDER', 'The name of the Commentics folder. Example: <i>commentics</i>');
+define('CMTX_HINT_COMMENTICS_URL', 'The URL to the Commentics folder.<br />http://www.site.com/commentics/');
+define('CMTX_HINT_ADMIN_FOLDER', 'The name of the renamed admin folder. For example: <i>secret</i>');
 define('CMTX_HINT_MYSQL_DUMP', 'Als je problemen hebt met de database backup tool moet je het server path opgeven naar je MySQLDump file.');
 define('CMTX_HINT_WYSIWYG', 'Moet de WYSIWYG (What You See Is What You Get) HTML editor ingeschakeldc worden voor het bewerken van de berichten pagina?');
 define('CMTX_HINT_LIMIT_COMMENTS', 'Om de prestaties te verbeteren, blijkt alleen dit bedrag van de resultaten in Manage -> Comments.');
