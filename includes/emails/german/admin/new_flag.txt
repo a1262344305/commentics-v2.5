@@ -1,7 +1,7 @@
 ﻿Hallo,
 
 Ein neuer Kommentar wurde auf der Seite ausgeflaggt [page reference], mit folgender Adresse:
-[page url]
+[comment url]
 
 Die Flagge Kommentar wurde erstellt von [poster] mit folgendem Inhalt erstellt:
 

@@ -1,7 +1,7 @@
 ﻿Hallo,
 
 Een bericht is gerapporteerd op de pagina [page reference], gevonden op het volgende adres:
-[page url]
+[comment url]
 
 Het gerapporteerde bericht was gemaakt door [poster] en bevat het volgende:
 

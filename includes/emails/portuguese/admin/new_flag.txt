@@ -1,7 +1,7 @@
 ﻿Olá,
 
 Um novo comentário foi relatado na página [page reference], localizada no seguinte endereço:
-[page url]
+[comment url]
 
 O comentário relatado foi feito por [poster] e é o seguinte:
 

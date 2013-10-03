@@ -166,6 +166,7 @@ if (isset($_POST['id'])) {
 
 		$page_reference = cmtx_decode($page_result["reference"]);
 		$page_url = cmtx_decode($page_result["url"]);
+		$comment_url = cmtx_decode(cmtx_get_permalink($id, $page_result["url"])); //get the permalink of the comment
 		$poster = cmtx_decode($comment_result["name"]);
 		$comment = cmtx_prepare_comment_for_email($comment_result["comment"], false);
 		$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
@@ -173,6 +174,7 @@ if (isset($_POST['id'])) {
 		//convert email variables with actual variables
 		$body = str_ireplace('[page reference]', $page_reference, $body);
 		$body = str_ireplace('[page url]', $page_url, $body);
+		$body = str_ireplace('[comment url]', $comment_url, $body);
 		$body = str_ireplace('[poster]', $poster, $body);
 		$body = str_ireplace('[comment]', $comment, $body);
 		$body = str_ireplace('[admin link]', $admin_link, $body);

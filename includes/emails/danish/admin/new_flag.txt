@@ -1,7 +1,7 @@
 ﻿Hej,
 
 En kommentar er blevet rapporteret på siden [page reference] på denne adresse:
-[page url]
+[comment url]
 
 Den rapporterede kommentar er skrevet af [poster] og kommer her:
 

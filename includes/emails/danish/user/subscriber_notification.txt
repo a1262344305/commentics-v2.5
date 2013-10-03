@@ -1,7 +1,7 @@
 ﻿Hej [name],
 
 Der er blevet indsendt en ny kommentar på siden [page reference]:
-[page url]
+[comment url]
 
 Kommentaren er indsendt af [poster], her er kommentaren:
 

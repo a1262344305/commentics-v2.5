@@ -506,12 +506,12 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 			$cmtx_approve_reason = substr_replace($cmtx_approve_reason, "", -2); //remove ending line break
 		}
 		
-		cmtx_notify_admin_new_comment_approve($cmtx_name, $cmtx_comment); //notify admin of new comment
-		
 		$cmtx_approve_reason = cmtx_sanitize($cmtx_approve_reason, true, true); //sanitize approve reason
 		
 		//insert user's comment into 'comments' database table
 		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 0, '$cmtx_approve_reason', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
+		
+		$cmtx_comment_id = mysql_insert_id(); //get the ID of the comment
 		
 		//build the approval box
 		$cmtx_box = "<div class='cmtx_approval_box'>";
@@ -528,6 +528,8 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		if (cmtx_setting('enabled_notify') && isset($_POST['cmtx_notify']) && cmtx_setting('enabled_email') && !empty($cmtx_email) && !cmtx_subscriber_exists($cmtx_email, $cmtx_page_id) && !cmtx_subscriber_email_attempts($cmtx_email) && !cmtx_subscriber_ip_attempts() && !$cmtx_is_admin) {
 			cmtx_add_subscriber($cmtx_name, $cmtx_email, $cmtx_page_id);
 		}
+		
+		cmtx_notify_admin_new_comment_approve($cmtx_name, $cmtx_comment, $cmtx_comment_id); //notify admin of new comment
 		
 		if ( (isset($_POST['cmtx_remember'])) || (!cmtx_setting('enabled_remember') && cmtx_setting('form_cookie')) ) {
 			cmtx_set_form_cookie($cmtx_name, $cmtx_email, $cmtx_website, $cmtx_town, $cmtx_country); //save form inputs
@@ -562,6 +564,8 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		//insert user's comment into 'comments' database table
 		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 1, '', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
 		
+		$cmtx_comment_id = mysql_insert_id(); //get the ID of the comment
+		
 		//build the success box
 		$cmtx_box = "<div class='cmtx_success_box'>";
 		$cmtx_box .= "<div class='cmtx_success_message_line_1'>";
@@ -581,15 +585,15 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		//notify subscribers of new comment
 		if (cmtx_setting('enabled_notify')) {
 			if ($cmtx_is_admin) {
-				cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id);
+				cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id);
 			} else {
 				if (!cmtx_setting('approve_notifications')) {
-					cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id);
+					cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id);
 				}
 			}
 		}
 		
-		cmtx_notify_admin_new_comment_okay($cmtx_name, $cmtx_comment); //notify admin of new comment
+		cmtx_notify_admin_new_comment_okay($cmtx_name, $cmtx_comment, $cmtx_comment_id); //notify admin of new comment
 		
 		if ( (isset($_POST['cmtx_remember'])) || (!cmtx_setting('enabled_remember') && cmtx_setting('form_cookie')) ) {
 			cmtx_set_form_cookie($cmtx_name, $cmtx_email, $cmtx_website, $cmtx_town, $cmtx_country); //save form inputs

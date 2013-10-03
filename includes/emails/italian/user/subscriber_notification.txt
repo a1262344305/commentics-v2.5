@@ -1,7 +1,7 @@
 ﻿Salve [name],
 
 Un nuovo commento è stato inserito nella pagina [page reference], che si trova al seguente indirizzo:
-[page url]
+[comment url]
 
 Il commento stato fatto da [poster] ed è il seguente:
 

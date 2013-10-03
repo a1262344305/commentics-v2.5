@@ -1,7 +1,7 @@
 ﻿Hola [name],
 
 Un nuevo comentario ha sido publicado en la página [page reference], localizada en la siguiente dirección web:
-[page url]
+[comment url]
 
 El comentario ha sido publicado por [poster] y dice lo siguiente:
 

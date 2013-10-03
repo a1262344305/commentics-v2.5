@@ -1,7 +1,7 @@
 ﻿Hallo,
 
 Es wurde ein neuer Kommentar auf der Seite [page reference], mit folgender Adresse:
-[page url]
+[comment url]
 
 Der Kommentar wurde von [poster] mit folgendem Inhalt erstellt:
 

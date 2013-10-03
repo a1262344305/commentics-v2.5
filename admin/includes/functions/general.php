@@ -180,7 +180,7 @@ function cmtx_get_current_version() { //gets current version
 } //end of get-current-version function
 
 
-function cmtx_notify_subscribers ($poster, $comment, $comment_id, $page_id) { //notify subscribers of new comment
+function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //notify subscribers of new comment
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 	
@@ -194,6 +194,8 @@ function cmtx_notify_subscribers ($poster, $comment, $comment_id, $page_id) { //
 	$page_result = mysql_fetch_assoc($page_query);
 	$page_reference = cmtx_decode($page_result["reference"]);
 	$page_url = cmtx_decode($page_result["url"]);
+	
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
 	
 	$subscriber_notification_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification.txt"; //build path to subscriber notification email file
 	
@@ -218,6 +220,7 @@ function cmtx_notify_subscribers ($poster, $comment, $comment_id, $page_id) { //
 		$body = str_ireplace('[name]', $name, $body);
 		$body = str_ireplace('[page reference]', $page_reference, $body);
 		$body = str_ireplace('[page url]', $page_url, $body);
+		$body = str_ireplace('[comment url]', $comment_url, $body);
 		$body = str_ireplace('[poster]', $poster, $body);
 		$body = str_ireplace('[comment]', $comment, $body);
 		$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
@@ -774,6 +777,27 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 	}
 
 } //end of email function
+
+
+function cmtx_get_permalink($id, $url) { //build the permalink
+
+	preg_match('/cmtx_sort=[0-9]/', $_SERVER['REQUEST_URI'], $match);
+
+	if (!empty($match[0])) {
+		$sort = $match[0] . '&amp;';
+	} else {
+		$sort = '';
+	}
+
+	if (strstr($url, '?') && strstr($url, '=')) {
+		$url .= '&amp;' . $sort . 'cmtx_perm=' . $id . '#cmtx_perm_' . $id;
+	} else {
+		$url .= '?' . $sort . 'cmtx_perm=' . $id . '#cmtx_perm_' . $id;
+	}
+
+	return $url;
+
+} //end of get-permalink function
 
 
 function cmtx_setting($title) { //gets a setting

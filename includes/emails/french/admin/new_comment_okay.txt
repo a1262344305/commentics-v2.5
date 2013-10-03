@@ -1,7 +1,7 @@
 ﻿Bonjour,
 
 Un nouveau commentaire a été posté sur la page [page reference], situé à l'adresse suivante:
-[page url]
+[comment url]
 
 Le commentaire a été faite par [poster] et se présente comme suit:
 

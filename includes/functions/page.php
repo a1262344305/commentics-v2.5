@@ -887,6 +887,27 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 } //end of email function
 
 
+function cmtx_get_permalink($id, $url) { //build the permalink
+
+	preg_match('/cmtx_sort=[0-9]/', $_SERVER['REQUEST_URI'], $match);
+
+	if (!empty($match[0])) {
+		$sort = $match[0] . '&amp;';
+	} else {
+		$sort = '';
+	}
+
+	if (strstr($url, '?') && strstr($url, '=')) {
+		$url .= '&amp;' . $sort . 'cmtx_perm=' . $id . '#cmtx_perm_' . $id;
+	} else {
+		$url .= '?' . $sort . 'cmtx_perm=' . $id . '#cmtx_perm_' . $id;
+	}
+
+	return $url;
+
+} //end of get-permalink function
+
+
 function cmtx_setting($title) { //gets a setting
 
 	global $cmtx_mysql_table_prefix;

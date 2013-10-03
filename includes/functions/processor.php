@@ -118,7 +118,7 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 } //end of add-subscriber function
 
 
-function cmtx_notify_subscribers ($poster, $comment, $page_id) { //notify subscribers of new comment
+function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //notify subscribers of new comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_path; //globalise variables
 
@@ -127,6 +127,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id) { //notify subscr
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
 	$subscriber_notification_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification.txt"; //build path to subscriber notification email file
 
@@ -151,6 +152,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id) { //notify subscr
 		$body = str_ireplace('[name]', $name, $body);
 		$body = str_ireplace('[page reference]', $page_reference, $body);
 		$body = str_ireplace('[page url]', $page_url, $body);
+		$body = str_ireplace('[comment url]', $comment_url, $body);
 		$body = str_ireplace('[poster]', $poster, $body);
 		$body = str_ireplace('[comment]', $comment, $body);
 		$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
@@ -200,7 +202,7 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 } //end of notify-admin-new-ban function
 
 
-function cmtx_notify_admin_new_comment_approve ($poster, $comment) { //notify admin of new comment to approve
+function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) { //notify admin of new comment to approve
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_approve_reason; //globalise variables
 
@@ -209,6 +211,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment) { //notify ad
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
@@ -218,6 +221,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment) { //notify ad
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
 	$body = str_ireplace('[page url]', $page_url, $body);
+	$body = str_ireplace('[comment url]', $comment_url, $body);
 	$body = str_ireplace('[poster]', $poster, $body);
 	$body = str_ireplace('[comment]', $comment, $body);
 	$body = str_ireplace('[approval reasoning]', $cmtx_approve_reason, $body);
@@ -238,7 +242,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment) { //notify ad
 } //end of notify-admin-new-comment-approve function
 
 
-function cmtx_notify_admin_new_comment_okay ($poster, $comment) { //notify admin of new comment
+function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { //notify admin of new comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_is_admin, $cmtx_path; //globalise variables
 
@@ -247,6 +251,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment) { //notify admin
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
@@ -256,6 +261,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment) { //notify admin
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
 	$body = str_ireplace('[page url]', $page_url, $body);
+	$body = str_ireplace('[comment url]', $comment_url, $body);
 	$body = str_ireplace('[poster]', $poster, $body);
 	$body = str_ireplace('[comment]', $comment, $body);
 	$body = str_ireplace('[admin link]', $admin_link, $body);

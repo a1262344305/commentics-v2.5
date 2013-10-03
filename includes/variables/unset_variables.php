@@ -126,6 +126,7 @@ unset($cmtx_ip_address);
 unset($cmtx_referrer);
 unset($cmtx_domain);
 unset($cmtx_rich_snippets);
+unset($cmtx_comment_id);
 
 //htmLawed
 unset($C);

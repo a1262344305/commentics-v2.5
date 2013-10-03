@@ -1,7 +1,7 @@
 ﻿Pozdravljeni [name],
 
 na stran [page reference] je bil dodan nov komentar, ki se nahaja na naslovu:
-[page url]
+[comment url]
 
 Komentar je dodal [poster] , vsebina komentarja pa je:
 

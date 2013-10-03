@@ -110,7 +110,7 @@ echo
 		$pages_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '" . $comments["page_id"] . "'");
 		$pages = mysql_fetch_assoc($pages_query);
 		$title = $comments["name"];
-		$link = $pages["url"];
+		$link = cmtx_get_permalink($id, $pages["url"]);;
 		$comment = $comments["comment"];
 		$dated = date("r", strtotime($comments["dated"]));
 		$guid = $comments["id"];

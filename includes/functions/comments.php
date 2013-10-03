@@ -366,7 +366,7 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	if (cmtx_setting('show_permalink') && !$is_preview) {
 		$cmtx_box .= "<div class='cmtx_permalink_block'>";
 		$cmtx_box .= "<div class='cmtx_buttons'>";
-		$cmtx_box .= "<a class='cmtx_permalink' href='" . cmtx_get_permalink($id) . "' id='cmtx_permalink_" . $id . "' title='" . CMTX_TITLE_PERMALINK . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/permalink.png' alt='Permalink' title='" . CMTX_TITLE_PERMALINK . "'/>" . CMTX_PERMALINK . "</a>";
+		$cmtx_box .= "<a class='cmtx_permalink' href='" . cmtx_get_permalink($id, cmtx_get_page_url()) . "' id='cmtx_permalink_" . $id . "' title='" . CMTX_TITLE_PERMALINK . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/permalink.png' alt='Permalink' title='" . CMTX_TITLE_PERMALINK . "'/>" . CMTX_PERMALINK . "</a>";
 		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
 	}
@@ -565,29 +565,6 @@ function cmtx_has_rated_comments() { //checks whether user has already rated
 	return $rated;
 	
 } //end of has-rated-comments function
-
-
-function cmtx_get_permalink($id) { //build the permalink
-
-	preg_match("/cmtx_sort=[0-9]/", $_SERVER['REQUEST_URI'], $match);
-
-	if (!empty($match[0])) {
-		$sort = $match[0] . "&amp;";
-	} else {
-		$sort = "";
-	}
-
-	$url = cmtx_get_page_url();
-
-	if (strstr($url, '?') && strstr($url, '=')) {
-		$url .= "&amp;" . $sort . "cmtx_perm=" . $id . "#cmtx_perm_" . $id;
-	} else {
-		$url .= "?" . $sort . "cmtx_perm=" . $id . "#cmtx_perm_" . $id;
-	}
-
-	return $url;
-
-} //end of get-permalink function
 
 
 function cmtx_calc_permalink($id) { //calculate the page of the permalink

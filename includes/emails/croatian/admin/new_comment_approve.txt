@@ -1,7 +1,7 @@
 ﻿Pozdravljeni,
 
 Novi komentar je objavljen na stranici [page reference], nalazi se na sljedeći adresi:
-[page url]
+[comment url]
 
 Komentar je dodao [poster] i bio kako slijedi:
 
