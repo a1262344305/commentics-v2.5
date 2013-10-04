@@ -277,11 +277,7 @@ if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) {
 $cmtx_number_of_comments = cmtx_number_of_comments();
 ?>
 
-<h3 class="cmtx_comments_heading">
-<a id="<?php echo str_ireplace("#", "", CMTX_ANCHOR_COMMENTS); ?>"></a>
-<?php echo CMTX_COMMENTS_HEADING; ?>
-<?php if (cmtx_setting('show_comment_count') && $cmtx_number_of_comments) { ?> <span class="cmtx_comments_count"><?php echo " (" . $cmtx_number_of_comments . ")";?></span> <?php } ?>
-</h3>
+<h3 class="cmtx_comments_heading" id="<?php echo str_ireplace('#', '', CMTX_ANCHOR_COMMENTS); ?>"><?php echo CMTX_COMMENTS_HEADING; ?><?php if (cmtx_setting('show_comment_count') && $cmtx_number_of_comments) { ?> <span class="cmtx_comments_count"><?php echo '(' . $cmtx_number_of_comments . ')';?></span><?php } ?></h3>
 
 <div class="cmtx_height_below_comments_heading"></div>
 

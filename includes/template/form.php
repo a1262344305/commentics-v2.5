@@ -730,10 +730,7 @@ jQuery(document).ready(function() {
 </div>
 <?php } ?>
 
-<h3 class="cmtx_form_heading">
-<a id="<?php echo str_ireplace('#', '', CMTX_ANCHOR_FORM); ?>"></a>
-<?php echo CMTX_FORM_HEADING; ?>
-</h3>
+<h3 class="cmtx_form_heading" id="<?php echo str_ireplace('#', '', CMTX_ANCHOR_FORM); ?>"><?php echo CMTX_FORM_HEADING; ?></h3>
 
 <div class="cmtx_height_below_form_heading"></div>
 
