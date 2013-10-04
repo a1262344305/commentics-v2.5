@@ -1,4 +1,4 @@
-﻿Pozdravljeni,
+﻿Zdravo,
 
 Novi komentar je objavljen na stranici [page reference], nalazi se na sljedeći adresi:
 [comment url]
@@ -16,6 +16,6 @@ Ovaj komentar ne zahtijeva odobrenje.
 Ovdje je link do vašeg admin panela:
 [admin link]
 
-pozdrav,
+Zbogom,
 
 [signature]

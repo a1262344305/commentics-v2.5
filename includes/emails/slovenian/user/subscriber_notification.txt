@@ -1,9 +1,9 @@
 ﻿Pozdravljeni [name],
 
-na stran [page reference] je bil dodan nov komentar, ki se nahaja na naslovu:
+Na stran [page reference] je bil dodan nov komentar, ki se nahaja na naslovu:
 [comment url]
 
-Komentar je dodal [poster] , vsebina komentarja pa je:
+Komentar je dodal [poster], vsebina komentarja pa je:
 
 ************************
 
@@ -11,9 +11,9 @@ Komentar je dodal [poster] , vsebina komentarja pa je:
 
 ************************
 
-Če želite preklicati naročnino, se lahko odjavite tako, da kliknete tukaj:
-[unsubscribe link]
-
 Lep pozdrav,
 
 [signature]
+
+Če želite preklicati naročnino, se lahko odjavite tako, da kliknete tukaj:
+[unsubscribe link]

@@ -1,4 +1,4 @@
-﻿Pozdravljeni [name],
+﻿Zdravo [name],
 
 Zatražili ste pretplatu na stranicu [page reference], koja se nalazi na sljedeći adresi:
 [page url]
@@ -9,5 +9,6 @@ Molimo potvrdite ovu pretplatu klikom na link ispod:
 Ako niste zatražili ovu pretplatu, ne postoji ništa što trebate učiniti.
 Nećete dobiti više e-poštu ove vrste.
 
-pozdrav,
+Zbogom,
 
+[signature]

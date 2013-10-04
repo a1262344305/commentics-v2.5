@@ -1,6 +1,6 @@
 ﻿Pozdravljeni [name],
 
-zahtevali ste naročnino na stran [page reference], ki se nahaja na naslovu:
+Zahtevali ste naročnino na stran [page reference], ki se nahaja na naslovu:
 [page url]
 
 Prosimo potrdite naročnino s klikom na spodnji link:

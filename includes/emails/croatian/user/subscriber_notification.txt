@@ -1,4 +1,4 @@
-﻿Pozdravljeni [name],
+﻿Zdravo [name],
 
 Novi komentar je objavljen na stranici [page reference], nalazi se na sljedećem adresu:
 [comment url]
@@ -11,8 +11,9 @@ Komentar je objavio [poster] i bio kako slijedi:
 
 ************************
 
+Zbogom,
+
+[signature]
+
 Da biste otkazali pretplatu, možete odjaviti klikom ovdje:
 [unsubscribe link]
-
-Pozdrav,
-

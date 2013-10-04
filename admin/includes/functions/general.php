@@ -223,8 +223,8 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 		$body = str_ireplace('[comment url]', $comment_url, $body);
 		$body = str_ireplace('[poster]', $poster, $body);
 		$body = str_ireplace('[comment]', $comment, $body);
-		$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
 		$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
+		$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
 
 		//send email
 		cmtx_email($email, $name, cmtx_setting('subscriber_notification_subject'), $body, cmtx_setting('subscriber_notification_from_email'), cmtx_setting('subscriber_notification_from_name'), cmtx_setting('subscriber_notification_reply_to'));

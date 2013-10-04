@@ -1,6 +1,6 @@
 ﻿Pozdravljeni,
 
-uporabniku z IP naslovom [ip address] je bil prepovedan dostop iz naslednjega razloga:
+Uporabniku z IP naslovom [ip address] je bil prepovedan dostop iz naslednjega razloga:
 [ban reasoning]
 
 Link do vaše nadzorne plošče:

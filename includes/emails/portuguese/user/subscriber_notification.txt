@@ -11,9 +11,9 @@ O comentário foi feito por [poster] e é o seguinte:
 
 ************************
 
-Para cancelar sua assinatura, você pode cancelar a assinatura, clicando aqui:
-[unsubscribe link]
-
 Obrigado,
 
 [signature]
+
+Para cancelar sua assinatura, você pode cancelar a assinatura, clicando aqui:
+[unsubscribe link]

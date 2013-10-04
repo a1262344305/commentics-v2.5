@@ -1,6 +1,6 @@
 ﻿Pozdravljeni,
 
-en izmed komentarjev na strani [page reference] je bil z zastavico označen kot neprimeren:
+En izmed komentarjev na strani [page reference] je bil z zastavico označen kot neprimeren:
 [comment url]
 
 Označeni komentar je dodal [poster] in ima sledečo vsebino:

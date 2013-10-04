@@ -1,6 +1,6 @@
 ﻿Pozdravljeni,
 
-za stran [page reference] je bil dodan nov komentar, ki se nahaja na sledečem naslovu:
+Za stran [page reference] je bil dodan nov komentar, ki se nahaja na sledečem naslovu:
 [comment url]
 
 Komentar s spodaj navedeno vsebino je dodal [poster] :

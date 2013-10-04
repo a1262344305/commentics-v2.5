@@ -1,4 +1,4 @@
-﻿Pozdravljeni,
+﻿Zdravo,
 
 Jedan od komentara na stranici [page reference] je označen kao neprikladan, nalazi se na sljedeći adresi:
 [comment url]
@@ -14,6 +14,6 @@ Komentar, kojeg je označio [poster] , ima sljedeći sadržaj:
 Ovdje je link do vašeg admin panela:
 [admin link]
 
-pozdrav,
+Zbogom,
 
 [signature]

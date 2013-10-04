@@ -1,4 +1,4 @@
-﻿Pozdravljeni,
+﻿Zdravo,
 
 Novi korisnik, s IP adresom [ip address], bio je blokiran zbog sljedećih razloga:
 [ban reasoning]
@@ -6,6 +6,6 @@ Novi korisnik, s IP adresom [ip address], bio je blokiran zbog sljedećih razlog
 Ovdje je link do vašeg admin panela:
 [admin link]
 
-pozdrav,
+Zbogom,
 
 [signature]
