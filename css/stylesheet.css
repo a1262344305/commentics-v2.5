@@ -405,7 +405,11 @@ border-color: transparent !important;
 }
 
 .cmtx_rss_image {
-height: 12px;
+}
+
+.cmtx_rss_link {
+color: #3E3E3E;
+text-decoration: none;
 }
 
 .cmtx_page_number_block {

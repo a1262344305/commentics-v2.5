@@ -569,13 +569,13 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	if (cmtx_setting('rss_enabled')) {
 	if (cmtx_setting('show_rss_this_page') || cmtx_setting('show_rss_all_pages')) {
 	if (cmtx_setting('show_rss_this_page')) { ?>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.png";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
 	&nbsp;
 	<?php }
 	if (cmtx_setting('show_rss_all_pages')) { ?>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.jpg";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.png";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
 	<?php }
 	}
 	}
