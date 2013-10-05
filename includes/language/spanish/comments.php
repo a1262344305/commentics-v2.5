@@ -109,10 +109,10 @@ define('CMTX_TITLE_RSS_ALL', 'Recibir alertas RSS para todas las páginas');
 define('CMTX_INFO_PAGE', 'Página %d de %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', '[Primera]');
-define('CMTX_PAGINATION_PREVIOUS', '&lt;'); // < character
-define('CMTX_PAGINATION_NEXT', '&gt;'); // > character
-define('CMTX_PAGINATION_LAST', '[Última]');
+define('CMTX_PAGINATION_FIRST', 'Primera');
+define('CMTX_PAGINATION_PREVIOUS', '<');
+define('CMTX_PAGINATION_NEXT', '>');
+define('CMTX_PAGINATION_LAST', 'Última');
 define('CMTX_TITLE_PAG_FIRST', 'primera');
 define('CMTX_TITLE_PAG_PREVIOUS', 'previa');
 define('CMTX_TITLE_PAG_NEXT', 'siguiente');

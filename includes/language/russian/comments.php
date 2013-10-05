@@ -109,10 +109,10 @@ define('CMTX_TITLE_RSS_ALL', 'Получать RSS оповещения для �
 define('CMTX_INFO_PAGE', 'Страница %d из %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', '[В начало]');
-define('CMTX_PAGINATION_PREVIOUS', '&lt;'); // < character
-define('CMTX_PAGINATION_NEXT', '&gt;'); // > character
-define('CMTX_PAGINATION_LAST', '[В конец]');
+define('CMTX_PAGINATION_FIRST', 'В начало');
+define('CMTX_PAGINATION_PREVIOUS', '<');
+define('CMTX_PAGINATION_NEXT', '>');
+define('CMTX_PAGINATION_LAST', 'В конец');
 define('CMTX_TITLE_PAG_FIRST', 'первое');
 define('CMTX_TITLE_PAG_PREVIOUS', 'предыдущее');
 define('CMTX_TITLE_PAG_NEXT', 'следующее');

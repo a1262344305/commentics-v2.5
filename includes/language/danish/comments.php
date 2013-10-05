@@ -109,10 +109,10 @@ define('CMTX_TITLE_RSS_ALL', 'Abonner på RSS-feed for alle sider');
 define('CMTX_INFO_PAGE', 'Side %d af %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', '[først]');
-define('CMTX_PAGINATION_PREVIOUS', '&lt;'); // < character
-define('CMTX_PAGINATION_NEXT', '&gt;'); // > character
-define('CMTX_PAGINATION_LAST', '[sidst]');
+define('CMTX_PAGINATION_FIRST', 'først');
+define('CMTX_PAGINATION_PREVIOUS', '<');
+define('CMTX_PAGINATION_NEXT', '>');
+define('CMTX_PAGINATION_LAST', 'sidst');
 define('CMTX_TITLE_PAG_FIRST', 'først');
 define('CMTX_TITLE_PAG_PREVIOUS', 'forrige');
 define('CMTX_TITLE_PAG_NEXT', 'næste');

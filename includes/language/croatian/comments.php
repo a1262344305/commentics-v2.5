@@ -109,10 +109,10 @@ define('CMTX_TITLE_RSS_ALL', 'RSS upozorenja za sve stranice');
 define('CMTX_INFO_PAGE', 'Stranica %d od %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', '[prva]');
-define('CMTX_PAGINATION_PREVIOUS', '&lt;'); // < character
-define('CMTX_PAGINATION_NEXT', '&gt;'); // > character
-define('CMTX_PAGINATION_LAST', '[zadnja]');
+define('CMTX_PAGINATION_FIRST', 'prva');
+define('CMTX_PAGINATION_PREVIOUS', '<');
+define('CMTX_PAGINATION_NEXT', '>');
+define('CMTX_PAGINATION_LAST', 'zadnja');
 define('CMTX_TITLE_PAG_FIRST', 'prva');
 define('CMTX_TITLE_PAG_PREVIOUS', 'prethodna');
 define('CMTX_TITLE_PAG_NEXT', 'slijedeća');

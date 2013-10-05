@@ -109,10 +109,10 @@ define('CMTX_TITLE_RSS_ALL', 'รับโค้ด RSS เพื่อติด
 define('CMTX_INFO_PAGE', 'หน้า %d จาก %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', '[หน้าแรก]');
-define('CMTX_PAGINATION_PREVIOUS', '&lt;'); // < character
-define('CMTX_PAGINATION_NEXT', '&gt;'); // > character
-define('CMTX_PAGINATION_LAST', '[หน้าสุดท้าย]');
+define('CMTX_PAGINATION_FIRST', 'หน้าแรก');
+define('CMTX_PAGINATION_PREVIOUS', '<');
+define('CMTX_PAGINATION_NEXT', '>');
+define('CMTX_PAGINATION_LAST', 'หน้าสุดท้าย');
 define('CMTX_TITLE_PAG_FIRST', 'หน้าแรก');
 define('CMTX_TITLE_PAG_PREVIOUS', 'หน้าก่อนหน้า');
 define('CMTX_TITLE_PAG_NEXT', 'หน้าถัดไป');
