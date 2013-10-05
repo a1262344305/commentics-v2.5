@@ -33,10 +33,9 @@ define('CMTX_COMMENTS_HEADING', 'Отзывы');
 /* No comments message */
 define('CMTX_NO_COMMENTS', 'Отзывов пока нет.');
 
-/* Sort By title */
-define('CMTX_TITLE_SORT_BY', 'Сортировать по');
-
-/* Sort By items */
+/* Sort By */
+define('CMTX_SORT_TEXT', 'Сортировать по:');
+define('CMTX_SORT_TITLE', 'Сортировать по');
 define('CMTX_SORT_1', 'Новые');
 define('CMTX_SORT_2', 'Старые');
 define('CMTX_SORT_3', 'Полезные');

@@ -33,10 +33,9 @@ define('CMTX_COMMENTS_HEADING', 'ความคิดเห็น');
 /* No comments message */
 define('CMTX_NO_COMMENTS', 'ยังไม่มีข้อความคิดเห็น');
 
-/* Sort By title */
-define('CMTX_TITLE_SORT_BY', 'เรียงตาม');
-
-/* Sort By items */
+/* Sort By */
+define('CMTX_SORT_TEXT', 'เรียงตาม:');
+define('CMTX_SORT_TITLE', 'เรียงตาม');
 define('CMTX_SORT_1', 'ใหม่ล่าสุด');
 define('CMTX_SORT_2', 'เก่าแก่ที่สุด');
 define('CMTX_SORT_3', 'เป็นประโยชน์');

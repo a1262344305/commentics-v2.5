@@ -33,10 +33,9 @@ define('CMTX_COMMENTS_HEADING', 'Commentaires');
 /* No comments message */
 define('CMTX_NO_COMMENTS', 'Pas encore de commentaires.');
 
-/* Sort By title */
-define('CMTX_TITLE_SORT_BY', 'Trier les commentaires');
-
-/* Sort By items */
+/* Sort By */
+define('CMTX_SORT_TEXT', 'Trier les commentaires:');
+define('CMTX_SORT_TITLE', 'Trier les commentaires');
 define('CMTX_SORT_1', 'Récent');
 define('CMTX_SORT_2', 'Ancien');
 define('CMTX_SORT_3', 'Utiles');

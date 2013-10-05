@@ -33,10 +33,9 @@ define('CMTX_COMMENTS_HEADING', 'Komentarji');
 /* No comments message */
 define('CMTX_NO_COMMENTS', 'Ni še nobenega komentarja.');
 
-/* Sort By title */
-define('CMTX_TITLE_SORT_BY', 'Razvrsti komentarje');
-
-/* Sort By items */
+/* Sort By */
+define('CMTX_SORT_TEXT', 'Razvrsti komentarje:');
+define('CMTX_SORT_TITLE', 'Razvrsti komentarje');
 define('CMTX_SORT_1', 'Najnovejši');
 define('CMTX_SORT_2', 'Najstarejši');
 define('CMTX_SORT_3', 'Koristni');

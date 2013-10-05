@@ -40,6 +40,16 @@ float: left;
 font-size: 0.8em;
 }
 
+.cmtx_sort_text {
+color: #828282;
+}
+
+.cmtx_sort_field {
+font-size: 0.9em;
+height: 20px;
+margin-left: 3px;
+}
+
 .cmtx_topic_block {
 float: right;
 font-size: 0.8em;

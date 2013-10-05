@@ -360,9 +360,11 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	/* *** Sort By *** */
 	if (cmtx_setting('show_sort_by')) {
 
-	echo "<div class='cmtx_sort_block'>";
+	echo '<div class="cmtx_sort_block">';
+	
+	echo '<span class="cmtx_sort_text">' . CMTX_SORT_TEXT . '</span>';
 
-	echo "<select id='cmtx_sort_by' title='" . CMTX_TITLE_SORT_BY . "' onchange='window.location.href = this.options[selectedIndex].value;'>";
+	echo "<select class='cmtx_sort_field' title='" . CMTX_SORT_TITLE . "' onchange='window.location.href = this.options[selectedIndex].value;'>";
 
 	if (cmtx_setting('show_sort_by_1') && cmtx_setting('show_date')) {
 		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "1") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "1") ) {
@@ -407,16 +409,16 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 		}
 	}
 
-	echo "</select>";
+	echo '</select>';
 
-	echo "</div>";
+	echo '</div>';
 	}
 
 
 
 	if (cmtx_setting('show_topic') || cmtx_setting('show_sort_by')) {
-	echo "<div style='clear: both;'></div>";
-	echo "<div class='cmtx_height_below_sort_and_topic'></div>";
+	echo '<div style="clear: both;"></div>';
+	echo '<div class="cmtx_height_below_sort_and_topic"></div>';
 	}
 
 
