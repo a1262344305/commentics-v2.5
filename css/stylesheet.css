@@ -68,10 +68,12 @@ border-color: transparent !important;
 
 .cmtx_average_rating_stars {
 float: left;
+margin-right: 1px;
 }
 
 .cmtx_average_rating_stars img {
 vertical-align: bottom;
+margin-right: 2px;
 }
 
 .cmtx_average_rating_text {
@@ -227,6 +229,7 @@ float: right;
 }
 
 .cmtx_star_image {
+margin-left: 3px;
 }
 
 .cmtx_admin_name_with_website_text {

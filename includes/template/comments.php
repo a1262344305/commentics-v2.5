@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
 		score: <?php echo cmtx_average_rating(); ?>,
 		scoreName: 'cmtx_score',
 		single: false,
-		size: 22,
+		size: 16,
 		space: false,
 		starOff: 'star_empty.png',
 		starOn: 'star_full.png',
