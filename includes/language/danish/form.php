@@ -74,6 +74,15 @@ define('CMTX_TITLE_TERMS', 'Accepter betingelserne');
 define('CMTX_TITLE_SUBMIT', 'Tilføj kommentar');
 define('CMTX_TITLE_PREVIEW', 'Smugkig');
 
+/* Field placeholders */
+define('CMTX_PLACEHOLDER_NAME', '');
+define('CMTX_PLACEHOLDER_EMAIL', '');
+define('CMTX_PLACEHOLDER_WEBSITE', '');
+define('CMTX_PLACEHOLDER_TOWN', '');
+define('CMTX_PLACEHOLDER_COMMENT', '');
+define('CMTX_PLACEHOLDER_QUESTION', '');
+define('CMTX_PLACEHOLDER_CAPTCHA', '');
+
 /* Note displayed after email field */
 define('CMTX_NOTE_EMAIL', '(offentliggøres ikke)');
 

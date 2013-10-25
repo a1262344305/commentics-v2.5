@@ -839,7 +839,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php echo CMTX_LABEL_NAME; ?>
 <?php if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 </label>
-<input type="text" name="cmtx_name" class="cmtx_field cmtx_text_field cmtx_name_field" title="<?php echo CMTX_TITLE_NAME; ?>" maxlength="<?php echo cmtx_setting('field_maximum_name'); ?>" value="<?php echo $cmtx_default_name; ?>" <?php if (isset($cmtx_set_name_value) && !empty($cmtx_set_name_value) && cmtx_setting('state_name') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
+<input type="text" name="cmtx_name" class="cmtx_field cmtx_text_field cmtx_name_field" title="<?php echo CMTX_TITLE_NAME; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_NAME; ?>" maxlength="<?php echo cmtx_setting('field_maximum_name'); ?>" value="<?php echo $cmtx_default_name; ?>" <?php if (isset($cmtx_set_name_value) && !empty($cmtx_set_name_value) && cmtx_setting('state_name') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
 <?php } } ?>
 
 <?php function cmtx_output_email () { ?>
@@ -851,7 +851,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php echo CMTX_LABEL_EMAIL; ?>
 <?php if (cmtx_setting('required_email') && cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 </label>
-<input type="text" name="cmtx_email" class="cmtx_field cmtx_text_field cmtx_email_field" title="<?php echo CMTX_TITLE_EMAIL; ?>" maxlength="<?php echo cmtx_setting('field_maximum_email'); ?>" value="<?php echo $cmtx_default_email; ?>" <?php if (isset($cmtx_set_email_value) && !empty($cmtx_set_email_value) && cmtx_setting('state_email') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
+<input type="text" name="cmtx_email" class="cmtx_field cmtx_text_field cmtx_email_field" title="<?php echo CMTX_TITLE_EMAIL; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_EMAIL; ?>" maxlength="<?php echo cmtx_setting('field_maximum_email'); ?>" value="<?php echo $cmtx_default_email; ?>" <?php if (isset($cmtx_set_email_value) && !empty($cmtx_set_email_value) && cmtx_setting('state_email') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
 <?php if (cmtx_setting('display_email_note')) { ?> <span class="cmtx_email_note"><?php echo CMTX_NOTE_EMAIL; ?></span> <?php } ?>
 <?php } } } ?>
 
@@ -864,7 +864,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php echo CMTX_LABEL_WEBSITE; ?>
 <?php if (cmtx_setting('required_website') && cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 </label>
-<input type="text" name="cmtx_website" class="cmtx_field cmtx_text_field cmtx_website_field" title="<?php echo CMTX_TITLE_WEBSITE; ?>" maxlength="<?php echo cmtx_setting('field_maximum_website'); ?>" value="<?php echo $cmtx_default_website; ?>" <?php if (isset($cmtx_set_website_value) && !empty($cmtx_set_website_value) && cmtx_setting('state_website') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
+<input type="text" name="cmtx_website" class="cmtx_field cmtx_text_field cmtx_website_field" title="<?php echo CMTX_TITLE_WEBSITE; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_WEBSITE; ?>" maxlength="<?php echo cmtx_setting('field_maximum_website'); ?>" value="<?php echo $cmtx_default_website; ?>" <?php if (isset($cmtx_set_website_value) && !empty($cmtx_set_website_value) && cmtx_setting('state_website') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
 <?php } } } ?>
 
 <?php function cmtx_output_town () { ?>
@@ -876,7 +876,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php echo CMTX_LABEL_TOWN; ?>
 <?php if (cmtx_setting('required_town') && cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 </label>
-<input type="text" name="cmtx_town" class="cmtx_field cmtx_text_field cmtx_town_field" title="<?php echo CMTX_TITLE_TOWN; ?>" maxlength="<?php echo cmtx_setting('field_maximum_town'); ?>" value="<?php echo $cmtx_default_town; ?>" <?php if (isset($cmtx_set_town_value) && !empty($cmtx_set_town_value) && cmtx_setting('state_town') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
+<input type="text" name="cmtx_town" class="cmtx_field cmtx_text_field cmtx_town_field" title="<?php echo CMTX_TITLE_TOWN; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_TOWN; ?>" maxlength="<?php echo cmtx_setting('field_maximum_town'); ?>" value="<?php echo $cmtx_default_town; ?>" <?php if (isset($cmtx_set_town_value) && !empty($cmtx_set_town_value) && cmtx_setting('state_town') == 'disable') { echo 'disabled="disabled"'; } ?> onkeypress="return cmtx_disable_enter_key(event)"/>
 <?php } } } ?>
 
 <?php function cmtx_output_country () { ?>
@@ -1047,7 +1047,7 @@ echo $cmtx_ratings;
 <?php echo CMTX_LABEL_COMMENT; ?>
 <?php if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 </label>
-<textarea name="cmtx_comment" class="cmtx_field cmtx_textarea_field cmtx_comment_field" title="<?php echo CMTX_TITLE_COMMENT; ?>" maxlength="<?php echo cmtx_setting('comment_maximum_characters'); ?>" onkeyup="cmtx_text_counter()" onkeydown="cmtx_text_counter()"><?php echo $cmtx_default_comment; ?></textarea>
+<textarea name="cmtx_comment" class="cmtx_field cmtx_textarea_field cmtx_comment_field" title="<?php echo CMTX_TITLE_COMMENT; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_COMMENT; ?>" maxlength="<?php echo cmtx_setting('comment_maximum_characters'); ?>" onkeyup="cmtx_text_counter()" onkeydown="cmtx_text_counter()"><?php echo $cmtx_default_comment; ?></textarea>
 
 <div style="clear: left;"></div>
 
@@ -1086,7 +1086,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <div style="clear: left;"></div>
 <div class="cmtx_label">&nbsp;</div>
 <span class="cmtx_question_part_answer_text"><?php echo CMTX_TEXT_QUESTION; ?></span>
-<input type="text" name="cmtx_user_answer" class="cmtx_field cmtx_text_field cmtx_question_field" title="<?php echo CMTX_TITLE_QUESTION; ?>" maxlength="<?php echo cmtx_setting('field_maximum_question'); ?>" onkeypress="return cmtx_disable_enter_key(event)"/>
+<input type="text" name="cmtx_user_answer" class="cmtx_field cmtx_text_field cmtx_question_field" title="<?php echo CMTX_TITLE_QUESTION; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_QUESTION; ?>" maxlength="<?php echo cmtx_setting('field_maximum_question'); ?>" onkeypress="return cmtx_disable_enter_key(event)"/>
 <?php } } } ?>
 
 <?php
@@ -1108,7 +1108,7 @@ function cmtx_output_captcha () {
 			<div style="clear: left;"></div>
 			<div class="cmtx_label">&nbsp;</div>
 			<span class="securimage_text"><?php echo CMTX_TEXT_SECURIMAGE; ?></span>
-			<input type="text" name="cmtx_captcha_code" class="cmtx_field cmtx_text_field cmtx_securimage_field" title="<?php echo CMTX_TITLE_SECURIMAGE; ?>" maxlength="<?php echo cmtx_setting('field_maximum_captcha'); ?>" onkeypress="return cmtx_disable_enter_key(event)"/>
+			<input type="text" name="cmtx_captcha_code" class="cmtx_field cmtx_text_field cmtx_securimage_field" title="<?php echo CMTX_TITLE_SECURIMAGE; ?>" placeholder="<?php echo CMTX_PLACEHOLDER_CAPTCHA; ?>" maxlength="<?php echo cmtx_setting('field_maximum_captcha'); ?>" onkeypress="return cmtx_disable_enter_key(event)"/>
 			<?php
 		} else if (cmtx_setting('enabled_captcha') && cmtx_setting('captcha_type') == 'recaptcha' && function_exists('fsockopen') && is_callable('fsockopen')) {
 			?><div class="cmtx_height_between_fields"></div>

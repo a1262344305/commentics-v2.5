@@ -74,6 +74,15 @@ define('CMTX_TITLE_TERMS', 'Estoy de acuerdo con los términos y condiciones');
 define('CMTX_TITLE_SUBMIT', 'añadir comentario');
 define('CMTX_TITLE_PREVIEW', 'Vista previa');
 
+/* Field placeholders */
+define('CMTX_PLACEHOLDER_NAME', '');
+define('CMTX_PLACEHOLDER_EMAIL', '');
+define('CMTX_PLACEHOLDER_WEBSITE', '');
+define('CMTX_PLACEHOLDER_TOWN', '');
+define('CMTX_PLACEHOLDER_COMMENT', '');
+define('CMTX_PLACEHOLDER_QUESTION', '');
+define('CMTX_PLACEHOLDER_CAPTCHA', '');
+
 /* Note displayed after email field */
 define('CMTX_NOTE_EMAIL', '(no será publicado)');
 

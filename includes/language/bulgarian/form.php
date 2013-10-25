@@ -74,6 +74,15 @@ define('CMTX_TITLE_TERMS', 'Съгласен съм с другите услов
 define('CMTX_TITLE_SUBMIT', 'Добави коментар');
 define('CMTX_TITLE_PREVIEW', 'Покажи');
 
+/* Field placeholders */
+define('CMTX_PLACEHOLDER_NAME', '');
+define('CMTX_PLACEHOLDER_EMAIL', '');
+define('CMTX_PLACEHOLDER_WEBSITE', '');
+define('CMTX_PLACEHOLDER_TOWN', '');
+define('CMTX_PLACEHOLDER_COMMENT', '');
+define('CMTX_PLACEHOLDER_QUESTION', '');
+define('CMTX_PLACEHOLDER_CAPTCHA', '');
+
 /* Note displayed after email field */
 define('CMTX_NOTE_EMAIL', '(няма да бъде публикуван)');
 
