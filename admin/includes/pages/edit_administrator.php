@@ -174,7 +174,7 @@ echo cmtx_page_checkbox("manage", $id, "0") . "<span class='menu_checkbox'>Manag
 		echo cmtx_page_checkbox("edit_subscriber", $id, "40") . "Edit" . "<p />";
 		
 echo cmtx_page_checkbox("layout", $id, "0") . "<span class='menu_checkbox'>Layout</span>" . "<p />";
-	echo cmtx_page_checkbox("layout_order", $id, "20") . "Order" . "<p />";
+	echo cmtx_page_checkbox("layout_theme", $id, "20") . "Theme" . "<p />";
 		echo cmtx_page_checkbox("layout_comments", $id, "20") . "<b>Comments</b>" . "<p />";
 			echo cmtx_page_checkbox("layout_comments_enabled", $id, "40") . "Enabled" . "<br />";
 			echo cmtx_page_checkbox("layout_comments_general", $id, "40") . "General" . "<br />";

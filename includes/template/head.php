@@ -35,7 +35,11 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 <link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>colorbox/colorbox.css"/>
 <?php } ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>css/stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>css/<?php echo cmtx_setting('theme'); ?>.css"/>
+
+<?php if (file_exists($cmtx_path . 'css/custom/' . cmtx_setting('theme') . '.css')) { ?>
+<link rel="stylesheet" type="text/css" href="<?php echo cmtx_commentics_url(); ?>css/custom/<?php echo cmtx_setting('theme'); ?>.css"/>
+<?php } ?>
 
 <script type="text/javascript">
 // <![CDATA[

@@ -24,8 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_DESC_LAYOUT_ORDER_1', 'Arraste e solte os elementos abaixo para determinar a ordem de classificação das partes principais.');
-define('CMTX_DESC_LAYOUT_ORDER_2', 'Split the screen into a side-by-side layout. You will need the width to do this.');
+define('CMTX_DESC_LAYOUT_THEME_1', 'Select a theme to style the page.');
+define('CMTX_DESC_LAYOUT_THEME_2', 'Arraste e solte os elementos abaixo para determinar a ordem de classificação das partes principais.');
+define('CMTX_DESC_LAYOUT_THEME_3', 'Split the screen into a side-by-side layout. You will need the width to do this.');
+define('CMTX_DESC_LAYOUT_THEME_4', 'Center the screen so that all the components are in the middle of the page.');
 define('CMTX_DESC_LAYOUT_COMMENTS_ENABLED', 'Estas configurações determinam que partes dos comentários e suas áreas externas estarão habilitados.');
 define('CMTX_DESC_LAYOUT_COMMENTS_GENERAL', 'Esta seção contém configurações gerais dos comentários.');
 define('CMTX_DESC_LAYOUT_COMMENTS_PAGINATION', 'Estas configurações são relacionadas ao layout da paginação.');

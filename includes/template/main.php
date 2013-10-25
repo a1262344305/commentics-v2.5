@@ -29,23 +29,34 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first
 
 	if (cmtx_setting('split_screen')) { //side-by-side layout
+		
+		if (cmtx_setting('center_screen')) { //center layout
+			echo '<div class="cmtx_split_center">';
+		}
 	
-		echo '<table style="width:100%; padding:0px; border:none;">';
+		echo '<table class="cmtx_split_cf_table">';
 		echo '<tr>';
-		echo '<td style="vertical-align:top;">';
+		echo '<td class="cmtx_split_cf_td_comments">';
 		require_once $cmtx_path . 'includes/template/comments.php'; //load comments
 		echo '</td>';
-		echo '<td style="width:530px; padding-left:75px; vertical-align:top;">';
+		echo '<td class="cmtx_split_cf_td_middle"></td>';
+		echo '<td class="cmtx_split_cf_td_form">';
 		require_once $cmtx_path . 'includes/template/form.php'; //load form
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
 		
-	} else { //default vertical layout
+		if (cmtx_setting('center_screen')) { //center layout
+			echo '</div>';
+		}
+		
+	} else { //vertical layout
 	
+		if (cmtx_setting('center_screen')) { echo '<div class="cmtx_center">'; } //center layout
 		require_once $cmtx_path . 'includes/template/comments.php'; //load comments
-		echo '<div class="cmtx_height_for_divider"></div>'; //height between comments/form
+		echo '<div class="cmtx_divider"></div>'; //height between comments/form
 		require_once $cmtx_path . 'includes/template/form.php'; //load form
+		if (cmtx_setting('center_screen')) { echo '</div>'; } //center layout
 		
 	}
 	
@@ -53,23 +64,33 @@ if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first
 
 	if (cmtx_setting('split_screen')) { //side-by-side layout
 	
-		echo '<table style="width:100%; padding:0px; border:none;">';
+		if (cmtx_setting('center_screen')) { //center layout
+			echo '<div class="cmtx_split_center">';
+		}
+	
+		echo '<table class="cmtx_split_fc_table">';
 		echo '<tr>';
-		echo '<td style="width:450px; vertical-align:top;">';
+		echo '<td class="cmtx_split_fc_td_form">';
 		require_once $cmtx_path . 'includes/template/form.php'; //load form
 		echo '</td>';
-		echo '<td style="width:50px;"></td>';
-		echo '<td style="vertical-align:top;">';
+		echo '<td class="cmtx_split_fc_td_middle"></td>';
+		echo '<td class="cmtx_split_fc_td_comments">';
 		require_once $cmtx_path . 'includes/template/comments.php'; //load comments
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
 		
-	} else { //default vertical layout
+		if (cmtx_setting('center_screen')) { //center layout
+			echo '</div>';
+		}
+		
+	} else { //vertical layout
 	
+		if (cmtx_setting('center_screen')) { echo '<div class="cmtx_center">'; } //center layout
 		require_once $cmtx_path . 'includes/template/form.php'; //load form
-		echo '<div class="cmtx_height_for_divider"></div>'; //height between form/comments
+		echo '<div class="cmtx_divider"></div>'; //height between form/comments
 		require_once $cmtx_path . 'includes/template/comments.php'; //load comments
+		if (cmtx_setting('center_screen')) { echo '</div>'; } //center layout
 		
 	}
 	

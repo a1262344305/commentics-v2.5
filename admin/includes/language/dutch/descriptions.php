@@ -24,8 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_DESC_LAYOUT_ORDER_1', 'Drag & drop de onderstaande elementen om de sorteervolgorde van de belangrijkste onderdelen te bepalen.');
-define('CMTX_DESC_LAYOUT_ORDER_2', 'Split the screen into a side-by-side layout. You will need the width to do this.');
+define('CMTX_DESC_LAYOUT_THEME_1', 'Select a theme to style the page.');
+define('CMTX_DESC_LAYOUT_THEME_2', 'Drag & drop de onderstaande elementen om de sorteervolgorde van de belangrijkste onderdelen te bepalen.');
+define('CMTX_DESC_LAYOUT_THEME_3', 'Split the screen into a side-by-side layout. You will need the width to do this.');
+define('CMTX_DESC_LAYOUT_THEME_4', 'Center the screen so that all the components are in the middle of the page.');
 define('CMTX_DESC_LAYOUT_COMMENTS_ENABLED', 'Deze instellingen bepalen welke delen van de berichten en hun buiten omgeving zijn ingeschakeld.');
 define('CMTX_DESC_LAYOUT_COMMENTS_GENERAL', 'Deze sectie bevat algemene berichten instellingen.');
 define('CMTX_DESC_LAYOUT_COMMENTS_PAGINATION', 'Deze instellingen horen bij de layout van de paginatie.');

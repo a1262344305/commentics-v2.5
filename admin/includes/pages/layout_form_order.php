@@ -254,8 +254,8 @@ $(document).ready(function() {
 	}
 	?>
 	
-	<?php function output_submit() { ?> <div id="button_1" class="ui-state-default" style="float:left; width:232px;"><span class="ui-icon ui-icon-arrowthick-2-e-w"></span><?php echo rtrim(CMTX_FIELD_VALUE_SUBMIT, ':') ?></div> <?php } ?>
-    <?php function output_preview() { ?> <div id="button_2" class="ui-state-default" style="float:left; width:232px;"><span class="ui-icon ui-icon-arrowthick-2-e-w"></span><?php echo rtrim(CMTX_FIELD_LABEL_PREVIEW, ':') ?></div> <?php } ?>
+	<?php function output_submit() { ?> <div id="button_1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo rtrim(CMTX_FIELD_VALUE_SUBMIT, ':') ?></div> <?php } ?>
+    <?php function output_preview() { ?> <div id="button_2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo rtrim(CMTX_FIELD_LABEL_PREVIEW, ':') ?></div> <?php } ?>
 	
 </div>
 

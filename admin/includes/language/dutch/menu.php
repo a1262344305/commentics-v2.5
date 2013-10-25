@@ -37,7 +37,7 @@ define('CMTX_MENU_MANAGE_SUBSCRIBERS', 'Inschrijvingen');
 
 /* Layout */
 define('CMTX_MENU_TITLE_LAYOUT', 'Layout');
-define('CMTX_MENU_LAYOUT_ORDER', 'Volgorde');
+define('CMTX_MENU_LAYOUT_THEME', 'Theme');
 define('CMTX_MENU_LAYOUT_COMMENTS', 'Berichten');
 define('CMTX_MENU_LAYOUT_COMMENTS_ENABLED', 'Ingeschakeld');
 define('CMTX_MENU_LAYOUT_COMMENTS_GENERAL', 'Algemeen');

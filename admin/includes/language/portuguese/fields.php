@@ -226,7 +226,8 @@ define('CMTX_FIELD_LABEL_LIMIT', 'Limit:');
 define('CMTX_FIELD_LABEL_RESTRICT_PAGES', 'Restrict Pages:');
 define('CMTX_FIELD_LABEL_CHECK_HONEYPOT', 'Check Honeypot:');
 define('CMTX_FIELD_LABEL_CHECK_TIME', 'Check Time:');
-define('CMTX_FIELD_LABEL_SPLIT_SCREEN', 'Split Screen:');
+define('CMTX_FIELD_LABEL_SPLIT_SCREEN', 'Split:');
+define('CMTX_FIELD_LABEL_CENTER_SCREEN', 'Center:');
 define('CMTX_FIELD_LABEL_PERMALINK', 'Permalink:');
 define('CMTX_FIELD_LABEL_VERIFY', 'Verify:');
 define('CMTX_FIELD_LABEL_SIGNATURE', 'Signature:');
@@ -240,6 +241,7 @@ define('CMTX_FIELD_LABEL_SECURIMAGE_TEXT_COLOR', 'Text Color:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_LINE_COLOR', 'Line Color:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_BACK_COLOR', 'Back Color:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_NOISE_COLOR', 'Noise Color:');
+define('CMTX_FIELD_LABEL_THEME', 'Theme:');
 
 /* Values */
 define('CMTX_FIELD_VALUE_COMMENTS', 'Comentários');

@@ -65,8 +65,8 @@ label.edit_subscriber {
 width: 70px;
 }
 
-label.layout_order {
-width: 75px;
+label.layout_theme {
+width: 50px;
 }
 
 label.layout_comments_enabled {
@@ -496,7 +496,7 @@ padding: 0.4em;
 padding-left: 1.5em;
 font-size: 1.2em;
 height: 15px;
-width: 500px;
+width: 150px;
 cursor: default;
 }
 

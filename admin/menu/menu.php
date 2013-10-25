@@ -57,7 +57,7 @@ ddlevelsmenu.setup("ddtopmenubar", "topbar");
 
 <?php if (!cmtx_restrict_page("layout")) { ?>
 <ul id="layout" class="ddsubmenustyle">
-<?php if (!cmtx_restrict_page("layout_order")) { ?> <li><a href="index.php?page=layout_order"><?php echo CMTX_MENU_LAYOUT_ORDER; ?></a></li> <?php } ?>
+<?php if (!cmtx_restrict_page("layout_theme")) { ?> <li><a href="index.php?page=layout_theme"><?php echo CMTX_MENU_LAYOUT_THEME; ?></a></li> <?php } ?>
 <?php if (!cmtx_restrict_page("layout_comments")) { ?>
 <li>
 <a href="#"><?php echo CMTX_MENU_LAYOUT_COMMENTS; ?></a>

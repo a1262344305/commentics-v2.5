@@ -574,7 +574,6 @@ mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`,
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('order', 'sort_order_captchas', '1,2');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('order', 'sort_order_checkboxes', '1,2,3,4');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('order', 'sort_order_buttons', '1,2');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('order', 'split_screen', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('processor', 'one_name_enabled', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('processor', 'fix_name_enabled', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('processor', 'detect_link_in_name_enabled', '1');");
@@ -702,6 +701,9 @@ mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`,
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('tasks', 'days_to_delete_subscribers', '7');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('tasks', 'task_enabled_delete_voters', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('tasks', 'days_to_delete_voters', '30');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'theme', 'default');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'split_screen', '0');");
+mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'center_screen', '0');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('viewers', 'viewers_enabled', '1');");
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('viewers', 'viewers_timeout', '1200');"); //seconds
 mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('viewers', 'viewers_refresh_enabled', '1');");

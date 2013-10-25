@@ -29,7 +29,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 <a class='page_help_text' href="http://www.commentics.org/wiki/doku.php?id=admin:<?php echo $_GET['page']; ?>" target="_blank"><?php echo CMTX_LINK_HELP; ?></a>
 </div>
 
-<h3><?php echo CMTX_TITLE_LAYOUT_ORDER; ?></h3>
+<h3><?php echo CMTX_TITLE_LAYOUT_THEME; ?></h3>
 <hr class="title"/>
 
 <?php
@@ -42,13 +42,18 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 
 cmtx_check_csrf_form_key();
 
+$theme = $_POST['theme'];
 $sort_order_parts = $_POST['sort_order_parts'];
 if (isset($_POST['split_screen'])) { $split_screen = 1; } else { $split_screen = 0; }
+if (isset($_POST['center_screen'])) { $center_screen = 1; } else { $center_screen = 0; }
 
+$theme_san = cmtx_sanitize($theme);
 $sort_order_parts_san = cmtx_sanitize($sort_order_parts);
 
+mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$theme_san' WHERE `title` = 'theme'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_parts_san' WHERE `title` = 'sort_order_parts'");
 mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$split_screen' WHERE `title` = 'split_screen'");
+mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$center_screen' WHERE `title` = 'center_screen'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
@@ -56,7 +61,7 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$s
 
 <p />
 
-<?php echo CMTX_DESC_LAYOUT_ORDER_1 ?>
+<?php echo CMTX_DESC_LAYOUT_THEME_1; ?>
 
 <p />
 
@@ -74,7 +79,28 @@ $(document).ready(function() {
 // ]]>
 </script>
 
-<form name="layout_order" id="layout_order" action="index.php?page=layout_order" method="post">
+<form name="layout_theme" id="layout_theme" action="index.php?page=layout_theme" method="post">
+
+<label class='layout_theme'><?php echo CMTX_FIELD_LABEL_THEME; ?></label>
+<select name="theme">
+<?php
+foreach (glob('../css/*.css') as $theme) {
+	$theme = basename($theme);
+	$theme = str_ireplace('.css', '', $theme);
+	echo "<option value='" . $theme . "'";
+	if ($theme == cmtx_setting('theme')) { echo " selected='selected'"; }
+	echo ">" . ucfirst($theme) . "</option>";	
+}
+?>
+</select>
+
+<p />
+
+<div class='sub-heading'><?php echo CMTX_TITLE_THEME_OPTIONS; ?></div>
+
+<?php echo CMTX_DESC_LAYOUT_THEME_2; ?>
+
+<p />
 
 <div id="parts" class="sortable">
 
@@ -101,11 +127,19 @@ $(document).ready(function() {
 
 <p />
 
-<?php echo CMTX_DESC_LAYOUT_ORDER_2 ?>
+<?php echo CMTX_DESC_LAYOUT_THEME_3; ?>
 
 <p />
 
-<label class='layout_order'><?php echo CMTX_FIELD_LABEL_SPLIT_SCREEN; ?></label> <?php if (cmtx_setting('split_screen')) { ?> <input type="checkbox" checked="checked" name="split_screen"/> <?php } else { ?> <input type="checkbox" name="split_screen"/> <?php } ?>
+<label class='layout_theme'><?php echo CMTX_FIELD_LABEL_SPLIT_SCREEN; ?></label> <?php if (cmtx_setting('split_screen')) { ?> <input type="checkbox" checked="checked" name="split_screen"/> <?php } else { ?> <input type="checkbox" name="split_screen"/> <?php } ?>
+
+<p />
+
+<?php echo CMTX_DESC_LAYOUT_THEME_4; ?>
+
+<p />
+
+<label class='layout_theme'><?php echo CMTX_FIELD_LABEL_CENTER_SCREEN; ?></label> <?php if (cmtx_setting('center_screen')) { ?> <input type="checkbox" checked="checked" name="center_screen"/> <?php } else { ?> <input type="checkbox" name="center_screen"/> <?php } ?>
 
 <p />
 

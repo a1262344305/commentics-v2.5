@@ -453,7 +453,7 @@ function cmtx_in_maintenance() { //check if in maintenance mode
 	if (cmtx_setting('maintenance_mode') && !$cmtx_is_admin) {
 		?><h3>Commentics</h3>
 		<div style="margin-bottom: 10px;"></div>
-		<div class="cmtx_maintenance_message"><?php
+		<div class="cmtx_maintenance"><?php
 		echo cmtx_setting('maintenance_message');
 		?></div><?php
 		return true;

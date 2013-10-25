@@ -170,7 +170,7 @@ jQuery(document).ready(function() {
 			buttons: {
 				'<?php echo cmtx_escape_js(CMTX_FLAG_DIALOG_YES); ?>': function() {
 
-					jQuery.ajax({			
+					jQuery.ajax({
 						type: 'POST',
 						url: '<?php echo cmtx_commentics_url() . 'flag.php'?>',
 						data: {id: id},

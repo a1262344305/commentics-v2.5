@@ -37,7 +37,7 @@ define('CMTX_MENU_MANAGE_SUBSCRIBERS', 'Inscritos');
 
 /* Layout */
 define('CMTX_MENU_TITLE_LAYOUT', 'Layout');
-define('CMTX_MENU_LAYOUT_ORDER', 'Ordem');
+define('CMTX_MENU_LAYOUT_THEME', 'Theme');
 define('CMTX_MENU_LAYOUT_COMMENTS', 'Comentários');
 define('CMTX_MENU_LAYOUT_COMMENTS_ENABLED', 'Habilitar');
 define('CMTX_MENU_LAYOUT_COMMENTS_GENERAL', 'Geral');
