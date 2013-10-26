@@ -34,7 +34,7 @@ define('CMTX_COMMENTS_HEADING', 'Comentários');
 define('CMTX_NO_COMMENTS', 'Sem comentários.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Classificar os comentários:');
+define('CMTX_SORT_TEXT', 'Sort');
 define('CMTX_SORT_TITLE', 'Classificar os comentários');
 define('CMTX_SORT_1', 'O mais novo');
 define('CMTX_SORT_2', 'Mais antiga');

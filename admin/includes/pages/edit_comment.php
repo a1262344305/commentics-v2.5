@@ -192,7 +192,7 @@ echo $cmtx_ratings;
 <p />
 <label class='edit_comment'><?php echo CMTX_FIELD_LABEL_COMMENT; ?></label> <textarea name="comment" cols="39" rows="6"><?php echo cmtx_sanitize($comment, true, false); ?></textarea>
 <p />
-<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_REPLY; ?></label> <textarea name="reply" cols="39" rows="6"><?php echo cmtx_sanitize($reply, true, false); ?></textarea>
+<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_ADMIN; ?></label> <textarea name="reply" cols="39" rows="6"><?php echo cmtx_sanitize($reply, true, false); ?></textarea>
 
 <br /><hr class="separator"/><br />
 

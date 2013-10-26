@@ -35,7 +35,7 @@ define('CMTX_FIELD_LABEL_TOWN', 'Cidade:');
 define('CMTX_FIELD_LABEL_COUNTRY', 'País:');
 define('CMTX_FIELD_LABEL_RATING', 'Avaliação:');
 define('CMTX_FIELD_LABEL_COMMENT', 'Comentário:');
-define('CMTX_FIELD_LABEL_REPLY', 'Responder:');
+define('CMTX_FIELD_LABEL_ADMIN', 'Admin:');
 define('CMTX_FIELD_LABEL_REPLY_TO', 'Responder para:');
 define('CMTX_FIELD_LABEL_BB_CODE', 'BB Code:');
 define('CMTX_FIELD_LABEL_SMILIES', 'Emoticons:');

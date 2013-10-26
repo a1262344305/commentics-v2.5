@@ -34,7 +34,7 @@ define('CMTX_COMMENTS_HEADING', 'Коментари');
 define('CMTX_NO_COMMENTS', 'Все още няма коментари.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Подреди по:');
+define('CMTX_SORT_TEXT', 'Sort');
 define('CMTX_SORT_TITLE', 'Подреди по');
 define('CMTX_SORT_1', 'Най-нови');
 define('CMTX_SORT_2', 'Най-стари');

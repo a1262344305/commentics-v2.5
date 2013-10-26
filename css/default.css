@@ -92,6 +92,7 @@ float: left;
 
 .cmtx_sort_text {
 color: #828282;
+font-size: 0.8em;
 }
 
 .cmtx_sort_field {
@@ -203,8 +204,8 @@ margin-bottom: 7px;
 .cmtx_comment_box_1, .cmtx_comment_box_2, .cmtx_reply_box_1, .cmtx_reply_box_2, .cmtx_admin_comment_box_1, .cmtx_admin_comment_box_2, .cmtx_admin_reply_box_1, .cmtx_admin_reply_box_2 {
 padding: 5px;
 background-color: #FFF8DC;
-border-top: 1px solid #B3B3B3;
-border-left: 1px solid #B3B3B3;
+border-top: 1px solid #A1A1A1;
+border-left: 1px solid #A1A1A1;
 border-right: 1px solid #888888;
 border-bottom: 1px solid #888888;
 box-shadow: 3px 3px 5px #888888;
@@ -286,7 +287,12 @@ text-decoration: none;
 }
 
 .cmtx_height_above_reply_text {
-margin-bottom: 8px;
+margin-bottom: 12px;
+}
+
+.cmtx_reply_area {
+border-top: 1px dotted #4D4D4D;
+padding-top: 2px;
 }
 
 .cmtx_reply_intro {

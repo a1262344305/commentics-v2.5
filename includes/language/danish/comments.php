@@ -34,7 +34,7 @@ define('CMTX_COMMENTS_HEADING', 'Kommentarer');
 define('CMTX_NO_COMMENTS', 'Bliv den første til at kommentere.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sorteringsorden:');
+define('CMTX_SORT_TEXT', 'Sort');
 define('CMTX_SORT_TITLE', 'Sorteringsorden');
 define('CMTX_SORT_1', 'Nyeste');
 define('CMTX_SORT_2', 'Ældste');

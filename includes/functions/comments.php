@@ -320,12 +320,14 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	//Admin Reply
 	if (!empty($reply)) {
 		$cmtx_box .= "<div class='cmtx_height_above_reply_text'></div>";
+		$cmtx_box .= "<div class='cmtx_reply_area'>";
 		$cmtx_box .= "<div class='cmtx_reply_intro'>";
 		$cmtx_box .= CMTX_REPLY_INTRO;
 		$cmtx_box .= "</div>";
 		$cmtx_box .= " ";
 		$cmtx_box .= "<div class='cmtx_reply_text'>";
 		$cmtx_box .= $reply;
+		$cmtx_box .= "</div>";
 		$cmtx_box .= "</div>";
 	}
 
