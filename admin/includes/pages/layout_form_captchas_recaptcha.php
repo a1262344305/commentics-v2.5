@@ -57,11 +57,11 @@ $recaptcha_private_key_san = cmtx_sanitize($recaptcha_private_key);
 $recaptcha_theme_san = cmtx_sanitize($recaptcha_theme);
 $recaptcha_language_san = cmtx_sanitize($recaptcha_language);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$captcha_type' WHERE `title` = 'captcha_type'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_public_key_san' WHERE `title` = 'recaptcha_public_key'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_private_key_san' WHERE `title` = 'recaptcha_private_key'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_theme_san' WHERE `title` = 'recaptcha_theme'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_language_san' WHERE `title` = 'recaptcha_language'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$captcha_type' WHERE `title` = 'captcha_type'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_public_key_san' WHERE `title` = 'recaptcha_public_key'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_private_key_san' WHERE `title` = 'recaptcha_private_key'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_theme_san' WHERE `title` = 'recaptcha_theme'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$recaptcha_language_san' WHERE `title` = 'recaptcha_language'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

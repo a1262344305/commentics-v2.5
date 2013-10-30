@@ -62,7 +62,7 @@ $id_san = cmtx_sanitize($id);
 $question_san = cmtx_sanitize($question);
 $answer_san = cmtx_sanitize($answer);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "questions` SET `question` = '$question_san', `answer` = '$answer_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "questions` SET `question` = '$question_san', `answer` = '$answer_san' WHERE `id` = '$id_san'");
 ?>
 <div class="success"><?php echo CMTX_MSG_QUESTION_UPDATED; ?></div>
 <div style="clear: left;"></div>
@@ -71,8 +71,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "questions` SET `question` =
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$question_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id_san'");
-$question_result = mysql_fetch_assoc($question_query);
+$question_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id_san'");
+$question_result = cmtx_db_fetch_assoc($question_query);
 $question = $question_result["question"];
 $answer = $question_result["answer"];
 ?>

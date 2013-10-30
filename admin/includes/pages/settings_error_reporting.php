@@ -48,9 +48,9 @@ $error_reporting_method = $_POST['error_reporting_method'];
 
 $error_reporting_method_san = cmtx_sanitize($error_reporting_method);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_frontend' WHERE `title` = 'error_reporting_frontend'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_admin' WHERE `title` = 'error_reporting_admin'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_method_san' WHERE `title` = 'error_reporting_method'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_frontend' WHERE `title` = 'error_reporting_frontend'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_admin' WHERE `title` = 'error_reporting_admin'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$error_reporting_method_san' WHERE `title` = 'error_reporting_method'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

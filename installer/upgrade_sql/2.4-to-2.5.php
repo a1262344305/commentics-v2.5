@@ -24,25 +24,25 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '2000' WHERE `title` = 'scroll_speed'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '2000' WHERE `title` = 'scroll_speed'");
 
-mysql_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `ip_address` varchar(250) NOT NULL default ''");
+cmtx_db_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `ip_address` varchar(250) NOT NULL default ''");
 
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'js_vote_ok'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'js_vote_ok'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_link' WHERE `title` = 'enabled_bb_code_url'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_php' WHERE `title` = 'enabled_bb_code_php_code'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_numeric' WHERE `title` = 'enabled_bb_code_list_numeric'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_bullet' WHERE `title` = 'enabled_bb_code_list_bullet'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_link' WHERE `title` = 'enabled_bb_code_url'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_php' WHERE `title` = 'enabled_bb_code_php_code'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_numeric' WHERE `title` = 'enabled_bb_code_list_numeric'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'enabled_bb_code_bullet' WHERE `title` = 'enabled_bb_code_list_bullet'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'validate_website_ping'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'validate_website_ping'");
 
-$site_name = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_from_name'");
-$site_name = mysql_fetch_assoc($site_name);
+$site_name = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_from_name'");
+$site_name = cmtx_db_fetch_assoc($site_name);
 $site_name = $site_name["value"];
 
-$commentics_url = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'url_to_comments_folder'");
-$commentics_url = mysql_fetch_assoc($commentics_url);
+$commentics_url = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'url_to_comments_folder'");
+$commentics_url = cmtx_db_fetch_assoc($commentics_url);
 $commentics_url = $commentics_url["value"];
 
 $site_domain = str_ireplace('www.', '', parse_url($commentics_url, PHP_URL_HOST));
@@ -52,19 +52,19 @@ $site_url = 'http://' . parse_url($commentics_url, PHP_URL_HOST);
 $tokens = explode('/', $commentics_url);
 $commentics_folder = $tokens[sizeof($tokens)-3];
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_name', '$site_name');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_domain', '$site_domain');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_url', '$site_url');");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'commentics_folder', '$commentics_folder');");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'commentics_url' WHERE `title` = 'url_to_comments_folder'");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_name', '$site_name');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_domain', '$site_domain');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'site_url', '$site_url');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'commentics_folder', '$commentics_folder');");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'commentics_url' WHERE `title` = 'url_to_comments_folder'");
 
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'check_comments_url'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'check_comments_url'");
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'theme', 'default');");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `category` = 'theme' WHERE `title` = 'split_screen'");
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'center_screen', '0');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'theme', 'default');");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `category` = 'theme' WHERE `title` = 'split_screen'");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'center_screen', '0');");
 
-mysql_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
+cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',
   `rating` tinyint(1) unsigned NOT NULL default '0',
@@ -72,10 +72,5 @@ mysql_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings
   `dated` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
 
 ?>

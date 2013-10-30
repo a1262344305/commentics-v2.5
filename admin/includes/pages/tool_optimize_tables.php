@@ -42,11 +42,11 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 
 cmtx_check_csrf_form_key();
 
-$all_tables = mysql_query("SHOW TABLES");
+$all_tables = cmtx_db_query("SHOW TABLES");
 
-while ($table = mysql_fetch_assoc($all_tables)) {
+while ($table = cmtx_db_fetch_assoc($all_tables)) {
 	foreach ($table as $db => $table_name) {
-		mysql_query("OPTIMIZE TABLE " . $table_name);
+		cmtx_db_query("OPTIMIZE TABLE " . $table_name);
 	}
 }
 ?>

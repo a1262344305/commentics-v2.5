@@ -255,12 +255,12 @@ if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) {
 	
 	$cmtx_sort = cmtx_get_sort_by();
 	
-	$cmtx_comments_query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '0' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY $cmtx_sort;");
+	$cmtx_comments_query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '0' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY $cmtx_sort;");
 
 	$cmtx_perm_counter = 0;
 	$cmtx_exit_loop = false;
 
-	while ($cmtx_comments = mysql_fetch_assoc($cmtx_comments_query)) {
+	while ($cmtx_comments = cmtx_db_fetch_assoc($cmtx_comments_query)) {
 
 		cmtx_calc_permalink($cmtx_comments["id"]);
 		
@@ -284,9 +284,9 @@ $cmtx_number_of_comments = cmtx_number_of_comments();
 <?php
 if ($cmtx_number_of_comments == 0) { //if no comments
 
-	echo "<span class='cmtx_no_comments_text'>";
+	echo '<span class="cmtx_no_comments_text">';
 	echo CMTX_NO_COMMENTS;
-	echo "</span>";
+	echo '</span>';
 
 } else { //if there are comments
 
@@ -472,25 +472,25 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 
 	
 	/* *** Pagination (Top) *** */
-	echo "<div class='cmtx_pagination_block_top'>";
+	echo '<div class="cmtx_pagination_block_top">';
 	if (cmtx_setting('enabled_pagination') && cmtx_setting('show_pagination_top') && $cmtx_total_pages > 1) {
 		cmtx_paginate($cmtx_current_page, cmtx_setting('range_of_pages'), $cmtx_total_pages);
 	}
-	echo "</div>";
+	echo '</div>';
 
 
 
 	/* *** Social *** */
-	echo "<div class='cmtx_social_block'>";
+	echo '<div class="cmtx_social_block">';
 	if (cmtx_setting('show_social')) {
 	
 	$cmtx_social_url = cmtx_url_encode_spaces(cmtx_get_page_url());
 	$cmtx_social_title = cmtx_url_encode_spaces(cmtx_get_page_reference());
 	
-	$cmtx_social_url = str_ireplace("&amp;", "%26", $cmtx_social_url); //convert &amp; to %26
-	$cmtx_social_title = str_ireplace("&amp;", "%26", $cmtx_social_title); //convert &amp; to %26
+	$cmtx_social_url = str_ireplace('&amp;', '%26', $cmtx_social_url); //convert &amp; to %26
+	$cmtx_social_title = str_ireplace('&amp;', '%26', $cmtx_social_title); //convert &amp; to %26
 
-	$cmtx_social_attribute = ""; //initialize variable
+	$cmtx_social_attribute = ''; //initialize variable
 
 	if (cmtx_setting('social_new_window')) {
 		$cmtx_social_attribute = " target='_blank'";
@@ -529,30 +529,30 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 		echo "<a href='http://www.linkedin.com/shareArticle?mini=true&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/linkedin.png' class='cmtx_social_image' title='LinkedIn' alt='LinkedIn'/></a>";
 	}
 
-	echo "</div>";
+	echo '</div>';
 	}
-	echo "</div>";
+	echo '</div>';
 
 
 
-	echo "<div style='clear: both;'></div>";
+	echo '<div style="clear: both;"></div>';
 
 
 
 	/* *** Comments *** */
-	echo "<div class='cmtx_height_above_comment_boxes'></div>";
+	echo '<div class="cmtx_height_above_comment_boxes"></div>';
 
 	$cmtx_sort = cmtx_get_sort_by();
 
-	$cmtx_comments_query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '0' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY $cmtx_sort;"); //get comments from database
+	$cmtx_comments_query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '0' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY $cmtx_sort;"); //get comments from database
 
 	$cmtx_loop_counter = 0;
 	$cmtx_comment_counter = 0;
 	$cmtx_exit_loop = false;
 	
-	while ($cmtx_comments = mysql_fetch_assoc($cmtx_comments_query)) { //while there are comments
+	while ($cmtx_comments = cmtx_db_fetch_assoc($cmtx_comments_query)) { //while there are comments
 
-		cmtx_get_comment_and_replies($cmtx_comments["id"]);
+		cmtx_get_comment_and_replies($cmtx_comments['id']);
 
 		if ($cmtx_exit_loop) {
 			break;
@@ -560,55 +560,55 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 
 	}
 
-	echo "<div class='cmtx_height_below_comment_boxes'></div>";
+	echo '<div class="cmtx_height_below_comment_boxes"></div>';
 
 
 
 	/* *** RSS *** */
-	echo "<div class='cmtx_rss_block'>";
+	echo '<div class="cmtx_rss_block">';
 	if (cmtx_setting('rss_enabled')) {
 	if (cmtx_setting('show_rss_this_page') || cmtx_setting('show_rss_all_pages')) {
 	if (cmtx_setting('show_rss_this_page')) { ?>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.png";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php?id=" . $cmtx_page_id;?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
+	<a href="<?php echo cmtx_commentics_url() . 'rss.php?id=' . $cmtx_page_id;?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . 'images/misc/rss.png';?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . 'rss.php?id=' . $cmtx_page_id;?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_THIS; ?>" rel="nofollow"><?php echo CMTX_RSS_THIS_PAGE ?></a>
 	&nbsp;
 	<?php }
 	if (cmtx_setting('show_rss_all_pages')) { ?>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . "images/misc/rss.png";?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
-	<a href="<?php echo cmtx_commentics_url() . "rss.php";?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
+	<a href="<?php echo cmtx_commentics_url() . 'rss.php';?>" rel="nofollow"><img src="<?php echo cmtx_commentics_url() . 'images/misc/rss.png';?>" class="cmtx_rss_image" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" alt="RSS"/></a>
+	<a href="<?php echo cmtx_commentics_url() . 'rss.php';?>" class="cmtx_rss_link" title="<?php echo CMTX_TITLE_RSS_ALL; ?>" rel="nofollow"><?php echo CMTX_RSS_ALL_PAGES ?></a>
 	<?php }
 	}
 	}
-	echo "</div>";
+	echo '</div>';
 
 
 
 	/* *** Pagination (Bottom) *** */
-	echo "<div class='cmtx_pagination_block_bottom'>";
+	echo '<div class="cmtx_pagination_block_bottom">';
 	if (cmtx_setting('enabled_pagination') && cmtx_setting('show_pagination_bottom') && $cmtx_total_pages > 1) {
 		cmtx_paginate($cmtx_current_page, cmtx_setting('range_of_pages'), $cmtx_total_pages);
 	}
-	echo "</div>";
+	echo '</div>';
 
 
 
 	/* *** Page Number *** */
-	echo "<div class='cmtx_page_number_block'>";
+	echo '<div class="cmtx_page_number_block">';
 	if (cmtx_setting('show_page_number')) { //if enabled
-		echo "<span class='cmtx_page_number_text'>";
+		echo '<span class="cmtx_page_number_text">';
 		if (cmtx_setting('enabled_pagination')) { //if pagination enabled
 			printf(CMTX_INFO_PAGE, $cmtx_current_page, $cmtx_total_pages); //display page number
 		}
-		echo "</span>";
+		echo '</span>';
 	}
-	echo "</div>";
+	echo '</div>';
 
 
 
 	if (isset($cmtx_rich_snippets)) {
-		echo "</div>";
+		echo '</div>';
 	}
 
 }
 
-echo "<div style='clear: left;'></div>";
+echo '<div style="clear: left;"></div>';

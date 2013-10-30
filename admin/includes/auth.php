@@ -50,11 +50,11 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 		$_SESSION['cmtx_user_lang'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		$_SESSION['cmtx_ip_address'] = cmtx_get_ip_address();
 		session_write_close();
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `last_login` = NOW() WHERE `id` = '" . cmtx_get_admin_id() . "'");
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `resets` = '0' WHERE `id` = '" . cmtx_get_admin_id() . "'");
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `login_attempts` = '0' WHERE `id` = '" . cmtx_get_admin_id() . "'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `last_login` = NOW() WHERE `id` = '" . cmtx_get_admin_id() . "'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `resets` = '0' WHERE `id` = '" . cmtx_get_admin_id() . "'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `login_attempts` = '0' WHERE `id` = '" . cmtx_get_admin_id() . "'");
 		cmtx_delete_attempts();
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "logins` SET `dated` = NOW() ORDER BY `dated` ASC LIMIT 1");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "logins` SET `dated` = NOW() ORDER BY `dated` ASC LIMIT 1");
 		header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?page=dashboard");
 		die();
 		
@@ -129,10 +129,10 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 
 			$email = cmtx_sanitize($_POST['email']);
 
-			if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `email` = '$email'"))) {
+			if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `email` = '$email'"))) {
 			
-				$admin_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `email` = '$email'");
-				$admin_result = mysql_fetch_assoc($admin_query);
+				$admin_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `email` = '$email'");
+				$admin_result = cmtx_db_fetch_assoc($admin_query);
 				
 				$resets = $admin_result["resets"];
 				
@@ -141,7 +141,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 				} else {
 				
 					$resets++;
-					mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `resets` = '$resets' WHERE `email` = '$email'");
+					cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `resets` = '$resets' WHERE `email` = '$email'");
 				
 					$username = $admin_result["username"];
 				
@@ -164,7 +164,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 					$password = md5($password);
 					$password = cmtx_sanitize($password);
 					
-					mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password' WHERE `email` = '$email'");
+					cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password' WHERE `email` = '$email'");
 				
 					echo "<span class='positive'>" . CMTX_RESET_SENT . "</span>";
 				

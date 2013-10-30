@@ -47,8 +47,8 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
     <tbody>
 
 <?php
-$versions = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "version` ORDER BY `dated` DESC");
-while ($version = mysql_fetch_assoc($versions)) {
+$versions = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "version` ORDER BY `dated` DESC");
+while ($version = cmtx_db_fetch_assoc($versions)) {
 ?>
     	<tr>
         	<td><?php echo $version["version"]; ?></td>

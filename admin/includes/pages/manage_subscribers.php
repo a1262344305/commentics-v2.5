@@ -49,7 +49,7 @@ $page_id = $_POST['page_id'];
 $is_unique = FALSE;
 while (!$is_unique) {
 	$token = cmtx_get_random_key(20);
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'")) == 0) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'")) == 0) {
 		$is_unique = TRUE;
 	}
 }
@@ -58,7 +58,7 @@ $name = cmtx_sanitize($name, true, true);
 $email = cmtx_sanitize($email, true, true);
 $page_id = cmtx_sanitize($page_id);
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '1', NOW());");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '1', NOW());");
 ?>
 <div class="success"><?php echo CMTX_MSG_SUB_ADDED; ?></div>
 <div style="clear: left;"></div>
@@ -74,7 +74,7 @@ if (cmtx_setting('is_demo')) {
 } else {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SUB_DELETED; ?></div>
 <div style="clear: left;"></div>
@@ -93,7 +93,7 @@ $count = count($items);
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id'");
 }
 ?>
 <?php if ($count == 1) { ?><div class="success"><?php echo CMTX_MSG_SUB_BULK_DELETED; ?></div><?php } ?>
@@ -109,8 +109,8 @@ for ($i = 0; $i < $count; $i++) {
 <?php echo CMTX_FIELD_LABEL_NAME; ?> <input type="text" required name="name" size="12" maxlength="250"/>&nbsp;
 <?php echo CMTX_FIELD_LABEL_EMAIL; ?> <input type="email" required name="email" size="30" maxlength="250"/>&nbsp;
 <?php echo CMTX_FIELD_LABEL_PAGE; ?> <select name="page_id"> <?php
-$pages = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
-while ($page = mysql_fetch_assoc($pages)) { ?>
+$pages = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
+while ($page = cmtx_db_fetch_assoc($pages)) { ?>
 <option value='<?php echo $page['id'];?>'><?php echo $page['reference']; ?></option>
 <?php } ?>
 </select>&nbsp;
@@ -137,8 +137,8 @@ while ($page = mysql_fetch_assoc($pages)) { ?>
     <tbody>
 
 <?php
-$subscribers = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` ORDER BY `dated` DESC");
-while ($subscriber = mysql_fetch_assoc($subscribers)) {
+$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` ORDER BY `dated` DESC");
+while ($subscriber = cmtx_db_fetch_assoc($subscribers)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $subscriber["id"]; ?>" onclick="bulk_check();"/></td>
@@ -146,8 +146,8 @@ while ($subscriber = mysql_fetch_assoc($subscribers)) {
             <td><?php echo $subscriber["email"]; ?></td>
 			<?php
 			$page_id = $subscriber["page_id"];
-			$page_reference_query = mysql_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
-			$page_reference_result = mysql_fetch_assoc($page_reference_query);
+			$page_reference_query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
+			$page_reference_result = cmtx_db_fetch_assoc($page_reference_query);
 			?>
 			<td><?php echo $page_reference_result["reference"]; ?></td>
 			<td><?php if ($subscriber["is_confirmed"]) { echo CMTX_TABLE_YES; } else { echo CMTX_TABLE_NO; } ?></td>

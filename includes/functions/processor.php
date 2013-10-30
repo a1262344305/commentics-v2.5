@@ -32,7 +32,7 @@ function cmtx_subscriber_exists ($email, $page_id) { //check whether subscriber 
 	$email = strtolower($email); //temporarily convert to lowercase
 
 	//check whether a confirmed subscriber of current page
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `email` = '$email' AND `page_id` = '$page_id' AND `is_confirmed` = '1'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `email` = '$email' AND `page_id` = '$page_id' AND `is_confirmed` = '1'"))) {
 		return true;
 	} else {
 		return false;
@@ -48,7 +48,7 @@ function cmtx_subscriber_email_attempts ($email) { //check whether email address
 	$email = strtolower($email); //temporarily convert to lowercase
 
 	//check whether email address has any unconfirmed subscriptions for any page
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `email` = '$email' AND `is_confirmed` = '0'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `email` = '$email' AND `is_confirmed` = '0'"))) {
 		return true;
 	} else {
 		return false;
@@ -64,7 +64,7 @@ function cmtx_subscriber_ip_attempts() { //check whether IP address has any unco
 	$ip_address = cmtx_get_ip_address();
 
 	//check whether IP address has any unconfirmed subscriptions for any page
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `ip_address` = '$ip_address' AND `is_confirmed` = '0'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `ip_address` = '$ip_address' AND `is_confirmed` = '0'"))) {
 		return true;
 	} else {
 		return false;
@@ -85,14 +85,14 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 
 		$token = cmtx_get_random_key(20); //create new token
 
-		if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'")) == 0) { //if the token does not already exist
+		if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'")) == 0) { //if the token does not already exist
 			$is_unique = true; //the created token is unique
 		}
 
 	}
 
 	//insert subscriber into 'subscribers' database table
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `ip_address`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '0', '$ip_address', NOW())");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `ip_address`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '0', '$ip_address', NOW())");
 
 	$name = cmtx_prepare_name_for_email($name); //prepare name for email
 	$email = cmtx_prepare_email_for_email($email); //prepare email address for email
@@ -123,7 +123,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 	global $cmtx_mysql_table_prefix, $cmtx_path; //globalise variables
 
 	//select confirmed subscribers from database
-	$subscribers = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
+	$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
@@ -136,7 +136,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 
 	$count = 0; //count how many emails are sent
 
-	while ($subscriber = mysql_fetch_assoc($subscribers)) { //while there are subscribers
+	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 
 		$body = file_get_contents($subscriber_notification_email_file); //get the file's contents
 
@@ -165,8 +165,8 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 
 	}
 
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = '$count' ORDER BY `dated` DESC LIMIT 1"); //set how many were sent (if any)
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = '$count' ORDER BY `dated` DESC LIMIT 1"); //set how many were sent (if any)
 
 } //end of notify-subscribers function
 
@@ -189,9 +189,9 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 	$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
 
 	//select administrators from database
-	$admins = mysql_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_ban` = '1' AND `is_enabled` = '1'");
+	$admins = cmtx_db_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_ban` = '1' AND `is_enabled` = '1'");
 
-	while ($admin = mysql_fetch_assoc($admins)) { //while there are administrators
+	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
 		$email = $admin["email"]; //get administrator email address
 		
@@ -229,9 +229,9 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) 
 	$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
 
 	//select administrators from database
-	$admins = mysql_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_comment_approve` = '1' AND `is_enabled` = '1'");
+	$admins = cmtx_db_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_comment_approve` = '1' AND `is_enabled` = '1'");
 
-	while ($admin = mysql_fetch_assoc($admins)) { //while there are administrators
+	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
 		$email = $admin["email"]; //get administrator email address
 		
@@ -268,9 +268,9 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { /
 	$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
 
 	//select administrators from database
-	$admins = mysql_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_comment_okay` = '1' AND `is_enabled` = '1'");
+	$admins = cmtx_db_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_comment_okay` = '1' AND `is_enabled` = '1'");
 
-	while ($admin = mysql_fetch_assoc($admins)) { //while there are administrators
+	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
 		$email = $admin["email"]; //get administrator email address
 
@@ -299,15 +299,15 @@ function cmtx_is_admin_email ($email) { //checks whether email address belongs t
 		$cookie_value = "";
 	}
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1"))) {
 
-		$admin = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1");
-		$admin = mysql_fetch_assoc($admin);
+		$admin = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1");
+		$admin = cmtx_db_fetch_assoc($admin);
 
 	} else {
 	
-		$admin = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1' LIMIT 1");
-		$admin = mysql_fetch_assoc($admin);
+		$admin = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1' LIMIT 1");
+		$admin = cmtx_db_fetch_assoc($admin);
 
 	}
 
@@ -545,7 +545,7 @@ function cmtx_delete_rating () { //delete guest rating if rated
 	
 	$ip_address = cmtx_get_ip_address();
 
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id'");
 
 } //end of delete-rating function
 
@@ -556,7 +556,7 @@ function cmtx_validate_reply ($reply_id, $page_id) { //checks whether reply was 
 
 	$reply_id = cmtx_sanitize($reply_id, true, true); //sanitize reply
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$reply_id' AND `page_id` = '$page_id' AND `is_approved` = '1'")) != 1 && $reply_id != 0) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$reply_id' AND `page_id` = '$page_id' AND `is_approved` = '1'")) != 1 && $reply_id != 0) {
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_REPLY); //reject user for submitting invalid reply
 	}
 
@@ -1119,8 +1119,8 @@ function cmtx_get_name ($id) { //get name from comment ID
 
 	global $cmtx_mysql_table_prefix;
 
-	$name_query = mysql_query("SELECT `name` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$name_result = mysql_fetch_assoc($name_query);
+	$name_query = cmtx_db_query("SELECT `name` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$name_result = cmtx_db_fetch_assoc($name_query);
 	$name = $name_result["name"];
 
 	return $name;
@@ -1334,14 +1334,14 @@ function cmtx_flood_control_delay() { //checks whether time since last comment i
 
 	//get time/date of most recent comment (if any) by current user
 	if (cmtx_setting('flood_control_delay_all_pages')) { //for all pages
-		$query = mysql_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' ORDER BY `dated` DESC LIMIT 1");
+		$query = cmtx_db_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' ORDER BY `dated` DESC LIMIT 1");
 	} else { //for current page
-		$query = mysql_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` DESC LIMIT 1");
+		$query = cmtx_db_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` DESC LIMIT 1");
 	}
 
-	if (mysql_num_rows($query)) { //if previous comment by current user was found
+	if (cmtx_db_num_rows($query)) { //if previous comment by current user was found
 
-		$result = mysql_fetch_array($query);
+		$result = cmtx_db_fetch_assoc($query);
 		$time = strtotime($result['dated']);
 		$difference = time() - $time;
 		if ($difference < cmtx_setting('flood_control_delay_time')) { //if time since last comment is less than minimum allowed time
@@ -1365,12 +1365,12 @@ function cmtx_flood_control_maximum() { //check amount of comments does not exce
 
 	//count number of comments (if any) within past period by current user
 	if (cmtx_setting('flood_control_maximum_all_pages')) { //for all pages
-		$query = mysql_query("SELECT COUNT(*) as `amount` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `dated` > '$earlier'");
+		$query = cmtx_db_query("SELECT COUNT(*) as `amount` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `dated` > '$earlier'");
 	} else { //for current page
-		$query = mysql_query("SELECT COUNT(*) as `amount` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id' AND `dated` > '$earlier'");
+		$query = cmtx_db_query("SELECT COUNT(*) as `amount` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address' AND `page_id` = '$cmtx_page_id' AND `dated` > '$earlier'");
 	}
 
-	$result = mysql_fetch_array($query);
+	$result = cmtx_db_fetch_assoc($query);
 	$amount = $result['amount'];
 	if ($amount >= cmtx_setting('flood_control_maximum_amount')) { //if comment amount exceeds allowed amount
 		cmtx_error(CMTX_ERROR_MESSAGE_FLOOD_CONTROL_MAXIMUM); //reject user for too many comments within past period
@@ -1387,7 +1387,7 @@ function cmtx_check_if_banned() { //check if user is banned
 
 	$ban_found = false; //initialise flag as false
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'"))) { //if user's IP address is found in 'bans' database table
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'"))) { //if user's IP address is found in 'bans' database table
 		$ban_found = true; //set flag as true
 	}
 
@@ -1415,7 +1415,7 @@ function cmtx_ban ($reason) { //ban user
 	if (!$cmtx_is_admin) { //if not administrator
 
 		//insert user's IP address into 'bans' database table
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `dated`) VALUES ('$ip_address', '$reason', NOW())");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `dated`) VALUES ('$ip_address', '$reason', NOW())");
 
 		?><script type="text/javascript">
 		// <![CDATA[
@@ -1494,7 +1494,7 @@ function cmtx_user_trusted() { //check if user has previously posted an approved
 	$ip_address = cmtx_get_ip_address(); //get user's IP address
 	
 	//if the user's name and IP address match and an approved comment is found
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `name` = '$cmtx_name' AND `ip_address` = '$ip_address' AND `is_approved` = '1'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `name` = '$cmtx_name' AND `ip_address` = '$ip_address' AND `is_approved` = '1'"))) {
 		return true; //user is trusted
 	} else {
 		return false; //user is not trusted

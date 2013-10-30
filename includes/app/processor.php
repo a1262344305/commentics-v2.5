@@ -509,9 +509,9 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		$cmtx_approve_reason = cmtx_sanitize($cmtx_approve_reason, true, true); //sanitize approve reason
 		
 		//insert user's comment into 'comments' database table
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 0, '$cmtx_approve_reason', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 0, '$cmtx_approve_reason', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
 		
-		$cmtx_comment_id = mysql_insert_id(); //get the ID of the comment
+		$cmtx_comment_id = cmtx_db_insert_id(); //get the ID of the comment
 		
 		//build the approval box
 		$cmtx_box = "<div class='cmtx_approval_box'>";
@@ -562,9 +562,9 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		}
 		
 		//insert user's comment into 'comments' database table
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 1, '', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "comments` (`name`, `email`, `website`, `town`, `country`, `rating`, `reply_to`, `comment`, `reply`, `ip_address`, `page_id`, `is_approved`, `approval_reasoning`, `is_admin`, `is_sent`, `sent_to`, `likes`, `dislikes`, `is_sticky`, `is_locked`, `is_verified`, `dated`) VALUES ('$cmtx_name', '$cmtx_email', '$cmtx_website', '$cmtx_town', '$cmtx_country', '$cmtx_rating', '$cmtx_reply_to', '$cmtx_comment', '', '$cmtx_ip_address', '$cmtx_page_id', 1, '', '$cmtx_is_admin', 0, 0, 0, 0, 0, 0, 0, NOW())");
 		
-		$cmtx_comment_id = mysql_insert_id(); //get the ID of the comment
+		$cmtx_comment_id = cmtx_db_insert_id(); //get the ID of the comment
 		
 		//build the success box
 		$cmtx_box = "<div class='cmtx_success_box'>";

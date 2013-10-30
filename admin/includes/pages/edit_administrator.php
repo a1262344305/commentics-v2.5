@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 $admin_id = cmtx_get_admin_id();
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$admin_id'")) == 0) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$admin_id'")) == 0) {
 die("<p />" . CMTX_MSG_ADMIN_SUPER_ONLY);
 }
 ?>
@@ -80,21 +80,21 @@ $email_san = cmtx_sanitize($email);
 $is_enabled_san = cmtx_sanitize($is_enabled);
 $allowed_pages_san = cmtx_sanitize($allowed_pages);
 
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username_san' AND `id` != '$id_san'"))) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username_san' AND `id` != '$id_san'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_EXISTS; ?></div>
 <div style="clear: left;"></div>
 <?php
 
-} else if ((!$is_enabled) && mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id_san'"))) {
+} else if ((!$is_enabled) && cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id_san'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_SUPER_DISABLE; ?></div>
 <div style="clear: left;"></div>
 <?php
 
-} else if (($restrict_pages) && mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id_san'"))) {
+} else if (($restrict_pages) && cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id_san'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_SUPER_RESTRICT; ?></div>
@@ -103,12 +103,12 @@ if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "a
 
 } else {
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `username` = '$username_san' WHERE `id` = '$id_san'");
-if (!empty($_POST['password_1'])) { mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password_san' WHERE `id` = '$id_san'"); }
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `email` = '$email_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `is_enabled` = '$is_enabled_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `restrict_pages` = '$restrict_pages' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `allowed_pages` = '$allowed_pages_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `username` = '$username_san' WHERE `id` = '$id_san'");
+if (!empty($_POST['password_1'])) { cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password_san' WHERE `id` = '$id_san'"); }
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `email` = '$email_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `is_enabled` = '$is_enabled_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `restrict_pages` = '$restrict_pages' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `allowed_pages` = '$allowed_pages_san' WHERE `id` = '$id_san'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_ADMIN_UPDATED; ?></div>
@@ -120,8 +120,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `allowed_pages`
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$administrators = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id_san'");
-$administrator = mysql_fetch_assoc($administrators);
+$administrators = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id_san'");
+$administrator = cmtx_db_fetch_assoc($administrators);
 $username = $administrator["username"];
 $email = $administrator["email"];
 $enabled = $administrator["is_enabled"];

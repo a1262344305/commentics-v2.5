@@ -50,11 +50,11 @@ $ban_cookie_days = $_POST['ban_cookie_days'];
 
 $ban_cookie_days_san = cmtx_sanitize($ban_cookie_days);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_referrer' WHERE `title` = 'check_referrer'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_db_file' WHERE `title` = 'check_db_file'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_honeypot' WHERE `title` = 'check_honeypot'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_time' WHERE `title` = 'check_time'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$ban_cookie_days_san' WHERE `title` = 'ban_cookie_days'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_referrer' WHERE `title` = 'check_referrer'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_db_file' WHERE `title` = 'check_db_file'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_honeypot' WHERE `title` = 'check_honeypot'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_time' WHERE `title` = 'check_time'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$ban_cookie_days_san' WHERE `title` = 'ban_cookie_days'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

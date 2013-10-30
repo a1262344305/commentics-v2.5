@@ -48,8 +48,8 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
     <tbody>
 
 <?php
-$access_log = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` DESC");
-while ($access = mysql_fetch_assoc($access_log)) {
+$access_log = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` DESC");
+while ($access = cmtx_db_fetch_assoc($access_log)) {
 ?>
     	<tr>
 			<td><?php echo cmtx_sanitize($access["username"], true, false); ?></td>

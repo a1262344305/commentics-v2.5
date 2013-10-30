@@ -25,6 +25,6 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 //delete bans older than the configured time period
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `dated` < DATE_SUB(NOW(), INTERVAL " . cmtx_setting('days_to_delete_bans') . " DAY)");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `dated` < DATE_SUB(NOW(), INTERVAL " . cmtx_setting('days_to_delete_bans') . " DAY)");
 
 ?>

@@ -63,17 +63,17 @@ $rss_image_width_san = cmtx_sanitize($rss_image_width);
 $rss_image_height_san = cmtx_sanitize($rss_image_height);
 $rss_most_recent_amount_san = cmtx_sanitize($rss_most_recent_amount);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_enabled' WHERE `title` = 'rss_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_title_san' WHERE `title` = 'rss_title'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_link_san' WHERE `title` = 'rss_link'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_description_san' WHERE `title` = 'rss_description'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_language_san' WHERE `title` = 'rss_language'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_enabled' WHERE `title` = 'rss_image_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_url_san' WHERE `title` = 'rss_image_url'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_width_san' WHERE `title` = 'rss_image_width'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_height_san' WHERE `title` = 'rss_image_height'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_most_recent_enabled' WHERE `title` = 'rss_most_recent_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_most_recent_amount_san' WHERE `title` = 'rss_most_recent_amount'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_enabled' WHERE `title` = 'rss_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_title_san' WHERE `title` = 'rss_title'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_link_san' WHERE `title` = 'rss_link'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_description_san' WHERE `title` = 'rss_description'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_language_san' WHERE `title` = 'rss_language'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_enabled' WHERE `title` = 'rss_image_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_url_san' WHERE `title` = 'rss_image_url'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_width_san' WHERE `title` = 'rss_image_width'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_height_san' WHERE `title` = 'rss_image_height'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_most_recent_enabled' WHERE `title` = 'rss_most_recent_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_most_recent_amount_san' WHERE `title` = 'rss_most_recent_amount'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

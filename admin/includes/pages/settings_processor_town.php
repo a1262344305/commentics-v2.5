@@ -57,15 +57,15 @@ $reserved_towns_action_san = cmtx_sanitize($reserved_towns_action);
 $dummy_towns_action_san = cmtx_sanitize($dummy_towns_action);
 $banned_towns_action_san = cmtx_sanitize($banned_towns_action);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$fix_town_enabled' WHERE `title` = 'fix_town_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$detect_link_in_town_enabled' WHERE `title` = 'detect_link_in_town_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$link_in_town_action_san' WHERE `title` = 'link_in_town_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_towns_enabled' WHERE `title` = 'reserved_towns_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_towns_action_san' WHERE `title` = 'reserved_towns_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_towns_enabled' WHERE `title` = 'dummy_towns_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_towns_action_san' WHERE `title` = 'dummy_towns_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_towns_enabled' WHERE `title` = 'banned_towns_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_towns_action_san' WHERE `title` = 'banned_towns_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$fix_town_enabled' WHERE `title` = 'fix_town_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$detect_link_in_town_enabled' WHERE `title` = 'detect_link_in_town_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$link_in_town_action_san' WHERE `title` = 'link_in_town_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_towns_enabled' WHERE `title` = 'reserved_towns_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_towns_action_san' WHERE `title` = 'reserved_towns_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_towns_enabled' WHERE `title` = 'dummy_towns_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_towns_action_san' WHERE `title` = 'dummy_towns_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_towns_enabled' WHERE `title` = 'banned_towns_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_towns_action_san' WHERE `title` = 'banned_towns_action'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

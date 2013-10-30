@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 if (isset($_GET['notice']) && $_GET['notice'] == "dismiss" && cmtx_check_csrf_url_key()) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_settings_email_sender'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_settings_email_sender'");
 } else {
 if (cmtx_setting('notice_settings_email_sender')) { ?>
 <div class="info"><?php echo CMTX_MSG_NOTICE_SETTINGS_EMAIL_SENDER . " <a href='index.php?page=settings_email_sender&notice=dismiss&key=" . $_SESSION['cmtx_csrf_key'] . "'>" . CMTX_LINK_DISMISS . "</a>"; ?></div>
@@ -59,41 +59,41 @@ $setup_from_name_san = cmtx_sanitize($setup_from_name);
 $setup_from_email_san = cmtx_sanitize($setup_from_email);
 $setup_reply_to_san = cmtx_sanitize($setup_reply_to);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'setup_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'setup_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'setup_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'setup_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'setup_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'setup_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_confirmation_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_confirmation_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_notification_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_notification_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_notification_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_notification_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_notification_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_notification_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_email_test_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_email_test_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_email_test_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_email_test_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_email_test_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_email_test_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_ban_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_ban_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_ban_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_ban_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_ban_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_ban_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_comment_approve_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_comment_approve_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_comment_approve_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_comment_approve_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_comment_approve_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_comment_approve_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_comment_okay_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_comment_okay_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_comment_okay_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_comment_okay_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_comment_okay_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_comment_okay_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_flag_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_flag_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_flag_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_new_flag_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_new_flag_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_new_flag_reply_to'");
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_reset_password_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_reset_password_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_reset_password_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'admin_reset_password_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'admin_reset_password_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'admin_reset_password_reply_to'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

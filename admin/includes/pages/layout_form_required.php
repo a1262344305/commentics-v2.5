@@ -48,11 +48,11 @@ if (isset($_POST['required_town'])) { $required_town = 1; } else { $required_tow
 if (isset($_POST['required_country'])) { $required_country = 1; } else { $required_country = 0; }
 if (isset($_POST['required_rating'])) { $required_rating = 1; } else { $required_rating = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_email' WHERE `title` = 'required_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_website' WHERE `title` = 'required_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_town' WHERE `title` = 'required_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_country' WHERE `title` = 'required_country'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_rating' WHERE `title` = 'required_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_email' WHERE `title` = 'required_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_website' WHERE `title` = 'required_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_town' WHERE `title` = 'required_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_country' WHERE `title` = 'required_country'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$required_rating' WHERE `title` = 'required_rating'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

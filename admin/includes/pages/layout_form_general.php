@@ -55,15 +55,15 @@ if (isset($_POST['agree_to_preview'])) { $agree_to_preview = 1; } else { $agree_
 $form_cookie_days_san = cmtx_sanitize($form_cookie_days);
 $repeat_ratings_san = cmtx_sanitize($repeat_ratings);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_javascript_disabled' WHERE `title` = 'display_javascript_disabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_required_symbol' WHERE `title` = 'display_required_symbol'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_required_symbol_message' WHERE `title` = 'display_required_symbol_message'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_email_note' WHERE `title` = 'display_email_note'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$hide_form' WHERE `title` = 'hide_form'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$form_cookie' WHERE `title` = 'form_cookie'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$form_cookie_days_san' WHERE `title` = 'form_cookie_days'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$repeat_ratings_san' WHERE `title` = 'repeat_ratings'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$agree_to_preview' WHERE `title` = 'agree_to_preview'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_javascript_disabled' WHERE `title` = 'display_javascript_disabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_required_symbol' WHERE `title` = 'display_required_symbol'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_required_symbol_message' WHERE `title` = 'display_required_symbol_message'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_email_note' WHERE `title` = 'display_email_note'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$hide_form' WHERE `title` = 'hide_form'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$form_cookie' WHERE `title` = 'form_cookie'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$form_cookie_days_san' WHERE `title` = 'form_cookie_days'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$repeat_ratings_san' WHERE `title` = 'repeat_ratings'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$agree_to_preview' WHERE `title` = 'agree_to_preview'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

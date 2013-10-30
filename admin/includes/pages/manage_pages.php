@@ -46,9 +46,9 @@ cmtx_check_csrf_form_key();
 if (isset($_POST['delay_pages'])) { $delay_pages = 1; } else { $delay_pages = 0; }
 if (isset($_POST['lower_pages'])) { $lower_pages = 1; } else { $lower_pages = 0; }
 if (!isset($_POST['enabled_form'])) { $enabled_form = 1; } else { $enabled_form = 0; }
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$delay_pages' WHERE `title` = 'delay_pages'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$lower_pages' WHERE `title` = 'lower_pages'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_form' WHERE `title` = 'enabled_form'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$delay_pages' WHERE `title` = 'delay_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$lower_pages' WHERE `title` = 'lower_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_form' WHERE `title` = 'enabled_form'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
@@ -64,16 +64,16 @@ if (cmtx_setting('is_demo')) {
 } else {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
-$comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
-while ($comment = mysql_fetch_assoc($comments)) {
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
+$comments = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
+while ($comment = cmtx_db_fetch_assoc($comments)) {
 $comment_id = $comment["id"];
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$comment_id'");
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$comment_id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$comment_id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$comment_id'");
 }
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_PAGE_DELETED; ?></div>
 <div style="clear: left;"></div>
@@ -92,16 +92,16 @@ $count = count($items);
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
-	$comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
-	while ($comment = mysql_fetch_assoc($comments)) {
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$id'");
+	$comments = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
+	while ($comment = cmtx_db_fetch_assoc($comments)) {
 	$comment_id = $comment["id"];
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$comment_id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$comment_id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$comment_id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$comment_id'");
 	}
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id'");
 }
 ?>
 <?php if ($count == 1) { ?><div class="success"><?php echo CMTX_MSG_PAGE_BULK_DELETED; ?></div><?php } ?>
@@ -150,8 +150,8 @@ for ($i = 0; $i < $count; $i++) {
     <tbody>
 
 <?php
-$pages = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
-while ($page = mysql_fetch_assoc($pages)) {
+$pages = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
+while ($page = cmtx_db_fetch_assoc($pages)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $page["id"]; ?>" onclick="bulk_check();"/></td>

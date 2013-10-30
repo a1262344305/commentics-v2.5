@@ -66,40 +66,40 @@ if (isset($_POST['id']) && isset($_POST['rating'])) {
 	$rating = cmtx_sanitize($rating, true, true);
 	
 	//check if page exists
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id'");
+	$count = cmtx_db_num_rows($query);
 	if ($count == 0) {
 		echo CMTX_RATE_NO_PAGE;
 		return;
 	}
 	
 	//check if user has already rated as a poster
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id' AND `ip_address` = '$ip_address' AND `rating` != '0'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$id' AND `ip_address` = '$ip_address' AND `rating` != '0'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_RATE_ALREADY_RATED;
 		return;
 	}
 	
 	//check if user has already rated as a guest
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id' and `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$id' and `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_RATE_ALREADY_RATED;
 		return;
 	}
 	
 	//check if user is banned
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_RATE_BANNED;
 		return;
 	}
 
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "ratings` (`page_id`, `rating`, `ip_address`, `dated`) values ('$id', '$rating', '$ip_address', NOW())");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "ratings` (`page_id`, `rating`, `ip_address`, `dated`) values ('$id', '$rating', '$ip_address', NOW())");
 	
-	$result = mysql_query("SELECT AVG(`rating`) 
+	$result = cmtx_db_query("SELECT AVG(`rating`) 
 	FROM ( 
 	SELECT `rating` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `rating` != '0' AND `page_id` = '$id' 
 	UNION ALL 
@@ -108,7 +108,7 @@ if (isset($_POST['id']) && isset($_POST['rating'])) {
 	AS `average`
 	");
 	
-	$average = mysql_fetch_assoc($result);
+	$average = cmtx_db_fetch_assoc($result);
 	$average = $average["AVG(`rating`)"];
 	
 	$average = round($average, 0);

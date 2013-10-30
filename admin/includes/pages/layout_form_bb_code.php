@@ -59,22 +59,22 @@ if (isset($_POST['enabled_bb_code_email'])) { $enabled_bb_code_email = 1; } else
 if (isset($_POST['enabled_bb_code_image'])) { $enabled_bb_code_image = 1; } else { $enabled_bb_code_image = 0; }
 if (isset($_POST['enabled_bb_code_video'])) { $enabled_bb_code_video = 1; } else { $enabled_bb_code_video = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_bold' WHERE `title` = 'enabled_bb_code_bold'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_italic' WHERE `title` = 'enabled_bb_code_italic'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_underline' WHERE `title` = 'enabled_bb_code_underline'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_strike' WHERE `title` = 'enabled_bb_code_strike'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_superscript' WHERE `title` = 'enabled_bb_code_superscript'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_subscript' WHERE `title` = 'enabled_bb_code_subscript'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_code' WHERE `title` = 'enabled_bb_code_code'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_php' WHERE `title` = 'enabled_bb_code_php'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_quote' WHERE `title` = 'enabled_bb_code_quote'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_line' WHERE `title` = 'enabled_bb_code_line'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_bullet' WHERE `title` = 'enabled_bb_code_bullet'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_numeric' WHERE `title` = 'enabled_bb_code_numeric'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_link' WHERE `title` = 'enabled_bb_code_link'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_email' WHERE `title` = 'enabled_bb_code_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_image' WHERE `title` = 'enabled_bb_code_image'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_video' WHERE `title` = 'enabled_bb_code_video'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_bold' WHERE `title` = 'enabled_bb_code_bold'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_italic' WHERE `title` = 'enabled_bb_code_italic'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_underline' WHERE `title` = 'enabled_bb_code_underline'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_strike' WHERE `title` = 'enabled_bb_code_strike'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_superscript' WHERE `title` = 'enabled_bb_code_superscript'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_subscript' WHERE `title` = 'enabled_bb_code_subscript'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_code' WHERE `title` = 'enabled_bb_code_code'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_php' WHERE `title` = 'enabled_bb_code_php'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_quote' WHERE `title` = 'enabled_bb_code_quote'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_line' WHERE `title` = 'enabled_bb_code_line'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_bullet' WHERE `title` = 'enabled_bb_code_bullet'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_numeric' WHERE `title` = 'enabled_bb_code_numeric'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_link' WHERE `title` = 'enabled_bb_code_link'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_email' WHERE `title` = 'enabled_bb_code_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_image' WHERE `title` = 'enabled_bb_code_image'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code_video' WHERE `title` = 'enabled_bb_code_video'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
@@ -103,9 +103,9 @@ if (!cmtx_setting('enabled_bb_code_bold')
 && !cmtx_setting('enabled_bb_code_email') 
 && !cmtx_setting('enabled_bb_code_image') 
 && !cmtx_setting('enabled_bb_code_video')) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'enabled_bb_code'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'enabled_bb_code'");
 } else {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'enabled_bb_code'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'enabled_bb_code'");
 }
 ?>
 

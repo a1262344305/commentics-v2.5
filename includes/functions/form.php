@@ -34,7 +34,7 @@ function cmtx_is_form_enabled ($display_message) { //checks whether form is enab
 			?><span class="cmtx_all_forms_disabled_message"><?php echo CMTX_ALL_FORMS_DISABLED; ?></span><?php
 		}
 		return false;
-	} else if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id' AND `is_form_enabled` = '0'"))) {
+	} else if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id' AND `is_form_enabled` = '0'"))) {
 		if ($display_message) {
 			?><span class="cmtx_this_form_disabled_message"><?php echo CMTX_THIS_FORM_DISABLED; ?></span><?php
 		}
@@ -172,7 +172,7 @@ function cmtx_has_rated_form() { //checks whether user has already rated
 	
 	$rated = false; //initialise flag as false
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address' AND `rating` != '0'")) != 0) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address' AND `rating` != '0'")) != 0) {
 		$rated = true;
 	}
 	
@@ -218,9 +218,9 @@ function cmtx_get_question() { //get captcha question and answer
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 	
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions` ORDER BY Rand() LIMIT 1");
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions` ORDER BY Rand() LIMIT 1");
 	
-	$result = mysql_fetch_array($query);
+	$result = cmtx_db_fetch_assoc($query);
 
 	$question = array($result['question'], $result['answer']);
 	

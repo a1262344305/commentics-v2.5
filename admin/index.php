@@ -55,12 +55,12 @@ cmtx_set_time_zone(cmtx_setting('time_zone')); //set the time zone
 
 require_once 'includes/auth.php'; //authorise login
 
-if (isset($_GET['page']) && $_GET['page'] == "log_out") {
-	cmtx_log_out("logout");
+if (isset($_GET['page']) && $_GET['page'] == 'log_out') {
+	cmtx_log_out('logout');
 }
 
-if (!isset($_GET['page']) || (!file_exists("includes/pages/" . basename($_GET['page']) . ".php"))) {
-	header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?page=dashboard");
+if (!isset($_GET['page']) || (!file_exists('includes/pages/' . basename($_GET['page']) . '.php'))) {
+	header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?page=dashboard');
 	die();
 }
 ?>
@@ -108,7 +108,7 @@ $('#data').dataTable({
 // ]]>
 </script>
 
-<?php if ($_GET['page'] == "edit_comment" && cmtx_setting('enabled_wysiwyg')) { ?>
+<?php if ($_GET['page'] == 'edit_comment' && cmtx_setting('enabled_wysiwyg')) { ?>
 <script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 // <![CDATA[
@@ -198,39 +198,39 @@ function delete_bulk_confirmation() {
 <script type="text/javascript">
 // <![CDATA[
 function show_hide(id) {
-	if (id == "php") {
-		document.getElementById('smtp').style.display = "none";
-		document.getElementById('sendmail').style.display = "none";
-	} else if (id == "smtp") {
-		document.getElementById('smtp').style.display = "inline";
-		document.getElementById('sendmail').style.display = "none";
-	} else if (id == "sendmail") {
-		document.getElementById('smtp').style.display = "none";
-		document.getElementById('sendmail').style.display = "inline";
-	} else if (id == "wildcards") {
+	if (id == 'php') {
+		document.getElementById('smtp').style.display = 'none';
+		document.getElementById('sendmail').style.display = 'none';
+	} else if (id == 'smtp') {
+		document.getElementById('smtp').style.display = 'inline';
+		document.getElementById('sendmail').style.display = 'none';
+	} else if (id == 'sendmail') {
+		document.getElementById('smtp').style.display = 'none';
+		document.getElementById('sendmail').style.display = 'inline';
+	} else if (id == 'wildcards') {
 		if (document.getElementById('wildcards').style.display == 'none') {
-			document.getElementById('wildcards').style.display = "inline";
+			document.getElementById('wildcards').style.display = 'inline';
 		} else {
-			document.getElementById('wildcards').style.display = "none";
+			document.getElementById('wildcards').style.display = 'none';
 		}
-	} else if (id == "pages") {
+	} else if (id == 'pages') {
 		if (document.getElementById('pages').style.display == 'none') {
-			document.getElementById('pages').style.display = "inline";
+			document.getElementById('pages').style.display = 'inline';
 		} else {
-			document.getElementById('pages').style.display = "none";
+			document.getElementById('pages').style.display = 'none';
 		}
-	} else if (id == "allowed_pages") {
+	} else if (id == 'allowed_pages') {
 		if (document.getElementById('allowed_pages').style.display == 'none') {
-			document.getElementById('allowed_pages').style.display = "inline";
+			document.getElementById('allowed_pages').style.display = 'inline';
 		} else {
-			document.getElementById('allowed_pages').style.display = "none";
+			document.getElementById('allowed_pages').style.display = 'none';
 		}
-	} else if (id == "gravatar") {
+	} else if (id == 'gravatar') {
 		var e = document.getElementById('gravatar_defaults');
 		if (e.options[e.selectedIndex].value == 'custom') {
-			document.getElementById('gravatar_custom').style.display = "inline";
+			document.getElementById('gravatar_custom').style.display = 'inline';
 		} else {
-			document.getElementById('gravatar_custom').style.display = "none";
+			document.getElementById('gravatar_custom').style.display = 'none';
 		}
 	}
 }
@@ -328,7 +328,7 @@ if (isset($_POST['db_chmod'])) {
 }
 if (isset($_POST['db_check'])) {
 	cmtx_check_csrf_form_key();
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
 }
 if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/db/details.php')) {
 	?>
@@ -374,10 +374,10 @@ if (cmtx_restrict_page($_GET['page'])) {
 	die();
 }
 
-$access_log = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "access`");
-$total = mysql_num_rows($access_log);
+$access_log = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "access`");
+$total = cmtx_db_num_rows($access_log);
 if ($total >= 100) {
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` ASC LIMIT 1");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "access` ORDER BY `dated` ASC LIMIT 1");
 }
 
 if (file_exists('includes/pages/' . basename($_GET['page']) . '.php')) {
@@ -386,7 +386,7 @@ if (file_exists('includes/pages/' . basename($_GET['page']) . '.php')) {
 	$username = cmtx_sanitize($_SESSION['cmtx_username']);
 	$page = cmtx_sanitize(basename($_GET['page']));
 	$ip_address = cmtx_get_ip_address();
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "access` (`admin_id`, `username`, `ip_address`, `page`, `dated`) VALUES ('$admin_id', '$username', '$ip_address','$page', NOW());");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "access` (`admin_id`, `username`, `ip_address`, `page`, `dated`) VALUES ('$admin_id', '$username', '$ip_address','$page', NOW());");
 
 	require 'includes/pages/' . basename($_GET['page']) . '.php';
 	

@@ -50,13 +50,13 @@ if (isset($_POST['show_sort_by_4'])) { $show_sort_by_4 = 1; } else { $show_sort_
 if (isset($_POST['show_sort_by_5'])) { $show_sort_by_5 = 1; } else { $show_sort_by_5 = 0; }
 if (isset($_POST['show_sort_by_6'])) { $show_sort_by_6 = 1; } else { $show_sort_by_6 = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by' WHERE `title` = 'show_sort_by'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_1' WHERE `title` = 'show_sort_by_1'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_2' WHERE `title` = 'show_sort_by_2'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_3' WHERE `title` = 'show_sort_by_3'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_4' WHERE `title` = 'show_sort_by_4'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_5' WHERE `title` = 'show_sort_by_5'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_6' WHERE `title` = 'show_sort_by_6'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by' WHERE `title` = 'show_sort_by'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_1' WHERE `title` = 'show_sort_by_1'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_2' WHERE `title` = 'show_sort_by_2'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_3' WHERE `title` = 'show_sort_by_3'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_4' WHERE `title` = 'show_sort_by_4'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_5' WHERE `title` = 'show_sort_by_5'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by_6' WHERE `title` = 'show_sort_by_6'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

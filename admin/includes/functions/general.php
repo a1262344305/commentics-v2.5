@@ -36,7 +36,7 @@ function cmtx_sanitize ($value, $stage_one = false, $stage_two = true) { //sanit
 	}
 
 	if ($stage_two) {
-		$value = mysql_real_escape_string($value); //escape any special characters for database
+		$value = cmtx_db_real_escape_string($value); //escape any special characters for database
 	}
 		
 	return $value; //return sanitized string
@@ -171,8 +171,8 @@ function cmtx_get_current_version() { //gets current version
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
-	$current_version_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "version` ORDER BY `dated` DESC LIMIT 1");
-	$current_version_result = mysql_fetch_assoc($current_version_query);
+	$current_version_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "version` ORDER BY `dated` DESC LIMIT 1");
+	$current_version_result = cmtx_db_fetch_assoc($current_version_query);
 	$current_version = $current_version_result["version"];
 	
 	return $current_version;
@@ -188,10 +188,10 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 	$comment_id = cmtx_sanitize($comment_id);
 
 	//select confirmed subscribers from database
-	$subscribers = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
+	$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
 	
-	$page_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
-	$page_result = mysql_fetch_assoc($page_query);
+	$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
+	$page_result = cmtx_db_fetch_assoc($page_query);
 	$page_reference = cmtx_decode($page_result["reference"]);
 	$page_url = cmtx_decode($page_result["url"]);
 	
@@ -204,7 +204,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 	
 	$count = 0; //count how many emails are sent
 	
-	while ($subscriber = mysql_fetch_assoc($subscribers)) { //while there are subscribers
+	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
 		$body = file_get_contents($subscriber_notification_email_file); //get the file's contents
 		
@@ -233,8 +233,8 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id) { //
 	
 	}
 	
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' WHERE `id` = '$comment_id'"); //mark comment as sent
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = '$count' WHERE `id` = '$comment_id'"); //set how many were sent (if any)
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' WHERE `id` = '$comment_id'"); //mark comment as sent
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = '$count' WHERE `id` = '$comment_id'"); //set how many were sent (if any)
 	
 } //end of notify-subscribers function
 
@@ -310,15 +310,15 @@ function cmtx_valid_account ($username, $password) { //check whether account is 
 	$username = cmtx_sanitize($username);
 	$password = cmtx_sanitize($password);
 	
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `is_enabled` = '0'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `is_enabled` = '0'"))) {
 		return "1"; //Disabled
 	}
 	
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `login_attempts` >= 10"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `login_attempts` >= 10"))) {
 		return "2"; //Locked
 	}
 	
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `password` = '$password'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `password` = '$password'"))) {
 		return "3"; //Okay
 	}
 	
@@ -335,8 +335,8 @@ function cmtx_get_admin_id() { //get id of administrator
 	
 	$username = cmtx_sanitize($username);
 	
-	$query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'");
+	$result = cmtx_db_fetch_assoc($query);
 	$admin_id = $result["id"];
 	
 	return cmtx_sanitize($admin_id);
@@ -367,15 +367,15 @@ function cmtx_delete_replies($id) { //delete replies of given comment
 	
 	$id = cmtx_sanitize($id);
 	
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
 	
-	while ($comments = mysql_fetch_assoc($query)) {
+	while ($comments = cmtx_db_fetch_assoc($query)) {
 	
 		$id = $comments["id"];
 	
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
 	
 		cmtx_delete_replies($id);
 	
@@ -390,13 +390,13 @@ function cmtx_unapprove_replies($id) { //unapprove replies of given comment
 	
 	$id = cmtx_sanitize($id);
 	
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
 	
-	while ($comments = mysql_fetch_assoc($query)) {
+	while ($comments = cmtx_db_fetch_assoc($query)) {
 	
 		$id = $comments["id"];
 
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
 	
 		cmtx_unapprove_replies($id);
 	
@@ -522,7 +522,7 @@ function cmtx_record_exists($id, $table) { //check whether the record exists
 	$id = cmtx_sanitize($id);
 	$table = cmtx_sanitize($table);
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . $table . "` WHERE `id` = '$id'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . $table . "` WHERE `id` = '$id'"))) {
 		return true;
 	} else {
 		return false;
@@ -554,8 +554,8 @@ function cmtx_restrict_page($page) { //check whether page is restricted
 
 	global $cmtx_mysql_table_prefix;
 
-	$allowed_pages_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '" . cmtx_get_admin_id() . "'");
-	$allowed_pages_result = mysql_fetch_assoc($allowed_pages_query);
+	$allowed_pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '" . cmtx_get_admin_id() . "'");
+	$allowed_pages_result = cmtx_db_fetch_assoc($allowed_pages_query);
 	$restrict_pages = $allowed_pages_result["restrict_pages"];
 	$allowed_pages = $allowed_pages_result["allowed_pages"];
 	
@@ -572,8 +572,8 @@ function cmtx_page_checkbox($page, $id, $indent) { //display page checkbox in ed
 
 	global $cmtx_mysql_table_prefix;
 
-	$allowed_pages_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
-	$allowed_pages_result = mysql_fetch_assoc($allowed_pages_query);
+	$allowed_pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
+	$allowed_pages_result = cmtx_db_fetch_assoc($allowed_pages_query);
 	$allowed_pages = $allowed_pages_result["allowed_pages"];
 	
 	echo "<label class='edit_administrator'>&nbsp;</label>";
@@ -593,9 +593,9 @@ function cmtx_check_attempts() { //check attempts on login page
 	
 	$ip_address = cmtx_get_ip_address();
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address' AND `amount` >= 3"))) {
-		$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address' AND `amount` >= 3");
-		$result = mysql_fetch_array($query);
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address' AND `amount` >= 3"))) {
+		$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address' AND `amount` >= 3");
+		$result = cmtx_db_fetch_assoc($query);
 		$time = strtotime($result['dated']);
 		$difference = time() - $time;
 		if ($difference < 60 * 30) {
@@ -614,14 +614,14 @@ function cmtx_add_attempt() { //record attempt on login page
 	$ip_address = cmtx_get_ip_address();
 	$username = cmtx_sanitize($_POST['username']);
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address'"))) {
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "attempts` SET `amount` = `amount` + 1, `dated` = NOW() WHERE `ip_address` = '$ip_address'");
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address'"))) {
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "attempts` SET `amount` = `amount` + 1, `dated` = NOW() WHERE `ip_address` = '$ip_address'");
 	} else {
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "attempts` (`ip_address`, `amount`, `dated`) VALUES ('$ip_address', '1', NOW());");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "attempts` (`ip_address`, `amount`, `dated`) VALUES ('$ip_address', '1', NOW());");
 	}
 	
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'"))) {
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `login_attempts` = `login_attempts` + 1 WHERE `username` = '$username'");
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'"))) {
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `login_attempts` = `login_attempts` + 1 WHERE `username` = '$username'");
 	}
 
 } //end of add-attempt function
@@ -633,7 +633,7 @@ function cmtx_delete_attempts() { //delete attempts on login page
 	
 	$ip_address = cmtx_get_ip_address();
 
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "attempts` WHERE `ip_address` = '$ip_address'");
 
 } //end of delete-attempts function
 
@@ -644,8 +644,8 @@ function cmtx_is_approved($id) { //is comment approved
 	
 	$id = cmtx_sanitize($id);
 	
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$is_approved = $result["is_approved"];
 	
 	if ($is_approved) {
@@ -663,8 +663,8 @@ function cmtx_is_sent($id) { //is comment sent
 	
 	$id = cmtx_sanitize($id);
 	
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$is_sent = $result["is_sent"];
 	
 	if ($is_sent) {
@@ -692,7 +692,7 @@ function cmtx_set_time_zone($time_zone) { //set the time zone
 
 	@date_default_timezone_set($time_zone); //set time zone PHP
 	
-	@mysql_query("SET time_zone = '" . date("P") . "'"); //set time zone DB
+	@cmtx_db_query("SET time_zone = '" . date("P") . "'"); //set time zone DB
 
 } //end of set-time-zone function
 
@@ -804,8 +804,8 @@ function cmtx_setting($title) { //gets a setting
 
 	global $cmtx_mysql_table_prefix;
 	
-	$result = mysql_query("SELECT `value` FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = '$title'");
-	$result = mysql_fetch_assoc($result);
+	$result = cmtx_db_query("SELECT `value` FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = '$title'");
+	$result = cmtx_db_fetch_assoc($result);
 	
 	return $result['value'];
 

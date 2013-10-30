@@ -42,14 +42,14 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 if (!cmtx_setting('viewers_enabled')) {
-mysql_query("TRUNCATE TABLE `" . $cmtx_mysql_table_prefix . "viewers`");
+cmtx_db_query("TRUNCATE TABLE `" . $cmtx_mysql_table_prefix . "viewers`");
 }
 ?>
 
 <?php
 $timestamp = time();
 $timeout = $timestamp - cmtx_setting('viewers_timeout');
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
 ?>
 
 <table id="data" class="display" summary="Viewers">
@@ -66,8 +66,8 @@ mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timest
     <tbody>
 
 <?php
-$viewers = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "viewers` ORDER BY `timestamp` DESC");
-while ($viewer = mysql_fetch_assoc($viewers)) {
+$viewers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "viewers` ORDER BY `timestamp` DESC");
+while ($viewer = cmtx_db_fetch_assoc($viewers)) {
 ?>
     	<tr>
         	<?php echo cmtx_get_viewer($viewer["user_agent"]); ?>

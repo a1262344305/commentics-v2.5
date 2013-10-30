@@ -53,10 +53,10 @@ $admin_email_test_from_name_san = cmtx_sanitize($admin_email_test_from_name);
 $admin_email_test_from_email_san = cmtx_sanitize($admin_email_test_from_email);
 $admin_email_test_reply_to_san = cmtx_sanitize($admin_email_test_reply_to);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_subject_san' WHERE `title` = 'admin_email_test_subject'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_from_name_san' WHERE `title` = 'admin_email_test_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_from_email_san' WHERE `title` = 'admin_email_test_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_reply_to_san' WHERE `title` = 'admin_email_test_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_subject_san' WHERE `title` = 'admin_email_test_subject'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_from_name_san' WHERE `title` = 'admin_email_test_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_from_email_san' WHERE `title` = 'admin_email_test_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_email_test_reply_to_san' WHERE `title` = 'admin_email_test_reply_to'");
 
 $file = "../includes/emails/" . cmtx_setting('language_frontend') . "/admin/email_test.txt";
 $handle = fopen($file,"w");

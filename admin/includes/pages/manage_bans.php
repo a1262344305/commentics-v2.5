@@ -48,7 +48,7 @@ $reason = $_POST['reason'];
 $ip_address = cmtx_sanitize($ip_address);
 $reason = cmtx_sanitize($reason);
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `unban`, `dated`) VALUES ('$ip_address', '$reason', '0', NOW());");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `unban`, `dated`) VALUES ('$ip_address', '$reason', '0', NOW());");
 ?>
 <div class="success"><?php echo CMTX_MSG_BAN_ADDED; ?></div>
 <div style="clear: left;"></div>
@@ -64,7 +64,7 @@ if (cmtx_setting('is_demo')) {
 } else {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `unban` = '1' WHERE `id` = '$id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `unban` = '1' WHERE `id` = '$id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_BAN_DELETED; ?></div>
 <div style="clear: left;"></div>
@@ -83,7 +83,7 @@ $count = count($items);
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `unban` = '1' WHERE `id` = '$id'");
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `unban` = '1' WHERE `id` = '$id'");
 }
 ?>
 <?php if ($count == 1) { ?><div class="success"><?php echo CMTX_MSG_BAN_BULK_DELETED; ?></div><?php } ?>
@@ -119,9 +119,9 @@ for ($i = 0; $i < $count; $i++) {
     <tbody>
 
 <?php
-$bans = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0' ORDER BY `dated` DESC");
+$bans = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0' ORDER BY `dated` DESC");
 
-while ($ban = mysql_fetch_assoc($bans)) {
+while ($ban = cmtx_db_fetch_assoc($bans)) {
 ?>
     	<tr>
         	<td><input type="checkbox" name="bulk[]" value="<?php echo $ban["id"]; ?>" onclick="bulk_check();"/></td>

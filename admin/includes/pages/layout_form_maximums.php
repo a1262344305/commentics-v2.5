@@ -58,13 +58,13 @@ $comment_maximum_characters_san = cmtx_sanitize($comment_maximum_characters);
 $field_maximum_question_san = cmtx_sanitize($field_maximum_question);
 $field_maximum_captcha_san = cmtx_sanitize($field_maximum_captcha);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_name_san' WHERE `title` = 'field_maximum_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_email_san' WHERE `title` = 'field_maximum_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_website_san' WHERE `title` = 'field_maximum_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_town_san' WHERE `title` = 'field_maximum_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comment_maximum_characters_san' WHERE `title` = 'comment_maximum_characters'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_question_san' WHERE `title` = 'field_maximum_question'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_captcha_san' WHERE `title` = 'field_maximum_captcha'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_name_san' WHERE `title` = 'field_maximum_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_email_san' WHERE `title` = 'field_maximum_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_website_san' WHERE `title` = 'field_maximum_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_town_san' WHERE `title` = 'field_maximum_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comment_maximum_characters_san' WHERE `title` = 'comment_maximum_characters'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_question_san' WHERE `title` = 'field_maximum_question'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_captcha_san' WHERE `title` = 'field_maximum_captcha'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

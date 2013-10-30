@@ -67,7 +67,7 @@ $url_san = cmtx_url_encode_spaces($url);
 $url_san = cmtx_sanitize($url_san, true, true);
 $form_enabled_san = cmtx_sanitize($form_enabled);
 
-if (!empty($identifier) && mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$identifier_san' AND `id` != '$id_san'"))) {
+if (!empty($identifier) && cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$identifier_san' AND `id` != '$id_san'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_IDENTIFIER_EXISTS; ?></div>
@@ -76,10 +76,10 @@ if (!empty($identifier) && mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_
 
 } else {
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `identifier` = '$identifier_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `reference` = '$reference_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `url` = '$url_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `is_form_enabled` = '$form_enabled_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `identifier` = '$identifier_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `reference` = '$reference_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `url` = '$url_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `is_form_enabled` = '$form_enabled_san' WHERE `id` = '$id_san'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_PAGE_UPDATED; ?></div>
@@ -91,8 +91,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "pages` SET `is_form_enabled
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$page_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id_san'");
-$page_result = mysql_fetch_assoc($page_query);
+$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$id_san'");
+$page_result = cmtx_db_fetch_assoc($page_query);
 $identifier = $page_result["identifier"];
 $reference = $page_result["reference"];
 $url = $page_result["url"];

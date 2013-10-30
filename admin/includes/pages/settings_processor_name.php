@@ -58,16 +58,16 @@ $reserved_names_action_san = cmtx_sanitize($reserved_names_action);
 $dummy_names_action_san = cmtx_sanitize($dummy_names_action);
 $banned_names_action_san = cmtx_sanitize($banned_names_action);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$one_name_enabled' WHERE `title` = 'one_name_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$fix_name_enabled' WHERE `title` = 'fix_name_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$detect_link_in_name_enabled' WHERE `title` = 'detect_link_in_name_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$link_in_name_action_san' WHERE `title` = 'link_in_name_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_names_enabled' WHERE `title` = 'reserved_names_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_names_action_san' WHERE `title` = 'reserved_names_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_names_enabled' WHERE `title` = 'dummy_names_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_names_action_san' WHERE `title` = 'dummy_names_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_names_enabled' WHERE `title` = 'banned_names_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_names_action_san' WHERE `title` = 'banned_names_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$one_name_enabled' WHERE `title` = 'one_name_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$fix_name_enabled' WHERE `title` = 'fix_name_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$detect_link_in_name_enabled' WHERE `title` = 'detect_link_in_name_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$link_in_name_action_san' WHERE `title` = 'link_in_name_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_names_enabled' WHERE `title` = 'reserved_names_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_names_action_san' WHERE `title` = 'reserved_names_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_names_enabled' WHERE `title` = 'dummy_names_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_names_action_san' WHERE `title` = 'dummy_names_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_names_enabled' WHERE `title` = 'banned_names_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_names_action_san' WHERE `title` = 'banned_names_action'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

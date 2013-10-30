@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 if (isset($_GET['notice']) && $_GET['notice'] == "dismiss" && cmtx_check_csrf_url_key()) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_manage_comments'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_manage_comments'");
 } else {
 if (cmtx_setting('notice_manage_comments')) { ?>
 <div class="info"><?php echo CMTX_MSG_NOTICE_MANAGE_COMMENTS . " <a href='index.php?page=manage_comments&notice=dismiss&key=" . $_SESSION['cmtx_csrf_key'] . "'>" . CMTX_LINK_DISMISS . "</a>"; ?></div>
@@ -53,32 +53,32 @@ cmtx_check_csrf_form_key();
 
 $id = $_POST['id'];
 $id = cmtx_sanitize($id);
-$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-$comment_result = mysql_fetch_assoc($comment_query);
+$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+$comment_result = cmtx_db_fetch_assoc($comment_query);
 $name = $comment_result["name"];
 $email = $comment_result["email"];
 $website = $comment_result["website"];
 $ip_address = $comment_result["ip_address"];
 
 if ($_POST['delete'] == "delete_this") {
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	cmtx_delete_replies($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
 } else { //delete all
-	$spam_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address'");
-	while ($spam = mysql_fetch_assoc($spam_query)) {
+	$spam_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `ip_address` = '$ip_address'");
+	while ($spam = cmtx_db_fetch_assoc($spam_query)) {
 		$id = $spam["id"];
 		$id = cmtx_sanitize($id);
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 		cmtx_delete_replies($id);
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
 	}
 }
 
 if ($_POST['ban'] == "do_ban") {
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `unban`, `dated`) VALUES ('$ip_address', '" . cmtx_sanitize(CMTX_FIELD_VALUE_SPAM) . "', '0', NOW());");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "bans` (`ip_address`, `reason`, `unban`, `dated`) VALUES ('$ip_address', '" . cmtx_sanitize(CMTX_FIELD_VALUE_SPAM) . "', '0', NOW());");
 }
 
 if (isset($_POST['ban_name'])) {
@@ -117,10 +117,10 @@ if (cmtx_setting('is_demo')) {
 if ($_GET['action'] == "delete") {
 	$id = $_GET['id'];
 	$id = cmtx_sanitize($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	cmtx_delete_replies($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
 	?>
 	<div class="success"><?php echo CMTX_MSG_COMMENT_DELETED; ?></div>
 	<div style="clear: left;"></div>
@@ -134,7 +134,7 @@ if ($_GET['action'] == "delete") {
 	} else {
 		$id = $_GET['id'];
 		$id = cmtx_sanitize($id);
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		?>
 		<div class="success"><?php echo CMTX_MSG_COMMENT_APPROVED; ?></div>
 		<div style="clear: left;"></div>
@@ -149,13 +149,13 @@ if ($_GET['action'] == "delete") {
 	} else {
 		$id = $_GET['id'];
 		$id = cmtx_sanitize($id);
-		$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		$comment_result = mysql_fetch_assoc($comment_query);
+		$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		$comment_result = cmtx_db_fetch_assoc($comment_query);
 		$name = $comment_result["name"];
 		$comment = $comment_result["comment"];
 		$page_id = $comment_result["page_id"];
 		cmtx_notify_subscribers($name, $comment, $page_id, $id);
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		?>
 		<div class="success"><?php echo CMTX_MSG_COMMENT_SENT; ?></div>
 		<div style="clear: left;"></div>
@@ -178,10 +178,10 @@ $count = count($items);
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	cmtx_delete_replies($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `comment_id` = '$id'");
 }
 ?>
 <?php if ($count == 1) { ?><div class="success"><?php echo CMTX_MSG_COMMENT_BULK_DELETED; ?></div><?php } ?>
@@ -208,7 +208,7 @@ for ($i = 0; $i < $count; $i++) {
 	if (cmtx_is_approved($id)) {
 		$failure ++;
 	} else {
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		$success ++;
 	}
 }
@@ -240,13 +240,13 @@ for ($i = 0; $i < $count; $i++) {
 	if (cmtx_is_sent($id)) {
 		$failure ++;
 	} else {
-		$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		$comment_result = mysql_fetch_assoc($comment_query);
+		$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		$comment_result = cmtx_db_fetch_assoc($comment_query);
 		$name = $comment_result["name"];
 		$comment = $comment_result["comment"];
 		$page_id = $comment_result["page_id"];
 		cmtx_notify_subscribers($name, $comment, $page_id, $id);
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		$success ++;
 	}
 }
@@ -287,8 +287,8 @@ for ($i = 0; $i < $count; $i++) {
     <tbody>
 
 <?php
-$comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` ORDER BY `dated` DESC LIMIT " . cmtx_setting('limit_comments'));
-while ($comment = mysql_fetch_assoc($comments)) {
+$comments = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` ORDER BY `dated` DESC LIMIT " . cmtx_setting('limit_comments'));
+while ($comment = cmtx_db_fetch_assoc($comments)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $comment["id"]; ?>" onclick="bulk_check();"/></td>
@@ -296,8 +296,8 @@ while ($comment = mysql_fetch_assoc($comments)) {
 			<td><?php echo $comment["name"]; ?></td>
 			<?php
 			$page_id = $comment["page_id"];
-			$page_reference_query = mysql_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
-			$page_reference_result = mysql_fetch_assoc($page_reference_query);
+			$page_reference_query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
+			$page_reference_result = cmtx_db_fetch_assoc($page_reference_query);
 			?>
 			<td><?php echo $page_reference_result["reference"]; ?></td>
 			<?php

@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 $admin_id = cmtx_get_admin_id();
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$admin_id'")) == 0) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$admin_id'")) == 0) {
 die("<p />" . CMTX_MSG_ADMIN_SUPER_ONLY);
 }
 ?>
@@ -59,7 +59,7 @@ while (!$is_unique) {
 
 $cookie_key = cmtx_get_random_key(20);
 		
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_key'")) == 0) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_key'")) == 0) {
 	$is_unique = true;
 }
 
@@ -69,7 +69,7 @@ $username = cmtx_sanitize($username);
 $password = cmtx_sanitize($password);
 $email = cmtx_sanitize($email);
 
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'"))) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_EXISTS; ?></div>
@@ -78,7 +78,7 @@ if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "a
 
 } else {
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "admins` (`username`, `password`, `email`, `ip_address`, `cookie_key`, `detect_admin`, `detect_method`, `receive_email_new_ban`, `receive_email_new_comment_approve`, `receive_email_new_comment_okay`, `login_attempts`, `resets`, `last_login`, `restrict_pages`, `allowed_pages`, `is_super`, `is_enabled`, `dated`) VALUES ('$username', '$password', '$email', '', '$cookie_key', '1', 'both', '1', '1', '1', '0', '0', NOW(), '0', '', '0', '1', NOW());");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "admins` (`username`, `password`, `email`, `ip_address`, `cookie_key`, `detect_admin`, `detect_method`, `receive_email_new_ban`, `receive_email_new_comment_approve`, `receive_email_new_comment_okay`, `login_attempts`, `resets`, `last_login`, `restrict_pages`, `allowed_pages`, `is_super`, `is_enabled`, `dated`) VALUES ('$username', '$password', '$email', '', '$cookie_key', '1', 'both', '1', '1', '1', '0', '0', NOW(), '0', '', '0', '1', NOW());");
 ?>
 <div class="success"><?php echo CMTX_MSG_ADMIN_ADDED; ?></div>
 <div style="clear: left;"></div>
@@ -96,13 +96,13 @@ if (cmtx_setting('is_demo')) {
 } else {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id'"))) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id'"))) {
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_SUPER_DELETE; ?></div>
 <div style="clear: left;"></div>
 <?php
 } else {
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_ADMIN_DELETED; ?></div>
 <div style="clear: left;"></div>
@@ -122,10 +122,10 @@ $success = 0; $failure = 0;
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `is_super` = '1' AND `id` = '$id'"))) {
 		$failure ++;
 	} else {
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
 		$success ++;
 	}
 }
@@ -171,8 +171,8 @@ for ($i = 0; $i < $count; $i++) {
     <tbody>
 
 <?php
-$administrators = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` ORDER BY `id` ASC");
-while ($administrator = mysql_fetch_assoc($administrators)) {
+$administrators = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` ORDER BY `id` ASC");
+while ($administrator = cmtx_db_fetch_assoc($administrators)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $administrator["id"]; ?>" onclick="bulk_check();"/></td>

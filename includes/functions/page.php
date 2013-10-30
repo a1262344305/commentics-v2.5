@@ -36,7 +36,7 @@ function cmtx_sanitize ($value, $stage_one, $stage_two) { //sanitizes data
 	}
 
 	if ($stage_two) {
-		$value = mysql_real_escape_string($value); //escape any special characters for database
+		$value = cmtx_db_real_escape_string($value); //escape any special characters for database
 	}
 		
 	return $value; //return sanitized string
@@ -338,7 +338,7 @@ function cmtx_page_exists() { //check if the page exists
 	//sanitize data
 	$cmtx_identifier = cmtx_sanitize($cmtx_identifier, true, true);
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"))) { //if page exists
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"))) { //if page exists
 		return true;
 	} else {
 		return false;
@@ -354,8 +354,8 @@ function cmtx_get_page_id() { //get the page ID
 	//sanitize data
 	$cmtx_identifier = cmtx_sanitize($cmtx_identifier, true, true);
 
-	$query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"); //get page ID
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"); //get page ID
+	$result = cmtx_db_fetch_assoc($query);
 	$cmtx_page_id = $result["id"];
 	
 	return $cmtx_page_id;
@@ -372,9 +372,9 @@ function cmtx_create_page() { //create page
 	$cmtx_reference = cmtx_sanitize($cmtx_reference, true, true);
 	$cmtx_url = cmtx_sanitize($cmtx_url, true, true);
 
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "pages` (`identifier`, `reference`, `url`, `is_form_enabled`, `dated`) VALUES ('$cmtx_identifier', '$cmtx_reference', '$cmtx_url', 1, NOW())");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "pages` (`identifier`, `reference`, `url`, `is_form_enabled`, `dated`) VALUES ('$cmtx_identifier', '$cmtx_reference', '$cmtx_url', 1, NOW())");
 
-	$cmtx_page_id = mysql_insert_id();
+	$cmtx_page_id = cmtx_db_insert_id();
 
 } //end of create-page function
 
@@ -383,8 +383,8 @@ function cmtx_get_page_reference() { //get page reference
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
-	$query = mysql_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$page_reference = $result["reference"];
 
 	return $page_reference;
@@ -396,8 +396,8 @@ function cmtx_get_page_url() { //get page URL
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
-	$query = mysql_query("SELECT `url` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT `url` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$page_url = $result["url"];
 
 	return $page_url;
@@ -477,14 +477,14 @@ function cmtx_is_administrator() { //is the user the administrator
 
 	//check IP address
 	$ip_address = cmtx_get_ip_address();
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1'"))) {
 		$admin_ip_address_found = true; //set IP address flag as true
 	}
 
 	//check cookie
 	if (isset($_COOKIE['Commentics-Admin']) && ctype_alnum($_COOKIE['Commentics-Admin']) && cmtx_strlen($_COOKIE['Commentics-Admin']) == 20) {
 		$cookie_value = cmtx_sanitize($_COOKIE['Commentics-Admin'], true, true);
-		if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1'"))) {
+		if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1'"))) {
 			$admin_cookie_found = true; //set cookie flag as true
 		}
 	}
@@ -494,15 +494,15 @@ function cmtx_is_administrator() { //is the user the administrator
 
 		if ($admin_ip_address_found) {
 
-			$detection_settings = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1' LIMIT 1");
-			$detection_settings = mysql_fetch_assoc($detection_settings);
+			$detection_settings = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1' LIMIT 1");
+			$detection_settings = cmtx_db_fetch_assoc($detection_settings);
 			$detect_admin = $detection_settings["detect_admin"];
 			$detect_method = $detection_settings["detect_method"];
 
 		} else {
 
-			$detection_settings = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1");
-			$detection_settings = mysql_fetch_assoc($detection_settings);
+			$detection_settings = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1");
+			$detection_settings = cmtx_db_fetch_assoc($detection_settings);
 			$detect_admin = $detection_settings["detect_admin"];
 			$detect_method = $detection_settings["detect_method"];		
 
@@ -620,9 +620,9 @@ function cmtx_add_viewer() { //add viewer to database
 		$timestamp = time();
 		$timeout = $timestamp - cmtx_setting('viewers_timeout');
 
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `ip_address` = '$ip_address'");
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "viewers` (`user_agent`, `ip_address`, `page_reference`, `page_url`, `timestamp`) VALUES ('$user_agent', '$ip_address', '$page_reference', '$page_url', '$timestamp')");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `timestamp` < '$timeout'");
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "viewers` WHERE `ip_address` = '$ip_address'");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "viewers` (`user_agent`, `ip_address`, `page_reference`, `page_url`, `timestamp`) VALUES ('$user_agent', '$ip_address', '$page_reference', '$page_url', '$timestamp')");
 	
 	}
 
@@ -668,9 +668,9 @@ function cmtx_unban_viewer() { //unban viewer if requested
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
-	$bans = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '1'");
+	$bans = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '1'");
 
-	while ($ban = mysql_fetch_assoc($bans)) {
+	while ($ban = cmtx_db_fetch_assoc($bans)) {
 
 		if (cmtx_get_ip_address() == $ban['ip_address']) {
 
@@ -680,7 +680,7 @@ function cmtx_unban_viewer() { //unban viewer if requested
 			// ]]>
 			</script><?php
 			
-			mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `id` = '" . $ban['id'] . "'");
+			cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `id` = '" . $ban['id'] . "'");
 		}
 
 	}
@@ -705,13 +705,13 @@ function cmtx_unapprove_replies($id) { //unapprove replies of given comment
 
 	global $cmtx_mysql_table_prefix;
 
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id'");
 
-	while ($comments = mysql_fetch_assoc($query)) {
+	while ($comments = cmtx_db_fetch_assoc($query)) {
 
 		$id = $comments["id"];
 
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
 
 		cmtx_unapprove_replies($id);
 
@@ -741,17 +741,6 @@ function cmtx_error_reporting($path) { //error reporting
 } //end of error-reporting function
 
 
-function cmtx_reconnect_db() { //reconnect database
-
-	global $cmtx_db_orig; //globalise variables
-
-	if (!empty($cmtx_db_orig)) {
-		@mysql_select_db ($cmtx_db_orig);
-	}
-
-} //end of reconnect-db function
-
-
 function cmtx_session_set() { //is a session available
 
 	if (session_id() != '') {
@@ -776,7 +765,7 @@ function cmtx_set_time_zone($time_zone) { //set the time zone
 
 	@date_default_timezone_set($time_zone); //set time zone PHP
 
-	@mysql_query("SET time_zone = '" . date("P") . "'"); //set time zone DB
+	@cmtx_db_query("SET time_zone = '" . date("P") . "'"); //set time zone DB
 
 } //end of set-time-zone function
 
@@ -912,8 +901,8 @@ function cmtx_setting($title) { //gets a setting
 
 	global $cmtx_mysql_table_prefix;
 	
-	$result = mysql_query("SELECT `value` FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = '$title'");
-	$result = mysql_fetch_assoc($result);
+	$result = cmtx_db_query("SELECT `value` FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = '$title'");
+	$result = cmtx_db_fetch_assoc($result);
 	
 	return $result['value'];
 

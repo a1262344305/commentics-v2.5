@@ -49,11 +49,11 @@ $state_website = cmtx_sanitize($_POST['state_website']);
 $state_town = cmtx_sanitize($_POST['state_town']);
 $state_country = cmtx_sanitize($_POST['state_country']);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_name' WHERE `title` = 'state_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_email' WHERE `title` = 'state_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_website' WHERE `title` = 'state_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_town' WHERE `title` = 'state_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_country' WHERE `title` = 'state_country'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_name' WHERE `title` = 'state_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_email' WHERE `title` = 'state_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_website' WHERE `title` = 'state_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_town' WHERE `title` = 'state_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$state_country' WHERE `title` = 'state_country'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

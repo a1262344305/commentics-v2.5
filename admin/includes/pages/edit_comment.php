@@ -97,25 +97,25 @@ $is_approved_san = "1";
 }
 
 if (isset($_POST['verify'])) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reports` = '0' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_verified` = '1' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reports` = '0' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_verified` = '1' WHERE `id` = '$id_san'");
 $is_approved_san = "1";
 }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `name` = '$name_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `email` = '$email_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `website` = '$website_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `town` = '$town_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `country` = '$country_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `rating` = '$rating_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `comment` = '$comment_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reply` = '$reply_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `page_id` = '$page_id_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `page_id` = '$page_id_san' WHERE `reply_to` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reply_to` = '$reply_to_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '$is_approved_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sticky` = '$is_sticky_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_locked` = '$is_locked_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `name` = '$name_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `email` = '$email_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `website` = '$website_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `town` = '$town_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `country` = '$country_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `rating` = '$rating_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `comment` = '$comment_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reply` = '$reply_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `page_id` = '$page_id_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `page_id` = '$page_id_san' WHERE `reply_to` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reply_to` = '$reply_to_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '$is_approved_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sticky` = '$is_sticky_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_locked` = '$is_locked_san' WHERE `id` = '$id_san'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_COMMENT_UPDATED; ?></div>
@@ -125,8 +125,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_locked` =
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id_san'");
-$comment_result = mysql_fetch_assoc($comment_query);
+$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id_san'");
+$comment_result = cmtx_db_fetch_assoc($comment_query);
 $name = $comment_result["name"];
 $email = $comment_result["email"];
 $website = $comment_result["website"];
@@ -153,8 +153,8 @@ $date = date("jS M Y", strtotime($comment_result["dated"]));
 
 $page_id = $comment_result["page_id"];
 $page_id_san = cmtx_sanitize($page_id);
-$page_reference_query = mysql_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id_san'");
-$page_reference_result = mysql_fetch_assoc($page_reference_query);
+$page_reference_query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id_san'");
+$page_reference_result = cmtx_db_fetch_assoc($page_reference_query);
 $page_reference = $page_reference_result["reference"];
 ?>
 
@@ -198,8 +198,8 @@ echo $cmtx_ratings;
 
 <label class='edit_comment'><?php echo CMTX_FIELD_LABEL_PAGE; ?></label> <select name="page_id">
 <?php
-$pages = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
-while ($page = mysql_fetch_assoc($pages)) { ?>
+$pages = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
+while ($page = cmtx_db_fetch_assoc($pages)) { ?>
 <option value='<?php echo $page['id'];?>' <?php if ($page_id == $page['id']) { echo "selected='selected'"; } ?>><?php echo $page['reference']; ?></option>
 <?php } ?>
 </select>
@@ -210,8 +210,8 @@ while ($page = mysql_fetch_assoc($pages)) { ?>
 <select name="reply_to">
 <option value="0"<?php if (!$reply_to) { echo " selected='selected'"; } ?>><?php echo CMTX_FIELD_VALUE_NOBODY; ?></option>
 <?php
-$comments = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$page_id_san' AND `id` != '$id_san' ORDER BY `dated` DESC");
-while ($comment = mysql_fetch_assoc($comments)) {
+$comments = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$page_id_san' AND `id` != '$id_san' ORDER BY `dated` DESC");
+while ($comment = cmtx_db_fetch_assoc($comments)) {
 echo "<option value='" . $comment['id'] . "'";
 if ($reply_to == $comment['id']) { echo " selected='selected'"; }
 echo ">" . $comment['name'] . " - " . date("jS M Y", strtotime($comment["dated"])) . " - " . date("g:ia", strtotime($comment["dated"])) . "</option>";

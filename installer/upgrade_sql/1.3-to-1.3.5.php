@@ -24,11 +24,6 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','scroll_reply','1');");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','scroll_reply','1');");
 
 ?>

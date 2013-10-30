@@ -66,10 +66,10 @@ $email_san = cmtx_sanitize($email, true, true);
 $page_id_san = cmtx_sanitize($page_id);
 $confirmed_san = cmtx_sanitize($confirmed);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `name` = '$name_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `email` = '$email_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `page_id` = '$page_id_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `is_confirmed` = '$confirmed_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `name` = '$name_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `email` = '$email_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `page_id` = '$page_id_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `is_confirmed` = '$confirmed_san' WHERE `id` = '$id_san'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SUB_UPDATED; ?></div>
 <div style="clear: left;"></div>
@@ -78,8 +78,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `is_confir
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$subscriber_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id_san'");
-$subscriber_result = mysql_fetch_assoc($subscriber_query);
+$subscriber_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `id` = '$id_san'");
+$subscriber_result = cmtx_db_fetch_assoc($subscriber_query);
 $name = $subscriber_result["name"];
 $email = $subscriber_result["email"];
 $confirmed = $subscriber_result["is_confirmed"];
@@ -87,8 +87,8 @@ $time = date("g:ia", strtotime($subscriber_result["dated"]));
 $date = date("jS M Y", strtotime($subscriber_result["dated"]));
 
 $page_id = $subscriber_result["page_id"];
-$page_reference_query = mysql_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
-$page_reference_result = mysql_fetch_assoc($page_reference_query);
+$page_reference_query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
+$page_reference_result = cmtx_db_fetch_assoc($page_reference_query);
 $page_reference = $page_reference_result["reference"];
 ?>
 
@@ -100,8 +100,8 @@ $page_reference = $page_reference_result["reference"];
 <label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_EMAIL; ?></label> <input type="email" required name="email" size="31" maxlength="250" value="<?php echo $email; ?>"/>
 <p />
 <label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_PAGE; ?></label> <select name="page_id"><?php
-$pages = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
-while ($page = mysql_fetch_assoc($pages)) { ?>
+$pages = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` ORDER BY `id` ASC");
+while ($page = cmtx_db_fetch_assoc($pages)) { ?>
 <option value='<?php echo $page['id'];?>' <?php if ($page_id == $page['id']) { echo "selected='selected'"; } ?>><?php echo $page['reference']; ?></option>
 <?php } ?>
 </select>

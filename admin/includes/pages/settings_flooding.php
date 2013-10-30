@@ -54,13 +54,13 @@ $flood_control_delay_time_san = cmtx_sanitize($flood_control_delay_time);
 $flood_control_maximum_amount_san = cmtx_sanitize($flood_control_maximum_amount);
 $flood_control_maximum_period_san = cmtx_sanitize($flood_control_maximum_period);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_enabled' WHERE `title` = 'flood_control_delay_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_time_san' WHERE `title` = 'flood_control_delay_time'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_all_pages' WHERE `title` = 'flood_control_delay_all_pages'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_enabled' WHERE `title` = 'flood_control_maximum_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_amount_san' WHERE `title` = 'flood_control_maximum_amount'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_period_san' WHERE `title` = 'flood_control_maximum_period'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_all_pages' WHERE `title` = 'flood_control_maximum_all_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_enabled' WHERE `title` = 'flood_control_delay_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_time_san' WHERE `title` = 'flood_control_delay_time'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_all_pages' WHERE `title` = 'flood_control_delay_all_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_enabled' WHERE `title` = 'flood_control_maximum_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_amount_san' WHERE `title` = 'flood_control_maximum_amount'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_period_san' WHERE `title` = 'flood_control_maximum_period'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_maximum_all_pages' WHERE `title` = 'flood_control_maximum_all_pages'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

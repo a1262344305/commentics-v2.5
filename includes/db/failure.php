@@ -27,79 +27,124 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 function cmtx_db_error_general() { //display a general database error to user
 
-	echo "<h3>Commentics</h3>";
-	echo "<div style='margin-bottom: 10px;'></div>";
-	echo "<p>Sorry, there is a database problem.</p>";
-	echo "<p>Please check back shortly. Thanks.</p>";
+	echo '<h3>Commentics</h3>';
+	echo '<div style="margin-bottom: 10px;"></div>';
+	echo '<p>Sorry, there is a database problem.</p>';
+	echo '<p>Please check back shortly. Thanks.</p>';
 
 } //end of db-error-general function
 
 
-function cmtx_db_error_connect() { //display a database connection error to admin
+function cmtx_db_error_connect($errno, $error) { //display a database connection error to admin
 
-	if (defined("CMTX_IN_ADMIN")) {
-		echo "<img src='images/commentics/logo.png' style='padding-bottom:15px' title='Commentics' alt='Commentics'/>";
-		echo "<br />";
+	if (defined('CMTX_IN_ADMIN')) {
+		echo '<img src="images/commentics/logo.png" style="padding-bottom:15px" title="Commentics" alt="Commentics"/>';
+		echo '<br />';
 	}
-	echo "Sorry, there is a <span style='font-weight:bold;color:#CC0000;'>database connection</span> problem.";
-	echo "<p></p>";
-	echo "Please open <b>/comments/includes/db/details.php</b>";
-	echo "<ol>";
-	echo "<li>Is the <b>\$cmtx_mysql_username</b> value correct?</li>";
-	echo "<li>Is the <b>\$cmtx_mysql_password</b> value correct?</li>";
-	echo "<li>Is the <b>\$cmtx_mysql_host</b> value correct?</li>";
-	echo "<li>Is the <b>\$cmtx_mysql_port</b> value correct?</li>";
-	echo "</ol>";
-	echo "If the above is ok, it may be that your database server is down.";
+	
+	echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database connection</span> error:';
+	echo '<p></p>';
+	echo '<i>' . $errno . ': ' . $error . '</i>';
+	
+	if ($errno == '1049') {
+		echo '<p></p>';
+		echo 'This error is because the script has no database.';
+		echo '<p></p>';
+		echo 'The following are steps to help fix it:';
+		echo '<ol>';
+		echo '<li>Did you create the database?</li><br/>';
+		echo '<li>Does the database still exist?</li><br/>';
+		echo '<li>';
+		echo '<i>(a)</i> Open the file details.php';
+		echo '<br/>';
+		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_database</b>';
+		echo '<br/>';
+		echo '<i>(c)</i> Does it match with the database you created?';
+		echo '</li>';
+		echo '</ol>';
+	}
+	
+	if ($errno == '1044') {
+		echo '<p></p>';
+		echo 'This error appears to be because your username is wrong.';
+		echo '<p></p>';
+		echo 'The following are steps to help fix it:';
+		echo '<p></p>';
+		echo '<i>(a)</i> Open the file details.php';
+		echo '<br/>';
+		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_username</b>';
+		echo '<br/>';
+		echo '<i>(c)</i> Does it match with your MySQL username?';
+	}
+	
+	if ($errno == '1045') {
+		echo '<p></p>';
+		echo 'This error appears to be because your password is wrong.';
+		echo '<p></p>';
+		echo 'The following are steps to help fix it:';
+		echo '<p></p>';
+		echo '<i>(a)</i> Open the file details.php';
+		echo '<br/>';
+		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_password</b>';
+		echo '<br/>';
+		echo '<i>(c)</i> Does it match with your MySQL password?';
+	}
+	
+	if ($errno == '2002') {
+		echo '<p></p>';
+		echo 'This error appears to be because your host is wrong.';
+		echo '<p></p>';
+		echo 'The following are steps to help fix it:';
+		echo '<p></p>';
+		echo '<i>(a)</i> Open the file details.php';
+		echo '<br/>';
+		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_host</b>';
+		echo '<br/>';
+		echo '<i>(c)</i> Does it match with your MySQL host?';
+	}
+	
+	if ($errno == '0') {
+		echo '<p></p>';
+		echo 'This error appears to be because your port is wrong.';
+		echo '<p></p>';
+		echo 'The following are steps to help fix it:';
+		echo '<p></p>';
+		echo '<i>(a)</i> Open the file details.php';
+		echo '<br/>';
+		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_port</b>';
+		echo '<br/>';
+		echo '<i>(c)</i> Does it match with your MySQL port?';
+	}
+	
+	echo '</div>';
+	echo '<br/>';
+	echo '<input type="button" style="background: url(\'images/buttons/gradient.gif\') repeat-x scroll 0 100% #FFAC47; border-color: #ED6502 #A04300 #A04300 #ED6502; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; font: bold 12px arial,helvetica,sans-serif; padding: 1px 7px 2px; text-align: center !important; white-space: nowrap; margin-right: 2px;" name="refresh" title="Refresh" value="Refresh" onclick="window.location.reload()"/>';
 
 } //end of db-error-connect function
 
 
-function cmtx_db_error_select() { //display a database selection error to admin
-
-	if (defined("CMTX_IN_ADMIN")) {
-		echo "<img src='images/commentics/logo.png' style='padding-bottom:15px' title='Commentics' alt='Commentics'/>";
-		echo "<br />";
-	}
-	echo "Sorry, there is a <span style='font-weight:bold;color:#CC0000;'>database selection</span> problem.";
-	echo "<p></p>";
-	echo "The following are steps to help diagnose it:";
-	echo "<ol>";
-	echo "<li>Did you create the database?</li><br/>";
-	echo "<li>Does the database still exist?</li><br/>";
-	echo "<li>";
-	echo "<i>(a)</i> Open the file /comments/includes/db/details.php";
-	echo "<br/>";
-	echo "<i>(b)</i> Check the value of <b>\$cmtx_mysql_database</b>";
-	echo "<br/>";
-	echo "<i>(c)</i> Does it match with the database you created?";
-	echo "</li>";
-	echo "<br/>";
-	echo "<li>Does your MySQL user have the right privileges?</li>";
-	echo "<br/>";
-	echo "<li>Try setting normal file permissions for details.php</li>";
-	echo "</ol>";
-
-} //end of db-error-select function
-
-
 function cmtx_db_error_table() { //display a database tables error to admin
 
-	echo "<img src='images/commentics/logo.png' style='padding-bottom:15px' title='Commentics' alt='Commentics'/>";
-	echo "<br />";
-	echo "Sorry, there is a <span style='font-weight:bold;color:#CC0000;'>database tables</span> problem.";
-	echo "<p></p>";
-	echo "<u>If you haven't yet installed the script</u>";
-	echo "<ul>";
-	echo "<li>You need to run the installer (domain.com/comments/installer/)</li>";
-	echo "</ul>";
-	echo "<p></p>";
-	echo "<u>If you have already installed the script</u>";
-	echo "<ul>";
-	echo "<li>Please open <b>/comments/includes/db/details.php</b></li>";
-	echo "<li>Is the <b>\$cmtx_mysql_table_prefix</b> value correct?</li><br/>";
-	echo "<li>Using <i>phpMyAdmin</i>, check that the database tables exist.</li>";
-	echo "</ul>";
+	echo '<img src="images/commentics/logo.png" style="padding-bottom:15px" title="Commentics" alt="Commentics"/>';
+	echo '<br />';
+	echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database tables</span> problem.';
+	echo '<p></p>';
+	echo '<u>If you haven\'t yet installed the script</u>';
+	echo '<ul>';
+	echo '<li>You need to run the installer</li>';
+	echo '</ul>';
+	echo '<p></p>';
+	echo '<u>If you have already installed the script</u>';
+	echo '<ul>';
+	echo '<li>Open the file details.php</li>';
+	echo '<li>Is the <b>$cmtx_mysql_table_prefix</b> value correct?</li>';
+	echo '<li>Using <i>phpMyAdmin</i>, check that the tables exist.</li>';
+	echo '</ul>';
+	echo '</div>';
+	echo '<br/>';
+	echo '<input type="button" style="background: url(\'images/buttons/gradient.gif\') repeat-x scroll 0 100% #FFAC47; border-color: #ED6502 #A04300 #A04300 #ED6502; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; font: bold 12px arial,helvetica,sans-serif; padding: 1px 7px 2px; text-align: center !important; white-space: nowrap; margin-right: 2px;" name="refresh" title="Refresh" value="Refresh" onclick="window.location.reload()"/>';
 
 } //end of db-error-table function
 ?>

@@ -24,34 +24,34 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_bold','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_italic','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_underline','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_strike','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_superscript','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_subscript','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_code','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_php_code','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_line','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_list_bullet','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_list_numeric','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_url','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_email','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_image','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_bold','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_italic','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_underline','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_strike','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_superscript','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_subscript','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_code','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_php_code','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_line','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_list_bullet','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_list_numeric','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_url','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_email','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_image','1');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','approve_images','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','approve_images','1');");
 
-mysql_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title='comment_links_new_window' WHERE title = 'comment_parser_new_window'");
-mysql_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title='comment_links_nofollow' WHERE title = 'comment_parser_nofollow'");
+cmtx_db_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title='comment_links_new_window' WHERE title = 'comment_parser_new_window'");
+cmtx_db_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title='comment_links_nofollow' WHERE title = 'comment_parser_nofollow'");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','comments_first','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','comments_first','1');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_enabled','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_percentage','50');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_action','reject');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_enabled','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_percentage','50');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','check_capitals_action','reject');");
 
-mysql_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."admins` (
+cmtx_db_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."admins` (
   id int(10) unsigned NOT NULL auto_increment,
   username varchar(250) NOT NULL default '',
   password varchar(250) NOT NULL default '',
@@ -77,87 +77,82 @@ mysql_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."admins` (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
 
-$admin_username = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_username'");
-$admin_username = mysql_fetch_assoc($admin_username);
+$admin_username = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_username'");
+$admin_username = cmtx_db_fetch_assoc($admin_username);
 $username = $admin_username["value"];
 
-$admin_password = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_password'");
-$admin_password = mysql_fetch_assoc($admin_password);
+$admin_password = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_password'");
+$admin_password = cmtx_db_fetch_assoc($admin_password);
 $password = $admin_password["value"];
 
-$admin_email_address = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_email_address'");
-$admin_email_address = mysql_fetch_assoc($admin_email_address);
+$admin_email_address = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_email_address'");
+$admin_email_address = cmtx_db_fetch_assoc($admin_email_address);
 $email_address = $admin_email_address["value"];
 
-$detect_admin = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'detect_admin'");
-$detect_admin = mysql_fetch_assoc($detect_admin);
+$detect_admin = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'detect_admin'");
+$detect_admin = cmtx_db_fetch_assoc($detect_admin);
 $detect_admin = $detect_admin["value"];
 
-$detect_admin_method = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'detect_admin_method'");
-$detect_admin_method = mysql_fetch_assoc($detect_admin_method);
+$detect_admin_method = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'detect_admin_method'");
+$detect_admin_method = cmtx_db_fetch_assoc($detect_admin_method);
 $detect_method = $detect_admin_method["value"];
 
-$admin_ip_address = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_ip_address'");
-$admin_ip_address = mysql_fetch_assoc($admin_ip_address);
+$admin_ip_address = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_ip_address'");
+$admin_ip_address = cmtx_db_fetch_assoc($admin_ip_address);
 $ip_address = $admin_ip_address["value"];
 
-$cookie_key = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'cookie_key'");
-$cookie_key = mysql_fetch_assoc($cookie_key);
+$cookie_key = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'cookie_key'");
+$cookie_key = cmtx_db_fetch_assoc($cookie_key);
 $cookie_key = $cookie_key["value"];
 
-$admin_default_name = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_name'");
-$admin_default_name = mysql_fetch_assoc($admin_default_name);
+$admin_default_name = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_name'");
+$admin_default_name = cmtx_db_fetch_assoc($admin_default_name);
 $admin_default_name = $admin_default_name["value"];
 
-$admin_default_email = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_email'");
-$admin_default_email = mysql_fetch_assoc($admin_default_email);
+$admin_default_email = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_email'");
+$admin_default_email = cmtx_db_fetch_assoc($admin_default_email);
 $admin_default_email = $admin_default_email["value"];
 
-$admin_default_website = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_website'");
-$admin_default_website = mysql_fetch_assoc($admin_default_website);
+$admin_default_website = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_website'");
+$admin_default_website = cmtx_db_fetch_assoc($admin_default_website);
 $admin_default_website = $admin_default_website["value"];
 
-$admin_default_town = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_town'");
-$admin_default_town = mysql_fetch_assoc($admin_default_town);
+$admin_default_town = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_town'");
+$admin_default_town = cmtx_db_fetch_assoc($admin_default_town);
 $admin_default_town = $admin_default_town["value"];
 
-$admin_default_country = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_country'");
-$admin_default_country = mysql_fetch_assoc($admin_default_country);
+$admin_default_country = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_country'");
+$admin_default_country = cmtx_db_fetch_assoc($admin_default_country);
 $admin_default_country = $admin_default_country["value"];
 
-$admin_default_rating = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_rating'");
-$admin_default_rating = mysql_fetch_assoc($admin_default_rating);
+$admin_default_rating = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_rating'");
+$admin_default_rating = cmtx_db_fetch_assoc($admin_default_rating);
 $admin_default_rating = $admin_default_rating["value"];
 
-$admin_default_comment = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_comment'");
-$admin_default_comment = mysql_fetch_assoc($admin_default_comment);
+$admin_default_comment = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_default_comment'");
+$admin_default_comment = cmtx_db_fetch_assoc($admin_default_comment);
 $admin_default_comment = $admin_default_comment["value"];
 
-$receive_email_admin_new_ban = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_ban'");
-$receive_email_admin_new_ban = mysql_fetch_assoc($receive_email_admin_new_ban);
+$receive_email_admin_new_ban = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_ban'");
+$receive_email_admin_new_ban = cmtx_db_fetch_assoc($receive_email_admin_new_ban);
 $receive_email_admin_new_ban = $receive_email_admin_new_ban["value"];
 
-$receive_email_admin_new_comment_approve = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_approve'");
-$receive_email_admin_new_comment_approve = mysql_fetch_assoc($receive_email_admin_new_comment_approve);
+$receive_email_admin_new_comment_approve = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_approve'");
+$receive_email_admin_new_comment_approve = cmtx_db_fetch_assoc($receive_email_admin_new_comment_approve);
 $receive_email_admin_new_comment_approve = $receive_email_admin_new_comment_approve["value"];
 
-$receive_email_admin_new_comment_okay = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_okay'");
-$receive_email_admin_new_comment_okay = mysql_fetch_assoc($receive_email_admin_new_comment_okay);
+$receive_email_admin_new_comment_okay = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_okay'");
+$receive_email_admin_new_comment_okay = cmtx_db_fetch_assoc($receive_email_admin_new_comment_okay);
 $receive_email_admin_new_comment_okay = $receive_email_admin_new_comment_okay["value"];
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."admins` (username, password, email, ip_address, cookie_key, detect_admin, detect_method, default_name, default_email, default_website, default_town, default_country, default_rating, default_comment, receive_email_new_ban, receive_email_new_comment_approve, receive_email_new_comment_okay, last_login, is_super, is_enabled, dated) VALUES ('$username','$password','$email_address', '$ip_address', '$cookie_key', '$detect_admin', '$detect_method', '$admin_default_name', '$admin_default_email', '$admin_default_website', '$admin_default_town', '$admin_default_country', '$admin_default_rating', '$admin_default_comment', '$receive_email_admin_new_ban', '$receive_email_admin_new_comment_approve', '$receive_email_admin_new_comment_okay', NOW(), '1', '1', NOW());");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."admins` (username, password, email, ip_address, cookie_key, detect_admin, detect_method, default_name, default_email, default_website, default_town, default_country, default_rating, default_comment, receive_email_new_ban, receive_email_new_comment_approve, receive_email_new_comment_okay, last_login, is_super, is_enabled, dated) VALUES ('$username','$password','$email_address', '$ip_address', '$cookie_key', '$detect_admin', '$detect_method', '$admin_default_name', '$admin_default_email', '$admin_default_website', '$admin_default_town', '$admin_default_country', '$admin_default_rating', '$admin_default_comment', '$receive_email_admin_new_ban', '$receive_email_admin_new_comment_approve', '$receive_email_admin_new_comment_okay', NOW(), '1', '1', NOW());");
 
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE category = 'admin_detection'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE category = 'administrator'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_username'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_password'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_ban'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_approve'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_okay'");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE category = 'admin_detection'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE category = 'administrator'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_username'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_password'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_ban'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_approve'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'receive_email_admin_new_comment_okay'");
 
 ?>

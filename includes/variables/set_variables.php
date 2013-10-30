@@ -98,7 +98,10 @@ global $cmtx_page_id;
 
 global $cmtx_mysql_table_prefix;
 
-global $cmtx_db_orig;
+global $cmtx_link;
+global $cmtx_query_count;
+global $cmtx_query_time;
+global $cmtx_query_error;
 
 global $cmtx_admin_button;
 

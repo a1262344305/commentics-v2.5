@@ -55,7 +55,7 @@ define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php
-if (extension_loaded('mysql')) {
+if (extension_loaded('mysqli')) {
 require '../includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 }
@@ -67,146 +67,146 @@ A system check is being performed ..
 
 <?php
 $proceed = true;
-$notes = "";
+$notes = '';
 ?>
 
 <?php
-echo "<label class='system_item'>PHP version is 5.2 or higher</label>";
+echo '<label class="system_item">PHP version is 5.2 or higher</label>';
 if (version_compare(PHP_VERSION, '5.2.0', '>=')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- you must have PHP 5.2 or higher.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- you must have PHP 5.2 or higher.<br />';
 $proceed = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>MySQL extension is loaded</label>";
-if (extension_loaded('mysql')) {
-echo "<span class='system_green'>Pass</span>";
-echo "<br />";
-echo "<label class='system_item'>MySQL is 5.0.7 or higher</label>";
-if (version_compare(mysql_get_server_info(), '5.0.7', '>=')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<label class="system_item">MySQLi extension is loaded</label>';
+if (extension_loaded('mysqli')) {
+echo '<span class="system_green">Pass</span>';
+echo '<br />';
+echo '<label class="system_item">MySQL is 5.0.7 or higher</label>';
+if (version_compare(cmtx_db_get_server_info(), '5.0.7', '>=')) {
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- you must have MySQL 5.0.7 or higher.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- you must have MySQL 5.0.7 or higher.<br />';
 $proceed = false;
 }
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- MySQL extension is required for the database.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- MySQLi extension is required for the database.<br />';
 $proceed = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>A PHP session is available</label>";
+echo '<label class="system_item">A PHP session is available</label>';
 if (session_id() != '') {
 	if (isset($_SESSION['cmtx_session_test']) && $_SESSION['cmtx_session_test'] == '1') {
-		echo "<span class='system_green'>Pass</span>";
+		echo '<span class="system_green">Pass</span>';
 	} else {
-		echo "<span class='system_red'>Fail</span>";
-		$notes .= "- A session is required for the admin panel.<br />";
+		echo '<span class="system_red">Fail</span>';
+		$notes .= '- A session is required for the admin panel.<br />';
 		$proceed = false;
 	}
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- A session is required for the admin panel.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- A session is required for the admin panel.<br />';
 $proceed = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>Ctype extension is enabled</label>";
+echo '<label class="system_item">Ctype extension is enabled</label>';
 if (extension_loaded('ctype')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- Ctype extension is required for input validation.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- Ctype extension is required for input validation.<br />';
 $proceed = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>Filter extension is enabled</label>";
+echo '<label class="system_item">Filter extension is enabled</label>';
 if (extension_loaded('filter')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_red'>Fail</span>";
-$notes .= "- Filter extension is required for input validation.<br />";
+echo '<span class="system_red">Fail</span>';
+$notes .= '- Filter extension is required for input validation.<br />';
 $proceed = false;
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>Magic Quotes is disabled</label>";
+echo '<label class="system_item">Magic Quotes is disabled</label>';
 if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- Magic Quotes should be disabled to stop extra slashes.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- Magic Quotes should be disabled to stop extra slashes.<br />';
 } else {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>System() function is enabled</label>";
+echo '<label class="system_item">System() function is enabled</label>';
 if (function_exists('system') && is_callable('system')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- system() is required for the database backup tool.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- system() is required for the database backup tool.<br />';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>cURL extension is enabled</label>";
+echo '<label class="system_item">cURL extension is enabled</label>';
 if (extension_loaded('curl')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- cURL may be used for version checking and news.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- cURL may be used for version checking and news.<br />';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>fopen(URL) is enabled</label>";
+echo '<label class="system_item">fopen(URL) is enabled</label>';
 if ((bool)ini_get('allow_url_fopen')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- fopen(URL) may be used for version checking and news.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- fopen(URL) may be used for version checking and news.<br />';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>fsockopen() is enabled</label>";
+echo '<label class="system_item">fsockopen() is enabled</label>';
 if (function_exists('fsockopen') && is_callable('fsockopen')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- fsockopen() is required for Akismet and ReCaptcha.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- fsockopen() is required for Akismet and ReCaptcha.<br />';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>GD extension is enabled</label>";
+echo '<label class="system_item">GD extension is enabled</label>';
 if (extension_loaded('gd')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- GD is required for the Securimage captcha.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- GD is required for the Securimage captcha.<br />';
 }
 
-echo "<br />";
+echo '<br />';
 
-echo "<label class='system_item'>FreeType is supported</label>";
+echo '<label class="system_item">FreeType is supported</label>';
 if (function_exists('imagettftext')) {
-echo "<span class='system_green'>Pass</span>";
+echo '<span class="system_green">Pass</span>';
 } else {
-echo "<span class='system_amber'>Fail</span>";
-$notes .= "- FreeType is required for the Securimage captcha.<br />";
+echo '<span class="system_amber">Fail</span>';
+$notes .= '- FreeType is required for the Securimage captcha.<br />';
 }
 ?>
 
@@ -214,16 +214,16 @@ $notes .= "- FreeType is required for the Securimage captcha.<br />";
 
 <?php
 if (!empty($notes)) {
-echo "<b>Notes</b>:<br />";
-echo "<i>$notes</i>";
-echo "<p></p>";
+echo '<b>Notes</b>:<br />';
+echo '<i>' . $notes . '</i>';
+echo '<p></p>';
 }
 ?>
 
 <?php
 if (!empty($notes) && $proceed) {
-echo "You may still proceed.";
-echo "<p></p>";
+echo 'You may still proceed.';
+echo '<p></p>';
 }
 ?>
 
@@ -232,7 +232,7 @@ echo "<p></p>";
 <input type="submit" class="button" name="submit" value="Continue" title="Continue"/>
 </form>
 <?php } else { ?>
-<span class='fail'>The installer can not proceed.</span>
+<span class="fail">The installer can not proceed.</span>
 <?php } ?>
 
 </body>

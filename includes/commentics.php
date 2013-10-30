@@ -119,7 +119,6 @@ require_once $cmtx_path . 'includes/tasks/tasks.php'; //load task system
 
 
 /*************************************************************** DATABASE (2/2) *********************************************************/
-cmtx_reconnect_db(); //reconnect original connection
 } //end of is-database-connection-okay
 /****************************************************************************************************************************************/
 

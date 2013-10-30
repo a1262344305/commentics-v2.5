@@ -34,8 +34,8 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 $admin_id = cmtx_get_admin_id();
-$administrator = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
-$administrator = mysql_fetch_assoc($administrator);
+$administrator = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
+$administrator = cmtx_db_fetch_assoc($administrator);
 $email = $administrator["email"];
 ?>
 

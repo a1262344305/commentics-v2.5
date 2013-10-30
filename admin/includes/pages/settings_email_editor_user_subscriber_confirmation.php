@@ -53,10 +53,10 @@ $subscriber_confirmation_from_name_san = cmtx_sanitize($subscriber_confirmation_
 $subscriber_confirmation_from_email_san = cmtx_sanitize($subscriber_confirmation_from_email);
 $subscriber_confirmation_reply_to_san = cmtx_sanitize($subscriber_confirmation_reply_to);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_subject_san' WHERE `title` = 'subscriber_confirmation_subject'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_from_name_san' WHERE `title` = 'subscriber_confirmation_from_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_subject_san' WHERE `title` = 'subscriber_confirmation_subject'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_from_name_san' WHERE `title` = 'subscriber_confirmation_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
 
 $file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt";
 $handle = fopen($file,"w");

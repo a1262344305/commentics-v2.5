@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 if (isset($_GET['notice']) && $_GET['notice'] == "dismiss" && cmtx_check_csrf_url_key()) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_settings_admin_detection'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_settings_admin_detection'");
 } else {
 if (cmtx_setting('notice_settings_admin_detection')) { ?>
 <div class="info"><?php echo CMTX_MSG_NOTICE_SETTINGS_ADMIN_DETECTION . " <a href='index.php?page=settings_admin_detection&notice=dismiss&key=" . $_SESSION['cmtx_csrf_key'] . "'>" . CMTX_LINK_DISMISS . "</a>"; ?></div>
@@ -46,11 +46,11 @@ $admin_id = cmtx_get_admin_id();
 ?>
 
 <?php
-$detection = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
-$detection = mysql_fetch_assoc($detection);
+$detection = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
+$detection = cmtx_db_fetch_assoc($detection);
 $ip_address = $detection["ip_address"];
 if ($ip_address != cmtx_get_ip_address() && !cmtx_setting('is_demo')) {
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `ip_address` = '". cmtx_get_ip_address() . "' WHERE `id` = '$admin_id'");
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `ip_address` = '". cmtx_get_ip_address() . "' WHERE `id` = '$admin_id'");
 	?>
 	<div class="info"><?php echo CMTX_MSG_IP_ADDRESS_UPDATED; ?></div>
 	<div style="clear: left;"></div>
@@ -84,17 +84,17 @@ if (isset($_POST['remove_cookie'])) {
 $detect_method_san = cmtx_sanitize($detect_method);
 $ip_address_san = cmtx_sanitize($ip_address);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `detect_admin` = '$detect_admin' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `detect_method` = '$detect_method_san' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `ip_address` = '$ip_address_san' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `detect_admin` = '$detect_admin' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `detect_method` = '$detect_method_san' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `ip_address` = '$ip_address_san' WHERE `id` = '$admin_id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
 <?php } ?>
 
 <?php
-$detection = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
-$detection = mysql_fetch_assoc($detection);
+$detection = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
+$detection = cmtx_db_fetch_assoc($detection);
 $detect_admin = $detection["detect_admin"];
 $detect_method = $detection["detect_method"];
 $ip_address = $detection["ip_address"];

@@ -47,8 +47,8 @@ $days_to_delete_bans = $_POST['days'];
 
 $days_to_delete_bans_san = cmtx_sanitize($days_to_delete_bans);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$task_enabled_delete_bans' WHERE `title` = 'task_enabled_delete_bans'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$days_to_delete_bans_san' WHERE `title` = 'days_to_delete_bans'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$task_enabled_delete_bans' WHERE `title` = 'task_enabled_delete_bans'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$days_to_delete_bans_san' WHERE `title` = 'days_to_delete_bans'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

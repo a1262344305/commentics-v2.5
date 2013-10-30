@@ -58,17 +58,17 @@ $securimage_line_color = cmtx_sanitize($_POST['securimage_line_color']);
 $securimage_back_color = cmtx_sanitize($_POST['securimage_back_color']);
 $securimage_noise_color = cmtx_sanitize($_POST['securimage_noise_color']);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$captcha_type' WHERE `title` = 'captcha_type'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_width' WHERE `title` = 'securimage_width'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_height' WHERE `title` = 'securimage_height'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_length' WHERE `title` = 'securimage_length'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_perturbation' WHERE `title` = 'securimage_perturbation'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_lines' WHERE `title` = 'securimage_lines'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_noise' WHERE `title` = 'securimage_noise'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_text_color' WHERE `title` = 'securimage_text_color'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_line_color' WHERE `title` = 'securimage_line_color'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_back_color' WHERE `title` = 'securimage_back_color'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_noise_color' WHERE `title` = 'securimage_noise_color'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$captcha_type' WHERE `title` = 'captcha_type'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_width' WHERE `title` = 'securimage_width'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_height' WHERE `title` = 'securimage_height'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_length' WHERE `title` = 'securimage_length'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_perturbation' WHERE `title` = 'securimage_perturbation'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_lines' WHERE `title` = 'securimage_lines'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_noise' WHERE `title` = 'securimage_noise'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_text_color' WHERE `title` = 'securimage_text_color'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_line_color' WHERE `title` = 'securimage_line_color'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_back_color' WHERE `title` = 'securimage_back_color'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$securimage_noise_color' WHERE `title` = 'securimage_noise_color'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

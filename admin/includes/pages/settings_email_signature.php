@@ -58,7 +58,7 @@ $signature = $_POST['signature'];
 
 $signature_san = cmtx_sanitize($signature);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$signature_san' WHERE `title` = 'signature'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$signature_san' WHERE `title` = 'signature'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

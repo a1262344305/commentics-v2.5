@@ -53,11 +53,11 @@ $gravatar_custom_san = cmtx_sanitize($gravatar_custom);
 $gravatar_size_san = cmtx_sanitize($gravatar_size);
 $gravatar_rating_san = cmtx_sanitize($gravatar_rating);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_gravatar' WHERE `title` = 'show_gravatar'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_default_san' WHERE `title` = 'gravatar_default'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_custom_san' WHERE `title` = 'gravatar_custom'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_size_san' WHERE `title` = 'gravatar_size'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_rating_san' WHERE `title` = 'gravatar_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_gravatar' WHERE `title` = 'show_gravatar'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_default_san' WHERE `title` = 'gravatar_default'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_custom_san' WHERE `title` = 'gravatar_custom'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_size_san' WHERE `title` = 'gravatar_size'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$gravatar_rating_san' WHERE `title` = 'gravatar_rating'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

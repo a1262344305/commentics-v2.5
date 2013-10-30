@@ -37,9 +37,9 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 <br />
 
 <?php
-/* Error Reporting */
-@error_reporting(-1); //show every possible error
-@ini_set('display_errors', 1); //display errors
+@error_reporting(0); //turn off all error reporting
+@ini_set('display_errors', 0); //don't display errors
+@ini_set('log_errors', 0); //don't log errors
 ?>
 
 <?php
@@ -57,9 +57,11 @@ if (isset($_POST['submit'])) {
 	$installed_version = $_POST['installed_version'];
 	$latest_version = $_POST['latest_version'];
 } else {
-	echo "<span class='fail'>";
-	echo "Please restart the Installer.";
-	echo "</span>";
+	echo '<div class="error">';
+	echo '<span class="fail">';
+	echo 'Please restart the Installer.';
+	echo '</span>';
+	echo '</div>';
 	die();
 }
 ?>
@@ -75,10 +77,6 @@ cmtx_set_time_zone(cmtx_setting('time_zone')); //set the time zone
 
 <?php
 $admin_folder = cmtx_setting('admin_folder');
-?>
-
-<?php
-$error = false;
 ?>
 
 <?php
@@ -237,24 +235,20 @@ switch ($installed_version) {
 ?>
 
 <?php
-if (!$error) {
-
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "version` (`version`, `type`, `dated`) VALUES ('$latest_version', 'Upgrade', NOW());");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
-
+if (!$cmtx_query_error) {
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "version` (`version`, `type`, `dated`) VALUES ('$latest_version', 'Upgrade', NOW());");
 }
 ?>
 
 <?php
-if ($error) {
-echo '<br />';
+if ($cmtx_query_error) {
+echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
 echo '<span class="fail">' . 'Upgrade failed.' . '</span>';
 echo '<p></p>';
-echo 'Please consult the above error messages.';
+echo 'Please consult these error messages:';
+echo '<p></p>';
+echo $cmtx_query_error;
+echo '</div>';
 } else {
 echo '<span class="success">' . 'Upgrade successful.' . '</span>';
 echo '<p></p>';

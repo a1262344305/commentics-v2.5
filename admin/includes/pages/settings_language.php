@@ -48,8 +48,8 @@ $language_backend = $_POST['language_backend'];
 $language_frontend_san = cmtx_sanitize($language_frontend);
 $language_backend_san = cmtx_sanitize($language_backend);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$language_frontend_san' WHERE `title` = 'language_frontend'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$language_backend_san' WHERE `title` = 'language_backend'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$language_frontend_san' WHERE `title` = 'language_frontend'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$language_backend_san' WHERE `title` = 'language_backend'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

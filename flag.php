@@ -63,40 +63,40 @@ if (isset($_POST['id'])) {
 	$id = cmtx_sanitize($id, true, true);
 
 	//check if comment exists
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$count = cmtx_db_num_rows($query);
 	if ($count == 0) {
 		echo CMTX_FLAG_NO_COMMENT;
 		return;
 	}
 
 	//check if user is reporting own comment
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_FLAG_OWN_COMMENT;
 		return;
 	}
 
 	//check if user is reporting admin comment
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_admin` = '1'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_admin` = '1'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_FLAG_ADMIN_COMMENT;
 		return;
 	}
 
 	//check if user is banned
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_FLAG_BANNED;
 		return;
 	}
 
 	//check how many reports user has submitted
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 
 	if ($count >= cmtx_setting('flag_max_per_user')) {
 		echo CMTX_FLAG_REPORT_LIMIT;
@@ -104,8 +104,8 @@ if (isset($_POST['id'])) {
 	}
 
 	//check if user has already reported this comment
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `ip_address` = '$ip_address' AND `comment_id` = '$id'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "reporters` WHERE `ip_address` = '$ip_address' AND `comment_id` = '$id'");
+	$count = cmtx_db_num_rows($query);
 
 	if ($count > 0) {
 		echo CMTX_FLAG_ALREADY_REPORTED;
@@ -113,8 +113,8 @@ if (isset($_POST['id'])) {
 	}
 
 	//check if comment has already been flagged
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$count = $result["reports"];
 
 	if ($count >= cmtx_setting('flag_min_per_comment')) {
@@ -123,8 +123,8 @@ if (isset($_POST['id'])) {
 	}
 
 	//check if comment has already been verified
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_verified` = '1'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_verified` = '1'");
+	$count = cmtx_db_num_rows($query);
 
 	if ($count > 0) {
 		echo CMTX_FLAG_ALREADY_VERIFIED;
@@ -136,18 +136,18 @@ if (isset($_POST['id'])) {
 
 	echo CMTX_FLAG_REPORT_SENT;
 	
-	mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reports` = `reports` + 1 WHERE `id` = '$id'");
-	mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "reporters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `reports` = `reports` + 1 WHERE `id` = '$id'");
+	cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "reporters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
 	//check if comment should be flagged
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$result = cmtx_db_fetch_assoc($query);
 	$count = $result["reports"];
 
 	if ($count == cmtx_setting('flag_min_per_comment')) {
 
 		if (cmtx_setting('flag_disapprove')) {
-			mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
+			cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
 			cmtx_unapprove_replies($id);
 		}
 
@@ -156,13 +156,13 @@ if (isset($_POST['id'])) {
 		$admin_new_comment_flag_email_file = 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt'; //build path to admin new flag email file
 		$body = file_get_contents($admin_new_comment_flag_email_file); //get the file's contents
 
-		$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		$comment_result = mysql_fetch_assoc($comment_query);
+		$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		$comment_result = cmtx_db_fetch_assoc($comment_query);
 
 		$page_id = $comment_result["page_id"];
 
-		$page_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
-		$page_result = mysql_fetch_assoc($page_query);
+		$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
+		$page_result = cmtx_db_fetch_assoc($page_query);
 
 		$page_reference = cmtx_decode($page_result["reference"]);
 		$page_url = cmtx_decode($page_result["url"]);
@@ -181,9 +181,9 @@ if (isset($_POST['id'])) {
 		$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
 
 		//select administrators from database
-		$admins = mysql_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_flag` = '1' AND `is_enabled` = '1'");
+		$admins = cmtx_db_query("SELECT `email` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `receive_email_new_flag` = '1' AND `is_enabled` = '1'");
 
-		while ($admin = mysql_fetch_assoc($admins)) { //while there are administrators
+		while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
 			$email = $admin["email"]; //get administrator email address
 

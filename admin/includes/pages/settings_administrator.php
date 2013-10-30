@@ -58,7 +58,7 @@ $username_san = cmtx_sanitize($username);
 if (!empty($_POST['password_1'])) { $password_san = cmtx_sanitize($password); }
 $email_san = cmtx_sanitize($email);
 
-if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username_san' AND `id` != '$admin_id'"))) {
+if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username_san' AND `id` != '$admin_id'"))) {
 
 ?>
 <div class="error"><?php echo CMTX_MSG_ADMIN_EXISTS; ?></div>
@@ -67,13 +67,13 @@ if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "a
 
 } else {
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `username` = '$username_san' WHERE `id` = '$admin_id'");
-if (!empty($_POST['password_1'])) { mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password_san' WHERE `id` = '$admin_id'"); }
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `email` = '$email_san' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_ban` = '$receive_email_new_ban' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_comment_approve` = '$receive_email_new_comment_approve' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_comment_okay` = '$receive_email_new_comment_okay' WHERE `id` = '$admin_id'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_flag` = '$receive_email_new_flag' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `username` = '$username_san' WHERE `id` = '$admin_id'");
+if (!empty($_POST['password_1'])) { cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password_san' WHERE `id` = '$admin_id'"); }
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `email` = '$email_san' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_ban` = '$receive_email_new_ban' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_comment_approve` = '$receive_email_new_comment_approve' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_comment_okay` = '$receive_email_new_comment_okay' WHERE `id` = '$admin_id'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_new_flag` = '$receive_email_new_flag' WHERE `id` = '$admin_id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
@@ -82,8 +82,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `receive_email_
 <?php } ?>
 
 <?php
-$administrator = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
-$administrator = mysql_fetch_assoc($administrator);
+$administrator = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$admin_id'");
+$administrator = cmtx_db_fetch_assoc($administrator);
 $username = $administrator["username"];
 $email = $administrator["email"];
 $receive_email_new_ban = $administrator["receive_email_new_ban"];

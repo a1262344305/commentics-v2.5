@@ -59,21 +59,21 @@ if (isset($_POST['enabled_privacy'])) { $enabled_privacy = 1; } else { $enabled_
 if (isset($_POST['enabled_terms'])) { $enabled_terms = 1; } else { $enabled_terms = 0; }
 if (isset($_POST['enabled_preview'])) { $enabled_preview = 1; } else { $enabled_preview = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_email' WHERE `title` = 'enabled_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_website' WHERE `title` = 'enabled_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_town' WHERE `title` = 'enabled_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_country' WHERE `title` = 'enabled_country'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_rating' WHERE `title` = 'enabled_rating'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code' WHERE `title` = 'enabled_bb_code'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies' WHERE `title` = 'enabled_smilies'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_counter' WHERE `title` = 'enabled_counter'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_question' WHERE `title` = 'enabled_question'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_captcha' WHERE `title` = 'enabled_captcha'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_notify' WHERE `title` = 'enabled_notify'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_remember' WHERE `title` = 'enabled_remember'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_privacy' WHERE `title` = 'enabled_privacy'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_terms' WHERE `title` = 'enabled_terms'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_preview' WHERE `title` = 'enabled_preview'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_email' WHERE `title` = 'enabled_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_website' WHERE `title` = 'enabled_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_town' WHERE `title` = 'enabled_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_country' WHERE `title` = 'enabled_country'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_rating' WHERE `title` = 'enabled_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_bb_code' WHERE `title` = 'enabled_bb_code'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies' WHERE `title` = 'enabled_smilies'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_counter' WHERE `title` = 'enabled_counter'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_question' WHERE `title` = 'enabled_question'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_captcha' WHERE `title` = 'enabled_captcha'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_notify' WHERE `title` = 'enabled_notify'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_remember' WHERE `title` = 'enabled_remember'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_privacy' WHERE `title` = 'enabled_privacy'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_terms' WHERE `title` = 'enabled_terms'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_preview' WHERE `title` = 'enabled_preview'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

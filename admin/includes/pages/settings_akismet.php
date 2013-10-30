@@ -51,8 +51,8 @@ $akismet_key = $_POST['akismet_key'];
 
 $akismet_key_san = cmtx_sanitize($akismet_key);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$akismet_enabled' WHERE `title` = 'akismet_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$akismet_key_san' WHERE `title` = 'akismet_key'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$akismet_enabled' WHERE `title` = 'akismet_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$akismet_key_san' WHERE `title` = 'akismet_key'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

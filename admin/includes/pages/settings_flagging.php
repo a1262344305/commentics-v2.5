@@ -50,10 +50,10 @@ if (isset($_POST['flag_disapprove'])) { $flag_disapprove = 1; } else { $flag_dis
 $flag_max_per_user_san = cmtx_sanitize($flag_max_per_user);
 $flag_min_per_comment_san = cmtx_sanitize($flag_min_per_comment);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_flag' WHERE `title` = 'show_flag'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_max_per_user_san' WHERE `title` = 'flag_max_per_user'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_min_per_comment_san' WHERE `title` = 'flag_min_per_comment'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_disapprove' WHERE `title` = 'flag_disapprove'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_flag' WHERE `title` = 'show_flag'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_max_per_user_san' WHERE `title` = 'flag_max_per_user'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_min_per_comment_san' WHERE `title` = 'flag_min_per_comment'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_disapprove' WHERE `title` = 'flag_disapprove'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

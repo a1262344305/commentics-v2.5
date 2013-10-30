@@ -47,8 +47,8 @@ $read_more_limit = $_POST['read_more_limit'];
 
 $read_more_limit_san = cmtx_sanitize($read_more_limit);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_read_more' WHERE `title` = 'show_read_more'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$read_more_limit_san' WHERE `title` = 'read_more_limit'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_read_more' WHERE `title` = 'show_read_more'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$read_more_limit_san' WHERE `title` = 'read_more_limit'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

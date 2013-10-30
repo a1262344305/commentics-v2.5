@@ -138,10 +138,10 @@ if (isset($_GET['id']) && isset($_GET['confirm']) && !isset($_GET['unsubscribe']
 	cmtx_sanitize_token($token);
 	cmtx_validate_action($_GET['confirm']);
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token' AND `is_confirmed` = '0'"))) {
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `is_confirmed` = '1' WHERE `token` = '$token'");
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token' AND `is_confirmed` = '0'"))) {
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "subscribers` SET `is_confirmed` = '1' WHERE `token` = '$token'");
 		?><div class="success"><?php echo CMTX_CONFIRMED; ?></div><?php
-	} else if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token' AND `is_confirmed` = '1'"))) {
+	} else if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token' AND `is_confirmed` = '1'"))) {
 		?><div class="warning"><?php echo CMTX_ALREADY_CONFIRMED; ?></div><?php
 	} else {
 		?><div class="error"><?php echo CMTX_NO_SUBSCRIPTION; ?></div><?php
@@ -155,8 +155,8 @@ if (isset($_GET['id']) && isset($_GET['confirm']) && !isset($_GET['unsubscribe']
 	cmtx_sanitize_token($token);
 	cmtx_validate_action($_GET['unsubscribe']);	
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'"))) {
-		mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'");
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'"))) {
+		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `token` = '$token'");
 		?><div class="success"><?php echo CMTX_UNSUBSCRIBED; ?></div><?php
 	} else {
 		?><div class="error"><?php echo CMTX_NO_SUBSCRIPTION; ?></div><?php

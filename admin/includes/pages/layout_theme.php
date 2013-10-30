@@ -50,10 +50,10 @@ if (isset($_POST['center_screen'])) { $center_screen = 1; } else { $center_scree
 $theme_san = cmtx_sanitize($theme);
 $sort_order_parts_san = cmtx_sanitize($sort_order_parts);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$theme_san' WHERE `title` = 'theme'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_parts_san' WHERE `title` = 'sort_order_parts'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$split_screen' WHERE `title` = 'split_screen'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$center_screen' WHERE `title` = 'center_screen'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$theme_san' WHERE `title` = 'theme'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_parts_san' WHERE `title` = 'sort_order_parts'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$split_screen' WHERE `title` = 'split_screen'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$center_screen' WHERE `title` = 'center_screen'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

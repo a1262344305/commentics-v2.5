@@ -53,12 +53,12 @@ $reserved_emails_action_san = cmtx_sanitize($reserved_emails_action);
 $dummy_emails_action_san = cmtx_sanitize($dummy_emails_action);
 $banned_emails_action_san = cmtx_sanitize($banned_emails_action);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_emails_enabled' WHERE `title` = 'reserved_emails_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_emails_action_san' WHERE `title` = 'reserved_emails_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_emails_enabled' WHERE `title` = 'dummy_emails_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_emails_action_san' WHERE `title` = 'dummy_emails_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_emails_enabled' WHERE `title` = 'banned_emails_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_emails_action_san' WHERE `title` = 'banned_emails_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_emails_enabled' WHERE `title` = 'reserved_emails_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_emails_action_san' WHERE `title` = 'reserved_emails_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_emails_enabled' WHERE `title` = 'dummy_emails_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_emails_action_san' WHERE `title` = 'dummy_emails_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_emails_enabled' WHERE `title` = 'banned_emails_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_emails_action_san' WHERE `title` = 'banned_emails_action'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

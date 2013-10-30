@@ -29,9 +29,9 @@ function cmtx_get_version() { //get version
 
 	global $mysql_table_prefix;
 
-	$version_query = mysql_query("SELECT * FROM `" . $mysql_table_prefix . "version` ORDER BY `dated` DESC LIMIT 1");
-	$version_result = mysql_fetch_assoc($version_query);
-	$version = $version_result["version"];
+	$version_query = cmtx_db_query("SELECT * FROM `" . $mysql_table_prefix . "version` ORDER BY `dated` DESC LIMIT 1");
+	$version_result = cmtx_db_fetch_assoc($version_query);
+	$version = $version_result['version'];
 
 	return $version;
 

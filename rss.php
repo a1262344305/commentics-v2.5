@@ -67,9 +67,9 @@ if (isset($_GET['id']) && ctype_digit($_GET['id']) && cmtx_strlen($_GET['id']) <
 
 /* Last Build Date */
 $lbd_query = $query . " LIMIT 1";
-$lbd_query = mysql_query($lbd_query);
-if (mysql_num_rows($lbd_query)) {
-$lbd_result = mysql_fetch_assoc($lbd_query);
+$lbd_query = cmtx_db_query($lbd_query);
+if (cmtx_db_num_rows($lbd_query)) {
+$lbd_result = cmtx_db_fetch_assoc($lbd_query);
 $last_build_date = date("r", strtotime($lbd_result["dated"]));
 }
 
@@ -78,7 +78,7 @@ if (cmtx_setting('rss_most_recent_enabled')) {
 	$query .= " LIMIT " . cmtx_setting('rss_most_recent_amount');
 }
 
-$result = mysql_query($query);
+$result = cmtx_db_query($query);
 
 echo 
 '<?xml version="1.0" encoding="utf-8"?>
@@ -106,9 +106,9 @@ echo
 		</image>';
 		}
 
-		while ($comments = mysql_fetch_assoc($result)) {
-		$pages_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '" . $comments["page_id"] . "'");
-		$pages = mysql_fetch_assoc($pages_query);
+		while ($comments = cmtx_db_fetch_assoc($result)) {
+		$pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '" . $comments["page_id"] . "'");
+		$pages = cmtx_db_fetch_assoc($pages_query);
 		$title = $comments["name"];
 		$link = cmtx_get_permalink($id, $pages["url"]);;
 		$comment = $comments["comment"];

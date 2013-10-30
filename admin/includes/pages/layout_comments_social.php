@@ -55,18 +55,18 @@ if (isset($_POST['show_social_myspace'])) { $show_social_myspace = 1; } else { $
 if (isset($_POST['show_social_twitter'])) { $show_social_twitter = 1; } else { $show_social_twitter = 0; }
 if (isset($_POST['show_social_linkedin'])) { $show_social_linkedin = 1; } else { $show_social_linkedin = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social' WHERE `title` = 'show_social'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$social_new_window' WHERE `title` = 'social_new_window'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_facebook' WHERE `title` = 'show_social_facebook'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_delicious' WHERE `title` = 'show_social_delicious'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_stumbleupon' WHERE `title` = 'show_social_stumbleupon'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_digg' WHERE `title` = 'show_social_digg'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_technorati' WHERE `title` = 'show_social_technorati'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_google' WHERE `title` = 'show_social_google'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_reddit' WHERE `title` = 'show_social_reddit'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_myspace' WHERE `title` = 'show_social_myspace'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_twitter' WHERE `title` = 'show_social_twitter'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_linkedin' WHERE `title` = 'show_social_linkedin'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social' WHERE `title` = 'show_social'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$social_new_window' WHERE `title` = 'social_new_window'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_facebook' WHERE `title` = 'show_social_facebook'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_delicious' WHERE `title` = 'show_social_delicious'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_stumbleupon' WHERE `title` = 'show_social_stumbleupon'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_digg' WHERE `title` = 'show_social_digg'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_technorati' WHERE `title` = 'show_social_technorati'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_google' WHERE `title` = 'show_social_google'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_reddit' WHERE `title` = 'show_social_reddit'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_myspace' WHERE `title` = 'show_social_myspace'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_twitter' WHERE `title` = 'show_social_twitter'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social_linkedin' WHERE `title` = 'show_social_linkedin'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

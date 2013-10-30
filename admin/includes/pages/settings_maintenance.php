@@ -47,8 +47,8 @@ $maintenance_message = $_POST['message'];
 
 $maintenance_message_san = cmtx_sanitize($maintenance_message);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$maintenance_mode' WHERE `title` = 'maintenance_mode'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$maintenance_message_san' WHERE `title` = 'maintenance_message'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$maintenance_mode' WHERE `title` = 'maintenance_mode'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$maintenance_message_san' WHERE `title` = 'maintenance_message'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

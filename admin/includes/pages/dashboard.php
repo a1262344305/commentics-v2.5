@@ -32,7 +32,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 <?php
 if (isset($_POST['submit_checklist'])) {
 cmtx_check_csrf_form_key();
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'checklist_complete'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'checklist_complete'");
 }
 ?>
 
@@ -122,8 +122,8 @@ if (!$issue) {
 <div class="dashboard_title"><?php echo CMTX_DASH_LAST_LOGIN; ?></div>
 <div class="dashboard_content">
 <?php
-$last_login_query = mysql_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "logins` ORDER BY `dated` ASC LIMIT 1");
-$last_login_result = mysql_fetch_assoc($last_login_query);
+$last_login_query = cmtx_db_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "logins` ORDER BY `dated` ASC LIMIT 1");
+$last_login_result = cmtx_db_fetch_assoc($last_login_query);
 $last_login = $last_login_result["dated"];
 printf(CMTX_DASH_LAST_LOGIN_DETAILS, date("g:ia", strtotime($last_login)), date("l jS F Y", strtotime($last_login)));
 ?>
@@ -134,18 +134,18 @@ printf(CMTX_DASH_LAST_LOGIN_DETAILS, date("g:ia", strtotime($last_login)), date(
 <div class="dashboard_title"><?php echo CMTX_DASH_STATISTICS; ?></div>
 <div class="dashboard_content">
 <?php
-$approve_comments = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '0'"));
-$flagged_comments = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reports` >= " . cmtx_setting('flag_min_per_comment')));
+$approve_comments = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '0'"));
+$flagged_comments = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reports` >= " . cmtx_setting('flag_min_per_comment')));
 
 $today = date("Y-m-d");
 
-$new_comments = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `dated` LIKE '".$today."%'"));
-$new_subscribers = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `dated` LIKE '".$today."%'"));
-$new_bans = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0' AND `dated` LIKE '".$today."%'"));
+$new_comments = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `dated` LIKE '".$today."%'"));
+$new_subscribers = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `dated` LIKE '".$today."%'"));
+$new_bans = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0' AND `dated` LIKE '".$today."%'"));
 
-$all_comments = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments`"));
-$all_subscribers = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers`"));
-$all_bans = mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0'"));
+$all_comments = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments`"));
+$all_subscribers = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers`"));
+$all_bans = cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `unban` = '0'"));
 
 
 // You have x comments that require approval
@@ -270,12 +270,12 @@ if ($issue) {
 <div class="dashboard_title"><?php echo CMTX_DASH_QUICK_LINKS; ?></div>
 <div class="dashboard_content">
 <?php
-$pages = mysql_query("SELECT `page`, COUNT(*) AS `frequency` FROM `" . $cmtx_mysql_table_prefix . "access` WHERE `page` != 'dashboard' AND `page` != 'spam' AND `page` NOT LIKE 'edit%' GROUP BY `page` ORDER BY `frequency` DESC LIMIT 5"); 
-if (mysql_num_rows($pages) != 5) {
+$pages = cmtx_db_query("SELECT `page`, COUNT(*) AS `frequency` FROM `" . $cmtx_mysql_table_prefix . "access` WHERE `page` != 'dashboard' AND `page` != 'spam' AND `page` NOT LIKE 'edit%' GROUP BY `page` ORDER BY `frequency` DESC LIMIT 5"); 
+if (cmtx_db_num_rows($pages) != 5) {
 	echo CMTX_DASH_QUICK_LINKS_NO_DATA;
 } else {
 	$i = 1;
-	while ($row = mysql_fetch_array($pages, MYSQL_NUM)) {
+	while ($row = cmtx_db_fetch_row($pages)) {
 		echo $i . ". <a href='index.php?page=" . $row[0] . "'>" . $row[0] . "</a>";
 		if ($i != 5) { echo "<br />"; }
 		$i++;

@@ -51,11 +51,11 @@ $scroll_speed = $_POST['scroll_speed'];
 $reply_depth_san = cmtx_sanitize($reply_depth);
 $scroll_speed_san = cmtx_sanitize($scroll_speed);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_reply' WHERE `title` = 'show_reply'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reply_depth_san' WHERE `title` = 'reply_depth'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reply_arrow' WHERE `title` = 'reply_arrow'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$scroll_reply' WHERE `title` = 'scroll_reply'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$scroll_speed_san' WHERE `title` = 'scroll_speed'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_reply' WHERE `title` = 'show_reply'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reply_depth_san' WHERE `title` = 'reply_depth'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reply_arrow' WHERE `title` = 'reply_arrow'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$scroll_reply' WHERE `title` = 'scroll_reply'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$scroll_speed_san' WHERE `title` = 'scroll_speed'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

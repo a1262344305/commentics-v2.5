@@ -58,21 +58,21 @@ if (isset($_POST['enabled_smilies_blush'])) { $enabled_smilies_blush = 1; } else
 if (isset($_POST['enabled_smilies_unsure'])) { $enabled_smilies_unsure = 1; } else { $enabled_smilies_unsure = 0; }
 if (isset($_POST['enabled_smilies_shocked'])) { $enabled_smilies_shocked = 1; } else { $enabled_smilies_shocked = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_smile' WHERE `title` = 'enabled_smilies_smile'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_sad' WHERE `title` = 'enabled_smilies_sad'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_huh' WHERE `title` = 'enabled_smilies_huh'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_laugh' WHERE `title` = 'enabled_smilies_laugh'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_mad' WHERE `title` = 'enabled_smilies_mad'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_tongue' WHERE `title` = 'enabled_smilies_tongue'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_crying' WHERE `title` = 'enabled_smilies_crying'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_grin' WHERE `title` = 'enabled_smilies_grin'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_wink' WHERE `title` = 'enabled_smilies_wink'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_scared' WHERE `title` = 'enabled_smilies_scared'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_cool' WHERE `title` = 'enabled_smilies_cool'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_sleep' WHERE `title` = 'enabled_smilies_sleep'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_blush' WHERE `title` = 'enabled_smilies_blush'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_unsure' WHERE `title` = 'enabled_smilies_unsure'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_shocked' WHERE `title` = 'enabled_smilies_shocked'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_smile' WHERE `title` = 'enabled_smilies_smile'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_sad' WHERE `title` = 'enabled_smilies_sad'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_huh' WHERE `title` = 'enabled_smilies_huh'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_laugh' WHERE `title` = 'enabled_smilies_laugh'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_mad' WHERE `title` = 'enabled_smilies_mad'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_tongue' WHERE `title` = 'enabled_smilies_tongue'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_crying' WHERE `title` = 'enabled_smilies_crying'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_grin' WHERE `title` = 'enabled_smilies_grin'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_wink' WHERE `title` = 'enabled_smilies_wink'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_scared' WHERE `title` = 'enabled_smilies_scared'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_cool' WHERE `title` = 'enabled_smilies_cool'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_sleep' WHERE `title` = 'enabled_smilies_sleep'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_blush' WHERE `title` = 'enabled_smilies_blush'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_unsure' WHERE `title` = 'enabled_smilies_unsure'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_smilies_shocked' WHERE `title` = 'enabled_smilies_shocked'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>
@@ -100,9 +100,9 @@ if (!cmtx_setting('enabled_smilies_smile')
 && !cmtx_setting('enabled_smilies_blush') 
 && !cmtx_setting('enabled_smilies_unsure') 
 && !cmtx_setting('enabled_smilies_shocked')) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'enabled_smilies'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'enabled_smilies'");
 } else {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'enabled_smilies'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '1' WHERE `title` = 'enabled_smilies'");
 }
 ?>
 

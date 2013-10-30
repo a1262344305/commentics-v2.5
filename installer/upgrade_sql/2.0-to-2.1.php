@@ -24,11 +24,6 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET value = '1' WHERE title = 'check_referrer'");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
+cmtx_db_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET value = '1' WHERE title = 'check_referrer'");
 
 ?>

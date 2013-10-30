@@ -47,8 +47,8 @@ die();
 <?php
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-$comment_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-$comment_result = mysql_fetch_assoc($comment_query);
+$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+$comment_result = cmtx_db_fetch_assoc($comment_query);
 $name = $comment_result["name"];
 $email = $comment_result["email"];
 $website = $comment_result["website"];

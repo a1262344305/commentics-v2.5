@@ -34,7 +34,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 <?php
 if (isset($_GET['notice']) && $_GET['notice'] == "dismiss" && cmtx_check_csrf_url_key()) {
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_layout_form_questions'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'notice_layout_form_questions'");
 } else {
 if (cmtx_setting('notice_layout_form_questions')) { ?>
 <div class="info"><?php echo CMTX_MSG_NOTICE_LAYOUT_FORM_QUESTIONS . " <a href='index.php?page=layout_form_questions&notice=dismiss&key=" . $_SESSION['cmtx_csrf_key'] . "'>" . CMTX_LINK_DISMISS . "</a>"; ?></div>
@@ -57,7 +57,7 @@ $answer = $_POST['answer'];
 $question = cmtx_sanitize($question);
 $answer = cmtx_sanitize($answer);
 
-mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('$question', '$answer');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('$question', '$answer');");
 ?>
 <div class="success"><?php echo CMTX_MSG_QUESTION_ADDED; ?></div>
 <div style="clear: left;"></div>
@@ -73,7 +73,7 @@ if (cmtx_setting('is_demo')) {
 } else {
 $id = $_GET['id'];
 $id = cmtx_sanitize($id);
-mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id'");
 ?>
 <div class="success"><?php echo CMTX_MSG_QUESTION_DELETED; ?></div>
 <div style="clear: left;"></div>
@@ -92,7 +92,7 @@ $count = count($items);
 for ($i = 0; $i < $count; $i++) {
 	$id = $items[$i];
 	$id = cmtx_sanitize($id);
-	mysql_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id'");
+	cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "questions` WHERE `id` = '$id'");
 }
 ?>
 <?php if ($count == 1) { ?><div class="success"><?php echo CMTX_MSG_QUESTION_BULK_DELETED; ?></div><?php } ?>
@@ -127,8 +127,8 @@ for ($i = 0; $i < $count; $i++) {
     <tbody>
 
 <?php
-$questions = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions`");
-while ($question = mysql_fetch_assoc($questions)) {
+$questions = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "questions`");
+while ($question = cmtx_db_fetch_assoc($questions)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $question["id"]; ?>" onclick="bulk_check();"/></td>

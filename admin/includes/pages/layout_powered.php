@@ -47,8 +47,8 @@ if (isset($_POST['powered_by_new_window'])) { $powered_by_new_window = 1; } else
 
 $powered_by_san = cmtx_sanitize($powered_by);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$powered_by_san' WHERE `title` = 'powered_by'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$powered_by_new_window' WHERE `title` = 'powered_by_new_window'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$powered_by_san' WHERE `title` = 'powered_by'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$powered_by_new_window' WHERE `title` = 'powered_by_new_window'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

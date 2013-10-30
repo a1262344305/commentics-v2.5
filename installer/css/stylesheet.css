@@ -104,3 +104,14 @@ padding: 1px 7px 2px;
 text-align: center !important;
 white-space: nowrap;
 }
+
+.error {
+background: #FCFCFC;
+padding: 5px;
+border: 1px solid #ABABAB;
+background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+}

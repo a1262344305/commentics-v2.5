@@ -24,44 +24,39 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_sticky tinyint(1) unsigned NOT NULL default '0'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_sticky tinyint(1) unsigned NOT NULL default '0'");
 
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_locked tinyint(1) unsigned NOT NULL default '0'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_locked tinyint(1) unsigned NOT NULL default '0'");
 
-mysql_query("RENAME TABLE `".$cmtx_mysql_table_prefix."banned` TO `".$cmtx_mysql_table_prefix."bans`;");
-mysql_query("RENAME TABLE `".$cmtx_mysql_table_prefix."last_login` TO `".$cmtx_mysql_table_prefix."logins`;");
+cmtx_db_query("RENAME TABLE `".$cmtx_mysql_table_prefix."banned` TO `".$cmtx_mysql_table_prefix."bans`;");
+cmtx_db_query("RENAME TABLE `".$cmtx_mysql_table_prefix."last_login` TO `".$cmtx_mysql_table_prefix."logins`;");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_1','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_2','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_3','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_4','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_5','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_6','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_1','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_2','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_3','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_4','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_5','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_sort_by_6','1');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','akismet_enabled','0');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','akismet_key','');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','akismet_enabled','0');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','akismet_key','');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_gravatar','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','gravatar_default','mm');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','gravatar_rating','g');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','enabled_gravatar','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','gravatar_default','mm');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','gravatar_rating','g');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_video','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','approve_videos','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('form','enabled_bb_code_video','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('processor','approve_videos','1');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('order','sort_order_parts','1,2');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('order','sort_order_parts','1,2');");
 
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'js_vote_bad'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'js_vote_bad'");
 
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'check_trap'");
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'hide_trap_bans'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'check_trap'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'hide_trap_bans'");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('system','limit_comments','50');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('notice','notice_limit_comments','1');");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('system','limit_comments','50');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('notice','notice_limit_comments','1');");
 
 ?>

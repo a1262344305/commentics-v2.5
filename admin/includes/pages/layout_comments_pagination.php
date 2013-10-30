@@ -51,11 +51,11 @@ $range_of_pages = $_POST['range_of_pages'];
 $comments_per_page_san = cmtx_sanitize($comments_per_page);
 $range_of_pages_san = cmtx_sanitize($range_of_pages);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_pagination' WHERE `title` = 'enabled_pagination'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_pagination_top' WHERE `title` = 'show_pagination_top'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_pagination_bottom' WHERE `title` = 'show_pagination_bottom'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comments_per_page_san' WHERE `title` = 'comments_per_page'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$range_of_pages_san' WHERE `title` = 'range_of_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_pagination' WHERE `title` = 'enabled_pagination'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_pagination_top' WHERE `title` = 'show_pagination_top'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_pagination_bottom' WHERE `title` = 'show_pagination_bottom'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comments_per_page_san' WHERE `title` = 'comments_per_page'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$range_of_pages_san' WHERE `title` = 'range_of_pages'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

@@ -50,10 +50,10 @@ $viewers_refresh_time = $_POST['viewers_refresh_time'];
 $viewers_timeout_san = cmtx_sanitize($viewers_timeout);
 $viewers_refresh_time_san = cmtx_sanitize($viewers_refresh_time);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_enabled' WHERE `title` = 'viewers_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_timeout_san' WHERE `title` = 'viewers_timeout'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_refresh_enabled' WHERE `title` = 'viewers_refresh_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_refresh_time_san' WHERE `title` = 'viewers_refresh_time'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_enabled' WHERE `title` = 'viewers_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_timeout_san' WHERE `title` = 'viewers_timeout'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_refresh_enabled' WHERE `title` = 'viewers_refresh_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_refresh_time_san' WHERE `title` = 'viewers_refresh_time'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

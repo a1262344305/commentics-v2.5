@@ -52,11 +52,11 @@ $comments_order_san = cmtx_sanitize($comments_order);
 $time_format_san = cmtx_sanitize($time_format);
 $date_time_format_san = cmtx_sanitize($date_time_format);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comments_order_san' WHERE `title` = 'comments_order'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_comment_count' WHERE `title` = 'show_comment_count'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_says' WHERE `title` = 'show_says'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_format_san' WHERE `title` = 'time_format'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$date_time_format_san' WHERE `title` = 'date_time_format'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$comments_order_san' WHERE `title` = 'comments_order'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_comment_count' WHERE `title` = 'show_comment_count'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_says' WHERE `title` = 'show_says'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_format_san' WHERE `title` = 'time_format'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$date_time_format_san' WHERE `title` = 'date_time_format'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

@@ -45,8 +45,8 @@ function cmtx_get_comment_and_replies($id) {
 			}
 
 			//get the details of the comment
-			$comments_q = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-			$comments = mysql_fetch_assoc($comments_q);
+			$comments_q = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+			$comments = cmtx_db_fetch_assoc($comments_q);
 
 			//display comment
 			echo cmtx_generate_comment (false, $alternate, $comments["id"], $comments["name"], $comments["email"], $comments["website"], $comments["town"], $comments["country"], $comments["rating"], $comments["reply_to"], $comments["comment"], $comments["reply"], $comments["is_admin"], $comments["likes"], $comments["dislikes"], $comments["is_sticky"], $comments["is_locked"], $comments["dated"]);
@@ -73,8 +73,8 @@ function cmtx_get_comment_and_replies($id) {
 			}
 
 			//get the details of the comment
-			$comments_q = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-			$comments = mysql_fetch_assoc($comments_q);
+			$comments_q = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+			$comments = cmtx_db_fetch_assoc($comments_q);
 	
 			//display comment
 			echo cmtx_generate_comment (false, $alternate, $comments["id"], $comments["name"], $comments["email"], $comments["website"], $comments["town"], $comments["country"], $comments["rating"], $comments["reply_to"], $comments["comment"], $comments["reply"], $comments["is_admin"], $comments["likes"], $comments["dislikes"], $comments["is_sticky"], $comments["is_locked"], $comments["dated"]);
@@ -88,9 +88,9 @@ function cmtx_get_comment_and_replies($id) {
 	if (cmtx_comment_has_reply($id)) { //if the comment has a reply
 
 		//get all of its replies
-		$reply_q = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` ASC");
+		$reply_q = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` ASC");
 
-		while ($replies = mysql_fetch_assoc($reply_q)) { //while there are replies
+		while ($replies = cmtx_db_fetch_assoc($reply_q)) { //while there are replies
 
 			cmtx_get_comment_and_replies($replies["id"]); //re-call this function to display the reply AND any replies it may have
 
@@ -105,7 +105,7 @@ function cmtx_comment_has_reply($id) {
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1'"))) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1'"))) {
 		return true;
 	} else {
 		return false;
@@ -118,8 +118,8 @@ function cmtx_get_reply_to($id) {
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$result = mysql_fetch_assoc($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$result = cmtx_db_fetch_assoc($query);
 
 	return $result["reply_to"];
 
@@ -139,10 +139,10 @@ function cmtx_get_reply_depth($id) {
 
 	while ($reply_to != 0) {
 
-		$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$reply_to' AND `is_approved` = '1'");
-		$result = mysql_fetch_assoc($query);
+		$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$reply_to' AND `is_approved` = '1'");
+		$result = cmtx_db_fetch_assoc($query);
 
-		if (mysql_num_rows($query)) {
+		if (cmtx_db_num_rows($query)) {
 
 			$reply_to = $result["reply_to"];
 
@@ -496,9 +496,9 @@ function cmtx_number_of_comments() { //get total number of comments
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
-	$result = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `page_id` = '$cmtx_page_id'");
+	$result = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `page_id` = '$cmtx_page_id'");
 
-	$total = mysql_num_rows($result);
+	$total = cmtx_db_num_rows($result);
 
 	return $total;
 
@@ -510,12 +510,12 @@ function cmtx_number_of_ratings() { //get total number of ratings
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
 	//get comment ratings
-	$result = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `rating` != '0' AND `is_approved` = '1'");
-	$total_1 = mysql_num_rows($result);
+	$result = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `rating` != '0' AND `is_approved` = '1'");
+	$total_1 = cmtx_db_num_rows($result);
 	
 	//get guest ratings
-	$result = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id'");
-	$total_2 = mysql_num_rows($result);
+	$result = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id'");
+	$total_2 = cmtx_db_num_rows($result);
 	
 	//calculate total
 	$total = $total_1 + $total_2;
@@ -529,7 +529,7 @@ function cmtx_average_rating() { //get average rating
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 
-	$result = mysql_query("SELECT AVG(`rating`) 
+	$result = cmtx_db_query("SELECT AVG(`rating`) 
 	FROM ( 
 	SELECT `rating` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `is_approved` = '1' AND `rating` != '0' AND `page_id` = '$cmtx_page_id' 
 	UNION ALL 
@@ -538,7 +538,7 @@ function cmtx_average_rating() { //get average rating
 	AS `average`
 	");
 	
-	$average = mysql_fetch_assoc($result);
+	$average = cmtx_db_fetch_assoc($result);
 	$average = $average["AVG(`rating`)"];
 
 	$average = round($average, 0);
@@ -556,11 +556,11 @@ function cmtx_has_rated_comments() { //checks whether user has already rated
 	
 	$rated = false; //initialise flag as false
 
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address' AND `rating` != '0'")) != 0) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address' AND `rating` != '0'")) != 0) {
 		$rated = true;
 	}
 	
-	if (mysql_num_rows(mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address'")) != 0) {
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "ratings` WHERE `page_id` = '$cmtx_page_id' AND `ip_address` = '$ip_address'")) != 0) {
 		$rated = true;
 	}
 	
@@ -586,9 +586,9 @@ function cmtx_calc_permalink($id) { //calculate the page of the permalink
 	if (cmtx_comment_has_reply($id)) {
 
 		//get all of its replies
-		$reply_q = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` ASC");
+		$reply_q = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `reply_to` = '$id' AND `is_approved` = '1' AND `page_id` = '$cmtx_page_id' ORDER BY `dated` ASC");
 
-		while ($replies = mysql_fetch_assoc($reply_q)) { //while there are replies
+		while ($replies = cmtx_db_fetch_assoc($reply_q)) { //while there are replies
 
 			cmtx_calc_permalink($replies["id"]); //re-call this function to calculate the reply AND any replies it may have
 

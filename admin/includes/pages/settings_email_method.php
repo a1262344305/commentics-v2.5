@@ -59,14 +59,14 @@ $smtp_username_san = cmtx_sanitize($smtp_username);
 $smtp_password_san = cmtx_sanitize($smtp_password);
 $sendmail_path_san = cmtx_sanitize($sendmail_path);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$transport_method_san' WHERE `title` = 'transport_method'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_host_san' WHERE `title` = 'smtp_host'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_port_san' WHERE `title` = 'smtp_port'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_encrypt_san' WHERE `title` = 'smtp_encrypt'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_auth' WHERE `title` = 'smtp_auth'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_username_san' WHERE `title` = 'smtp_username'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_password_san' WHERE `title` = 'smtp_password'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sendmail_path_san' WHERE `title` = 'sendmail_path'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$transport_method_san' WHERE `title` = 'transport_method'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_host_san' WHERE `title` = 'smtp_host'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_port_san' WHERE `title` = 'smtp_port'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_encrypt_san' WHERE `title` = 'smtp_encrypt'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_auth' WHERE `title` = 'smtp_auth'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_username_san' WHERE `title` = 'smtp_username'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_password_san' WHERE `title` = 'smtp_password'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sendmail_path_san' WHERE `title` = 'sendmail_path'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

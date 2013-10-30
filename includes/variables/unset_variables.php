@@ -50,10 +50,11 @@ unset($cmtx_mysql_host);
 unset($cmtx_mysql_port);
 unset($cmtx_mysql_table_prefix);
 
-unset($cmtx_connection);
-unset($cmtx_database);
+unset($cmtx_link);
+unset($cmtx_query_count);
+unset($cmtx_query_time);
+unset($cmtx_query_error);
 
-unset($cmtx_db_orig);
 unset($cmtx_db_ok);
 
 unset($cmtx_admin_button);

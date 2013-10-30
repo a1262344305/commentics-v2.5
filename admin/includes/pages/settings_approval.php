@@ -46,9 +46,9 @@ if (isset($_POST['approve_comments'])) { $approve_comments = 1; } else { $approv
 if (isset($_POST['approve_notifications'])) { $approve_notifications = 1; } else { $approve_notifications = 0; }
 if (isset($_POST['trust_users'])) { $trust_users = 1; } else { $trust_users = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_comments' WHERE `title` = 'approve_comments'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_notifications' WHERE `title` = 'approve_notifications'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$trust_users' WHERE `title` = 'trust_users'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_comments' WHERE `title` = 'approve_comments'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_notifications' WHERE `title` = 'approve_notifications'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$trust_users' WHERE `title` = 'trust_users'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

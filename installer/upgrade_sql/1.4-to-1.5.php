@@ -24,55 +24,55 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD vote_up int(10) unsigned NOT NULL default '0'");
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD vote_down int(10) unsigned NOT NULL default '0'");
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_flagged tinyint(1) unsigned NOT NULL default '0'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD vote_up int(10) unsigned NOT NULL default '0'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD vote_down int(10) unsigned NOT NULL default '0'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."comments` ADD is_flagged tinyint(1) unsigned NOT NULL default '0'");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_like','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_dislike','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','js_vote_ok','0');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','js_vote_bad','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_like','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_dislike','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','js_vote_ok','0');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','js_vote_bad','1');");
 
-mysql_query("ALTER TABLE `".$cmtx_mysql_table_prefix."admins` ADD receive_email_new_comment_flag tinyint(1) unsigned NOT NULL default '1'");
+cmtx_db_query("ALTER TABLE `".$cmtx_mysql_table_prefix."admins` ADD receive_email_new_comment_flag tinyint(1) unsigned NOT NULL default '1'");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_flag','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_max_per_user','3');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_min_per_comment','2');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_disapprove','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','show_flag','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_max_per_user','3');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_min_per_comment','2');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('comments','flag_disapprove','1');");
 
-$from_name = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_from_name'");
-$from_name = mysql_fetch_assoc($from_name);
+$from_name = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_from_name'");
+$from_name = cmtx_db_fetch_assoc($from_name);
 $from_name = $from_name["value"];
 
-$from_email = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_from_email'");
-$from_email = mysql_fetch_assoc($from_email);
+$from_email = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_from_email'");
+$from_email = cmtx_db_fetch_assoc($from_email);
 $from_email = $from_email["value"];
 
-$reply_to = mysql_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_reply_to'");
-$reply_to = mysql_fetch_assoc($reply_to);
+$reply_to = cmtx_db_query("SELECT * FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'admin_new_ban_reply_to'");
+$reply_to = cmtx_db_fetch_assoc($reply_to);
 $reply_to = $reply_to["value"];
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_subject','New Comment: Flag');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_from_name','$from_name');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_from_email','$from_email');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_reply_to','$reply_to');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_subject','New Comment: Flag');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_from_name','$from_name');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_from_email','$from_email');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('email','admin_new_comment_flag_reply_to','$reply_to');");
 
-mysql_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'comments_first'");
+cmtx_db_query("DELETE FROM `".$cmtx_mysql_table_prefix."settings` WHERE title = 'comments_first'");
 
-mysql_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title = 'newest_first' WHERE title = 'list_newest_first'");
+cmtx_db_query("UPDATE `".$cmtx_mysql_table_prefix."settings` SET title = 'newest_first' WHERE title = 'list_newest_first'");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_reports','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_reports','30');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_reports','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_reports','30');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_voters','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_voters','30');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_voters','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_voters','30');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_comment_ips','1');");
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_comment_ips','30');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','task_enabled_delete_old_comment_ips','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('tasks','days_to_delete_old_comment_ips','30');");
 
-mysql_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('security','check_db_file','1');");
+cmtx_db_query("INSERT INTO `".$cmtx_mysql_table_prefix."settings` (category, title, value) VALUES ('security','check_db_file','1');");
 
-mysql_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."reports` (
+cmtx_db_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."reports` (
   id int(10) unsigned NOT NULL auto_increment,
   comment_id int(10) unsigned NOT NULL default '0',
   ip_address varchar(39) NOT NULL default '',
@@ -82,17 +82,12 @@ mysql_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."reports` (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
 
-mysql_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."voters` (
+cmtx_db_query("CREATE TABLE IF NOT EXISTS `".$cmtx_mysql_table_prefix."voters` (
   id int(10) unsigned NOT NULL auto_increment,
   comment_id int(10) unsigned NOT NULL default '0',
   ip_address varchar(39) NOT NULL default '',
   dated datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY (id)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
-
-if (mysql_errno()) {
-echo mysql_errno() . ': ' . mysql_error() . '<br />';
-$error = true;
-}
 
 ?>

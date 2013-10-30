@@ -67,32 +67,32 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 	if ($type != 'like' && $type != 'dislike') { die(); }
 	
 	//check if comment exists
-	$query = mysql_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+	$count = cmtx_db_num_rows($query);
 	if ($count == 0) {
 		echo CMTX_VOTE_NO_COMMENT;
 		return;
 	}
 	
 	//check if user is voting own comment
-	$query = mysql_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' and `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' and `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_VOTE_OWN_COMMENT;
 		return;
 	}
 
 	//check if user has already voted
-	$query = mysql_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id' and `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT `ip_address` FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id' and `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_VOTE_ALREADY_VOTED;
 		return;
 	}
 	
 	//check if user is banned
-	$query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
-	$count = mysql_num_rows($query);
+	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `ip_address` = '$ip_address'");
+	$count = cmtx_db_num_rows($query);
 	if ($count > 0) {
 		echo CMTX_VOTE_BANNED;
 		return;
@@ -100,21 +100,21 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 
 	if ($type == 'like' && cmtx_setting('show_like')) {
 
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `likes` = `likes` + 1 WHERE `id` = '$id'");
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `likes` = `likes` + 1 WHERE `id` = '$id'");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
 	} else if ($type == 'dislike' && cmtx_setting('show_dislike')) {
 
-		mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `dislikes` = `dislikes` + 1 WHERE `id` = '$id'");
-		mysql_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
+		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `dislikes` = `dislikes` + 1 WHERE `id` = '$id'");
+		cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "voters` (`comment_id`, `ip_address`, `dated`) values ('$id', '$ip_address', NOW())");
 
 	}
 	
 	if ($type == 'like') {
 	
-		$result = mysql_query("SELECT `likes` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		if (mysql_num_rows($result)) {
-			$row = mysql_fetch_array($result);
+		$result = cmtx_db_query("SELECT `likes` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		if (cmtx_db_num_rows($result)) {
+			$row = cmtx_db_fetch_assoc($result);
 			$likes = $row['likes'];
 		} else {
 			$likes = 0;
@@ -124,9 +124,9 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 	
 	} else if ($type == 'dislike') {
 	
-		$result = mysql_query("SELECT `dislikes` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
-		if (mysql_num_rows($result)) {
-			$row = mysql_fetch_array($result);
+		$result = cmtx_db_query("SELECT `dislikes` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
+		if (cmtx_db_num_rows($result)) {
+			$row = cmtx_db_fetch_assoc($result);
 			$dislikes = $row['dislikes'];
 		} else {
 			$dislikes = 0;

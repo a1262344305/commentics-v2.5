@@ -61,24 +61,24 @@ if (isset($_POST['show_rss_this_page'])) { $show_rss_this_page = 1; } else { $sh
 if (isset($_POST['show_rss_all_pages'])) { $show_rss_all_pages = 1; } else { $show_rss_all_pages = 0; }
 if (isset($_POST['show_page_number'])) { $show_page_number = 1; } else { $show_page_number = 0; }
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_website' WHERE `title` = 'show_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_town' WHERE `title` = 'show_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_country' WHERE `title` = 'show_country'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rating' WHERE `title` = 'show_rating'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_date' WHERE `title` = 'show_date'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_like' WHERE `title` = 'show_like'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_dislike' WHERE `title` = 'show_dislike'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_flag' WHERE `title` = 'show_flag'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_permalink' WHERE `title` = 'show_permalink'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_reply' WHERE `title` = 'show_reply'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_gravatar' WHERE `title` = 'show_gravatar'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by' WHERE `title` = 'show_sort_by'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_topic' WHERE `title` = 'show_topic'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_average_rating' WHERE `title` = 'show_average_rating'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social' WHERE `title` = 'show_social'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_this_page' WHERE `title` = 'show_rss_this_page'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_all_pages' WHERE `title` = 'show_rss_all_pages'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_page_number' WHERE `title` = 'show_page_number'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_website' WHERE `title` = 'show_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_town' WHERE `title` = 'show_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_country' WHERE `title` = 'show_country'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rating' WHERE `title` = 'show_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_date' WHERE `title` = 'show_date'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_like' WHERE `title` = 'show_like'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_dislike' WHERE `title` = 'show_dislike'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_flag' WHERE `title` = 'show_flag'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_permalink' WHERE `title` = 'show_permalink'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_reply' WHERE `title` = 'show_reply'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_gravatar' WHERE `title` = 'show_gravatar'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_sort_by' WHERE `title` = 'show_sort_by'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_topic' WHERE `title` = 'show_topic'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_average_rating' WHERE `title` = 'show_average_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social' WHERE `title` = 'show_social'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_this_page' WHERE `title` = 'show_rss_this_page'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_all_pages' WHERE `title` = 'show_rss_all_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_page_number' WHERE `title` = 'show_page_number'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

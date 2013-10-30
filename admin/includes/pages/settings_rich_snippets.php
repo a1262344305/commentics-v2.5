@@ -47,8 +47,8 @@ $rich_snippets_markup = $_POST['rich_snippets_markups'];
 
 $rich_snippets_markup_san = cmtx_sanitize($rich_snippets_markup);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rich_snippets' WHERE `title` = 'rich_snippets'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rich_snippets_markup_san' WHERE `title` = 'rich_snippets_markup'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rich_snippets' WHERE `title` = 'rich_snippets'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rich_snippets_markup_san' WHERE `title` = 'rich_snippets_markup'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

@@ -52,10 +52,10 @@ $sort_order_captchas_san = cmtx_sanitize($sort_order_captchas);
 $sort_order_checkboxes_san = cmtx_sanitize($sort_order_checkboxes);
 $sort_order_buttons_san = cmtx_sanitize($sort_order_buttons);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_fields_san' WHERE `title` = 'sort_order_fields'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_captchas_san' WHERE `title` = 'sort_order_captchas'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_checkboxes_san' WHERE `title` = 'sort_order_checkboxes'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_buttons_san' WHERE `title` = 'sort_order_buttons'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_fields_san' WHERE `title` = 'sort_order_fields'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_captchas_san' WHERE `title` = 'sort_order_captchas'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_checkboxes_san' WHERE `title` = 'sort_order_checkboxes'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sort_order_buttons_san' WHERE `title` = 'sort_order_buttons'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

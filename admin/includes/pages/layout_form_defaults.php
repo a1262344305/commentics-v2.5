@@ -62,15 +62,15 @@ $default_country_san = cmtx_sanitize($default_country);
 $default_rating_san = cmtx_sanitize($default_rating);
 $default_comment_san = cmtx_sanitize($default_comment);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_name_san' WHERE `title` = 'default_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_email_san' WHERE `title` = 'default_email'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_website_san' WHERE `title` = 'default_website'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_town_san' WHERE `title` = 'default_town'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_country_san' WHERE `title` = 'default_country'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_rating_san' WHERE `title` = 'default_rating'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_comment_san' WHERE `title` = 'default_comment'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_notify' WHERE `title` = 'default_notify'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_remember' WHERE `title` = 'default_remember'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_name_san' WHERE `title` = 'default_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_email_san' WHERE `title` = 'default_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_website_san' WHERE `title` = 'default_website'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_town_san' WHERE `title` = 'default_town'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_country_san' WHERE `title` = 'default_country'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_rating_san' WHERE `title` = 'default_rating'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_comment_san' WHERE `title` = 'default_comment'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_notify' WHERE `title` = 'default_notify'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$default_remember' WHERE `title` = 'default_remember'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

@@ -57,16 +57,16 @@ $reserved_websites_action_san = cmtx_sanitize($reserved_websites_action);
 $dummy_websites_action_san = cmtx_sanitize($dummy_websites_action);
 $banned_websites_as_website_action_san = cmtx_sanitize($banned_websites_as_website_action);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_websites' WHERE `title` = 'approve_websites'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$validate_website_ping' WHERE `title` = 'validate_website_ping'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$website_new_window' WHERE `title` = 'website_new_window'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$website_nofollow' WHERE `title` = 'website_nofollow'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_websites_enabled' WHERE `title` = 'reserved_websites_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_websites_action_san' WHERE `title` = 'reserved_websites_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_websites_enabled' WHERE `title` = 'dummy_websites_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_websites_action_san' WHERE `title` = 'dummy_websites_action'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_websites_as_website_enabled' WHERE `title` = 'banned_websites_as_website_enabled'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_websites_as_website_action_san' WHERE `title` = 'banned_websites_as_website_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$approve_websites' WHERE `title` = 'approve_websites'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$validate_website_ping' WHERE `title` = 'validate_website_ping'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$website_new_window' WHERE `title` = 'website_new_window'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$website_nofollow' WHERE `title` = 'website_nofollow'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_websites_enabled' WHERE `title` = 'reserved_websites_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reserved_websites_action_san' WHERE `title` = 'reserved_websites_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_websites_enabled' WHERE `title` = 'dummy_websites_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$dummy_websites_action_san' WHERE `title` = 'dummy_websites_action'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_websites_as_website_enabled' WHERE `title` = 'banned_websites_as_website_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$banned_websites_as_website_action_san' WHERE `title` = 'banned_websites_as_website_action'");
 
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>

@@ -65,17 +65,17 @@ $mysqldump_path_san = cmtx_sanitize($mysqldump_path);
 $limit_comments_san = cmtx_sanitize($limit_comments);
 $admin_cookie_days_san = cmtx_sanitize($admin_cookie_days);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_name_san' WHERE `title` = 'site_name'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_zone_san' WHERE `title` = 'time_zone'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_domain_san' WHERE `title` = 'site_domain'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_url_san' WHERE `title` = 'site_url'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$commentics_folder_san' WHERE `title` = 'commentics_folder'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$commentics_url_san' WHERE `title` = 'commentics_url'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_folder_san' WHERE `title` = 'admin_folder'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$mysqldump_path_san' WHERE `title` = 'mysqldump_path'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_wysiwyg' WHERE `title` = 'enabled_wysiwyg'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$limit_comments_san' WHERE `title` = 'limit_comments'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_cookie_days_san' WHERE `title` = 'admin_cookie_days'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_name_san' WHERE `title` = 'site_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_zone_san' WHERE `title` = 'time_zone'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_domain_san' WHERE `title` = 'site_domain'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_url_san' WHERE `title` = 'site_url'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$commentics_folder_san' WHERE `title` = 'commentics_folder'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$commentics_url_san' WHERE `title` = 'commentics_url'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_folder_san' WHERE `title` = 'admin_folder'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$mysqldump_path_san' WHERE `title` = 'mysqldump_path'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_wysiwyg' WHERE `title` = 'enabled_wysiwyg'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$limit_comments_san' WHERE `title` = 'limit_comments'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_cookie_days_san' WHERE `title` = 'admin_cookie_days'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
 <div style="clear: left;"></div>

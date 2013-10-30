@@ -62,8 +62,8 @@ $id_san = cmtx_sanitize($id);
 $ip_address_san = cmtx_sanitize($ip_address);
 $reason_san = cmtx_sanitize($reason);
 
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `ip_address` = '$ip_address_san' WHERE `id` = '$id_san'");
-mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `reason` = '$reason_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `ip_address` = '$ip_address_san' WHERE `id` = '$id_san'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `reason` = '$reason_san' WHERE `id` = '$id_san'");
 ?>
 <div class="success"><?php echo CMTX_MSG_BAN_UPDATED; ?></div>
 <div style="clear: left;"></div>
@@ -72,8 +72,8 @@ mysql_query("UPDATE `" . $cmtx_mysql_table_prefix . "bans` SET `reason` = '$reas
 <?php
 $id = $_GET['id'];
 $id_san = cmtx_sanitize($id);
-$ban_query = mysql_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `id` = '$id_san'");
-$ban_result = mysql_fetch_assoc($ban_query);
+$ban_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans` WHERE `id` = '$id_san'");
+$ban_result = cmtx_db_fetch_assoc($ban_query);
 $ip_address = $ban_result["ip_address"];
 $reason = $ban_result["reason"];
 $time = date("g:ia", strtotime($ban_result["dated"]));

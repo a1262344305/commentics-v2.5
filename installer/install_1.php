@@ -51,9 +51,9 @@ function check_passwords() {
 <br />
 
 <?php
-/* Error Reporting */
-@error_reporting(-1); //show every possible error
-@ini_set('display_errors', 1); //display errors
+@error_reporting(0); //turn off all error reporting
+@ini_set('display_errors', 0); //don't display errors
+@ini_set('log_errors', 0); //don't log errors
 ?>
 
 <?php
@@ -71,13 +71,15 @@ if (!$cmtx_db_ok) { die(); }
 ?>
 
 <?php
-if (mysql_num_rows(mysql_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_prefix . "comments'"))) {
-echo '<span class="fail">The programme is already installed.</span>';
-echo '<p></p>';
-echo '<a href="javascript:history.back()">back</a>';
-echo '</body>';
-echo '</html>';
-die();
+if (cmtx_db_num_rows(cmtx_db_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_prefix . "comments'"))) {
+	echo '<div class="error">';
+	echo '<span class="fail">The programme is already installed.</span>';
+	echo '</div>';
+	echo '<p></p>';
+	echo '<a href="javascript:history.back()">back</a>';
+	echo '</body>';
+	echo '</html>';
+	die();
 }
 ?>
 
