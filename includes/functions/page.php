@@ -897,6 +897,33 @@ function cmtx_get_permalink($id, $url) { //build the permalink
 } //end of get-permalink function
 
 
+function cmtx_parsing($cmtx_start_time) { //display parsing information
+
+	global $cmtx_is_admin, $cmtx_query_time, $cmtx_query_count;
+	
+	if (cmtx_setting('display_parsing') && $cmtx_is_admin) {
+		
+		$cmtx_end_time = microtime(true);
+		
+		$cmtx_time = $cmtx_end_time - $cmtx_start_time;
+		
+		$cmtx_php_time = $cmtx_time - $cmtx_query_time;
+		
+		$cmtx_parsing = sprintf(CMTX_TEXT_PARSING, round($cmtx_time, 5));
+		$cmtx_parsing .= '<br/>';
+		$cmtx_parsing .= '<b>PHP</b>: ' . round($cmtx_php_time, 5) . 's | ' . '<b>SQL</b>: ' . round($cmtx_query_time, 5) . 's (' . $cmtx_query_count . ' ' . CMTX_TEXT_QUERIES . ')';
+		
+		?><script type="text/javascript">
+		// <![CDATA[
+		document.getElementById('cmtx_parsing').innerHTML = '<?php echo $cmtx_parsing; ?>';
+		// ]]>
+		</script><?php
+		
+	}
+
+} //end of parsing function
+
+
 function cmtx_setting($title) { //gets a setting
 
 	global $cmtx_mysql_table_prefix;

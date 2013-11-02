@@ -51,6 +51,7 @@ $commentics_url = $_POST['commentics_url'];
 $admin_folder = $_POST['admin_folder'];
 $mysqldump_path = $_POST['mysqldump_path'];
 if (isset($_POST['enabled_wysiwyg'])) { $enabled_wysiwyg = 1; } else { $enabled_wysiwyg = 0; }
+if (isset($_POST['display_parsing'])) { $display_parsing = 1; } else { $display_parsing = 0; }
 $limit_comments = $_POST['limit_comments'];
 $admin_cookie_days = $_POST['admin_cookie_days'];
 
@@ -74,6 +75,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_folder_san' WHERE `title` = 'admin_folder'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$mysqldump_path_san' WHERE `title` = 'mysqldump_path'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_wysiwyg' WHERE `title` = 'enabled_wysiwyg'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_parsing' WHERE `title` = 'display_parsing'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$limit_comments_san' WHERE `title` = 'limit_comments'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$admin_cookie_days_san' WHERE `title` = 'admin_cookie_days'");
 ?>
@@ -127,6 +129,9 @@ echo '</select>';
 <p />
 <label class='settings_system'><?php echo CMTX_FIELD_LABEL_WYSIWYG; ?></label> <?php if (cmtx_setting('enabled_wysiwyg')) { ?> <input type="checkbox" checked="checked" name="enabled_wysiwyg"/> <?php } else { ?> <input type="checkbox" name="enabled_wysiwyg"/> <?php } ?>
 <?php cmtx_generate_hint(CMTX_HINT_WYSIWYG); ?>
+<p />
+<label class='settings_system'><?php echo CMTX_FIELD_LABEL_DISPLAY_PARSING; ?></label> <?php if (cmtx_setting('display_parsing')) { ?> <input type="checkbox" checked="checked" name="display_parsing"/> <?php } else { ?> <input type="checkbox" name="display_parsing"/> <?php } ?>
+<?php cmtx_generate_hint(CMTX_HINT_PARSING); ?>
 <p />
 <label class='settings_system'><?php echo CMTX_FIELD_LABEL_LIMIT_COMMENTS; ?></label> <input type="text" required name="limit_comments" size="1" maxlength="250" value="<?php echo cmtx_setting('limit_comments'); ?>"/>
 <?php cmtx_generate_hint(CMTX_HINT_LIMIT_COMMENTS); ?>

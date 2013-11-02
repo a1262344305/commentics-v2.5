@@ -254,6 +254,10 @@ define('CMTX_PREVIEW_BUTTON', 'Predogled');
 /* Text for form buttons when processing */
 define('CMTX_PROCESSING_BUTTON', 'Prosimo počakajte ...');
 
+/* Text for parsing information */
+define('CMTX_TEXT_PARSING', 'Generated in %s seconds');
+define('CMTX_TEXT_QUERIES', 'Queries');
+
 /* Text for 'powered by' statement */
 define('CMTX_POWERED_BY', 'Storitev omogoča');
 

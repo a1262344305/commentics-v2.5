@@ -242,6 +242,7 @@ define('CMTX_FIELD_LABEL_SECURIMAGE_LINE_COLOR', 'Line Color:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_BACK_COLOR', 'Back Color:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_NOISE_COLOR', 'Noise Color:');
 define('CMTX_FIELD_LABEL_THEME', 'Theme:');
+define('CMTX_FIELD_LABEL_DISPLAY_PARSING', 'Display Parsing:');
 
 /* Values */
 define('CMTX_FIELD_VALUE_YES', 'ja');

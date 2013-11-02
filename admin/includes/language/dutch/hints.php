@@ -116,6 +116,7 @@ define('CMTX_HINT_COMMENTICS_URL', 'The URL to the Commentics folder.<br />http:
 define('CMTX_HINT_ADMIN_FOLDER', 'The name of the renamed admin folder. For example: <i>secret</i>');
 define('CMTX_HINT_MYSQL_DUMP', 'Als je problemen hebt met de database backup tool moet je het server path opgeven naar je MySQLDump file.');
 define('CMTX_HINT_WYSIWYG', 'Moet de WYSIWYG (What You See Is What You Get) HTML editor ingeschakeldc worden voor het bewerken van de berichten pagina?');
+define('CMTX_HINT_PARSING', 'Display parsing information below the form. You must be detected as the admin for it to display.');
 define('CMTX_HINT_LIMIT_COMMENTS', 'Om de prestaties te verbeteren, blijkt alleen dit bedrag van de resultaten in Manage -> Comments.');
 define('CMTX_HINT_ADMIN_COOKIE_DAYS', 'The amount of days before the admin detection cookie expires.');
 

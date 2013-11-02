@@ -832,6 +832,25 @@ color: #050;
 font-weight: bold;
 }
 
+.cmtx_height_above_parsing {
+margin-bottom: 20px;
+}
+
+.cmtx_parsing_box {
+float: left;
+border: 1px solid #b5d3ff;
+background-color: #f7fafd;
+color: #3B3B3B;
+padding: 3px;
+width: auto;
+}
+
+.cmtx_parsing_text {
+font-family: "Lucida Console";
+color: #242424;
+font-size: 0.7em;
+}
+
 /**************************** Powered By ************************/
 
 .cmtx_height_above_powered {

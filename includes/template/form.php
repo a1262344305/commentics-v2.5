@@ -1252,10 +1252,20 @@ foreach ($cmtx_elements as $cmtx_element) {
 
 </form>
 
+<?php if (cmtx_setting('display_parsing') && $cmtx_is_admin) { ?>
+<div style="clear: left;"></div>
+<div class="cmtx_height_above_parsing"></div>
+<div class="cmtx_label">&nbsp;</div>
+<div class="cmtx_parsing_box">
+<div id="cmtx_parsing" class="cmtx_parsing_text"></div>
+</div>
+<div style="clear: left;"></div>
+<?php } ?>
+
 <?php if (cmtx_setting('powered_by_new_window')) { $cmtx_powered_attribute = ' target="_blank"'; } else { $cmtx_powered_attribute = ''; } ?>
 <?php if (cmtx_setting('powered_by') == 'image') { ?>
 <div style="clear: left;"></div>
-<div class='cmtx_height_above_powered'></div>
+<div class="cmtx_height_above_powered"></div>
 <div class="cmtx_label">&nbsp;</div>
 <a href="http://www.commentics.org"<?php echo $cmtx_powered_attribute; ?>><img src="<?php echo cmtx_commentics_url() . "images/commentics/powered_by.png";?>" title="Commentics" alt="Commentics"/></a>
 <?php } else if (cmtx_setting('powered_by') == 'text') { ?>
