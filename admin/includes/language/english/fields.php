@@ -203,7 +203,6 @@ define('CMTX_FIELD_LABEL_WYSIWYG', 'Use WYSIWYG:');
 define('CMTX_FIELD_LABEL_LIMIT_COMMENTS', 'Limit Comments:');
 define('CMTX_FIELD_LABEL_TITLE', 'Title:');
 define('CMTX_FIELD_LABEL_LINK', 'Link:');
-define('CMTX_FIELD_LABEL_DESC', 'Description:');
 define('CMTX_FIELD_LABEL_LANG', 'Language:');
 define('CMTX_FIELD_LABEL_IMAGE', 'Image');
 define('CMTX_FIELD_LABEL_IMAGE_URL', 'Image URL:');

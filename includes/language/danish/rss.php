@@ -26,4 +26,8 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 define('CMTX_RSS_FEATURE_DISABLED', 'Denne funktion er slået fra.');
 
+define('CMTX_RSS_DESCRIPTION', 'Comments');
+
+define('CMTX_RSS_POSTER', '%s');
+
 ?>

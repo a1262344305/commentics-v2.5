@@ -86,7 +86,7 @@ echo
 	<channel>
 		<title>' . cmtx_encode(cmtx_setting('rss_title')) . '</title>
 		<link>' . cmtx_url_encode(cmtx_setting('rss_link')) . '</link>
-		<description>' . cmtx_encode(cmtx_setting('rss_description')) . '</description>
+		<description>' . CMTX_RSS_DESCRIPTION . '</description>
 		<language>' . cmtx_setting('rss_language') . '</language>';
 		if (isset($last_build_date)) {
 		echo '
@@ -109,8 +109,8 @@ echo
 		while ($comments = cmtx_db_fetch_assoc($result)) {
 		$pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '" . $comments["page_id"] . "'");
 		$pages = cmtx_db_fetch_assoc($pages_query);
-		$title = $comments["name"];
-		$link = cmtx_get_permalink($id, $pages["url"]);;
+		$title = sprintf(CMTX_RSS_POSTER, $comments["name"]);
+		$link = cmtx_get_permalink($id, $pages["url"]);
 		$comment = $comments["comment"];
 		$dated = date("r", strtotime($comments["dated"]));
 		$guid = $comments["id"];

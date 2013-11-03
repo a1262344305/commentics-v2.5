@@ -62,6 +62,8 @@ cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `tit
 
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('system', 'display_parsing', '0');");
 
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'rss_description'");
+
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'theme', 'default');");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `category` = 'theme' WHERE `title` = 'split_screen'");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'center_screen', '0');");

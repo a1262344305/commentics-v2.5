@@ -45,7 +45,6 @@ cmtx_check_csrf_form_key();
 if (isset($_POST['rss_enabled'])) { $rss_enabled = 1; } else { $rss_enabled = 0; }
 $rss_title = $_POST['rss_title'];
 $rss_link = $_POST['rss_link'];
-$rss_description = $_POST['rss_description'];
 $rss_language = $_POST['rss_language'];
 if (isset($_POST['rss_image_enabled'])) { $rss_image_enabled = 1; } else { $rss_image_enabled = 0; }
 $rss_image_url = $_POST['rss_image_url'];
@@ -56,7 +55,6 @@ $rss_most_recent_amount = $_POST['rss_most_recent_amount'];
 
 $rss_title_san = cmtx_sanitize($rss_title);
 $rss_link_san = cmtx_sanitize($rss_link);
-$rss_description_san = cmtx_sanitize($rss_description);
 $rss_language_san = cmtx_sanitize($rss_language);
 $rss_image_url_san = cmtx_sanitize($rss_image_url);
 $rss_image_width_san = cmtx_sanitize($rss_image_width);
@@ -66,7 +64,6 @@ $rss_most_recent_amount_san = cmtx_sanitize($rss_most_recent_amount);
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_enabled' WHERE `title` = 'rss_enabled'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_title_san' WHERE `title` = 'rss_title'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_link_san' WHERE `title` = 'rss_link'");
-cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_description_san' WHERE `title` = 'rss_description'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_language_san' WHERE `title` = 'rss_language'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_enabled' WHERE `title` = 'rss_image_enabled'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_url_san' WHERE `title` = 'rss_image_url'");
@@ -91,8 +88,6 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <label class='settings_rss'><?php echo CMTX_FIELD_LABEL_TITLE; ?></label> <input type="text" required name="rss_title" size="20" maxlength="250" value="<?php echo cmtx_setting('rss_title'); ?>"/>
 <p />
 <label class='settings_rss'><?php echo CMTX_FIELD_LABEL_LINK; ?></label> <input type="text" required name="rss_link" size="35" maxlength="250" value="<?php echo cmtx_setting('rss_link'); ?>"/>
-<p />
-<label class='settings_rss'><?php echo CMTX_FIELD_LABEL_DESC; ?></label> <input type="text" required name="rss_description" size="50" maxlength="250" value="<?php echo cmtx_setting('rss_description'); ?>"/>
 <p />
 <label class='settings_rss'><?php echo CMTX_FIELD_LABEL_LANG; ?></label> <input type="text" required name="rss_language" size="1" maxlength="10" value="<?php echo cmtx_setting('rss_language'); ?>"/>
 <br /><hr class="separator"/><br />
