@@ -86,15 +86,13 @@ echo
 	<channel>
 		<title>' . cmtx_encode(cmtx_setting('rss_title')) . '</title>
 		<link>' . cmtx_url_encode(cmtx_setting('rss_link')) . '</link>
-		<description>' . CMTX_RSS_DESCRIPTION . '</description>
-		<language>' . cmtx_setting('rss_language') . '</language>';
+		<description>' . CMTX_RSS_DESCRIPTION . '</description>';
 		if (isset($last_build_date)) {
 		echo '
 		<lastBuildDate>' . $last_build_date . '</lastBuildDate>';
 		}
 		echo '
-		<generator>Commentics</generator>
-		<ttl>60</ttl>'; //time to live
+		<generator>Commentics</generator>';
 		if (cmtx_setting('rss_image_enabled')) {
 		echo '
 		<image>
