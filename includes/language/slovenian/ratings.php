@@ -24,16 +24,16 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_TITLE_RATING', 'Izberite oceno');
+cmtx_define('CMTX_TITLE_RATING', 'Izberite oceno');
 
-define('CMTX_TOP_RATING', 'Izberite oceno');
+cmtx_define('CMTX_TOP_RATING', 'Izberite oceno');
 
-define('CMTX_RATING_ONE', 'Obupno');
-define('CMTX_RATING_TWO', 'Slabo');
-define('CMTX_RATING_THREE', 'Povprečno');
-define('CMTX_RATING_FOUR', 'Dobro');
-define('CMTX_RATING_FIVE', 'Odlično');
+cmtx_define('CMTX_RATING_ONE', 'Obupno');
+cmtx_define('CMTX_RATING_TWO', 'Slabo');
+cmtx_define('CMTX_RATING_THREE', 'Povprečno');
+cmtx_define('CMTX_RATING_FOUR', 'Dobro');
+cmtx_define('CMTX_RATING_FIVE', 'Odlično');
 
-define('CMTX_HAS_RATED', 'Že ocenjeno');
+cmtx_define('CMTX_HAS_RATED', 'Že ocenjeno');
 
 ?>

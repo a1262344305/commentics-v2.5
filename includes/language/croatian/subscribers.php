@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Ova funkcionalnost je onemogućena.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Ova funkcionalnost je onemogućena.');
 
-define('CMTX_INVALID', 'Neispravan zahtjev.');
-define('CMTX_CONFIRMED', 'Vaša pretplata je sada potvrđena.');
-define('CMTX_ALREADY_CONFIRMED', 'Vaša pretplata je već bila potvrđena.');
-define('CMTX_UNSUBSCRIBED', 'Pretplata je otkazana.');
-define('CMTX_NO_SUBSCRIPTION', 'Pretplata ne može se pronaći.');
+cmtx_define('CMTX_INVALID', 'Neispravan zahtjev.');
+cmtx_define('CMTX_CONFIRMED', 'Vaša pretplata je sada potvrđena.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Vaša pretplata je već bila potvrđena.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'Pretplata je otkazana.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Pretplata ne može se pronaći.');
 
 ?>

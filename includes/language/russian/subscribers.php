@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Данная функция была отключена.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Данная функция была отключена.');
 
-define('CMTX_INVALID', 'Неправильный запрос.');
-define('CMTX_CONFIRMED', 'Ваша подписка подтверждена');
-define('CMTX_ALREADY_CONFIRMED', 'Ваша подписка уже была подтверждена.');
-define('CMTX_UNSUBSCRIBED', 'Вы больше не подписаны.');
-define('CMTX_NO_SUBSCRIPTION', 'Подписка не найдена.');
+cmtx_define('CMTX_INVALID', 'Неправильный запрос.');
+cmtx_define('CMTX_CONFIRMED', 'Ваша подписка подтверждена');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Ваша подписка уже была подтверждена.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'Вы больше не подписаны.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Подписка не найдена.');
 
 ?>

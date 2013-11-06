@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Kommentarer');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Kommentarer');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Bliv den første til at kommentere.');
+cmtx_define('CMTX_NO_COMMENTS', 'Bliv den første til at kommentere.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Sorteringsorden');
-define('CMTX_SORT_1', 'Nyeste');
-define('CMTX_SORT_2', 'Ældste');
-define('CMTX_SORT_3', 'Brugbar');
-define('CMTX_SORT_4', 'Ubrugelig');
-define('CMTX_SORT_5', 'Positiv');
-define('CMTX_SORT_6', 'Vigtig');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Sorteringsorden');
+cmtx_define('CMTX_SORT_1', 'Nyeste');
+cmtx_define('CMTX_SORT_2', 'Ældste');
+cmtx_define('CMTX_SORT_3', 'Brugbar');
+cmtx_define('CMTX_SORT_4', 'Ubrugelig');
+cmtx_define('CMTX_SORT_5', 'Positiv');
+cmtx_define('CMTX_SORT_6', 'Vigtig');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Emne');
+cmtx_define('CMTX_TOPIC_INTRO', 'Emne');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'skrev ...');
+cmtx_define('CMTX_SAYS', 'skrev ...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Læs mere');
-define('CMTX_TITLE_READ_MORE', 'Læs hele kommentaren');
+cmtx_define('CMTX_READ_MORE', '... Læs mere');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Læs hele kommentaren');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'Admin:');
+cmtx_define('CMTX_REPLY_INTRO', 'Admin:');
 
 /* Date */
-define('CMTX_TODAY', 'I dag');
-define('CMTX_YESTERDAY', 'I går');
+cmtx_define('CMTX_TODAY', 'I dag');
+cmtx_define('CMTX_YESTERDAY', 'I går');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Stem denne kommentar op');
-define('CMTX_TITLE_DISLIKE', 'Stem denne kommentar ned');
-define('CMTX_VOTE_NO_COMMENT', 'Denne kommentar findes ikke længere');
-define('CMTX_VOTE_OWN_COMMENT', 'Du kan ikke stemme på dine egne kommentarer');
-define('CMTX_VOTE_ALREADY_VOTED', 'Du har allerede stemt på denne kommentar');
-define('CMTX_VOTE_BANNED', 'Du er tidligere blevet banned');
+cmtx_define('CMTX_TITLE_LIKE', 'Stem denne kommentar op');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Stem denne kommentar ned');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Denne kommentar findes ikke længere');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Du kan ikke stemme på dine egne kommentarer');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'Du har allerede stemt på denne kommentar');
+cmtx_define('CMTX_VOTE_BANNED', 'Du er tidligere blevet banned');
 
 /* Flag */
-define('CMTX_FLAG', 'Rapporter');
-define('CMTX_TITLE_FLAG', 'Rapporter denne kommentar');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Er du sikker på, at du vil rapportere denne kommentar?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Denne kommentar findes ikke længere');
-define('CMTX_FLAG_OWN_COMMENT', 'Du kan ikke rapportere dine egne kommentarer');
-define('CMTX_FLAG_ADMIN_COMMENT', 'Du kan ikke rapportere en kommentar fra admin');
-define('CMTX_FLAG_BANNED', 'Du er tidligere blevet banned');
-define('CMTX_FLAG_REPORT_LIMIT', 'Du kan ikke rapportere flere kommentarer');
-define('CMTX_FLAG_ALREADY_REPORTED', 'Du har allerede rapporteret denne kommentar');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Denne kommentar er allerede blevet rapporteret');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Denne kommentar er allerede blevet godkendt');
-define('CMTX_FLAG_REPORT_SENT', 'Tak for din rapportering');
+cmtx_define('CMTX_FLAG', 'Rapporter');
+cmtx_define('CMTX_TITLE_FLAG', 'Rapporter denne kommentar');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Er du sikker på, at du vil rapportere denne kommentar?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'Denne kommentar findes ikke længere');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Du kan ikke rapportere dine egne kommentarer');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'Du kan ikke rapportere en kommentar fra admin');
+cmtx_define('CMTX_FLAG_BANNED', 'Du er tidligere blevet banned');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'Du kan ikke rapportere flere kommentarer');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'Du har allerede rapporteret denne kommentar');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Denne kommentar er allerede blevet rapporteret');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Denne kommentar er allerede blevet godkendt');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Tak for din rapportering');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for denne kommentar');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink for denne kommentar');
 
 /* Reply */
-define('CMTX_REPLY', 'Svar');
-define('CMTX_TITLE_REPLY', 'Svar på denne kommentar');
+cmtx_define('CMTX_REPLY', 'Svar');
+cmtx_define('CMTX_TITLE_REPLY', 'Svar på denne kommentar');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Feed for denne side');
-define('CMTX_RSS_ALL_PAGES', 'Feed for alle sider');
-define('CMTX_TITLE_RSS_THIS', 'Abonner på RSS-feed for denne side');
-define('CMTX_TITLE_RSS_ALL', 'Abonner på RSS-feed for alle sider');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Feed for denne side');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Feed for alle sider');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Abonner på RSS-feed for denne side');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Abonner på RSS-feed for alle sider');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Side %d af %d');
+cmtx_define('CMTX_INFO_PAGE', 'Side %d af %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'først');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'sidst');
-define('CMTX_TITLE_PAG_FIRST', 'først');
-define('CMTX_TITLE_PAG_PREVIOUS', 'forrige');
-define('CMTX_TITLE_PAG_NEXT', 'næste');
-define('CMTX_TITLE_PAG_LAST', 'sidste');
+cmtx_define('CMTX_PAGINATION_FIRST', 'først');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'sidst');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'først');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'forrige');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'næste');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'sidste');
 
 ?>

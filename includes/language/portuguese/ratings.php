@@ -24,16 +24,16 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_TITLE_RATING', 'Selecione a nota');
+cmtx_define('CMTX_TITLE_RATING', 'Selecione a nota');
 
-define('CMTX_TOP_RATING', 'Selecione a Nota');
+cmtx_define('CMTX_TOP_RATING', 'Selecione a Nota');
 
-define('CMTX_RATING_ONE', 'Horrível');
-define('CMTX_RATING_TWO', 'Ruim');
-define('CMTX_RATING_THREE', 'Ok');
-define('CMTX_RATING_FOUR', 'Bom');
-define('CMTX_RATING_FIVE', 'Excelente');
+cmtx_define('CMTX_RATING_ONE', 'Horrível');
+cmtx_define('CMTX_RATING_TWO', 'Ruim');
+cmtx_define('CMTX_RATING_THREE', 'Ok');
+cmtx_define('CMTX_RATING_FOUR', 'Bom');
+cmtx_define('CMTX_RATING_FIVE', 'Excelente');
 
-define('CMTX_HAS_RATED', 'Já Avaliou');
+cmtx_define('CMTX_HAS_RATED', 'Já Avaliou');
 
 ?>

@@ -24,10 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Prosimo zagotovite, da koda te strani vsebuje identifikator.');
+cmtx_define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Prosimo zagotovite, da koda te strani vsebuje identifikator.');
 
-define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'Identifikator strani (v kodi) ni pravi.');
-define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'Referenca ni pravilna.');
-define('CMTX_ALERT_MESSAGE_INVALID_URL', 'URL ni pravi.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'Identifikator strani (v kodi) ni pravi.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'Referenca ni pravilna.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_URL', 'URL ni pravi.');
 
 ?>

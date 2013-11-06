@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Тази функция е забранена.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Тази функция е забранена.');
 
-define('CMTX_INVALID', 'Невалидна заявка.');
-define('CMTX_CONFIRMED', 'Вашият абонамент не е потвърден.');
-define('CMTX_ALREADY_CONFIRMED', 'Вашият абонамент вече е потвърден.');
-define('CMTX_UNSUBSCRIBED', 'Сега вече не сте абонирани.');
-define('CMTX_NO_SUBSCRIPTION', 'Не са открити абонаменти.');
+cmtx_define('CMTX_INVALID', 'Невалидна заявка.');
+cmtx_define('CMTX_CONFIRMED', 'Вашият абонамент не е потвърден.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Вашият абонамент вече е потвърден.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'Сега вече не сте абонирани.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Не са открити абонаменти.');
 
 ?>

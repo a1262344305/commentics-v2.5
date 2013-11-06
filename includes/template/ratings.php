@@ -24,17 +24,17 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-$cmtx_ratings = '<select name="cmtx_rating" class="cmtx_field cmtx_select_field cmtx_rating_field" title="' . cmtx_define(CMTX_TITLE_RATING) . '">
-<option value="">' . cmtx_define(CMTX_TOP_RATING) . '</option>
-<option value="1">1 - ' . cmtx_define(CMTX_RATING_ONE) . '</option>
-<option value="2">2 - ' . cmtx_define(CMTX_RATING_TWO) . '</option>
-<option value="3">3 - ' . cmtx_define(CMTX_RATING_THREE) . '</option>
-<option value="4">4 - ' . cmtx_define(CMTX_RATING_FOUR) . '</option>
-<option value="5">5 - ' . cmtx_define(CMTX_RATING_FIVE) . '</option>
+$cmtx_ratings = '<select name="cmtx_rating" class="cmtx_field cmtx_select_field cmtx_rating_field" title="' . CMTX_TITLE_RATING . '">
+<option value="">' . CMTX_TOP_RATING . '</option>
+<option value="1">1 - ' . CMTX_RATING_ONE . '</option>
+<option value="2">2 - ' . CMTX_RATING_TWO . '</option>
+<option value="3">3 - ' . CMTX_RATING_THREE . '</option>
+<option value="4">4 - ' . CMTX_RATING_FOUR . '</option>
+<option value="5">5 - ' . CMTX_RATING_FIVE . '</option>
 </select>';
 
-$cmtx_rated = '<select name="cmtx_rating" disabled="disabled" class="cmtx_field cmtx_select_field cmtx_rating_field" title="' . cmtx_define(CMTX_HAS_RATED) . '">
-<option value="">' . cmtx_define(CMTX_HAS_RATED) . '</option>
+$cmtx_rated = '<select name="cmtx_rating" disabled="disabled" class="cmtx_field cmtx_select_field cmtx_rating_field" title="' . CMTX_HAS_RATED . '">
+<option value="">' . CMTX_HAS_RATED . '</option>
 </select>';
 
 ?>

@@ -227,6 +227,7 @@ define('CMTX_FIELD_LABEL_CHECK_TIME', 'Check Time:');
 define('CMTX_FIELD_LABEL_SPLIT_SCREEN', 'Split:');
 define('CMTX_FIELD_LABEL_CENTER_SCREEN', 'Center:');
 define('CMTX_FIELD_LABEL_PERMALINK', 'Permalink:');
+define('CMTX_FIELD_LABEL_REPLY', 'Reply:');
 define('CMTX_FIELD_LABEL_VERIFY', 'Verify:');
 define('CMTX_FIELD_LABEL_SIGNATURE', 'Signature:');
 define('CMTX_FIELD_LABEL_SECURIMAGE_WIDTH', 'Width:');

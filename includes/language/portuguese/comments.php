@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Comentários');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Comentários');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Sem comentários.');
+cmtx_define('CMTX_NO_COMMENTS', 'Sem comentários.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Classificar os comentários');
-define('CMTX_SORT_1', 'O mais novo');
-define('CMTX_SORT_2', 'Mais antiga');
-define('CMTX_SORT_3', 'Útil');
-define('CMTX_SORT_4', 'Inútil');
-define('CMTX_SORT_5', 'Positivo');
-define('CMTX_SORT_6', 'Crítico');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Classificar os comentários');
+cmtx_define('CMTX_SORT_1', 'O mais novo');
+cmtx_define('CMTX_SORT_2', 'Mais antiga');
+cmtx_define('CMTX_SORT_3', 'Útil');
+cmtx_define('CMTX_SORT_4', 'Inútil');
+cmtx_define('CMTX_SORT_5', 'Positivo');
+cmtx_define('CMTX_SORT_6', 'Crítico');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Você está revendo');
+cmtx_define('CMTX_TOPIC_INTRO', 'Você está revendo');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'diz...');
+cmtx_define('CMTX_SAYS', 'diz...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Leia mais');
-define('CMTX_TITLE_READ_MORE', 'Leia o comentário completo');
+cmtx_define('CMTX_READ_MORE', '... Leia mais');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Leia o comentário completo');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'Admin:');
+cmtx_define('CMTX_REPLY_INTRO', 'Admin:');
 
 /* Date */
-define('CMTX_TODAY', 'Hoje');
-define('CMTX_YESTERDAY', 'Ontem');
+cmtx_define('CMTX_TODAY', 'Hoje');
+cmtx_define('CMTX_YESTERDAY', 'Ontem');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Marqu este comentário como legal');
-define('CMTX_TITLE_DISLIKE', 'Marque este comentário como ruim');
-define('CMTX_VOTE_NO_COMMENT', 'Este comentário não existe mais');
-define('CMTX_VOTE_OWN_COMMENT', 'Você não pode votar em seu próprio comentário');
-define('CMTX_VOTE_ALREADY_VOTED', 'você já votou para este comentário');
-define('CMTX_VOTE_BANNED', 'Você foi banido anteriormente');
+cmtx_define('CMTX_TITLE_LIKE', 'Marqu este comentário como legal');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Marque este comentário como ruim');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Este comentário não existe mais');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Você não pode votar em seu próprio comentário');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'você já votou para este comentário');
+cmtx_define('CMTX_VOTE_BANNED', 'Você foi banido anteriormente');
 
 /* Flag */
-define('CMTX_FLAG', 'Marcar');
-define('CMTX_TITLE_FLAG', 'Relate este comentário como inapropriado');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Você tem certeza que quer relatar este comentário?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Este comentário não existe mais');
-define('CMTX_FLAG_OWN_COMMENT', 'Você não pode reportar seu próprio comentário');
-define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
-define('CMTX_FLAG_BANNED', 'Você foi banido anteriormente');
-define('CMTX_FLAG_REPORT_LIMIT', 'Você não pode mais reportar comentários');
-define('CMTX_FLAG_ALREADY_REPORTED', 'Você já relatou este comentário');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Este comentário já foi marcado');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Este comentário já foi verificado');
-define('CMTX_FLAG_REPORT_SENT', 'Obrigado pelo seu relato');
+cmtx_define('CMTX_FLAG', 'Marcar');
+cmtx_define('CMTX_TITLE_FLAG', 'Relate este comentário como inapropriado');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Você tem certeza que quer relatar este comentário?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'Este comentário não existe mais');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Você não pode reportar seu próprio comentário');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
+cmtx_define('CMTX_FLAG_BANNED', 'Você foi banido anteriormente');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'Você não pode mais reportar comentários');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'Você já relatou este comentário');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Este comentário já foi marcado');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Este comentário já foi verificado');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Obrigado pelo seu relato');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
 
 /* Reply */
-define('CMTX_REPLY', 'Responder');
-define('CMTX_TITLE_REPLY', 'Responder a este comentário');
+cmtx_define('CMTX_REPLY', 'Responder');
+cmtx_define('CMTX_TITLE_REPLY', 'Responder a este comentário');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Esta página');
-define('CMTX_RSS_ALL_PAGES', 'Todas páginas');
-define('CMTX_TITLE_RSS_THIS', 'Obter alertas de RSS para esta página');
-define('CMTX_TITLE_RSS_ALL', 'Obter alertas de RSS para todas as páginas');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Esta página');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Todas páginas');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Obter alertas de RSS para esta página');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Obter alertas de RSS para todas as páginas');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Página %d de %d');
+cmtx_define('CMTX_INFO_PAGE', 'Página %d de %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'primeiro');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'último');
-define('CMTX_TITLE_PAG_FIRST', 'primeiro');
-define('CMTX_TITLE_PAG_PREVIOUS', 'anterior');
-define('CMTX_TITLE_PAG_NEXT', 'próximo');
-define('CMTX_TITLE_PAG_LAST', 'último');
+cmtx_define('CMTX_PAGINATION_FIRST', 'primeiro');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'último');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'primeiro');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'anterior');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'próximo');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'último');
 
 ?>

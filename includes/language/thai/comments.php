@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'ความคิดเห็น');
+cmtx_define('CMTX_COMMENTS_HEADING', 'ความคิดเห็น');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'ยังไม่มีข้อความคิดเห็น');
+cmtx_define('CMTX_NO_COMMENTS', 'ยังไม่มีข้อความคิดเห็น');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'เรียงตาม');
-define('CMTX_SORT_1', 'ใหม่ล่าสุด');
-define('CMTX_SORT_2', 'เก่าแก่ที่สุด');
-define('CMTX_SORT_3', 'เป็นประโยชน์');
-define('CMTX_SORT_4', 'ไร้ประโยชน์');
-define('CMTX_SORT_5', 'บวก');
-define('CMTX_SORT_6', 'วิกฤต');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'เรียงตาม');
+cmtx_define('CMTX_SORT_1', 'ใหม่ล่าสุด');
+cmtx_define('CMTX_SORT_2', 'เก่าแก่ที่สุด');
+cmtx_define('CMTX_SORT_3', 'เป็นประโยชน์');
+cmtx_define('CMTX_SORT_4', 'ไร้ประโยชน์');
+cmtx_define('CMTX_SORT_5', 'บวก');
+cmtx_define('CMTX_SORT_6', 'วิกฤต');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'คุณทาน');
+cmtx_define('CMTX_TOPIC_INTRO', 'คุณทาน');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'แสดงความคิดเห็น...');
+cmtx_define('CMTX_SAYS', 'แสดงความคิดเห็น...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... อ่านเพิ่มเติม');
-define('CMTX_TITLE_READ_MORE', 'อ่านความคิดเห็นเต็ม');
+cmtx_define('CMTX_READ_MORE', '... อ่านเพิ่มเติม');
+cmtx_define('CMTX_TITLE_READ_MORE', 'อ่านความคิดเห็นเต็ม');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'ผู้ควบคุมดูแล:');
+cmtx_define('CMTX_REPLY_INTRO', 'ผู้ควบคุมดูแล:');
 
 /* Date */
-define('CMTX_TODAY', 'วันนี้');
-define('CMTX_YESTERDAY', 'เมื่อวาน');
+cmtx_define('CMTX_TODAY', 'วันนี้');
+cmtx_define('CMTX_YESTERDAY', 'เมื่อวาน');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'โหวต: เห็นด้วย');
-define('CMTX_TITLE_DISLIKE', 'โหวต: ไม่เห็นด้วย');
-define('CMTX_VOTE_NO_COMMENT', 'ไม่พบข้อความคิดเห็นนี้');
-define('CMTX_VOTE_OWN_COMMENT', 'คุณไม่สามารถลงคะแนนสำหรับความเห็นของคุณเอง');
-define('CMTX_VOTE_ALREADY_VOTED', 'คุณได้โหวตสำหรับข้อความคิดเห็นนี้ไปแล้ว');
-define('CMTX_VOTE_BANNED', 'คุณได้รับก่อนหน้านี้ห้าม');
+cmtx_define('CMTX_TITLE_LIKE', 'โหวต: เห็นด้วย');
+cmtx_define('CMTX_TITLE_DISLIKE', 'โหวต: ไม่เห็นด้วย');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'ไม่พบข้อความคิดเห็นนี้');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'คุณไม่สามารถลงคะแนนสำหรับความเห็นของคุณเอง');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'คุณได้โหวตสำหรับข้อความคิดเห็นนี้ไปแล้ว');
+cmtx_define('CMTX_VOTE_BANNED', 'คุณได้รับก่อนหน้านี้ห้าม');
 
 /* Flag */
-define('CMTX_FLAG', 'รายงาน');
-define('CMTX_TITLE_FLAG', 'รายงานข้อความคิดเห็นนี้t');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'คุณแน่ใจว่าคุณต้องการรายงานเกี่ยวกับข้อความคิดเห็นนี้?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'ไม่พบข้อความคิดเห็นนี้');
-define('CMTX_FLAG_OWN_COMMENT', 'คุณไม่สามารถรายงานความเห็นของคุณเอง');
-define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
-define('CMTX_FLAG_BANNED', 'คุณได้รับก่อนหน้านี้ห้าม');
-define('CMTX_FLAG_REPORT_LIMIT', 'คุณไม่สามารถรายงานเกี่ยวกับข้อความคิดเห็นได้อีก');
-define('CMTX_FLAG_ALREADY_REPORTED', 'คุณได้รายงานเกี่ยวกับข้อความคิดเห็นนี้แล้ว');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'ข้อความคิดเห็นนี้ถูกรายงานแล้ว');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'ข้อความคิดเห็นนี้ได้รับการตรวจสอบแล้ว');
-define('CMTX_FLAG_REPORT_SENT', 'ขอบคุณสำหรับการรายงาน');
+cmtx_define('CMTX_FLAG', 'รายงาน');
+cmtx_define('CMTX_TITLE_FLAG', 'รายงานข้อความคิดเห็นนี้t');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'คุณแน่ใจว่าคุณต้องการรายงานเกี่ยวกับข้อความคิดเห็นนี้?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'ไม่พบข้อความคิดเห็นนี้');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'คุณไม่สามารถรายงานความเห็นของคุณเอง');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
+cmtx_define('CMTX_FLAG_BANNED', 'คุณได้รับก่อนหน้านี้ห้าม');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'คุณไม่สามารถรายงานเกี่ยวกับข้อความคิดเห็นได้อีก');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'คุณได้รายงานเกี่ยวกับข้อความคิดเห็นนี้แล้ว');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'ข้อความคิดเห็นนี้ถูกรายงานแล้ว');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'ข้อความคิดเห็นนี้ได้รับการตรวจสอบแล้ว');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'ขอบคุณสำหรับการรายงาน');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
 
 /* Reply */
-define('CMTX_REPLY', 'ตอบ');
-define('CMTX_TITLE_REPLY', 'ตอบข้อความคิดเห็นนี้');
+cmtx_define('CMTX_REPLY', 'ตอบ');
+cmtx_define('CMTX_TITLE_REPLY', 'ตอบข้อความคิดเห็นนี้');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'หน้านี้');
-define('CMTX_RSS_ALL_PAGES', 'ทุกหน้า');
-define('CMTX_TITLE_RSS_THIS', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของหน้านี้');
-define('CMTX_TITLE_RSS_ALL', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของทุกหน้า');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'หน้านี้');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'ทุกหน้า');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของหน้านี้');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของทุกหน้า');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'หน้า %d จาก %d');
+cmtx_define('CMTX_INFO_PAGE', 'หน้า %d จาก %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'หน้าแรก');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'หน้าสุดท้าย');
-define('CMTX_TITLE_PAG_FIRST', 'หน้าแรก');
-define('CMTX_TITLE_PAG_PREVIOUS', 'หน้าก่อนหน้า');
-define('CMTX_TITLE_PAG_NEXT', 'หน้าถัดไป');
-define('CMTX_TITLE_PAG_LAST', 'หน้าสุดท้าย');
+cmtx_define('CMTX_PAGINATION_FIRST', 'หน้าแรก');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'หน้าสุดท้าย');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'หน้าแรก');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'หน้าก่อนหน้า');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'หน้าถัดไป');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'หน้าสุดท้าย');
 
 ?>

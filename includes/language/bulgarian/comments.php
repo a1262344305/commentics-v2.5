@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Коментари');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Коментари');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Все още няма коментари.');
+cmtx_define('CMTX_NO_COMMENTS', 'Все още няма коментари.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Подреди по');
-define('CMTX_SORT_1', 'Най-нови');
-define('CMTX_SORT_2', 'Най-стари');
-define('CMTX_SORT_3', 'Полезност');
-define('CMTX_SORT_4', 'Безполезност');
-define('CMTX_SORT_5', 'Позитивни');
-define('CMTX_SORT_6', 'Критични');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Подреди по');
+cmtx_define('CMTX_SORT_1', 'Най-нови');
+cmtx_define('CMTX_SORT_2', 'Най-стари');
+cmtx_define('CMTX_SORT_3', 'Полезност');
+cmtx_define('CMTX_SORT_4', 'Безполезност');
+cmtx_define('CMTX_SORT_5', 'Позитивни');
+cmtx_define('CMTX_SORT_6', 'Критични');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Тема');
+cmtx_define('CMTX_TOPIC_INTRO', 'Тема');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'казва...');
+cmtx_define('CMTX_SAYS', 'казва...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Прочети повече');
-define('CMTX_TITLE_READ_MORE', 'Прочети целия коментар');
+cmtx_define('CMTX_READ_MORE', '... Прочети повече');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Прочети целия коментар');
 
 /* Admin */
-define('CMTX_REPLY_INTRO', 'Администратор:');
+cmtx_define('CMTX_REPLY_INTRO', 'Администратор:');
 
 /* Date */
-define('CMTX_TODAY', 'Днес');
-define('CMTX_YESTERDAY', 'Вчера');
+cmtx_define('CMTX_TODAY', 'Днес');
+cmtx_define('CMTX_YESTERDAY', 'Вчера');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Гласувай позитивно за този коментар');
-define('CMTX_TITLE_DISLIKE', 'Гласувай негативно за този коментар');
-define('CMTX_VOTE_NO_COMMENT', 'Този коментар вече не съществува');
-define('CMTX_VOTE_OWN_COMMENT', 'Не можете да гласувате за собствения си коментар');
-define('CMTX_VOTE_ALREADY_VOTED', 'Вие вече сте гласували за този коментар');
-define('CMTX_VOTE_BANNED', 'Вие сте били вече баннати!');
+cmtx_define('CMTX_TITLE_LIKE', 'Гласувай позитивно за този коментар');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Гласувай негативно за този коментар');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Този коментар вече не съществува');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Не можете да гласувате за собствения си коментар');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'Вие вече сте гласували за този коментар');
+cmtx_define('CMTX_VOTE_BANNED', 'Вие сте били вече баннати!');
 
 /* Flag */
-define('CMTX_FLAG', 'Флаг');
-define('CMTX_TITLE_FLAG', 'Докладвай коментара');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Сигурни ли сте, че искате да докладвате този коментар?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Този коментар вече не съществува');
-define('CMTX_FLAG_OWN_COMMENT', 'Не можете да докладвате собствения си коментар');
-define('CMTX_FLAG_ADMIN_COMMENT', 'Не можете да докладвате коментар на админа');
-define('CMTX_FLAG_BANNED', 'Вече сте били баннати!');
-define('CMTX_FLAG_REPORT_LIMIT', 'Не можете да докладвате повече коментари');
-define('CMTX_FLAG_ALREADY_REPORTED', 'Вече сте докладвали този коментар');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Този коментар вече е бил докладван');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Този коментар вече е бил проверен');
-define('CMTX_FLAG_REPORT_SENT', 'Благодарим Ви за доклада');
+cmtx_define('CMTX_FLAG', 'Флаг');
+cmtx_define('CMTX_TITLE_FLAG', 'Докладвай коментара');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Сигурни ли сте, че искате да докладвате този коментар?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'Този коментар вече не съществува');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Не можете да докладвате собствения си коментар');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'Не можете да докладвате коментар на админа');
+cmtx_define('CMTX_FLAG_BANNED', 'Вече сте били баннати!');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'Не можете да докладвате повече коментари');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'Вече сте докладвали този коментар');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Този коментар вече е бил докладван');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Този коментар вече е бил проверен');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Благодарим Ви за доклада');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink за този коментар');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink за този коментар');
 
 /* Reply */
-define('CMTX_REPLY', 'Отговори');
-define('CMTX_TITLE_REPLY', 'Отговори на този коментар');
+cmtx_define('CMTX_REPLY', 'Отговори');
+cmtx_define('CMTX_TITLE_REPLY', 'Отговори на този коментар');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Тази страница');
-define('CMTX_RSS_ALL_PAGES', 'Всички страници');
-define('CMTX_TITLE_RSS_THIS', 'Вземи RSS уведомления за тази страница');
-define('CMTX_TITLE_RSS_ALL', 'Вземи RSS уведомления за всички страница');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Тази страница');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Всички страници');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Вземи RSS уведомления за тази страница');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Вземи RSS уведомления за всички страница');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Страница %d от %d');
+cmtx_define('CMTX_INFO_PAGE', 'Страница %d от %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'Първа');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'Последна');
-define('CMTX_TITLE_PAG_FIRST', 'Първа');
-define('CMTX_TITLE_PAG_PREVIOUS', 'Последна');
-define('CMTX_TITLE_PAG_NEXT', 'Следваща');
-define('CMTX_TITLE_PAG_LAST', 'Последна');
+cmtx_define('CMTX_PAGINATION_FIRST', 'Първа');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'Последна');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'Първа');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'Последна');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'Следваща');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'Последна');
 
 ?>

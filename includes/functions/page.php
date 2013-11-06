@@ -100,11 +100,15 @@ function cmtx_url_decode_spaces ($value) { //decode URL spaces
 } //end of url-decode-spaces function
 
 
-function cmtx_define ($value) { //prepare define string for output
+function cmtx_define($name, $value) { //defines a constant
 
-	$value = cmtx_sanitize($value, true, false); //encode string
-
-	return $value; //return prepared string
+	if (!defined($name)) {
+		
+		$value = cmtx_sanitize($value, true, false); //encode value
+		
+		define($name, $value);
+		
+	}
 
 } //end of define function
 

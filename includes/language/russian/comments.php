@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Отзывы');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Отзывы');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Отзывов пока нет.');
+cmtx_define('CMTX_NO_COMMENTS', 'Отзывов пока нет.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Сортировать по');
-define('CMTX_SORT_1', 'Новые');
-define('CMTX_SORT_2', 'Старые');
-define('CMTX_SORT_3', 'Полезные');
-define('CMTX_SORT_4', 'Бесполезные');
-define('CMTX_SORT_5', 'Положительные');
-define('CMTX_SORT_6', 'Отрицательные');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Сортировать по');
+cmtx_define('CMTX_SORT_1', 'Новые');
+cmtx_define('CMTX_SORT_2', 'Старые');
+cmtx_define('CMTX_SORT_3', 'Полезные');
+cmtx_define('CMTX_SORT_4', 'Бесполезные');
+cmtx_define('CMTX_SORT_5', 'Положительные');
+cmtx_define('CMTX_SORT_6', 'Отрицательные');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Вы просматриваете');
+cmtx_define('CMTX_TOPIC_INTRO', 'Вы просматриваете');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'говорит...');
+cmtx_define('CMTX_SAYS', 'говорит...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Читать дальше');
-define('CMTX_TITLE_READ_MORE', 'Читать отзыв полностью');
+cmtx_define('CMTX_READ_MORE', '... Читать дальше');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Читать отзыв полностью');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'Администратор:');
+cmtx_define('CMTX_REPLY_INTRO', 'Администратор:');
 
 /* Date */
-define('CMTX_TODAY', 'Сегодня');
-define('CMTX_YESTERDAY', 'Вчера');
+cmtx_define('CMTX_TODAY', 'Сегодня');
+cmtx_define('CMTX_YESTERDAY', 'Вчера');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Проголосовать за отзыв');
-define('CMTX_TITLE_DISLIKE', 'Проголосовать против отзыва');
-define('CMTX_VOTE_NO_COMMENT', 'Данный комментарий больше не существует');
-define('CMTX_VOTE_OWN_COMMENT', 'Вы не можете голосовать за собственный отзыв');
-define('CMTX_VOTE_ALREADY_VOTED', 'Вы уже голосовали за данный отзыв');
-define('CMTX_VOTE_BANNED', 'Вы были забанены');
+cmtx_define('CMTX_TITLE_LIKE', 'Проголосовать за отзыв');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Проголосовать против отзыва');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Данный комментарий больше не существует');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Вы не можете голосовать за собственный отзыв');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'Вы уже голосовали за данный отзыв');
+cmtx_define('CMTX_VOTE_BANNED', 'Вы были забанены');
 
 /* Flag */
-define('CMTX_FLAG', 'Метка');
-define('CMTX_TITLE_FLAG', 'Пожаловаться на отзыв');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Вы уверены, что хотите пожаловаться на данный отзыв?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Данный комментарий больше не существует');
-define('CMTX_FLAG_OWN_COMMENT', 'Вы не можете пожаловаться на собственный отзыв');
-define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
-define('CMTX_FLAG_BANNED', 'Вы были забанены');
-define('CMTX_FLAG_REPORT_LIMIT', 'Вы больше не можете жаловаться на отзывы');
-define('CMTX_FLAG_ALREADY_REPORTED', 'Вы уже жаловались на данный отзыв');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Данный отзыв уже помечен');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Данный отзыв был проверен');
-define('CMTX_FLAG_REPORT_SENT', 'Спасибо за сообщение');
+cmtx_define('CMTX_FLAG', 'Метка');
+cmtx_define('CMTX_TITLE_FLAG', 'Пожаловаться на отзыв');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Вы уверены, что хотите пожаловаться на данный отзыв?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'Данный комментарий больше не существует');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Вы не можете пожаловаться на собственный отзыв');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'You cannot report an admin comment');
+cmtx_define('CMTX_FLAG_BANNED', 'Вы были забанены');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'Вы больше не можете жаловаться на отзывы');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'Вы уже жаловались на данный отзыв');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Данный отзыв уже помечен');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Данный отзыв был проверен');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Спасибо за сообщение');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink for this comment');
 
 /* Reply */
-define('CMTX_REPLY', 'Ответить');
-define('CMTX_TITLE_REPLY', 'Ответить на комментарий');
+cmtx_define('CMTX_REPLY', 'Ответить');
+cmtx_define('CMTX_TITLE_REPLY', 'Ответить на комментарий');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Эта страница');
-define('CMTX_RSS_ALL_PAGES', 'Все страницы');
-define('CMTX_TITLE_RSS_THIS', 'Получать RSS оповещения для этой страницы ');
-define('CMTX_TITLE_RSS_ALL', 'Получать RSS оповещения для всех страниц');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Эта страница');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Все страницы');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Получать RSS оповещения для этой страницы ');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Получать RSS оповещения для всех страниц');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Страница %d из %d');
+cmtx_define('CMTX_INFO_PAGE', 'Страница %d из %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'В начало');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'В конец');
-define('CMTX_TITLE_PAG_FIRST', 'первое');
-define('CMTX_TITLE_PAG_PREVIOUS', 'предыдущее');
-define('CMTX_TITLE_PAG_NEXT', 'следующее');
-define('CMTX_TITLE_PAG_LAST', 'последнее');
+cmtx_define('CMTX_PAGINATION_FIRST', 'В начало');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'В конец');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'первое');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'предыдущее');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'следующее');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'последнее');
 
 ?>

@@ -24,10 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_RSS_FEATURE_DISABLED', 'Diese Funktion wurde deaktiviert.');
+cmtx_define('CMTX_RSS_FEATURE_DISABLED', 'Diese Funktion wurde deaktiviert.');
 
-define('CMTX_RSS_DESCRIPTION', 'Comments');
+cmtx_define('CMTX_RSS_DESCRIPTION', 'Comments');
 
-define('CMTX_RSS_POSTER', '%s');
+cmtx_define('CMTX_RSS_POSTER', '%s');
 
 ?>

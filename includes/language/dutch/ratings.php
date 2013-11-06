@@ -24,16 +24,16 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_TITLE_RATING', 'Kies waardering');
+cmtx_define('CMTX_TITLE_RATING', 'Kies waardering');
 
-define('CMTX_TOP_RATING', 'Kies waardering');
+cmtx_define('CMTX_TOP_RATING', 'Kies waardering');
 
-define('CMTX_RATING_ONE', 'Verschrikkelijk');
-define('CMTX_RATING_TWO', 'Matig');
-define('CMTX_RATING_THREE', 'Redelijk');
-define('CMTX_RATING_FOUR', 'Goed');
-define('CMTX_RATING_FIVE', 'Uitstekend');
+cmtx_define('CMTX_RATING_ONE', 'Verschrikkelijk');
+cmtx_define('CMTX_RATING_TWO', 'Matig');
+cmtx_define('CMTX_RATING_THREE', 'Redelijk');
+cmtx_define('CMTX_RATING_FOUR', 'Goed');
+cmtx_define('CMTX_RATING_FIVE', 'Uitstekend');
 
-define('CMTX_HAS_RATED', 'Al Beoordeeld');
+cmtx_define('CMTX_HAS_RATED', 'Al Beoordeeld');
 
 ?>

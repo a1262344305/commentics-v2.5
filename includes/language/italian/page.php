@@ -24,10 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Si prega di assicurarsi che questa pagina abbia un ID.');
+cmtx_define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Si prega di assicurarsi che questa pagina abbia un ID.');
 
-define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'L\'ID fornito sembra non essere valido.');
-define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'Il riferimento fornito sembra non essere valido.');
-define('CMTX_ALERT_MESSAGE_INVALID_URL', 'L\'URL fornito sembra non essere valido.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'L\'ID fornito sembra non essere valido.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'Il riferimento fornito sembra non essere valido.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_URL', 'L\'URL fornito sembra non essere valido.');
 
 ?>

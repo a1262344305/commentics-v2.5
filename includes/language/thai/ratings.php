@@ -24,16 +24,16 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_TITLE_RATING', 'เลือกระดับคะแนน');
+cmtx_define('CMTX_TITLE_RATING', 'เลือกระดับคะแนน');
 
-define('CMTX_TOP_RATING', 'กรุณาเลือกระดับคะแนน');
+cmtx_define('CMTX_TOP_RATING', 'กรุณาเลือกระดับคะแนน');
 
-define('CMTX_RATING_ONE', 'ไร้ประโยชน์');
-define('CMTX_RATING_TWO', 'พอใช้ได้');
-define('CMTX_RATING_THREE', 'ใช้ได้');
-define('CMTX_RATING_FOUR', 'ดี');
-define('CMTX_RATING_FIVE', 'ดีเยี่ยม');
+cmtx_define('CMTX_RATING_ONE', 'ไร้ประโยชน์');
+cmtx_define('CMTX_RATING_TWO', 'พอใช้ได้');
+cmtx_define('CMTX_RATING_THREE', 'ใช้ได้');
+cmtx_define('CMTX_RATING_FOUR', 'ดี');
+cmtx_define('CMTX_RATING_FIVE', 'ดีเยี่ยม');
 
-define('CMTX_HAS_RATED', 'ได้ประเมินไว้แล้ว');
+cmtx_define('CMTX_HAS_RATED', 'ได้ประเมินไว้แล้ว');
 
 ?>

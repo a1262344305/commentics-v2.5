@@ -25,240 +25,244 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_FORM', '#cmtx_form');
+cmtx_define('CMTX_ANCHOR_FORM', '#cmtx_form');
 
 /* Heading */
-define('CMTX_FORM_HEADING', 'Add Comment');
+cmtx_define('CMTX_FORM_HEADING', 'Add Comment');
 
 /* Form disabled messages */
-define('CMTX_ALL_FORMS_DISABLED', 'Adding comments has been disabled.');
-define('CMTX_THIS_FORM_DISABLED', 'Adding comments has been disabled for this page.');
+cmtx_define('CMTX_ALL_FORMS_DISABLED', 'Adding comments has been disabled.');
+cmtx_define('CMTX_THIS_FORM_DISABLED', 'Adding comments has been disabled for this page.');
 
 /* Open form link */
-define('CMTX_OPEN_FORM', 'Open the form');
+cmtx_define('CMTX_OPEN_FORM', 'Open the form');
 
 /* JavaScript disabled message */
-define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript must be enabled for certain features to work.');
+cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript must be enabled for certain features to work.');
 
 /* Reply */
-define('CMTX_REPLY_MESSAGE', 'You are replying to');
-define('CMTX_REPLY_CANCEL', '[cancel]');
-define('CMTX_REPLY_NOBODY', 'You are not replying to anyone.');
+cmtx_define('CMTX_REPLY_MESSAGE', 'You are replying to');
+cmtx_define('CMTX_REPLY_CANCEL', '[cancel]');
+cmtx_define('CMTX_REPLY_NOBODY', 'You are not replying to anyone.');
 
 /* Required */
-define('CMTX_REQUIRED_SYMBOL', '*');
-define('CMTX_REQUIRED_SYMBOL_MESSAGE', CMTX_REQUIRED_SYMBOL . ' Required information');
+cmtx_define('CMTX_REQUIRED_SYMBOL', '*');
+cmtx_define('CMTX_REQUIRED_SYMBOL_MESSAGE', CMTX_REQUIRED_SYMBOL . ' Required information');
 
 /* Field labels */
-define('CMTX_LABEL_NAME', 'Name:');
-define('CMTX_LABEL_EMAIL', 'Email:');
-define('CMTX_LABEL_WEBSITE', 'Website:');
-define('CMTX_LABEL_TOWN', 'Town:');
-define('CMTX_LABEL_COUNTRY', 'Country:');
-define('CMTX_LABEL_RATING', 'Rating:');
-define('CMTX_LABEL_COMMENT', 'Comment:');
-define('CMTX_LABEL_QUESTION', 'Question:');
-define('CMTX_LABEL_CAPTCHA', 'Captcha:');
+cmtx_define('CMTX_LABEL_NAME', 'Name:');
+cmtx_define('CMTX_LABEL_EMAIL', 'Email:');
+cmtx_define('CMTX_LABEL_WEBSITE', 'Website:');
+cmtx_define('CMTX_LABEL_TOWN', 'Town:');
+cmtx_define('CMTX_LABEL_COUNTRY', 'Country:');
+cmtx_define('CMTX_LABEL_RATING', 'Rating:');
+cmtx_define('CMTX_LABEL_COMMENT', 'Comment:');
+cmtx_define('CMTX_LABEL_QUESTION', 'Question:');
+cmtx_define('CMTX_LABEL_CAPTCHA', 'Captcha:');
 
 /* Field titles */
-define('CMTX_TITLE_NAME', 'Enter name');
-define('CMTX_TITLE_EMAIL', 'Enter email address');
-define('CMTX_TITLE_WEBSITE', 'Enter website address');
-define('CMTX_TITLE_TOWN', 'Enter town');
-define('CMTX_TITLE_COMMENT', 'Enter comment');
-define('CMTX_TITLE_QUESTION', 'Enter answer to question');
-define('CMTX_TITLE_NOTIFY', 'Receive email notifications');
-define('CMTX_TITLE_REMEMBER', 'Remember my form inputs');
-define('CMTX_TITLE_PRIVACY', 'Agree to privacy policy');
-define('CMTX_TITLE_TERMS', 'Agree to terms and conditions');
-define('CMTX_TITLE_SUBMIT', 'Add Comment');
-define('CMTX_TITLE_PREVIEW', 'Preview');
+cmtx_define('CMTX_TITLE_NAME', 'Enter name');
+cmtx_define('CMTX_TITLE_EMAIL', 'Enter email address');
+cmtx_define('CMTX_TITLE_WEBSITE', 'Enter website address');
+cmtx_define('CMTX_TITLE_TOWN', 'Enter town');
+cmtx_define('CMTX_TITLE_COMMENT', 'Enter comment');
+cmtx_define('CMTX_TITLE_QUESTION', 'Enter answer to question');
+cmtx_define('CMTX_TITLE_NOTIFY', 'Receive email notifications');
+cmtx_define('CMTX_TITLE_REMEMBER', 'Remember my form inputs');
+cmtx_define('CMTX_TITLE_PRIVACY', 'Agree to the privacy policy');
+cmtx_define('CMTX_TITLE_TERMS', 'Agree to the terms and conditions');
+cmtx_define('CMTX_TITLE_SUBMIT', 'Add Comment');
+cmtx_define('CMTX_TITLE_PREVIEW', 'Preview');
 
 /* Field placeholders */
-define('CMTX_PLACEHOLDER_NAME', '');
-define('CMTX_PLACEHOLDER_EMAIL', '');
-define('CMTX_PLACEHOLDER_WEBSITE', '');
-define('CMTX_PLACEHOLDER_TOWN', '');
-define('CMTX_PLACEHOLDER_COMMENT', '');
-define('CMTX_PLACEHOLDER_QUESTION', '');
-define('CMTX_PLACEHOLDER_CAPTCHA', '');
+cmtx_define('CMTX_PLACEHOLDER_NAME', '');
+cmtx_define('CMTX_PLACEHOLDER_EMAIL', '');
+cmtx_define('CMTX_PLACEHOLDER_WEBSITE', '');
+cmtx_define('CMTX_PLACEHOLDER_TOWN', '');
+cmtx_define('CMTX_PLACEHOLDER_COMMENT', '');
+cmtx_define('CMTX_PLACEHOLDER_QUESTION', '');
+cmtx_define('CMTX_PLACEHOLDER_CAPTCHA', '');
 
 /* Note displayed after email field */
-define('CMTX_NOTE_EMAIL', '(will not be displayed)');
+cmtx_define('CMTX_NOTE_EMAIL', '(will not be displayed)');
 
 /* BB Code tags */
-define('CMTX_BB_CODE_TAG_BOLD_1', '[B]');
-define('CMTX_BB_CODE_TAG_BOLD_2', '[/B]');
-define('CMTX_BB_CODE_TAG_ITALIC_1', '[I]');
-define('CMTX_BB_CODE_TAG_ITALIC_2', '[/I]');
-define('CMTX_BB_CODE_TAG_UNDERLINE_1', '[U]');
-define('CMTX_BB_CODE_TAG_UNDERLINE_2', '[/U]');
-define('CMTX_BB_CODE_TAG_STRIKE_1', '[STRIKE]');
-define('CMTX_BB_CODE_TAG_STRIKE_2', '[/STRIKE]');
-define('CMTX_BB_CODE_TAG_SUPERSCRIPT_1', '[SUPERSCRIPT]');
-define('CMTX_BB_CODE_TAG_SUPERSCRIPT_2', '[/SUPERSCRIPT]');
-define('CMTX_BB_CODE_TAG_SUBSCRIPT_1', '[SUBSCRIPT]');
-define('CMTX_BB_CODE_TAG_SUBSCRIPT_2', '[/SUBSCRIPT]');
-define('CMTX_BB_CODE_TAG_CODE_1', '[CODE]');
-define('CMTX_BB_CODE_TAG_CODE_2', '[/CODE]');
-define('CMTX_BB_CODE_TAG_PHP_1', '[PHP]');
-define('CMTX_BB_CODE_TAG_PHP_2', '[/PHP]');
-define('CMTX_BB_CODE_TAG_QUOTE_1', '[QUOTE]');
-define('CMTX_BB_CODE_TAG_QUOTE_2', '[/QUOTE]');
-define('CMTX_BB_CODE_TAG_LINE', '[LINE]');
-define('CMTX_BB_CODE_TAG_BULLET_1', '[BULLET]');
-define('CMTX_BB_CODE_TAG_BULLET_2', '[/BULLET]');
-define('CMTX_BB_CODE_TAG_NUMERIC_1', '[NUMERIC]');
-define('CMTX_BB_CODE_TAG_NUMERIC_2', '[/NUMERIC]');
-define('CMTX_BB_CODE_TAG_ITEM_1', '[ITEM]');
-define('CMTX_BB_CODE_TAG_ITEM_2', '[/ITEM]');
-define('CMTX_BB_CODE_TAG_LINK_1', '[LINK]');
-define('CMTX_BB_CODE_TAG_LINK_2', '[LINK=');
-define('CMTX_BB_CODE_TAG_LINK_3', ']');
-define('CMTX_BB_CODE_TAG_LINK_4', '[/LINK]');
-define('CMTX_BB_CODE_TAG_EMAIL_1', '[EMAIL]');
-define('CMTX_BB_CODE_TAG_EMAIL_2', '[EMAIL=');
-define('CMTX_BB_CODE_TAG_EMAIL_3', ']');
-define('CMTX_BB_CODE_TAG_EMAIL_4', '[/EMAIL]');
-define('CMTX_BB_CODE_TAG_IMAGE_1', '[IMAGE]');
-define('CMTX_BB_CODE_TAG_IMAGE_2', '[/IMAGE]');
-define('CMTX_BB_CODE_TAG_VIDEO_1', '[VIDEO]');
-define('CMTX_BB_CODE_TAG_VIDEO_2', '[/VIDEO]');
+cmtx_define('CMTX_BB_CODE_TAG_BOLD_1', '[B]');
+cmtx_define('CMTX_BB_CODE_TAG_BOLD_2', '[/B]');
+cmtx_define('CMTX_BB_CODE_TAG_ITALIC_1', '[I]');
+cmtx_define('CMTX_BB_CODE_TAG_ITALIC_2', '[/I]');
+cmtx_define('CMTX_BB_CODE_TAG_UNDERLINE_1', '[U]');
+cmtx_define('CMTX_BB_CODE_TAG_UNDERLINE_2', '[/U]');
+cmtx_define('CMTX_BB_CODE_TAG_STRIKE_1', '[STRIKE]');
+cmtx_define('CMTX_BB_CODE_TAG_STRIKE_2', '[/STRIKE]');
+cmtx_define('CMTX_BB_CODE_TAG_SUPERSCRIPT_1', '[SUPERSCRIPT]');
+cmtx_define('CMTX_BB_CODE_TAG_SUPERSCRIPT_2', '[/SUPERSCRIPT]');
+cmtx_define('CMTX_BB_CODE_TAG_SUBSCRIPT_1', '[SUBSCRIPT]');
+cmtx_define('CMTX_BB_CODE_TAG_SUBSCRIPT_2', '[/SUBSCRIPT]');
+cmtx_define('CMTX_BB_CODE_TAG_CODE_1', '[CODE]');
+cmtx_define('CMTX_BB_CODE_TAG_CODE_2', '[/CODE]');
+cmtx_define('CMTX_BB_CODE_TAG_PHP_1', '[PHP]');
+cmtx_define('CMTX_BB_CODE_TAG_PHP_2', '[/PHP]');
+cmtx_define('CMTX_BB_CODE_TAG_QUOTE_1', '[QUOTE]');
+cmtx_define('CMTX_BB_CODE_TAG_QUOTE_2', '[/QUOTE]');
+cmtx_define('CMTX_BB_CODE_TAG_LINE', '[LINE]');
+cmtx_define('CMTX_BB_CODE_TAG_BULLET_1', '[BULLET]');
+cmtx_define('CMTX_BB_CODE_TAG_BULLET_2', '[/BULLET]');
+cmtx_define('CMTX_BB_CODE_TAG_NUMERIC_1', '[NUMERIC]');
+cmtx_define('CMTX_BB_CODE_TAG_NUMERIC_2', '[/NUMERIC]');
+cmtx_define('CMTX_BB_CODE_TAG_ITEM_1', '[ITEM]');
+cmtx_define('CMTX_BB_CODE_TAG_ITEM_2', '[/ITEM]');
+cmtx_define('CMTX_BB_CODE_TAG_LINK_1', '[LINK]');
+cmtx_define('CMTX_BB_CODE_TAG_LINK_2', '[LINK=');
+cmtx_define('CMTX_BB_CODE_TAG_LINK_3', ']');
+cmtx_define('CMTX_BB_CODE_TAG_LINK_4', '[/LINK]');
+cmtx_define('CMTX_BB_CODE_TAG_EMAIL_1', '[EMAIL]');
+cmtx_define('CMTX_BB_CODE_TAG_EMAIL_2', '[EMAIL=');
+cmtx_define('CMTX_BB_CODE_TAG_EMAIL_3', ']');
+cmtx_define('CMTX_BB_CODE_TAG_EMAIL_4', '[/EMAIL]');
+cmtx_define('CMTX_BB_CODE_TAG_IMAGE_1', '[IMAGE]');
+cmtx_define('CMTX_BB_CODE_TAG_IMAGE_2', '[/IMAGE]');
+cmtx_define('CMTX_BB_CODE_TAG_VIDEO_1', '[VIDEO]');
+cmtx_define('CMTX_BB_CODE_TAG_VIDEO_2', '[/VIDEO]');
 
 /* BB Code titles */
-define('CMTX_BB_CODE_TITLE_BOLD', 'Bold');
-define('CMTX_BB_CODE_TITLE_ITALIC', 'Italic');
-define('CMTX_BB_CODE_TITLE_UNDERLINE', 'Underline');
-define('CMTX_BB_CODE_TITLE_STRIKE', 'Strike');
-define('CMTX_BB_CODE_TITLE_SUPERSCRIPT', 'Superscript');
-define('CMTX_BB_CODE_TITLE_SUBSCRIPT', 'Subscript');
-define('CMTX_BB_CODE_TITLE_CODE', 'Code');
-define('CMTX_BB_CODE_TITLE_PHP', 'PHP');
-define('CMTX_BB_CODE_TITLE_QUOTE', 'Quote');
-define('CMTX_BB_CODE_TITLE_LINE', 'Insert line');
-define('CMTX_BB_CODE_TITLE_BULLET', 'Insert bullet list');
-define('CMTX_BB_CODE_TITLE_NUMERIC', 'Insert numeric list');
-define('CMTX_BB_CODE_TITLE_LINK', 'Insert web link');
-define('CMTX_BB_CODE_TITLE_EMAIL', 'Insert email link');
-define('CMTX_BB_CODE_TITLE_IMAGE', 'Insert image');
-define('CMTX_BB_CODE_TITLE_VIDEO', 'Insert video');
+cmtx_define('CMTX_BB_CODE_TITLE_BOLD', 'Bold');
+cmtx_define('CMTX_BB_CODE_TITLE_ITALIC', 'Italic');
+cmtx_define('CMTX_BB_CODE_TITLE_UNDERLINE', 'Underline');
+cmtx_define('CMTX_BB_CODE_TITLE_STRIKE', 'Strike');
+cmtx_define('CMTX_BB_CODE_TITLE_SUPERSCRIPT', 'Superscript');
+cmtx_define('CMTX_BB_CODE_TITLE_SUBSCRIPT', 'Subscript');
+cmtx_define('CMTX_BB_CODE_TITLE_CODE', 'Code');
+cmtx_define('CMTX_BB_CODE_TITLE_PHP', 'PHP');
+cmtx_define('CMTX_BB_CODE_TITLE_QUOTE', 'Quote');
+cmtx_define('CMTX_BB_CODE_TITLE_LINE', 'Insert line');
+cmtx_define('CMTX_BB_CODE_TITLE_BULLET', 'Insert bullet list');
+cmtx_define('CMTX_BB_CODE_TITLE_NUMERIC', 'Insert numeric list');
+cmtx_define('CMTX_BB_CODE_TITLE_LINK', 'Insert web link');
+cmtx_define('CMTX_BB_CODE_TITLE_EMAIL', 'Insert email link');
+cmtx_define('CMTX_BB_CODE_TITLE_IMAGE', 'Insert image');
+cmtx_define('CMTX_BB_CODE_TITLE_VIDEO', 'Insert video');
 
 /* Smiley tags */
-define('CMTX_SMILEY_TAG_SMILE', ':smile:');
-define('CMTX_SMILEY_TAG_SAD', ':sad:');
-define('CMTX_SMILEY_TAG_HUH', ':huh:');
-define('CMTX_SMILEY_TAG_LAUGH', ':laugh:');
-define('CMTX_SMILEY_TAG_MAD', ':mad:');
-define('CMTX_SMILEY_TAG_TONGUE', ':tongue:');
-define('CMTX_SMILEY_TAG_CRYING', ':crying:');
-define('CMTX_SMILEY_TAG_GRIN', ':grin:');
-define('CMTX_SMILEY_TAG_WINK', ':wink:');
-define('CMTX_SMILEY_TAG_SCARED', ':scared:');
-define('CMTX_SMILEY_TAG_COOL', ':cool:');
-define('CMTX_SMILEY_TAG_SLEEP', ':sleep:');
-define('CMTX_SMILEY_TAG_BLUSH', ':blush:');
-define('CMTX_SMILEY_TAG_UNSURE', ':unsure:');
-define('CMTX_SMILEY_TAG_SHOCKED', ':shocked:');
+cmtx_define('CMTX_SMILEY_TAG_SMILE', ':smile:');
+cmtx_define('CMTX_SMILEY_TAG_SAD', ':sad:');
+cmtx_define('CMTX_SMILEY_TAG_HUH', ':huh:');
+cmtx_define('CMTX_SMILEY_TAG_LAUGH', ':laugh:');
+cmtx_define('CMTX_SMILEY_TAG_MAD', ':mad:');
+cmtx_define('CMTX_SMILEY_TAG_TONGUE', ':tongue:');
+cmtx_define('CMTX_SMILEY_TAG_CRYING', ':crying:');
+cmtx_define('CMTX_SMILEY_TAG_GRIN', ':grin:');
+cmtx_define('CMTX_SMILEY_TAG_WINK', ':wink:');
+cmtx_define('CMTX_SMILEY_TAG_SCARED', ':scared:');
+cmtx_define('CMTX_SMILEY_TAG_COOL', ':cool:');
+cmtx_define('CMTX_SMILEY_TAG_SLEEP', ':sleep:');
+cmtx_define('CMTX_SMILEY_TAG_BLUSH', ':blush:');
+cmtx_define('CMTX_SMILEY_TAG_UNSURE', ':unsure:');
+cmtx_define('CMTX_SMILEY_TAG_SHOCKED', ':shocked:');
 
 /* Smiley titles */
-define('CMTX_SMILEY_TITLE_SMILE', 'Smile');
-define('CMTX_SMILEY_TITLE_SAD', 'Sad');
-define('CMTX_SMILEY_TITLE_HUH', 'Huh');
-define('CMTX_SMILEY_TITLE_LAUGH', 'Laugh');
-define('CMTX_SMILEY_TITLE_MAD', 'Mad');
-define('CMTX_SMILEY_TITLE_TONGUE', 'Tongue');
-define('CMTX_SMILEY_TITLE_CRYING', 'Crying');
-define('CMTX_SMILEY_TITLE_GRIN', 'Grin');
-define('CMTX_SMILEY_TITLE_WINK', 'Wink');
-define('CMTX_SMILEY_TITLE_SCARED', 'Scared');
-define('CMTX_SMILEY_TITLE_COOL', 'Cool');
-define('CMTX_SMILEY_TITLE_SLEEP', 'Sleep');
-define('CMTX_SMILEY_TITLE_BLUSH', 'Blush');
-define('CMTX_SMILEY_TITLE_UNSURE', 'Unsure');
-define('CMTX_SMILEY_TITLE_SHOCKED', 'Shocked');
+cmtx_define('CMTX_SMILEY_TITLE_SMILE', 'Smile');
+cmtx_define('CMTX_SMILEY_TITLE_SAD', 'Sad');
+cmtx_define('CMTX_SMILEY_TITLE_HUH', 'Huh');
+cmtx_define('CMTX_SMILEY_TITLE_LAUGH', 'Laugh');
+cmtx_define('CMTX_SMILEY_TITLE_MAD', 'Mad');
+cmtx_define('CMTX_SMILEY_TITLE_TONGUE', 'Tongue');
+cmtx_define('CMTX_SMILEY_TITLE_CRYING', 'Crying');
+cmtx_define('CMTX_SMILEY_TITLE_GRIN', 'Grin');
+cmtx_define('CMTX_SMILEY_TITLE_WINK', 'Wink');
+cmtx_define('CMTX_SMILEY_TITLE_SCARED', 'Scared');
+cmtx_define('CMTX_SMILEY_TITLE_COOL', 'Cool');
+cmtx_define('CMTX_SMILEY_TITLE_SLEEP', 'Sleep');
+cmtx_define('CMTX_SMILEY_TITLE_BLUSH', 'Blush');
+cmtx_define('CMTX_SMILEY_TITLE_UNSURE', 'Unsure');
+cmtx_define('CMTX_SMILEY_TITLE_SHOCKED', 'Shocked');
 
 /* Text displayed for BB Code bullet dialog */
-define('CMTX_BULLET_DIALOG_HEADING', 'Insert Bullet List');
-define('CMTX_BULLET_DIALOG_CONTENT_1', 'Please enter at least one item.');
-define('CMTX_BULLET_DIALOG_CONTENT_2', 'Item:');
-define('CMTX_BULLET_DIALOG_INSERT', 'Insert');
-define('CMTX_BULLET_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_BULLET_DIALOG_HEADING', 'Insert Bullet List');
+cmtx_define('CMTX_BULLET_DIALOG_CONTENT_1', 'Please enter at least one item.');
+cmtx_define('CMTX_BULLET_DIALOG_CONTENT_2', 'Item:');
+cmtx_define('CMTX_BULLET_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_BULLET_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for BB Code numeric dialog */
-define('CMTX_NUMERIC_DIALOG_HEADING', 'Insert Numeric List');
-define('CMTX_NUMERIC_DIALOG_CONTENT_1', 'Please enter at least one item.');
-define('CMTX_NUMERIC_DIALOG_CONTENT_2', 'Item:');
-define('CMTX_NUMERIC_DIALOG_INSERT', 'Insert');
-define('CMTX_NUMERIC_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_NUMERIC_DIALOG_HEADING', 'Insert Numeric List');
+cmtx_define('CMTX_NUMERIC_DIALOG_CONTENT_1', 'Please enter at least one item.');
+cmtx_define('CMTX_NUMERIC_DIALOG_CONTENT_2', 'Item:');
+cmtx_define('CMTX_NUMERIC_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_NUMERIC_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for BB Code link dialog */
-define('CMTX_LINK_DIALOG_HEADING', 'Insert Link');
-define('CMTX_LINK_DIALOG_CONTENT_1', 'Please enter the link of the website');
-define('CMTX_LINK_DIALOG_CONTENT_2', 'Optionally you can add display text');
-define('CMTX_LINK_DIALOG_INSERT', 'Insert');
-define('CMTX_LINK_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_LINK_DIALOG_HEADING', 'Insert Link');
+cmtx_define('CMTX_LINK_DIALOG_CONTENT_1', 'Please enter the link of the website');
+cmtx_define('CMTX_LINK_DIALOG_CONTENT_2', 'Optionally you can add display text');
+cmtx_define('CMTX_LINK_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_LINK_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for BB Code email dialog */
-define('CMTX_EMAIL_DIALOG_HEADING', 'Insert Email');
-define('CMTX_EMAIL_DIALOG_CONTENT_1', 'Please enter the email address');
-define('CMTX_EMAIL_DIALOG_CONTENT_2', 'Optionally add any display text');
-define('CMTX_EMAIL_DIALOG_INSERT', 'Insert');
-define('CMTX_EMAIL_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_EMAIL_DIALOG_HEADING', 'Insert Email');
+cmtx_define('CMTX_EMAIL_DIALOG_CONTENT_1', 'Please enter the email address');
+cmtx_define('CMTX_EMAIL_DIALOG_CONTENT_2', 'Optionally add any display text');
+cmtx_define('CMTX_EMAIL_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_EMAIL_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for BB Code image dialog */
-define('CMTX_IMAGE_DIALOG_HEADING', 'Insert Image');
-define('CMTX_IMAGE_DIALOG_CONTENT', 'Please enter the link of the image');
-define('CMTX_IMAGE_DIALOG_INSERT', 'Insert');
-define('CMTX_IMAGE_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_IMAGE_DIALOG_HEADING', 'Insert Image');
+cmtx_define('CMTX_IMAGE_DIALOG_CONTENT', 'Please enter the link of the image');
+cmtx_define('CMTX_IMAGE_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_IMAGE_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed for BB Code video dialog */
-define('CMTX_VIDEO_DIALOG_HEADING', 'Insert Video');
-define('CMTX_VIDEO_DIALOG_CONTENT_1', 'Please enter the link of the video. Supports');
-define('CMTX_VIDEO_DIALOG_CONTENT_2', 'YouTube, Vimeo, MetaCafe and Dailymotion.');
-define('CMTX_VIDEO_DIALOG_INSERT', 'Insert');
-define('CMTX_VIDEO_DIALOG_CANCEL', 'Cancel');
+cmtx_define('CMTX_VIDEO_DIALOG_HEADING', 'Insert Video');
+cmtx_define('CMTX_VIDEO_DIALOG_CONTENT_1', 'Please enter the link of the video. Supports');
+cmtx_define('CMTX_VIDEO_DIALOG_CONTENT_2', 'YouTube, Vimeo, MetaCafe and Dailymotion.');
+cmtx_define('CMTX_VIDEO_DIALOG_INSERT', 'Insert');
+cmtx_define('CMTX_VIDEO_DIALOG_CANCEL', 'Cancel');
 
 /* Text displayed before/after the counter */
-define('CMTX_TEXT_COUNTER', '%s');
+cmtx_define('CMTX_TEXT_COUNTER', '%s');
 
 /* Text displayed before question field */
-define('CMTX_TEXT_QUESTION', 'Enter answer:');
+cmtx_define('CMTX_TEXT_QUESTION', 'Enter answer:');
 
 /* Text displayed for Securimage captcha */
-define('CMTX_TEXT_SECURIMAGE', 'Enter code:');
-define('CMTX_TITLE_SECURIMAGE', 'Enter code from image');
-define('CMTX_TITLE_SECURIMAGE_AUDIO', 'Audio');
-define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Refresh');
+cmtx_define('CMTX_TEXT_SECURIMAGE', 'Enter code:');
+cmtx_define('CMTX_TITLE_SECURIMAGE', 'Enter code from image');
+cmtx_define('CMTX_TITLE_SECURIMAGE_AUDIO', 'Audio');
+cmtx_define('CMTX_TITLE_SECURIMAGE_REFRESH', 'Refresh');
 
 /* Text displayed if ReCaptcha key(s) missing */
-define('CMTX_RECAPTCHA_NO_KEY', 'API key(s) missing in ReCaptcha admin page');
+cmtx_define('CMTX_RECAPTCHA_NO_KEY', 'API key(s) missing in ReCaptcha admin page');
 
 /* Text displayed after notify checkbox */
-define('CMTX_TEXT_NOTIFY', 'Notify me of new comments via email.');
+cmtx_define('CMTX_TEXT_NOTIFY', 'Notify me of new comments via email.');
 
 /* Text displayed after remember checkbox */
-define('CMTX_TEXT_REMEMBER', 'Remember my form details on this computer.');
+cmtx_define('CMTX_TEXT_REMEMBER', 'Remember my form inputs on this computer.');
 
 /* Text displayed after privacy checkbox */
-define('CMTX_TEXT_PRIVACY', 'I have read and understand the <a href="' . cmtx_commentics_url() . 'agreement/english/privacy_policy.html" class="cmtx_privacy_link" title="View privacy policy" target="_blank" rel="nofollow">privacy policy</a>.');
+cmtx_define('CMTX_PRIVACY_TEXT', 'I have read and understand the %s.');
+cmtx_define('CMTX_PRIVACY_LINK', 'privacy policy');
+cmtx_define('CMTX_PRIVACY_LINK_TITLE', 'View the privacy policy');
 
 /* Text displayed after terms checkbox */
-define('CMTX_TEXT_TERMS', 'I have read and agree to the <a href="' . cmtx_commentics_url() . 'agreement/english/terms_and_conditions.html" class="cmtx_terms_link" title="View terms and conditions" target="_blank" rel="nofollow">terms and conditions</a>.');
+cmtx_define('CMTX_TERMS_TEXT', 'I have read and agree to the %s.');
+cmtx_define('CMTX_TERMS_LINK', 'terms and conditions');
+cmtx_define('CMTX_TERMS_LINK_TITLE', 'View the terms and conditions');
 
 /* Text for form submit button */
-define('CMTX_SUBMIT_BUTTON', 'Add Comment');
+cmtx_define('CMTX_SUBMIT_BUTTON', 'Add Comment');
 
 /* Text for form preview button */
-define('CMTX_PREVIEW_BUTTON', 'Preview');
+cmtx_define('CMTX_PREVIEW_BUTTON', 'Preview');
 
 /* Text for form buttons when processing */
-define('CMTX_PROCESSING_BUTTON', 'Please Wait..');
+cmtx_define('CMTX_PROCESSING_BUTTON', 'Please Wait..');
 
 /* Text for parsing information */
-define('CMTX_TEXT_PARSING', 'Generated in %s seconds');
-define('CMTX_TEXT_QUERIES', 'Queries');
+cmtx_define('CMTX_TEXT_PARSING', 'Generated in %s seconds');
+cmtx_define('CMTX_TEXT_QUERIES', 'Queries');
 
 /* Text for 'powered by' statement */
-define('CMTX_POWERED_BY', 'Powered by');
+cmtx_define('CMTX_POWERED_BY', 'Powered by');
 
 ?>

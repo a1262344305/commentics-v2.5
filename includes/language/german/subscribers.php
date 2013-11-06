@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Diese Funktion wurde deaktiviert.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Diese Funktion wurde deaktiviert.');
 
-define('CMTX_INVALID', 'Unerlaubte Anfrage.');
-define('CMTX_CONFIRMED', 'Das Abo ist jetzt bestätigt.');
-define('CMTX_ALREADY_CONFIRMED', 'Das Abo wurde bereits bestätigt.');
-define('CMTX_UNSUBSCRIBED', 'Das Abo wurde deaktiviert.');
-define('CMTX_NO_SUBSCRIPTION', 'Kein Abo gefunden.');
+cmtx_define('CMTX_INVALID', 'Unerlaubte Anfrage.');
+cmtx_define('CMTX_CONFIRMED', 'Das Abo ist jetzt bestätigt.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Das Abo wurde bereits bestätigt.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'Das Abo wurde deaktiviert.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Kein Abo gefunden.');
 
 ?>

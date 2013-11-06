@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'This feature has been disabled.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'This feature has been disabled.');
 
-define('CMTX_INVALID', 'Invalid request.');
-define('CMTX_CONFIRMED', 'Your subscription is now confirmed.');
-define('CMTX_ALREADY_CONFIRMED', 'Your subscription is already confirmed.');
-define('CMTX_UNSUBSCRIBED', 'You are now unsubscribed.');
-define('CMTX_NO_SUBSCRIPTION', 'No subscription found.');
+cmtx_define('CMTX_INVALID', 'Invalid request.');
+cmtx_define('CMTX_CONFIRMED', 'Your subscription is now confirmed.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Your subscription is already confirmed.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'You are now unsubscribed.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'No subscription found.');
 
 ?>

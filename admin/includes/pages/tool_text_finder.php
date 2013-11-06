@@ -77,28 +77,28 @@ cmtx_check_csrf_form_key();
 $text_found = false;
 if (!empty($_POST['text'])) {
 	if ($_POST['location']) {
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/comments.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/countries.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/form.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/page.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/processor.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/ratings.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/rss.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "../includes/language/" . cmtx_setting('language_frontend') . "/subscribers.php", $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/comments.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/countries.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/form.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/page.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/processor.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/rss.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/subscribers.php', $_POST['case']);
 	} else {
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/buttons.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/dashboard.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/descriptions.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/fields.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/hints.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/links.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/login.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/menu.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/messages.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/notes.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/prompts.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/tables.php", $_POST['case']);
-		cmtx_text_finder ($_POST['text'], "includes/language/" . cmtx_setting('language_backend') . "/titles.php", $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/buttons.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/dashboard.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/descriptions.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/fields.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/hints.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/links.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/login.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/menu.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/messages.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/notes.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/prompts.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/tables.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/titles.php', $_POST['case']);
 	}
 }
 if (!$text_found) {

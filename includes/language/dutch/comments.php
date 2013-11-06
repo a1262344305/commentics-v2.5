@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Commentaar');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Commentaar');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Nog geen berichten.');
+cmtx_define('CMTX_NO_COMMENTS', 'Nog geen berichten.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Sorteer de opmerkingen');
-define('CMTX_SORT_1', 'Nieuwste');
-define('CMTX_SORT_2', 'Oudste');
-define('CMTX_SORT_3', 'Nuttig');
-define('CMTX_SORT_4', 'Nutteloos');
-define('CMTX_SORT_5', 'Positief');
-define('CMTX_SORT_6', 'Kritisch');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Sorteer de opmerkingen');
+cmtx_define('CMTX_SORT_1', 'Nieuwste');
+cmtx_define('CMTX_SORT_2', 'Oudste');
+cmtx_define('CMTX_SORT_3', 'Nuttig');
+cmtx_define('CMTX_SORT_4', 'Nutteloos');
+cmtx_define('CMTX_SORT_5', 'Positief');
+cmtx_define('CMTX_SORT_6', 'Kritisch');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Je dient een beoordeling');
+cmtx_define('CMTX_TOPIC_INTRO', 'Je dient een beoordeling');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'schreef...');
+cmtx_define('CMTX_SAYS', 'schreef...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Lees meer');
-define('CMTX_TITLE_READ_MORE', 'Lees het volledige commentaar');
+cmtx_define('CMTX_READ_MORE', '... Lees meer');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Lees het volledige commentaar');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'Admin:');
+cmtx_define('CMTX_REPLY_INTRO', 'Admin:');
 
 /* Date */
-define('CMTX_TODAY', 'Vandaag');
-define('CMTX_YESTERDAY', 'Gisteren');
+cmtx_define('CMTX_TODAY', 'Vandaag');
+cmtx_define('CMTX_YESTERDAY', 'Gisteren');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Waardeer dit bericht hoger');
-define('CMTX_TITLE_DISLIKE', 'Waardeer dit bericht lager');
-define('CMTX_VOTE_NO_COMMENT', 'Dit bericht bestaat niet meer');
-define('CMTX_VOTE_OWN_COMMENT', 'Je kunt niet stemmen voor uw eigen reactie');
-define('CMTX_VOTE_ALREADY_VOTED', 'Je hebt al gestemd op deze reactie');
-define('CMTX_VOTE_BANNED', 'U bent al eerder gebanned van de site');
+cmtx_define('CMTX_TITLE_LIKE', 'Waardeer dit bericht hoger');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Waardeer dit bericht lager');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Dit bericht bestaat niet meer');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Je kunt niet stemmen voor uw eigen reactie');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'Je hebt al gestemd op deze reactie');
+cmtx_define('CMTX_VOTE_BANNED', 'U bent al eerder gebanned van de site');
 
 /* Flag */
-define('CMTX_FLAG', 'Melding');
-define('CMTX_TITLE_FLAG', 'Rapporteer dit bericht');
-define('CMTX_FLAG_DIALOG_HEADING', 'Rapporteer bericht');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Weet je zeker dat je dit bericht wilt rapporteren?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'Dit bericht bestaat niet meer');
-define('CMTX_FLAG_OWN_COMMENT', 'Je kan geen misbruik van uw eigen reactie');
-define('CMTX_FLAG_ADMIN_COMMENT', 'Je kunt geen admin bericht rapporteren');
-define('CMTX_FLAG_BANNED', 'U bent al eerder gebanned van de site');
-define('CMTX_FLAG_REPORT_LIMIT', 'u kunt geen berichten meer rapporteren');
-define('CMTX_FLAG_ALREADY_REPORTED', 'U hebt al eerder een melding voor dit bericht gemaakt');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Dit bericht is al gerapporteerd');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Dit bericht is al gecontroleerd');
-define('CMTX_FLAG_REPORT_SENT', 'Bedankt voor uw bericht');
+cmtx_define('CMTX_FLAG', 'Melding');
+cmtx_define('CMTX_TITLE_FLAG', 'Rapporteer dit bericht');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Rapporteer bericht');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Weet je zeker dat je dit bericht wilt rapporteren?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'Dit bericht bestaat niet meer');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Je kan geen misbruik van uw eigen reactie');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'Je kunt geen admin bericht rapporteren');
+cmtx_define('CMTX_FLAG_BANNED', 'U bent al eerder gebanned van de site');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'u kunt geen berichten meer rapporteren');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'U hebt al eerder een melding voor dit bericht gemaakt');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Dit bericht is al gerapporteerd');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Dit bericht is al gecontroleerd');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Bedankt voor uw bericht');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink');
-define('CMTX_TITLE_PERMALINK', 'Permalink voor dit bericht');
+cmtx_define('CMTX_PERMALINK', 'Permalink');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink voor dit bericht');
 
 /* Reply */
-define('CMTX_REPLY', 'Beantwoord');
-define('CMTX_TITLE_REPLY', 'Beantwoord dit bericht');
+cmtx_define('CMTX_REPLY', 'Beantwoord');
+cmtx_define('CMTX_TITLE_REPLY', 'Beantwoord dit bericht');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Deze pagina');
-define('CMTX_RSS_ALL_PAGES', 'Alle paginas');
-define('CMTX_TITLE_RSS_THIS', 'Krijg RSS alerts voor deze pagina');
-define('CMTX_TITLE_RSS_ALL', 'Krijg RSS alerts voor alle paginas');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Deze pagina');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Alle paginas');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Krijg RSS alerts voor deze pagina');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Krijg RSS alerts voor alle paginas');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Pagina %d van %d');
+cmtx_define('CMTX_INFO_PAGE', 'Pagina %d van %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'eerste');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'laatste');
-define('CMTX_TITLE_PAG_FIRST', 'eerste');
-define('CMTX_TITLE_PAG_PREVIOUS', 'vorige');
-define('CMTX_TITLE_PAG_NEXT', 'volgende');
-define('CMTX_TITLE_PAG_LAST', 'laatste');
+cmtx_define('CMTX_PAGINATION_FIRST', 'eerste');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'laatste');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'eerste');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'vorige');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'volgende');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'laatste');
 
 ?>

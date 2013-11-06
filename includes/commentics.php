@@ -38,10 +38,7 @@ require_once $cmtx_path . 'includes/variables/set_variables.php'; //set variable
 
 
 /*************************************************************** FUNCTIONS **************************************************************/
-require_once $cmtx_path . 'includes/functions/page.php'; //load functions file for page
-require_once $cmtx_path . 'includes/functions/comments.php'; //load functions file for comments
-require_once $cmtx_path . 'includes/functions/processor.php'; //load functions file for processor
-require_once $cmtx_path . 'includes/functions/form.php'; //load functions file for form
+require_once $cmtx_path . 'includes/bootstrap/functions.php'; //load bootstrap file for functions
 /****************************************************************************************************************************************/
 
 
@@ -52,12 +49,7 @@ if ($cmtx_db_ok) { //if database connection okay
 
 
 /*************************************************************** LANGUAGE ***************************************************************/
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/page.php'; //load language file for page
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/comments.php'; //load language file for comments
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/processor.php'; //load language file for processor
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/form.php'; //load language file for form
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/countries.php'; //load language file for countries
-require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/ratings.php'; //load language file for ratings
+require_once $cmtx_path . 'includes/bootstrap/language.php'; //load bootstrap file for language
 /****************************************************************************************************************************************/
 
 

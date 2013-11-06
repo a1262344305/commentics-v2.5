@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Deze optie is uitgeschakeld.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Deze optie is uitgeschakeld.');
 
-define('CMTX_INVALID', 'Ongeldig verzoek.');
-define('CMTX_CONFIRMED', 'Uw inschrijving is bevestigd.');
-define('CMTX_ALREADY_CONFIRMED', 'Uw inschrijving is al bevestigd.');
-define('CMTX_UNSUBSCRIBED', 'U bent uitgeschreven.');
-define('CMTX_NO_SUBSCRIPTION', 'Geen inschrijving gevonden.');
+cmtx_define('CMTX_INVALID', 'Ongeldig verzoek.');
+cmtx_define('CMTX_CONFIRMED', 'Uw inschrijving is bevestigd.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Uw inschrijving is al bevestigd.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'U bent uitgeschreven.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Geen inschrijving gevonden.');
 
 ?>

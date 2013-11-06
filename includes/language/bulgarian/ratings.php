@@ -24,16 +24,16 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_TITLE_RATING', 'Изберете оценка');
+cmtx_define('CMTX_TITLE_RATING', 'Изберете оценка');
 
-define('CMTX_TOP_RATING', 'Изберете оценка');
+cmtx_define('CMTX_TOP_RATING', 'Изберете оценка');
 
-define('CMTX_RATING_ONE', 'Ужасно');
-define('CMTX_RATING_TWO', 'Зле');
-define('CMTX_RATING_THREE', 'Поносимо');
-define('CMTX_RATING_FOUR', 'Добро');
-define('CMTX_RATING_FIVE', 'Чудесно');
+cmtx_define('CMTX_RATING_ONE', 'Ужасно');
+cmtx_define('CMTX_RATING_TWO', 'Зле');
+cmtx_define('CMTX_RATING_THREE', 'Поносимо');
+cmtx_define('CMTX_RATING_FOUR', 'Добро');
+cmtx_define('CMTX_RATING_FIVE', 'Чудесно');
 
-define('CMTX_HAS_RATED', 'Вече сте оценили');
+cmtx_define('CMTX_HAS_RATED', 'Вече сте оценили');
 
 ?>

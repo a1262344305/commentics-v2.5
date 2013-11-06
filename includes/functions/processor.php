@@ -1391,14 +1391,14 @@ function cmtx_check_if_banned() { //check if user is banned
 		$ban_found = true; //set flag as true
 	}
 
-	if (isset($_COOKIE['Commentics-Ban']) && $_COOKIE['Commentics-Ban'] == "Banned") { //if a ban cookie is found
+	if (isset($_COOKIE['Commentics-Ban']) && $_COOKIE['Commentics-Ban'] == 'Banned') { //if a ban cookie is found
 		$ban_found = true; //set flag as true
 	}
 
 	if ($ban_found) { //if a ban was found
-		echo "<h3>Commentics</h3>";
-		echo "<div style='margin-bottom: 10px;'></div>";
-		die(CMTX_BAN_MESSAGE_BANNED_PREVIOUSLY); //end scripting and output message to user explaining they were previously banned
+		echo '<h3>Commentics</h3>';
+		echo '<div style="margin-bottom: 10px;"></div>';
+		die(CMTX_BAN_MESSAGE_BANNED_OLD); //end scripting and output message to user explaining they were previously banned
 	}
 
 } //end of check-if-banned function
@@ -1427,7 +1427,7 @@ function cmtx_ban ($reason) { //ban user
 
 		echo "<h3>Commentics</h3>";
 		echo "<div style='margin-bottom: 10px;'></div>";
-		die(CMTX_BAN_MESSAGE_BANNED_NOW); //end scripting and output message to user explaining they are now banned
+		die(CMTX_BAN_MESSAGE_BANNED_NEW); //end scripting and output message to user explaining they are now banned
 
 	}
 

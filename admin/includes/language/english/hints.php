@@ -61,7 +61,7 @@ define('CMTX_HINT_GRAVATAR_RATING', 'The audience type. G is suitable for all au
 define('CMTX_HINT_DISPLAY_JS_MSG', 'Display a warning message if JavaScript is disabled in user\'s web browser.');
 define('CMTX_HINT_DISPLAY_AST_SYMBOL', 'Display the asterisk symbol (*) next to the required fields.');
 define('CMTX_HINT_DISPLAY_AST_MSG', 'Display the asterisk message:<br/>* Required information');
-define('CMTX_HINT_DISPLAY_EMAIL_NOTE', 'Display the email message:<br/> (will not be published)');
+define('CMTX_HINT_DISPLAY_EMAIL_NOTE', 'Display the email message:<br/> (will not be displayed)');
 define('CMTX_HINT_HIDE_FORM', 'Hide the form and show a link to display it.');
 define('CMTX_HINT_FORM_COOKIE', 'Store a form cookie with user\'s details. This setting only works if you do not give the user the option to choose.');
 define('CMTX_HINT_FORM_COOKIE_DAYS', 'The amount of days before the form cookie expires.');

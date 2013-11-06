@@ -1182,7 +1182,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php } } ?>
 
 <?php function cmtx_output_privacy () { ?>
-<?php global $cmtx_default_privacy; ?>
+<?php global $cmtx_default_privacy, $cmtx_path; ?>
 <?php if (cmtx_setting('enabled_privacy')) { ?>
 <div style="clear: left;"></div>
 <div class="cmtx_label">&nbsp;</div>
@@ -1191,12 +1191,19 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php } else { ?>
 <input type="checkbox" name="cmtx_privacy" class="cmtx_checkbox_field cmtx_privacy_field" title="<?php echo CMTX_TITLE_PRIVACY; ?>" onclick="cmtx_enable_submit();cmtx_enable_preview();"/>
 <?php } ?>
-<span class="cmtx_privacy_text"><?php echo CMTX_TEXT_PRIVACY; ?></span>
+<?php
+if (file_exists($cmtx_path . 'agreement/' . cmtx_setting('language_frontend') . '/custom/privacy_policy.html')) {
+	$privacy_link = '<a href="' . cmtx_commentics_url() . 'agreement/' . cmtx_setting('language_frontend') . '/custom/privacy_policy.html" class="cmtx_privacy_link" title="' . CMTX_PRIVACY_LINK_TITLE . '" target="_blank" rel="nofollow">' . CMTX_PRIVACY_LINK . '</a>';
+} else {
+	$privacy_link = '<a href="' . cmtx_commentics_url() . 'agreement/' . cmtx_setting('language_frontend') . '/privacy_policy.html" class="cmtx_privacy_link" title="' . CMTX_PRIVACY_LINK_TITLE . '" target="_blank" rel="nofollow">' . CMTX_PRIVACY_LINK . '</a>';
+}
+?>
+<span class="cmtx_privacy_text"><?php printf(CMTX_PRIVACY_TEXT, $privacy_link); ?></span>
 <?php if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 <?php } } ?>
 
 <?php function cmtx_output_terms () { ?>
-<?php global $cmtx_default_terms; ?>
+<?php global $cmtx_default_terms, $cmtx_path; ?>
 <?php if (cmtx_setting('enabled_terms')) { ?>
 <div style="clear: left;"></div>
 <div class="cmtx_label">&nbsp;</div>
@@ -1205,7 +1212,14 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php } else { ?>
 <input type="checkbox" name="cmtx_terms" class="cmtx_checkbox_field cmtx_terms_field" title="<?php echo CMTX_TITLE_TERMS; ?>" onclick="cmtx_enable_submit(); cmtx_enable_preview();"/>
 <?php } ?>
-<span class="cmtx_terms_text"><?php echo CMTX_TEXT_TERMS; ?></span>
+<?php
+if (file_exists($cmtx_path . 'agreement/' . cmtx_setting('language_frontend') . '/custom/terms_and_conditions.html')) {
+	$terms_link = '<a href="' . cmtx_commentics_url() . 'agreement/' . cmtx_setting('language_frontend') . '/custom/terms_and_conditions.html" class="cmtx_terms_link" title="' . CMTX_TERMS_LINK_TITLE . '" target="_blank" rel="nofollow">' . CMTX_TERMS_LINK . '</a>';
+} else {
+	$terms_link = '<a href="' . cmtx_commentics_url() . 'agreement/' . cmtx_setting('language_frontend') . '/terms_and_conditions.html" class="cmtx_terms_link" title="' . CMTX_TERMS_LINK_TITLE . '" target="_blank" rel="nofollow">' . CMTX_TERMS_LINK . '</a>';
+}
+?>
+<span class="cmtx_terms_text"><?php printf(CMTX_TERMS_TEXT, $terms_link); ?></span>
 <?php if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 <?php } } ?>
 

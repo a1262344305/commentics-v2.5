@@ -24,12 +24,12 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_SUB_FEATURE_DISABLED', 'Denne funktion er slået fra.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Denne funktion er slået fra.');
 
-define('CMTX_INVALID', 'Ugyldig forespørgsel.');
-define('CMTX_CONFIRMED', 'Dit abonnement er bekræftet.');
-define('CMTX_ALREADY_CONFIRMED', 'Dit abonnement er allerede bekræftet.');
-define('CMTX_UNSUBSCRIBED', 'Dit abonnement er nu ophørt.');
-define('CMTX_NO_SUBSCRIPTION', 'Abonnement ikke fundet.');
+cmtx_define('CMTX_INVALID', 'Ugyldig forespørgsel.');
+cmtx_define('CMTX_CONFIRMED', 'Dit abonnement er bekræftet.');
+cmtx_define('CMTX_ALREADY_CONFIRMED', 'Dit abonnement er allerede bekræftet.');
+cmtx_define('CMTX_UNSUBSCRIBED', 'Dit abonnement er nu ophørt.');
+cmtx_define('CMTX_NO_SUBSCRIPTION', 'Abonnement ikke fundet.');
 
 ?>

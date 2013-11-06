@@ -25,96 +25,96 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 /* Anchors */
-define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
+cmtx_define('CMTX_ANCHOR_COMMENTS', '#cmtx_comments');
 
 /* Heading */
-define('CMTX_COMMENTS_HEADING', 'Komentarji');
+cmtx_define('CMTX_COMMENTS_HEADING', 'Komentarji');
 
 /* No comments message */
-define('CMTX_NO_COMMENTS', 'Ni še nobenega komentarja.');
+cmtx_define('CMTX_NO_COMMENTS', 'Ni še nobenega komentarja.');
 
 /* Sort By */
-define('CMTX_SORT_TEXT', 'Sort');
-define('CMTX_SORT_TITLE', 'Razvrsti komentarje');
-define('CMTX_SORT_1', 'Najnovejši');
-define('CMTX_SORT_2', 'Najstarejši');
-define('CMTX_SORT_3', 'Koristni');
-define('CMTX_SORT_4', 'Neuporabni');
-define('CMTX_SORT_5', 'Pozitivni');
-define('CMTX_SORT_6', 'Kritični');
+cmtx_define('CMTX_SORT_TEXT', 'Sort');
+cmtx_define('CMTX_SORT_TITLE', 'Razvrsti komentarje');
+cmtx_define('CMTX_SORT_1', 'Najnovejši');
+cmtx_define('CMTX_SORT_2', 'Najstarejši');
+cmtx_define('CMTX_SORT_3', 'Koristni');
+cmtx_define('CMTX_SORT_4', 'Neuporabni');
+cmtx_define('CMTX_SORT_5', 'Pozitivni');
+cmtx_define('CMTX_SORT_6', 'Kritični');
 
 /* Topic */
-define('CMTX_TOPIC_INTRO', 'Pregledujete');
+cmtx_define('CMTX_TOPIC_INTRO', 'Pregledujete');
 
 /* Average Rating */
-define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
-define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
-define('CMTX_RATE_BANNED', 'You\'ve been banned');
+cmtx_define('CMTX_RATE_NO_PAGE', 'This page no longer exists');
+cmtx_define('CMTX_RATE_ALREADY_RATED', 'You\'ve already rated');
+cmtx_define('CMTX_RATE_BANNED', 'You\'ve been banned');
 
 /* Says */
-define('CMTX_SAYS', 'pravi...');
+cmtx_define('CMTX_SAYS', 'pravi...');
 
 /* Read More */
-define('CMTX_READ_MORE', '... Preberite več');
-define('CMTX_TITLE_READ_MORE', 'Preberite celoten komentar');
+cmtx_define('CMTX_READ_MORE', '... Preberite več');
+cmtx_define('CMTX_TITLE_READ_MORE', 'Preberite celoten komentar');
 
 /* Admin Reply */
-define('CMTX_REPLY_INTRO', 'Administrator:');
+cmtx_define('CMTX_REPLY_INTRO', 'Administrator:');
 
 /* Date */
-define('CMTX_TODAY', 'Danes');
-define('CMTX_YESTERDAY', 'Včeraj');
+cmtx_define('CMTX_TODAY', 'Danes');
+cmtx_define('CMTX_YESTERDAY', 'Včeraj');
 
 /* Like Dislike */
-define('CMTX_TITLE_LIKE', 'Glasujte za ta komentar');
-define('CMTX_TITLE_DISLIKE', 'Glasujte proti temu komentarju');
-define('CMTX_VOTE_NO_COMMENT', 'Ta komentar ne obstaja več');
-define('CMTX_VOTE_OWN_COMMENT', 'Ne moreš glasovati za svoj komentar');
-define('CMTX_VOTE_ALREADY_VOTED', 'Za ta komentar ste že glasovali');
-define('CMTX_VOTE_BANNED', 'Ti so bili že prepovedani');
+cmtx_define('CMTX_TITLE_LIKE', 'Glasujte za ta komentar');
+cmtx_define('CMTX_TITLE_DISLIKE', 'Glasujte proti temu komentarju');
+cmtx_define('CMTX_VOTE_NO_COMMENT', 'Ta komentar ne obstaja več');
+cmtx_define('CMTX_VOTE_OWN_COMMENT', 'Ne moreš glasovati za svoj komentar');
+cmtx_define('CMTX_VOTE_ALREADY_VOTED', 'Za ta komentar ste že glasovali');
+cmtx_define('CMTX_VOTE_BANNED', 'Ti so bili že prepovedani');
 
 /* Flag */
-define('CMTX_FLAG', 'Označite');
-define('CMTX_TITLE_FLAG', 'Prijavite ta komentar');
-define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
-define('CMTX_FLAG_DIALOG_CONTENT', 'Ali ste prepričani, da želite prijaviti ta komentar?');
-define('CMTX_FLAG_DIALOG_YES', 'Yes');
-define('CMTX_FLAG_DIALOG_NO', 'No');
-define('CMTX_FLAG_NO_COMMENT', 'ta komentar ne obstaja več');
-define('CMTX_FLAG_OWN_COMMENT', 'Ne morete prijaviti lastnega komentarja');
-define('CMTX_FLAG_ADMIN_COMMENT', 'Administratorjevega komentarja ne morete prijaviti');
-define('CMTX_FLAG_BANNED', 'Ti so bili že prepovedani');
-define('CMTX_FLAG_REPORT_LIMIT', 'Ne morete več prijavljati komentarjev');
-define('CMTX_FLAG_ALREADY_REPORTED', 'Ta komentar ste že prijavili');
-define('CMTX_FLAG_ALREADY_FLAGGED', 'Ta komentar je že bil označen');
-define('CMTX_FLAG_ALREADY_VERIFIED', 'Ta komentar je že bil potrjen');
-define('CMTX_FLAG_REPORT_SENT', 'Hvala za poročilo');
+cmtx_define('CMTX_FLAG', 'Označite');
+cmtx_define('CMTX_TITLE_FLAG', 'Prijavite ta komentar');
+cmtx_define('CMTX_FLAG_DIALOG_HEADING', 'Report Comment');
+cmtx_define('CMTX_FLAG_DIALOG_CONTENT', 'Ali ste prepričani, da želite prijaviti ta komentar?');
+cmtx_define('CMTX_FLAG_DIALOG_YES', 'Yes');
+cmtx_define('CMTX_FLAG_DIALOG_NO', 'No');
+cmtx_define('CMTX_FLAG_NO_COMMENT', 'ta komentar ne obstaja več');
+cmtx_define('CMTX_FLAG_OWN_COMMENT', 'Ne morete prijaviti lastnega komentarja');
+cmtx_define('CMTX_FLAG_ADMIN_COMMENT', 'Administratorjevega komentarja ne morete prijaviti');
+cmtx_define('CMTX_FLAG_BANNED', 'Ti so bili že prepovedani');
+cmtx_define('CMTX_FLAG_REPORT_LIMIT', 'Ne morete več prijavljati komentarjev');
+cmtx_define('CMTX_FLAG_ALREADY_REPORTED', 'Ta komentar ste že prijavili');
+cmtx_define('CMTX_FLAG_ALREADY_FLAGGED', 'Ta komentar je že bil označen');
+cmtx_define('CMTX_FLAG_ALREADY_VERIFIED', 'Ta komentar je že bil potrjen');
+cmtx_define('CMTX_FLAG_REPORT_SENT', 'Hvala za poročilo');
 
 /* Permalink */
-define('CMTX_PERMALINK', 'Permalink povezava');
-define('CMTX_TITLE_PERMALINK', 'Permalink povezava za ta komentar');
+cmtx_define('CMTX_PERMALINK', 'Permalink povezava');
+cmtx_define('CMTX_TITLE_PERMALINK', 'Permalink povezava za ta komentar');
 
 /* Reply */
-define('CMTX_REPLY', 'Odgovor');
-define('CMTX_TITLE_REPLY', 'Odgovorite na ta komentar');
+cmtx_define('CMTX_REPLY', 'Odgovor');
+cmtx_define('CMTX_TITLE_REPLY', 'Odgovorite na ta komentar');
 
 /* RSS */
-define('CMTX_RSS_THIS_PAGE', 'Ta stran');
-define('CMTX_RSS_ALL_PAGES', 'Vse strani');
-define('CMTX_TITLE_RSS_THIS', 'Prejemajte RSS obvestila za to stran');
-define('CMTX_TITLE_RSS_ALL', 'Prejemajte RSS obvestila za vse strani');
+cmtx_define('CMTX_RSS_THIS_PAGE', 'Ta stran');
+cmtx_define('CMTX_RSS_ALL_PAGES', 'Vse strani');
+cmtx_define('CMTX_TITLE_RSS_THIS', 'Prejemajte RSS obvestila za to stran');
+cmtx_define('CMTX_TITLE_RSS_ALL', 'Prejemajte RSS obvestila za vse strani');
 
 /* Page Number */
-define('CMTX_INFO_PAGE', 'Stran %d od %d');
+cmtx_define('CMTX_INFO_PAGE', 'Stran %d od %d');
 
 /* Pagination */
-define('CMTX_PAGINATION_FIRST', 'prva');
-define('CMTX_PAGINATION_PREVIOUS', '<');
-define('CMTX_PAGINATION_NEXT', '>');
-define('CMTX_PAGINATION_LAST', 'zadnja');
-define('CMTX_TITLE_PAG_FIRST', 'prvi');
-define('CMTX_TITLE_PAG_PREVIOUS', 'predhodni');
-define('CMTX_TITLE_PAG_NEXT', 'naslednji');
-define('CMTX_TITLE_PAG_LAST', 'zadnji');
+cmtx_define('CMTX_PAGINATION_FIRST', 'prva');
+cmtx_define('CMTX_PAGINATION_PREVIOUS', '<');
+cmtx_define('CMTX_PAGINATION_NEXT', '>');
+cmtx_define('CMTX_PAGINATION_LAST', 'zadnja');
+cmtx_define('CMTX_TITLE_PAG_FIRST', 'prvi');
+cmtx_define('CMTX_TITLE_PAG_PREVIOUS', 'predhodni');
+cmtx_define('CMTX_TITLE_PAG_NEXT', 'naslednji');
+cmtx_define('CMTX_TITLE_PAG_LAST', 'zadnji');
 
 ?>

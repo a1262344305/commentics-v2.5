@@ -24,10 +24,10 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Zorg ervoor dat deze pagina een identifier heeft.');
+cmtx_define('CMTX_ALERT_MESSAGE_NO_IDENTIFIER', 'Zorg ervoor dat deze pagina een identifier heeft.');
 
-define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'De meegeleverde identifier ongeldig blijkt te zijn.');
-define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'De meegeleverde verwijzing blijkt ongeldig te zijn.');
-define('CMTX_ALERT_MESSAGE_INVALID_URL', 'De meegeleverde URL blijkt ongeldig te zijn.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER', 'De meegeleverde identifier ongeldig blijkt te zijn.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_REFERENCE', 'De meegeleverde verwijzing blijkt ongeldig te zijn.');
+cmtx_define('CMTX_ALERT_MESSAGE_INVALID_URL', 'De meegeleverde URL blijkt ongeldig te zijn.');
 
 ?>

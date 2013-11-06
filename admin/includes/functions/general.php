@@ -100,6 +100,19 @@ function cmtx_url_decode_spaces ($value) { //decode URL spaces
 } //end of url-decode-spaces function
 
 
+function cmtx_define($name, $value) { //defines a constant
+
+	if (!defined($name)) {
+		
+		$value = cmtx_sanitize($value, true, false); //encode value
+		
+		define($name, $value);
+		
+	}
+
+} //end of define function
+
+
 function cmtx_current_page() { //gets the URL of the current page
 
 	$url = cmtx_url_decode("http" . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "s" : "") . "://" . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
@@ -107,15 +120,6 @@ function cmtx_current_page() { //gets the URL of the current page
 	return $url;
 
 } //end of current-page function
-
-
-function cmtx_define ($value) { //prepare define string for output
-
-	$value = cmtx_sanitize($value, true, false); //encode string
-	
-	return $value; //return prepared string
-
-} //end of define function
 
 
 function cmtx_get_viewer ($user_agent) { //get the viewer
@@ -432,10 +436,10 @@ function cmtx_text_finder ($text, $file, $case) { //search file
 	
 	$text = str_ireplace("'", "\'", $text);
 
-	if (substr($file, 0, 1) == ".") {
-		$path = str_ireplace("../", "/comments/", $file);
+	if (substr($file, 0, 1) == '.') {
+		$path = str_ireplace('../', '/' . cmtx_setting('commentics_folder') . '/', $file);
 	} else {
-		$path = "/comments/" . cmtx_setting('admin_folder') . "/" . $file;
+		$path = '/' . cmtx_setting('commentics_folder') . '/' . cmtx_setting('admin_folder') . '/' . $file;
 	}
 	
 	$file = file($file);
