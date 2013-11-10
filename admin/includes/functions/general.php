@@ -631,6 +631,27 @@ function cmtx_add_attempt() { //record attempt on login page
 } //end of add-attempt function
 
 
+function cmtx_last_activity($seconds) { //converts seconds to a friendly time
+
+	$days = floor($seconds / 86400);
+
+	if ($days >= 1 && $days <= 9) {
+		$time = '0' . $days . 'd ' . gmdate("H\h i\m s\s", $seconds);
+	} else if ($days >= 10) {
+		$time = $days . 'd ' . gmdate("H\h i\m s\s", $seconds);
+	} else {
+		if ($seconds >= 3600) {
+			$time = gmdate("H\h i\m s\s", $seconds);
+		} else {
+			$time = gmdate("i\m s\s", $seconds);
+		}
+	}
+	
+	return $time;
+
+} //end of last-activity function
+
+
 function cmtx_delete_attempts() { //delete attempts on login page
 
 	global $cmtx_mysql_table_prefix;

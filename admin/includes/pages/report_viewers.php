@@ -74,7 +74,7 @@ while ($viewer = cmtx_db_fetch_assoc($viewers)) {
 			<td><?php echo $viewer["ip_address"]; ?></td>
 			<td><?php echo $viewer["page_reference"]; ?></td>
 			<td><?php echo "<a href='" . $viewer["page_url"] . "' target='_blank'>" . $viewer["page_url"] . "</a>"; ?></td>
-            <td><span style="display:none;"><?php echo $viewer["timestamp"]; ?></span><?php echo date("i\m s\s", $timestamp - $viewer["timestamp"]); ?></td>
+            <td><span style="display:none;"><?php echo $viewer["timestamp"]; ?></span><?php echo cmtx_last_activity($timestamp - $viewer["timestamp"]); ?></td>
         </tr>	
 <?php } ?>
 
