@@ -48,11 +48,21 @@ if (file_exists($cmtx_path . 'includes/language/' . cmtx_setting('language_front
 	require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/ratings.php'; //load custom language file for ratings
 }
 
+if (file_exists($cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/rss.php')) { //if custom language file for RSS exists
+	require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/rss.php'; //load custom language file for RSS
+}
+
+if (file_exists($cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/subscribers.php')) { //if custom language file for subscribers exists
+	require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/subscribers.php'; //load custom language file for subscribers
+}
+
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/page.php'; //load language file for page
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/comments.php'; //load language file for comments
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/processor.php'; //load language file for processor
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/form.php'; //load language file for form
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/countries.php'; //load language file for countries
 require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/ratings.php'; //load language file for ratings
+require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/rss.php'; //load language file for RSS
+require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/subscribers.php'; //load language file for subscribers
 
 ?>

@@ -31,11 +31,11 @@ $cmtx_path = '';
 require 'includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 
-//load functions file
-require 'includes/functions/page.php';
+//load function files
+require_once $cmtx_path . 'includes/bootstrap/functions.php'; //load bootstrap file for functions
 
-//load language file
-require 'includes/language/' . cmtx_setting('language_frontend') . '/comments.php';
+//load language files
+require_once $cmtx_path . 'includes/bootstrap/language.php'; //load bootstrap file for language
 
 if (!cmtx_setting('show_like') && !cmtx_setting('show_dislike')) {
 	die();

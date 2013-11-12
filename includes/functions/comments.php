@@ -353,7 +353,7 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 			}
 			$cmtx_box .= "document.getElementById(\"cmtx_hide_reply\").style.display=\"block\";";
 			$cmtx_box .= "document.getElementById(\"cmtx_reply_id\").value=\"" . $id . "\";";
-			$cmtx_box .= "document.getElementById(\"cmtx_reply_message\").innerHTML=\"" . cmtx_define(CMTX_REPLY_MESSAGE) . " " . $name . '. ' . "\";";
+			$cmtx_box .= "document.getElementById(\"cmtx_reply_message\").innerHTML=\"" . CMTX_REPLY_MESSAGE . " " . $name . '. ' . "\";";
 			$cmtx_box .= "document.getElementById(\"cmtx_reset_reply\").style.display=\"inline\"'>";
 			$cmtx_box .= "<img src='" . cmtx_commentics_url() . "images/buttons/reply.png' alt='Reply' title='" . CMTX_TITLE_REPLY . "'/>" . CMTX_REPLY . "</a>";
 		} else {
@@ -444,7 +444,7 @@ function cmtx_paginate ($current_page, $range_of_pages, $total_pages) { //displa
 	if ($current_page > 1) { //if not on page 1
 		echo " <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=1" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_FIRST . "'>" . CMTX_PAGINATION_FIRST . "</a></span> "; // show link to go back to page 1
 		$previous_page = $current_page - 1; //get previous page number
-		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$previous_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_PREVIOUS . "'>" . cmtx_define(CMTX_PAGINATION_PREVIOUS) . "</a></span> "; //show link to go back 1 page
+		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$previous_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_PREVIOUS . "'>" . CMTX_PAGINATION_PREVIOUS . "</a></span> "; //show link to go back 1 page
 	}
 
 	for ($x = ($current_page - $range_of_pages); $x < (($current_page + $range_of_pages) + 1); $x++) { //loop to show links to range of pages around current page
@@ -459,7 +459,7 @@ function cmtx_paginate ($current_page, $range_of_pages, $total_pages) { //displa
 
 	if ($current_page != $total_pages) { //if not on last page, show forward and last page links
 		$next_page = $current_page + 1; //get next page number
-		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$next_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_NEXT . "'>" . cmtx_define(CMTX_PAGINATION_NEXT) . "</a></span> "; //display forward link for next page 
+		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$next_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_NEXT . "'>" . CMTX_PAGINATION_NEXT . "</a></span> "; //display forward link for next page 
 		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$total_pages" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_LAST . "'>" . CMTX_PAGINATION_LAST . "</a></span> "; //display forward link for last page
 	}
 

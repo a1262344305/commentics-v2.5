@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
 						jQuery('.cmtx_average_rating_text').fadeOut(1000, function() { jQuery('.cmtx_average_rating_text').text(response + '<?php echo '/5 (' . (cmtx_number_of_ratings() + 1) . ')'; ?>').fadeIn(1000); });
 					} else { //error
 						jQuery('.cmtx_error_ajax').clearQueue();
-						jQuery('.cmtx_error_ajax').text(response);
+						jQuery('.cmtx_error_ajax').html(response);
 						jQuery('.cmtx_error_ajax').css('top', e.pageY);
 						jQuery('.cmtx_error_ajax').css('left', e.pageX);
 						jQuery('.cmtx_error_ajax').fadeIn(500).delay(2000).fadeOut(500);
@@ -132,7 +132,7 @@ jQuery(document).ready(function() {
 					}
 				} else { //error
 					jQuery('.cmtx_error_ajax').clearQueue();
-					jQuery('.cmtx_error_ajax').text(response);
+					jQuery('.cmtx_error_ajax').html(response);
 					jQuery('.cmtx_error_ajax').css('top', e.pageY);
 					jQuery('.cmtx_error_ajax').css('left', e.pageX);
 					jQuery('.cmtx_error_ajax').fadeIn(500).delay(2000).fadeOut(500);
@@ -180,13 +180,13 @@ jQuery(document).ready(function() {
 						
 							if (response == '<?php echo cmtx_escape_js(CMTX_FLAG_REPORT_SENT); ?>') { //success
 								jQuery('.cmtx_success_ajax').clearQueue();
-								jQuery('.cmtx_success_ajax').text(response);
+								jQuery('.cmtx_success_ajax').html(response);
 								jQuery('.cmtx_success_ajax').css('top', e.pageY);
 								jQuery('.cmtx_success_ajax').css('left', e.pageX);
 								jQuery('.cmtx_success_ajax').fadeIn(500).delay(3000).fadeOut(500);
 							} else { //error
 								jQuery('.cmtx_error_ajax').clearQueue();
-								jQuery('.cmtx_error_ajax').text(response);
+								jQuery('.cmtx_error_ajax').html(response);
 								jQuery('.cmtx_error_ajax').css('top', e.pageY);
 								jQuery('.cmtx_error_ajax').css('left', e.pageX);
 								jQuery('.cmtx_error_ajax').fadeIn(500).delay(3000).fadeOut(500);
