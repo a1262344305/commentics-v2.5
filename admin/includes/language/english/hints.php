@@ -102,7 +102,7 @@ define('CMTX_HINT_MAX_CAPITALS', 'Detect when a user enters a high percentage of
 define('CMTX_HINT_DETECT_REPEATS', 'Detect when a user enters 3 or more repeating characters.');
 
 define('CMTX_HINT_CHECK_REFERRER', 'Whether to check that the form was submitted from your own website.');
-define('CMTX_HINT_CHECK_DB_FILE', 'Whether to check that the database details file, includes/db/details.php, is read-only.');
+define('CMTX_HINT_CHECK_DB_FILE', 'Whether to check that the database file, details.php, is read-only.');
 define('CMTX_HINT_CHECK_HONEYPOT', 'Whether to add an input, hidden by CSS, to be left empty. Bots tend to fill in this form field.');
 define('CMTX_HINT_CHECK_TIME', 'Whether to check that it took less than 5 seconds to submit the form. Bots often submit forms instantly without waiting.');
 define('CMTX_HINT_BAN_COOKIE', 'The amount of days before the ban cookie expires.');

@@ -68,7 +68,7 @@ If you are <b>installing</b> the programme make sure that:
 
 <ul>
 <li>You have created the database.</li>
-<li>You have entered its details in /<?php echo $commentics_folder; ?>/includes/db/details.php</li>
+<li>You have entered its details in /<?php echo $commentics_folder; ?>/includes/database/details.php</li>
 <li>Your MySQL user has <b>at least</b> the following privileges:
 	<ul><li>Select, Insert, Update, Delete, Create, Alter, Index and Drop.</li></ul>
 </ul>

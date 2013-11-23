@@ -45,11 +45,11 @@ echo '<b><u>Database Connection</u></b>';
 
 echo '<p />';
 
-if (is_writable('../includes/db/details.php')) {
-echo '/' . cmtx_setting('commentics_folder') . '/includes/db/details.php <span class="negative">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
+if (is_writable('../includes/database/details.php')) {
+echo '/' . cmtx_setting('commentics_folder') . '/includes/database/details.php <span class="negative">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 $permissions_correct = false;
 } else {
-echo '/' . cmtx_setting('commentics_folder') . '/includes/db/details.php <span class="positive">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
+echo '/' . cmtx_setting('commentics_folder') . '/includes/database/details.php <span class="positive">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
 }
 
 echo '<p />';

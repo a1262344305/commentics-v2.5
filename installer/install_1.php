@@ -66,7 +66,7 @@ require '../includes/functions/page.php';
 ?>
 
 <?php
-require '../includes/db/connect.php'; //connect to database
+require '../includes/database/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 
@@ -172,7 +172,7 @@ foreach (glob('../*', GLOB_ONLYDIR) as $dir) {
 }
 $admin_folder = 'admin';
 foreach ($folders as $folder) {
-	if ($folder != 'agreement' && $folder != 'colorbox' && $folder != 'css' && $folder != 'images' && $folder != 'includes' && $folder != 'installer' && $folder != 'javascript' && $folder != 'raty' && $folder != 'securimage') {
+	if ($folder != 'agreement' && $folder != 'css' && $folder != 'external' && $folder != 'images' && $folder != 'includes' && $folder != 'installer' && $folder != 'javascript') {
 		$admin_folder = $folder;
 	}
 }

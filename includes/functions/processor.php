@@ -925,7 +925,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			global $cmtx_path;
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				require_once $cmtx_path . 'includes/AutoEmbed/AutoEmbed.class.php';
+				require_once $cmtx_path . 'includes/external/AutoEmbed/AutoEmbed.class.php';
 				$AE = new AutoEmbed();
 				if (!$AE->parseUrl($matches[1])) {
 					cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_VIDEO);
@@ -1051,7 +1051,7 @@ function cmtx_purify ($comment) { //purifies HTML
 	global $cmtx_path; //globalise variables
 
 	if (!function_exists('htmLawed')) {
-		require_once $cmtx_path . 'includes/htmLawed/htmLawed.php'; //load htmLawed script
+		require_once $cmtx_path . 'includes/external/htmLawed/htmLawed.php'; //load htmLawed script
 	}
 
 	$comment = htmLawed($comment); //purify
@@ -1071,7 +1071,7 @@ function cmtx_akismet ($name, $email, $website, $comment) { //check Akismet test
 	if ($website == 'http://') { $website = ''; }
 	$comment = cmtx_strip_slashes(cmtx_decode($comment));
 
-	require_once $cmtx_path . 'includes/akismet/akismet.php'; //load Akismet script
+	require_once $cmtx_path . 'includes/external/akismet/akismet.php'; //load Akismet script
 
 	$WordPressAPIKey = cmtx_setting('akismet_key'); //set API key
 

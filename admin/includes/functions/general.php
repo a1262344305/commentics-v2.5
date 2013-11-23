@@ -741,7 +741,7 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 	
 	} else {
 	
-		require_once $cmtx_path . 'includes/swift_mailer/lib/swift_required.php'; //load Swift Mailer
+		require_once $cmtx_path . 'includes/external/swift_mailer/lib/swift_required.php'; //load Swift Mailer
 
 		//set the transport method
 		if (cmtx_setting('transport_method') == "php") {

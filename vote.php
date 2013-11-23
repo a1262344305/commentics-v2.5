@@ -28,7 +28,7 @@ define('IN_COMMENTICS', true);
 $cmtx_path = '';
 
 /* Database Connection */
-require 'includes/db/connect.php'; //connect to database
+require 'includes/database/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 
 //load function files

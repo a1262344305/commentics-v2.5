@@ -30,7 +30,7 @@ ob_start();
 
 $cmtx_path = '../'; //set the path
 
-require '../includes/db/connect.php'; //connect to database
+require '../includes/database/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 
 require 'includes/functions/general.php'; //load functions
@@ -81,14 +81,14 @@ if (!isset($_GET['page']) || (!file_exists('includes/pages/' . basename($_GET['p
 
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css"/>
 
-<link rel="stylesheet" type="text/css" href="menu/ddlevelsmenu-base.css"/>
-<link rel="stylesheet" type="text/css" href="menu/ddlevelsmenu-topbar.css"/>
-<script type="text/javascript" src="menu/ddlevelsmenu.js"></script>
+<link rel="stylesheet" type="text/css" href="external/ddlevels_menu/ddlevelsmenu-base.css"/>
+<link rel="stylesheet" type="text/css" href="external/ddlevels_menu/ddlevelsmenu-topbar.css"/>
+<script type="text/javascript" src="external/ddlevels_menu/ddlevelsmenu.js"></script>
 
-<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="javascript/tooltip.js"></script>
 
-<link rel="stylesheet" type="text/css" href="table/css/demo_table.css"/>
-<script type="text/javascript" src="table/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="external/data_tables/css/demo_table.css"/>
+<script type="text/javascript" src="external/data_tables/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 // <![CDATA[
 $(document).ready(function() {
@@ -109,7 +109,7 @@ $('#data').dataTable({
 </script>
 
 <?php if ($_GET['page'] == 'edit_comment' && cmtx_setting('enabled_wysiwyg')) { ?>
-<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="external/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 // <![CDATA[
 tinyMCE.init({
@@ -281,7 +281,7 @@ function bulk_check() {
 <a href="index.php?page=dashboard"><img src="images/commentics/logo.png" class="logo" title="Commentics" alt="Commentics"/></a>
 
 <?php
-require 'menu/menu.php';
+require 'external/ddlevels_menu/menu.php';
 
 echo '<p />';
 
@@ -324,13 +324,13 @@ if (file_exists('../installer/')) {
 /* Check Database File */
 if (isset($_POST['db_chmod'])) {
 	cmtx_check_csrf_form_key();
-	@chmod('../includes/db/details.php', 0444);
+	@chmod('../includes/database/details.php', 0444);
 }
 if (isset($_POST['db_check'])) {
 	cmtx_check_csrf_form_key();
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
 }
-if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/db/details.php')) {
+if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/database/details.php')) {
 	?>
 	<span class='negative'>The database file is writable.</span>
 	<p />

@@ -1099,12 +1099,12 @@ function cmtx_output_captcha () {
 			echo CMTX_LABEL_CAPTCHA;
 			if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 			</label>
-			<img id="cmtx_securimage" class="cmtx_securimage" src="<?php echo cmtx_commentics_url(); ?>securimage/securimage_show.php" alt="Captcha" title="Captcha"/>
-			<object type="application/x-shockwave-flash" wmode="transparent" data="<?php echo cmtx_commentics_url(); ?>securimage/securimage_play.swf?audio_file=<?php echo cmtx_commentics_url(); ?>securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_commentics_url(); ?>securimage/images/audio_icon.png" title="<?php echo CMTX_TITLE_SECURIMAGE_AUDIO; ?>" class="cmtx_securimage_audio_icon">
-			<param name="movie" value="<?php echo cmtx_commentics_url(); ?>securimage/securimage_play.swf?audio_file=<?php echo cmtx_commentics_url(); ?>securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_commentics_url(); ?>securimage/images/audio_icon.png"/>
+			<img id="cmtx_securimage" class="cmtx_securimage" src="<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_show.php" alt="Captcha" title="Captcha"/>
+			<object type="application/x-shockwave-flash" wmode="transparent" data="<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_play.swf?audio_file=<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_commentics_url(); ?>external/securimage/images/audio_icon.png" title="<?php echo CMTX_TITLE_SECURIMAGE_AUDIO; ?>" class="cmtx_securimage_audio_icon">
+			<param name="movie" value="<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_play.swf?audio_file=<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_play.php&amp;icon_file=<?php echo cmtx_commentics_url(); ?>external/securimage/images/audio_icon.png"/>
 			</object>
 			<br/>
-			<a href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" onclick="document.getElementById('cmtx_securimage').src = '<?php echo cmtx_commentics_url(); ?>securimage/securimage_show.php?' + Math.random(); return false"><img src="<?php echo cmtx_commentics_url(); ?>securimage/images/refresh_icon.png" alt="Refresh" title="<?php echo CMTX_TITLE_SECURIMAGE_REFRESH; ?>" class="cmtx_securimage_refresh_icon"/></a>
+			<a href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" onclick="document.getElementById('cmtx_securimage').src = '<?php echo cmtx_commentics_url(); ?>external/securimage/securimage_show.php?' + Math.random(); return false"><img src="<?php echo cmtx_commentics_url(); ?>external/securimage/images/refresh_icon.png" alt="Refresh" title="<?php echo CMTX_TITLE_SECURIMAGE_REFRESH; ?>" class="cmtx_securimage_refresh_icon"/></a>
 			<div style="clear: left;"></div>
 			<div class="cmtx_label">&nbsp;</div>
 			<span class="securimage_text"><?php echo CMTX_TEXT_SECURIMAGE; ?></span>
@@ -1120,7 +1120,7 @@ function cmtx_output_captcha () {
 			if ((cmtx_setting('recaptcha_public_key') == '') || (cmtx_setting('recaptcha_private_key') == '')) {
 				echo "<span class='cmtx_recaptcha_no_key'>" . CMTX_RECAPTCHA_NO_KEY . "</span>.";
 			} else {
-				require_once $cmtx_path . 'includes/recaptcha/recaptchalib.php';
+				require_once $cmtx_path . 'includes/external/recaptcha/recaptchalib.php';
 				$cmtx_recaptcha_public_key = cmtx_setting('recaptcha_public_key');
 				echo recaptcha_get_html($cmtx_recaptcha_public_key);
 			} ?>

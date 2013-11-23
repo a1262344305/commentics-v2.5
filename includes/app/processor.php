@@ -398,7 +398,7 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 					if (empty($cmtx_captcha)) { //if no captcha value entered
 						cmtx_error(CMTX_ERROR_MESSAGE_NO_CAPTCHA); //reject user for entering no captcha value
 					} else { //if captcha value entered
-						require_once $cmtx_path . "securimage/securimage.php"; //load captcha script
+						require_once $cmtx_path . "external/securimage/securimage.php"; //load captcha script
 						$securimage = new Securimage();
 						if ($securimage->check($cmtx_captcha) == false) { //if entered captcha value invalid
 							cmtx_error(CMTX_ERROR_MESSAGE_WRONG_CAPTCHA); //reject user for entering wrong captcha value
@@ -422,7 +422,7 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 						if (empty($cmtx_captcha)) { //if no captcha value entered
 							cmtx_error(CMTX_ERROR_MESSAGE_NO_CAPTCHA); //reject user for entering no captcha value
 						} else { //if captcha value entered
-							require_once $cmtx_path . 'includes/recaptcha/recaptchalib.php'; //load captcha script
+							require_once $cmtx_path . 'includes/external/recaptcha/recaptchalib.php'; //load captcha script
 							$cmtx_recaptcha_private_key = cmtx_setting('recaptcha_private_key');
 							$cmtx_recaptcha_response = recaptcha_check_answer($cmtx_recaptcha_private_key, $cmtx_ip_address, $_POST['recaptcha_challenge_field'], $_POST['recaptcha_response_field']);
 							if (!$cmtx_recaptcha_response->is_valid) { //if entered captcha value invalid

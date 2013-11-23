@@ -53,10 +53,10 @@ $img = new Securimage();
 
 define('IN_COMMENTICS', true);
 
-require '../includes/db/connect.php';
+require '../../includes/database/connect.php';
 if (!$cmtx_db_ok) { die(); }
 
-require '../includes/functions/page.php';
+require '../../includes/functions/page.php';
 
 $img->image_width = cmtx_setting('securimage_width');
 $img->image_height = cmtx_setting('securimage_height');

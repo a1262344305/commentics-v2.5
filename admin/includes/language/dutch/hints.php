@@ -102,7 +102,7 @@ define('CMTX_HINT_MAX_CAPITALS', 'Detecteer het dat een gebruiker een grote hoev
 define('CMTX_HINT_DETECT_REPEATS', 'Detecteer het dat een gebruiker meer dan 3 dezelfde letters achter elkaar invoerd.');
 
 define('CMTX_HINT_CHECK_REFERRER', 'Of het nu om te controleren of het formulier is verzonden vanaf uw eigen website.');
-define('CMTX_HINT_CHECK_DB_FILE', 'Of het nu om te controleren of de database gegevens bestand, includes/db/details.php, is alleen-lezen.');
+define('CMTX_HINT_CHECK_DB_FILE', 'Whether to check that the database file, details.php, is read-only.');
 define('CMTX_HINT_CHECK_HONEYPOT', 'Whether to add an input, hidden by CSS, to be left empty. Bots tend to fill in every form field.');
 define('CMTX_HINT_CHECK_TIME', 'Whether to check that it took less than 5 seconds to submit the form. Bots often submit forms instantly without waiting.');
 define('CMTX_HINT_BAN_COOKIE', 'Het aantal dagen voordat het verbod cookie verloopt.');

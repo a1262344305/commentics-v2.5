@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php
-require '../includes/db/connect.php'; //connect to database
+require '../includes/database/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 
@@ -379,7 +379,7 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_comment_approve_reply_to', 'no-reply@$site_domain');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_comment_okay_subject', 'New Comment: Okay');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_comment_okay_from_name', '$site_name');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_nezw_comment_okay_from_email', 'comments@$site_domain');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_comment_okay_from_email', 'comments@$site_domain');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_comment_okay_reply_to', 'no-reply@$site_domain');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_flag_subject', 'Comments: New Flag');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'admin_new_flag_from_name', '$site_name');");

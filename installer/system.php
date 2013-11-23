@@ -56,7 +56,7 @@ define('CMTX_IN_INSTALLER', true);
 
 <?php
 if (extension_loaded('mysqli')) {
-require '../includes/db/connect.php'; //connect to database
+require '../includes/database/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 }
 ?>
