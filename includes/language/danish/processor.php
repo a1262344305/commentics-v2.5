@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Din kommentar er tilføjet.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Navnefeltet skal udfyldes, indtast dit navn.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Du kan kun angive et enkelt navn i navnefeltet.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Det indtastede navn benyttes allerede af en anden. Angiv et andet navn.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Det indtastede navn er ikke tilladt at bruge her. Indtast et andet navn.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Du har indtastet et falsk navn. Indtast dit tigtige navn.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Det indtastede bynavn er ikke din 
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Bynavnet indeholder et link. Indtast navnet uden link.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Du skal vælge land.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Det valgte land er ugyldigt. Kontakt administrator.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Det valgte land kunne ikke findes. Prøv igen.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'Karakterfeltet var ikke valgt. Vælg din karakter.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Den valgte karakter er ugyldig. Kontakt administrator.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Du har svaret på en ugyldig kommentar. Prøv igen.');

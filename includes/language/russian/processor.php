@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Ваш комментарий добавлен
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Поле имя не может быть пустым. Пожалуйста, введите Ваше имя.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'В поле Имя можно ввести только одно имя. Пожалуйста, введите одно имя.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Такое имя уже существует. Пожалуйста, выберите другое имя.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Такое имя недопустимо. Пожалуйста, выберите другое имя');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Это не Ваше имя. Пожалуйста, введите Ваше настоящее имя.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Вы ввели не свой го
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Название города содержит ссылку. Пожалуйста, введите свой город.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Страна не была выбрана. Пожалуйста, введите Вашу страну.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Страна выбрана неверно. Пожалуйста, попробуйте снова.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'The selected country was not found. Please try again.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'Оценка не была выбрана. Пожалуйста, введите Вашу оценку.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Оценка выбрана неверно. Пожалуйста, попробуйте снова.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Комментарий, на который вы отвечаете, недействителен. Пожалуйста, попробуйте снова.');

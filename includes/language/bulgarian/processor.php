@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Вашият коментар е добаве�
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Полето за името не може да бъде празно. Моля, въведете името си.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Само едно име може да бъде въведено в полето. Моля, въведете своето име.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Въведеното име е запазено. Моля, изберете друго име.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Въведеното име е забранено. Моля, изберете друго име.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Въведеното име не е Вашето. Моля, въведете истинското си име.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Въведеният град не
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Въведеният град съдържа връзка. Моля, въведете Вашия град.n.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Не е избрано от полето за държава. Моля, изберете държава.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Избраната държава е невалидна. Моля да се свържете с администратора.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Избраната държава не може да бъде намерена. Моля, опитайте отново.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'Не сте избрали в полето за рейтинг. Моля изберете рейтинг.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Избраният рейтинг е невалиден. Моля да се свържете с администратора.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Коментара, на който отговаряте, е невалиден. Моля, опитайте отново.');

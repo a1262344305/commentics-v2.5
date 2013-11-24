@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Vaš komentar je bil dodan.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Polje \'Ime\' ne more biti prazno. Prosimo vpišite vaše ime.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Polje \'Ime\' sprejme samo eno besedo. Prosimo vpišite vaše ime.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Vpisano ime je rezervirana beseda. Prosimo izberite drugo ime.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Vpisano ime je prepovedana beseda. Prosimo izberite drugo ime.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Vpisano ime ni vaše. Prosimo vpišite svoje pravo ime.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Ni vpisano ime vašega mesta. Pros
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Vpisano ime mesta je link. Prosimo pravilno imenujte vaše mesto.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Država ni izbrana. Prosimo izberite državo.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Izbrana država je neveljavna. Prosimo, poskusite znova.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Izbrana država ni bila najdena. Prosimo, poskusite znova.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'Ocena ni izbrana. Prosimo izberite jo.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Izbrana ocena je neveljavna. Prosimo, poskusite znova.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Komentar, na katerega odgovarjate, ni pravilen. Prosimo poizkusite ponovno.');

@@ -261,7 +261,6 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		if (!empty($cmtx_country)) { //if country value is selected
 			cmtx_is_injected($cmtx_country); //check for injection attempt
 			cmtx_validate_country($cmtx_country); //validate country
-			cmtx_find_country($cmtx_country); //find country
 			$cmtx_country = cmtx_sanitize($cmtx_country, true, true); //sanitize country
 		} else {
 			$cmtx_country = "";

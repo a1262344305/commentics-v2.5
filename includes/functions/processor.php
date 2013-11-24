@@ -337,11 +337,11 @@ function cmtx_validate_name ($name) { //checks whether name was valid
 		cmtx_error(CMTX_ERROR_MESSAGE_START_NAME); //reject user for not starting with a letter
 	}
 	
-	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $name)) { //if the submitted name contains invalid characters
+	if (!preg_match('/^[\p{L}&\-\'. 0-9]+$/u', $name)) { //if the submitted name contains invalid characters
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_NAME); //reject user for entering invalid characters
 	}
 	
-	// letters, ampersand, hyphen, apostrophe, period, space
+	// letters, ampersand, hyphen, apostrophe, period, space, numbers
 	// \p{L} (any kind of letter from any language)
 
 } //end of validate-name function
@@ -493,41 +493,6 @@ function cmtx_validate_country ($country) { //checks whether country was valid
 	// \p{L} (any kind of letter from any language)
 
 } //end of validate-country function
-
-
-function cmtx_find_country ($country) { //find whether country is in country list
-
-	global $cmtx_path; //globalise variables
-
-	$country = str_ireplace("'", "\'", $country); //escape ' with \
-
-	$file = file($cmtx_path . "includes/language/" . cmtx_setting('language_frontend') . "/countries.php"); //set file to search
-
-	foreach ($file as $line_number => $line) { //for each line in file
-
-		$line_number++; //keep count of line number
-			
-		if ($line_number > 30) { //don't search copyright section
-
-			$matches = array(); //used to store matches
-
-			if (preg_match('/DEFINE\(\'(.*?)\',\s*\'(.*)\'\);/i', $line, $matches)) { //if the line is a valid define statement
-
-				$value = $matches[2]; //get the value part of the define statement
-
-				if ($value == $country) { //if the value is the country (country found)
-					return; //exit this function
-				}
-
-			}
-
-		}
-
-	}
-
-	cmtx_error(CMTX_ERROR_MESSAGE_COUNTRY_SEARCH); //reject user for submitting country not in country list
-
-} //end of find-country function
 
 
 function cmtx_validate_rating ($rating) { //checks whether rating was valid

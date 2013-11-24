@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Ihr Kommentar wurde hinzugefügt.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Das Eingabefeld für den Namen darf nicht leer sein. Bitte geben Sie Ihren  Namen ein.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Es darf nur ein Wort im Eingabefeld für den Namen eingeben werden. Bitte geben Sie einen neuen Namen ein.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Der eingegebene Name ist reserviert. Bitte wählen Sie einen anderen Namen.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Der eingegebene Name ist nicht erlaubt. Bitte wählen Sie einen anderen Namen.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Der eingegebene Name ist offenbar nicht Ihr Name. Bitte verwenden Sie Ihren wahren Namen.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Bitte geben Sie eine andere Stadt 
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Die Angabe enthält einen Link. Bitte geben Sie Ihre Stadt ein.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'Es wurde kein Land ausgewählt. Bitte wählen Sie Ihr Land aus.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Das ausgewählte Land ist ungültig. Bitte versuchen Sie es erneut.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Das angebene Land konnte nicht gefunden werden. Bitte versuchen Sie es erneut.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'Es wurde keine Bewertung abgegeben. Bitte wählen Sie Ihre Bewertung aus.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'Die gewählte Rating ist ungültig. Bitte versuchen Sie es erneut.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Der Kommentar, den Sie zu beantworten sind, ist ungültig. Bitte versuchen Sie es erneut.');

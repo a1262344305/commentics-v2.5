@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Su comentario ha sido añadido.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'El campo Nombre no puede estar vacío. por favor, escriba su nombre.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'Solo un nombre puede ser escrito en el campo Nombre. Por favor escriba su nombre.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Este nombre está reservado. Por favor, elija otro nombre.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'El nombre introducido está reservado. Por favor, elija otro nombre.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'El nombre introducido no es el suyo. Por favor, introduzca su nombre real.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'La ciudad introducida no es la suy
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'La ciudad introducida contiene un enlace. Por favor, escriba su ciudad.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'No ha elejido país. Por favor, elija su país.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'El país seleccionado no es válido. Por favor, inténtelo de nuevo.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'The selected country was not found. Please try again.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'No ha seleccionado ninguna valoración. Por favor, elija una valoración.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'La calificación seleccionada no es válida. Por favor, inténtelo de nuevo.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'El comentario que está respondiendo es inválido. Por favor, inténtelo otra vez.');

@@ -45,7 +45,7 @@ cmtx_define('CMTX_SUCCESS_TEXT', 'Uw bericht is toegevoegd.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_NAME', 'Uw naam is verplicht. Voer aub uw naam in.');
 cmtx_define('CMTX_ERROR_MESSAGE_ONE_NAME', 'U kunt maar 1 naam invoeren.');
 cmtx_define('CMTX_ERROR_MESSAGE_START_NAME', 'The name must start with a letter. Please start it with a letter.');
-cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . -');
+cmtx_define('CMTX_ERROR_MESSAGE_INVALID_NAME', 'The name can only contain these characters: A-Z \' & . - 0-9');
 cmtx_define('CMTX_ERROR_MESSAGE_RESERVED_NAME', 'Deze naam is al in gebruik. Kies een andere gebruikersnaam.');
 cmtx_define('CMTX_ERROR_MESSAGE_BANNED_NAME', 'Deze gebruikersnaam is verboden. Kies een andere gebruikersnaam.');
 cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_NAME', 'Dit is niet uw gebruikersnaam. Voer uw gebruikersnaam in.');
@@ -70,7 +70,6 @@ cmtx_define('CMTX_ERROR_MESSAGE_DUMMY_TOWN', 'Deze plaatsnaam hoort niet bij u. 
 cmtx_define('CMTX_ERROR_MESSAGE_LINK_IN_TOWN', 'Uw plaatsnaam bevat een link. Voer uw plaats in.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_COUNTRY', 'U heeft geen land gekozen. Kies een land.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_COUNTRY', 'Het geselecteerde land is ongeldig. Probeer het opnieuw.');
-cmtx_define('CMTX_ERROR_MESSAGE_COUNTRY_SEARCH', 'Het geselecteerde land is niet gevonden. Probeer het opnieuw.');
 cmtx_define('CMTX_ERROR_MESSAGE_NO_RATING', 'U heeft geen waardering gegeven. Kies uw waardering.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_RATING', 'De geselecteerde rating is ongeldig. Probeer het opnieuw.');
 cmtx_define('CMTX_ERROR_MESSAGE_INVALID_REPLY', 'Het bericht waarop u reageerd is ongeldig. Probeer het nog eens.');

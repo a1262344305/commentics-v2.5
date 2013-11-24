@@ -160,8 +160,19 @@ $page_reference = $page_reference_result["reference"];
 
 <p />
 
-<?php require '../includes/language/' . cmtx_setting('language_frontend') . '/countries.php'; ?>
-<?php require '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php'; ?>
+<?php
+if (file_exists('../includes/language/' . cmtx_setting('language_frontend') . '/custom/countries.php')) {
+	require '../includes/language/' . cmtx_setting('language_frontend') . '/custom/countries.php';
+}
+require '../includes/language/' . cmtx_setting('language_frontend') . '/countries.php';
+?>
+
+<?php
+if (file_exists('../includes/language/' . cmtx_setting('language_frontend') . '/custom/ratings.php')) {
+	require '../includes/language/' . cmtx_setting('language_frontend') . '/custom/ratings.php';
+}
+require '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php';
+?>
 
 <form name="edit_comment" id="edit_comment" action="index.php?page=edit_comment&id=<?php echo $id ?>" method="post">
 <label class='edit_comment'><?php echo CMTX_FIELD_LABEL_NAME; ?></label> <input type="text" required name="name" size="33" maxlength="250" value="<?php echo $name; ?>"/>

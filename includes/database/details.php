@@ -25,8 +25,8 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
 //ENTER DATABASE INFORMATION HERE*****************************************************
-$cmtx_mysql_database = 'commentics';				// The name of the database you created
-$cmtx_mysql_username = 'root'; 				// Your MySQL username
+$cmtx_mysql_database = '';				// The name of the database you created
+$cmtx_mysql_username = ''; 				// Your MySQL username
 $cmtx_mysql_password = '';			 	// Your MySQL password
 $cmtx_mysql_host = 'localhost';			// Usually 'localhost'. Can also be an IP address.
 $cmtx_mysql_port = '';					// In most cases leave blank.

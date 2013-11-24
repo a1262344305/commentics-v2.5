@@ -54,7 +54,7 @@ function cmtx_load_form_login() { //load login form field values
 	
 	if (isset($cmtx_set_name_value) && !empty($cmtx_set_name_value)) {
 		if (!isset($cmtx_default_name)) {
-			if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $cmtx_set_name_value) || !preg_match('/^[\p{L}]+/u', $cmtx_set_name_value)) {
+			if (!preg_match('/^[\p{L}&\-\'. 0-9]+$/u', $cmtx_set_name_value) || !preg_match('/^[\p{L}]+/u', $cmtx_set_name_value)) {
 				$cmtx_set_name_value = '';
 			} else {
 				$cmtx_default_name = $cmtx_set_name_value;
@@ -94,28 +94,11 @@ function cmtx_load_form_login() { //load login form field values
 	
 	if (isset($cmtx_set_country_value) && !empty($cmtx_set_country_value)) {
 		if (!isset($cmtx_default_country)) {
-				global $cmtx_path; //globalise variables
-				$found = false;
-				$country = str_ireplace("'", "\'", $cmtx_set_country_value); //escape ' with \
-				$file = file($cmtx_path . "includes/language/" . cmtx_setting('language_frontend') . "/countries.php"); //set file to search
-				foreach ($file as $line_number => $line) { //for each line in file
-					$line_number++; //keep count of line number
-					if ($line_number > 30) { //don't search copyright section
-						$matches = array(); //used to store matches
-						if (preg_match('/DEFINE\(\'(.*?)\',\s*\'(.*)\'\);/i', $line, $matches)) { //if the line is a valid define statement
-							$value = $matches[2]; //get the value part of the define statement
-							if ($value == $country) { //if the value is the country (country found)
-								$found = true;
-								break;
-							}
-						}
-					}
-				}
-				if ($found) {
-					$cmtx_default_country = $cmtx_set_country_value;
-				} else {
-					$cmtx_set_country_value = '';
-				}
+			if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $cmtx_set_country_value) || !preg_match('/^[\p{L}]+/u', $cmtx_set_country_value)) {
+				$cmtx_set_country_value = '';
+			} else {
+				$cmtx_default_country = $cmtx_set_country_value;
+			}
 		}
 	}
 	
@@ -194,7 +177,7 @@ function cmtx_clean_form_defaults() { //clean default form field values
 	$cmtx_default_rating = str_replace('"', '', $cmtx_default_rating);
 	
 	//remove invalid characters
-	$cmtx_default_name = preg_replace('/[^\p{L}&\-\'. ]/u', '', $cmtx_default_name); // \p{L} (any kind of letter from any language)
+	$cmtx_default_name = preg_replace('/[^\p{L}&\-\'. 0-9]/u', '', $cmtx_default_name); // \p{L} (any kind of letter from any language)
 	$cmtx_default_email = filter_var($cmtx_default_email, FILTER_SANITIZE_EMAIL);
 	$cmtx_default_website = cmtx_url_encode_spaces($cmtx_default_website);
 	$cmtx_default_website = filter_var($cmtx_default_website, FILTER_SANITIZE_URL);

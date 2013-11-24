@@ -82,8 +82,19 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 
 <p />
 
-<?php require '../includes/language/' . cmtx_setting('language_frontend') . '/countries.php'; ?>
-<?php require '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php'; ?>
+<?php
+if (file_exists('../includes/language/' . cmtx_setting('language_frontend') . '/custom/countries.php')) {
+	require '../includes/language/' . cmtx_setting('language_frontend') . '/custom/countries.php';
+}
+require '../includes/language/' . cmtx_setting('language_frontend') . '/countries.php';
+?>
+
+<?php
+if (file_exists('../includes/language/' . cmtx_setting('language_frontend') . '/custom/ratings.php')) {
+	require '../includes/language/' . cmtx_setting('language_frontend') . '/custom/ratings.php';
+}
+require '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php';
+?>
 
 <form name="layout_form_defaults" id="layout_form_defaults" action="index.php?page=layout_form_defaults" method="post">
 <label class='layout_form_defaults'><?php echo CMTX_FIELD_LABEL_NAME; ?></label> <input type="text" name="default_name" size="33" maxlength="250" value="<?php echo cmtx_setting('default_name'); ?>"/>
