@@ -69,6 +69,9 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `category` = 'theme' WHERE `title` = 'split_screen'");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('theme', 'center_screen', '0');");
 
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'time_format'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'date_time_format'");
+
 cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',

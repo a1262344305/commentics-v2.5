@@ -76,8 +76,8 @@ $ban_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "bans`
 $ban_result = cmtx_db_fetch_assoc($ban_query);
 $ip_address = $ban_result["ip_address"];
 $reason = $ban_result["reason"];
-$time = date("g:ia", strtotime($ban_result["dated"]));
-$date = date("jS M Y", strtotime($ban_result["dated"]));
+$time = cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($ban_result["dated"])));
+$date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($ban_result["dated"])));
 ?>
 
 <p />
@@ -87,9 +87,9 @@ $date = date("jS M Y", strtotime($ban_result["dated"]));
 <p />
 <label class='edit_ban'><?php echo CMTX_FIELD_LABEL_REASON; ?></label> <input type="text" required name="reason" size="20" maxlength="250" value="<?php echo $reason; ?>"/>
 <p />
-<label class='edit_ban'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="5" maxlength="250" value="<?php echo $time; ?>"/>
+<label class='edit_ban'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="12" maxlength="250" value="<?php echo $time; ?>"/>
 <p />
-<label class='edit_ban'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="12" maxlength="250" value="<?php echo $date; ?>"/>
+<label class='edit_ban'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="20" maxlength="250" value="<?php echo $date; ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

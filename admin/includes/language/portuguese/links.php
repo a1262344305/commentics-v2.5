@@ -33,8 +33,6 @@ define('CMTX_LINK_BACKEND', 'Interdace Administrativa');
 
 define('CMTX_LINK_DISMISS', 'Demitir');
 
-define('CMTX_LINK_FAQ', '[FAQ]');
-
 define('CMTX_LINK_BACK', 'voltar');
 
 define('CMTX_LINK_MORE', '(Mais)');

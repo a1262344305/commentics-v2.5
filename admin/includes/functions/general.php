@@ -835,4 +835,110 @@ function cmtx_setting($title) { //gets a setting
 	return $result['value'];
 
 } //end of setting function
+
+
+function cmtx_format_date($date) { //format a date
+
+	//Months
+
+	$date = str_ireplace('January', CMTX_JANUARY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Jan', CMTX_JANUARY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('February', CMTX_FEBRUARY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Feb', CMTX_FEBRUARY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('March', CMTX_MARCH, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Mar', CMTX_MARCH_SHORT, $date);
+    }
+	
+	$date = str_ireplace('April', CMTX_APRIL, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Apr', CMTX_APRIL_SHORT, $date);
+    }
+	
+	$date = str_ireplace('May', CMTX_MAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('May', CMTX_MAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('June', CMTX_JUNE, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Jun', CMTX_JUNE_SHORT, $date);
+    }
+	
+	$date = str_ireplace('July', CMTX_JULY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Jul', CMTX_JULY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('August', CMTX_AUGUST, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Aug', CMTX_AUGUST_SHORT, $date);
+    }
+	
+	$date = str_ireplace('September', CMTX_SEPTEMBER, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Sep', CMTX_SEPTEMBER_SHORT, $date);
+    }
+	
+	$date = str_ireplace('October', CMTX_OCTOBER, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Oct', CMTX_OCTOBER_SHORT, $date);
+    }
+	
+	$date = str_ireplace('November', CMTX_NOVEMBER, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Nov', CMTX_NOVEMBER_SHORT, $date);
+    }
+	
+	$date = str_ireplace('December', CMTX_DECEMBER, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Dec', CMTX_DECEMBER_SHORT, $date);
+    }
+	
+	//Days
+	
+	$date = str_ireplace('Monday', CMTX_MONDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Mon', CMTX_MONDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Tuesday', CMTX_TUESDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Tue', CMTX_TUESDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Wednesday', CMTX_WEDNESDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Wed', CMTX_WEDNESDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Thursday', CMTX_THURSDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Thu', CMTX_THURSDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Friday', CMTX_FRIDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Fri', CMTX_FRIDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Saturday', CMTX_SATURDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Sat', CMTX_SATURDAY_SHORT, $date);
+    }
+	
+	$date = str_ireplace('Sunday', CMTX_SUNDAY, $date, $count);
+	if (!$count) {
+        $date = str_ireplace('Sun', CMTX_SUNDAY_SHORT, $date);
+    }
+	
+	return $date;
+
+} //end of format-date function
 ?>

@@ -151,7 +151,7 @@ while ($subscriber = cmtx_db_fetch_assoc($subscribers)) {
 			?>
 			<td><?php echo $page_reference_result["reference"]; ?></td>
 			<td><?php if ($subscriber["is_confirmed"]) { echo CMTX_TABLE_YES; } else { echo CMTX_TABLE_NO; } ?></td>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($subscriber["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($subscriber["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($subscriber["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($subscriber['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($subscriber['dated']))); ?></td>
 			<td>
 			<a href="<?php echo "index.php?page=edit_subscriber&id=" . $subscriber["id"];?>"><img src="images/buttons/edit.png" class="button_edit" title="Edit" alt="Edit"></a>
 			<a href="<?php echo "index.php?page=manage_subscribers&action=delete&id=" . $subscriber["id"] . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/delete.png" class="button_delete" onclick="return delete_confirmation()" title="Delete" alt="Delete"></a>

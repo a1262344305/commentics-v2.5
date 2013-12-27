@@ -55,7 +55,7 @@ while ($access = cmtx_db_fetch_assoc($access_log)) {
 			<td><?php echo cmtx_sanitize($access["username"], true, false); ?></td>
 			<td><?php if (cmtx_setting('is_demo')) { echo "(<i>" . CMTX_TABLE_IP_HIDDEN . "</i>)"; } else { echo $access["ip_address"]; } ?></td>
 			<td><?php echo $access["page"]; ?></td>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($access["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($access["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($access["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($access['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($access['dated']))); ?></td>
         </tr>	
 <?php } ?>
 

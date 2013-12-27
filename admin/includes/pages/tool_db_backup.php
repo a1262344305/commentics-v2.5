@@ -148,7 +148,7 @@ foreach ($backups as $backup) {
 			<td><input type="checkbox" name="bulk[]" value="<?php echo str_ireplace(".sql", "", basename($backup)); ?>" onclick="bulk_check();"/></td>
         	<td><?php echo "<a href='" . $backup . "'>" . basename($backup) . "</a>"; ?></td>
             <td><?php echo round(filesize($backup)/1024,2) . " KB"; ?></td>
-            <td><?php echo date ("jS F Y g:ia", filemtime($backup)); ?></td>
+            <td><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, filemtime($backup))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, filemtime($backup))); ?></td>
 			<td><a href="<?php echo "index.php?page=tool_db_backup&action=delete&id=" . str_ireplace(".sql", "", basename($backup)) . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/delete.png" class="button_delete" onclick="return delete_confirmation()" title="Delete" alt="Delete"></a></td>
         </tr>	
 <?php

@@ -53,7 +53,7 @@ while ($version = cmtx_db_fetch_assoc($versions)) {
     	<tr>
         	<td><?php echo $version["version"]; ?></td>
 			<td><?php echo $version["type"]; ?></td>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($version["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($version["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($version["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($version['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($version['dated']))); ?></td>
         </tr>	
 <?php } ?>
 

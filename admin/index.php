@@ -48,6 +48,7 @@ require 'includes/language/' . cmtx_setting('language_backend') . '/hints.php'; 
 require 'includes/language/' . cmtx_setting('language_backend') . '/tables.php'; //load language file for tables
 require 'includes/language/' . cmtx_setting('language_backend') . '/buttons.php'; //load language file for buttons
 require 'includes/language/' . cmtx_setting('language_backend') . '/prompts.php'; //load language file for prompts
+require 'includes/language/' . cmtx_setting('language_backend') . '/locale.php'; //load language file for locale
 
 cmtx_error_reporting('includes/logs/errors.log'); //error reporting
 

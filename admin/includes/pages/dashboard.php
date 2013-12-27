@@ -125,7 +125,7 @@ if (!$issue) {
 $last_login_query = cmtx_db_query("SELECT `dated` FROM `" . $cmtx_mysql_table_prefix . "logins` ORDER BY `dated` ASC LIMIT 1");
 $last_login_result = cmtx_db_fetch_assoc($last_login_query);
 $last_login = $last_login_result["dated"];
-printf(CMTX_DASH_LAST_LOGIN_DETAILS, date("g:ia", strtotime($last_login)), date("l jS F Y", strtotime($last_login)));
+printf(CMTX_DASH_LAST_LOGIN_DETAILS, cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($last_login))), cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($last_login))));
 ?>
 </div>
 </div>

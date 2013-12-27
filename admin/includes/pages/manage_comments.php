@@ -321,7 +321,7 @@ while ($comment = cmtx_db_fetch_assoc($comments)) {
 			echo "</td>";
 			}
 			?>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($comment["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($comment["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($comment["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($comment['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($comment['dated']))); ?></td>
 			<td>
 			<a href="<?php echo "index.php?page=manage_comments&action=approve&id=" . $comment["id"] . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/approve.png" class="button_approve" title="Approve" alt="Approve"></a>
 			<?php if (cmtx_setting('enabled_notify')) { ?> <a href="<?php echo "index.php?page=manage_comments&action=send&id=" . $comment["id"] . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/send.png" class="button_send" title="Send to email subscribers" alt="Send"></a> <?php } ?>

@@ -402,11 +402,11 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	if (cmtx_setting('show_date')) {
 		$cmtx_box .= "<div class='cmtx_date_text'>";
 		if (date("Y-m-d", strtotime($dated)) == date("Y-m-d")) { //if comment's date is today
-			$cmtx_box .= CMTX_TODAY . " " . date(cmtx_setting('time_format'), strtotime($dated));
+			$cmtx_box .= CMTX_TODAY . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
 		} else if (date("Y-m-d", strtotime($dated)) == date("Y-m-d", mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y")))) { //if comment's date is yesterday
-			$cmtx_box .= CMTX_YESTERDAY . " " . date(cmtx_setting('time_format'), strtotime($dated));
+			$cmtx_box .= CMTX_YESTERDAY . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
 		} else {
-			$cmtx_box .= date(cmtx_setting('date_time_format'), strtotime($dated));
+			$cmtx_box .= cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($dated))) . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
 		}
 		$cmtx_box .= "</div>";
 	}

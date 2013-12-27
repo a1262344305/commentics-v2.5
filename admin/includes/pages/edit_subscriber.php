@@ -83,8 +83,8 @@ $subscriber_result = cmtx_db_fetch_assoc($subscriber_query);
 $name = $subscriber_result["name"];
 $email = $subscriber_result["email"];
 $confirmed = $subscriber_result["is_confirmed"];
-$time = date("g:ia", strtotime($subscriber_result["dated"]));
-$date = date("jS M Y", strtotime($subscriber_result["dated"]));
+$time = cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($subscriber_result["dated"])));
+$date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($subscriber_result["dated"])));
 
 $page_id = $subscriber_result["page_id"];
 $page_reference_query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
@@ -119,9 +119,9 @@ while ($page = cmtx_db_fetch_assoc($pages)) { ?>
 </select>
 <?php } ?>
 <p />
-<label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="5" maxlength="250" value="<?php echo $time; ?>"/>
+<label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="12" maxlength="250" value="<?php echo $time; ?>"/>
 <p />
-<label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="12" maxlength="250" value="<?php echo $date; ?>"/>
+<label class='edit_subscriber'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="20" maxlength="250" value="<?php echo $date; ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

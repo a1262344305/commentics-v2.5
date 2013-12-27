@@ -81,8 +81,6 @@ define('CMTX_FIELD_LABEL_PAGE_NUMBER', 'Page No:');
 define('CMTX_FIELD_LABEL_ORDER', 'Default Order:');
 define('CMTX_FIELD_LABEL_DISPLAY_COMMENT_COUNT', 'Display Count:');
 define('CMTX_FIELD_LABEL_DISPLAY_SAYS', 'Display "Says":');
-define('CMTX_FIELD_LABEL_TIME_FORMAT', 'Time Format:');
-define('CMTX_FIELD_LABEL_DATE_TIME', 'Date/Time:');
 define('CMTX_FIELD_LABEL_TOP', 'Top:');
 define('CMTX_FIELD_LABEL_BOTTOM', 'Bottom:');
 define('CMTX_FIELD_LABEL_PER_PAGE', 'Per Page:');

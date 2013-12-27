@@ -148,8 +148,8 @@ $is_sticky = $comment_result["is_sticky"];
 $is_locked = $comment_result["is_locked"];
 $is_verified = $comment_result["is_verified"];
 
-$time = date("g:ia", strtotime($comment_result["dated"]));
-$date = date("jS M Y", strtotime($comment_result["dated"]));
+$time = cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($comment_result["dated"])));
+$date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($comment_result["dated"])));
 
 $page_id = $comment_result["page_id"];
 $page_id_san = cmtx_sanitize($page_id);
@@ -331,9 +331,9 @@ cmtx_generate_hint(CMTX_HINT_VERIFY);
 
 <label class='edit_comment'><?php echo CMTX_FIELD_LABEL_IP_ADDRESS; ?></label> <input readonly="readonly" type="text" class="readonly" name="ip_address" size="12" maxlength="39" value="<?php echo $ip_address; ?>"/>
 <p />
-<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="5" maxlength="250" value="<?php echo $time; ?>"/>
+<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="12" maxlength="250" value="<?php echo $time; ?>"/>
 <p />
-<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="12" maxlength="250" value="<?php echo $date; ?>"/>
+<label class='edit_comment'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="20" maxlength="250" value="<?php echo $date; ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

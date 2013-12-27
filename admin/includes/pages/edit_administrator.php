@@ -127,8 +127,8 @@ $email = $administrator["email"];
 $enabled = $administrator["is_enabled"];
 $restrict_pages = $administrator["restrict_pages"];
 $allowed_pages = $administrator["allowed_pages"];
-$time = date("g:ia", strtotime($administrator["dated"]));
-$date = date("jS M Y", strtotime($administrator["dated"]));
+$time = cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($administrator["dated"])));
+$date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($administrator["dated"])));
 ?>
 
 <p />
@@ -276,9 +276,9 @@ echo cmtx_page_checkbox("tools", $id, "0") . "<span class='menu_checkbox'>Tools<
 <script type="text/javascript">show_hide('allowed_pages')</script>
 <?php } ?>
 <p />
-<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="5" maxlength="250" value="<?php echo $time; ?>"/>
+<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="12" maxlength="250" value="<?php echo $time; ?>"/>
 <p />
-<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="12" maxlength="250" value="<?php echo $date; ?>"/>
+<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="20" maxlength="250" value="<?php echo $date; ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

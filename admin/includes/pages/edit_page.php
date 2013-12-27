@@ -97,8 +97,8 @@ $identifier = $page_result["identifier"];
 $reference = $page_result["reference"];
 $url = $page_result["url"];
 $form_enabled = $page_result["is_form_enabled"];
-$time = date("g:ia", strtotime($page_result["dated"]));
-$date = date("jS M Y", strtotime($page_result["dated"]));
+$time = cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($page_result["dated"])));
+$date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($page_result["dated"])));
 ?>
 
 <p />
@@ -123,9 +123,9 @@ $date = date("jS M Y", strtotime($page_result["dated"]));
 </select>
 <?php } ?>
 <p />
-<label class='edit_page'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="5" maxlength="250" value="<?php echo $time; ?>"/>
+<label class='edit_page'><?php echo CMTX_FIELD_LABEL_TIME; ?></label> <input readonly="readonly" type="text" class="readonly" name="time" size="12" maxlength="250" value="<?php echo $time; ?>"/>
 <p />
-<label class='edit_page'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="12" maxlength="250" value="<?php echo $date; ?>"/>
+<label class='edit_page'><?php echo CMTX_FIELD_LABEL_DATE; ?></label> <input readonly="readonly" type="text" class="readonly" name="date" size="20" maxlength="250" value="<?php echo $date; ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

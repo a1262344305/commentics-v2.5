@@ -127,7 +127,7 @@ while ($ban = cmtx_db_fetch_assoc($bans)) {
         	<td><input type="checkbox" name="bulk[]" value="<?php echo $ban["id"]; ?>" onclick="bulk_check();"/></td>
 			<td><?php echo $ban["ip_address"]; ?></td>
             <td><?php echo $ban["reason"]; ?></td>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($ban["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($ban["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($ban["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($ban['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($ban['dated']))); ?></td>
 			<td>
 			<a href="<?php echo "index.php?page=edit_ban&id=" . $ban["id"];?>"><img src="images/buttons/edit.png" class="button_edit" title="Edit" alt="Edit"></a>
 			<a href="<?php echo "index.php?page=manage_bans&action=delete&id=" . $ban["id"] . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/delete.png" class="button_delete" onclick="return delete_confirmation()" title="Delete" alt="Delete"></a>

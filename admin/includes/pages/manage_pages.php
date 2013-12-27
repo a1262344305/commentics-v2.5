@@ -159,7 +159,7 @@ while ($page = cmtx_db_fetch_assoc($pages)) {
         	<td><?php echo $page["reference"]; ?></td>
             <td><?php echo "<a href='" . $page["url"] . "' target='_blank'>" . $page["url"] . "</a>"; ?></td>
 			<td><?php if ($page["is_form_enabled"]) { echo CMTX_TABLE_YES; } else { echo CMTX_TABLE_NO; } ?></td>
-            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($page["dated"])); ?></span><?php echo date("jS F Y g:ia", strtotime($page["dated"])); ?></td>
+            <td><span style="display:none;"><?php echo date("YmdHis", strtotime($page["dated"])); ?></span><?php echo cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($page['dated']))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($page['dated']))); ?></td>
 			<td>
 			<a href="<?php echo "index.php?page=edit_page&id=" . $page["id"];?>"><img src="images/buttons/edit.png" class="button_edit" title="Edit" alt="Edit"></a>
 			<a href="<?php echo "index.php?page=manage_pages&action=delete&id=" . $page["id"] . "&key=" . $_SESSION['cmtx_csrf_key'];?>"><img src="images/buttons/delete.png" class="button_delete" onclick="return delete_confirmation()" title="Delete" alt="Delete"></a>

@@ -85,6 +85,7 @@ if (!empty($_POST['text'])) {
 		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/ratings.php', $_POST['case']);
 		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/rss.php', $_POST['case']);
 		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/subscribers.php', $_POST['case']);
+		cmtx_text_finder ($_POST['text'], '../includes/language/' . cmtx_setting('language_frontend') . '/locale.php', $_POST['case']);
 	} else {
 		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/buttons.php', $_POST['case']);
 		cmtx_text_finder ($_POST['text'], 'includes/language/' . cmtx_setting('language_backend') . '/dashboard.php', $_POST['case']);
