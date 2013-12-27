@@ -104,7 +104,7 @@ define('CMTX_HINT_DETECT_REPEATS', 'Detectar quando um usuário entra com 3 ou m
 define('CMTX_HINT_CHECK_REFERRER', 'Quer para verificar se o formulário foi enviado a partir do seu próprio site.');
 define('CMTX_HINT_CHECK_DB_FILE', 'Whether to check that the database file, details.php, is read-only.');
 define('CMTX_HINT_CHECK_HONEYPOT', 'Whether to add an input, hidden by CSS, to be left empty. Bots tend to fill in every form field.');
-define('CMTX_HINT_CHECK_TIME', 'Whether to check that it took less than 5 seconds to submit the form. Bots often submit forms instantly without waiting.');
+define('CMTX_HINT_CHECK_TIME', 'Whether to check that it took less than 1 second to submit the form. Bots often submit forms instantly without waiting.');
 define('CMTX_HINT_BAN_COOKIE', 'A quantidade de dias antes de expirar o cookie proibição.');
 
 define('CMTX_HINT_SITE_NAME', 'The name of your website.<br/>For example: <i>My Site</i>');

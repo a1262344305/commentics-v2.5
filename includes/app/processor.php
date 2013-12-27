@@ -78,8 +78,8 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		if (!isset($_POST['cmtx_time'])) { //if time not submitted
 			cmtx_error(CMTX_ERROR_MESSAGE_MISSING_DATA); //reject user for no time
 		} else { //if time submitted
-			if ((time() - intval($_POST['cmtx_time'])) < 5) { //if user took less than 5 seconds to submit form
-				cmtx_error(CMTX_ERROR_MESSAGE_MIN_TIME); //reject user for taking less than 5 seconds
+			if ((time() - intval($_POST['cmtx_time'])) < 1) { //if user took less than 1 second to submit form
+				cmtx_error(CMTX_ERROR_MESSAGE_MIN_TIME); //reject user for taking less than 1 second
 			}
 		}
 	}
