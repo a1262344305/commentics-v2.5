@@ -85,7 +85,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 	
 	//verify ip-address
 	if ($_SESSION['cmtx_ip_address'] != cmtx_get_ip_address()) {
-		cmtx_log_out("exit");
+		//cmtx_log_out("exit");
 	}
 
 } else if (isset($_SESSION['cmtx_username']) && isset($_SESSION['cmtx_password']) && cmtx_valid_account($_SESSION['cmtx_username'], $_SESSION['cmtx_password']) != "3") {
