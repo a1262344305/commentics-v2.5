@@ -98,6 +98,7 @@ define('CMTX_TITLE_SECURITY', 'Security');
 define('CMTX_TITLE_SYSTEM', 'Systeem');
 define('CMTX_TITLE_VIEWERS', 'Viewers');
 define('CMTX_TITLE_TASK_DELETE_BANS', 'Taak: Delete Blokkeringen');
+define('CMTX_TITLE_TASK_DELETE_COMMENTS', 'Task: Delete Comments');
 define('CMTX_TITLE_TASK_DELETE_REPORTERS', 'Taak: Delete Reporters');
 define('CMTX_TITLE_TASK_DELETE_SUBSCRIBERS', 'Taak: Delete Abonnees');
 define('CMTX_TITLE_TASK_DELETE_VOTERS', 'Taak: Delete Stemmen');

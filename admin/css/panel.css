@@ -300,6 +300,10 @@ label.task_delete_bans {
 width: 55px;
 }
 
+label.task_delete_comments {
+width: 55px;
+}
+
 label.task_delete_reporters {
 width: 55px;
 }

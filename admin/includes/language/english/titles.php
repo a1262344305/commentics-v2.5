@@ -98,6 +98,7 @@ define('CMTX_TITLE_SECURITY', 'Security');
 define('CMTX_TITLE_SYSTEM', 'System');
 define('CMTX_TITLE_VIEWERS', 'Viewers');
 define('CMTX_TITLE_TASK_DELETE_BANS', 'Task: Delete Bans');
+define('CMTX_TITLE_TASK_DELETE_COMMENTS', 'Task: Delete Comments');
 define('CMTX_TITLE_TASK_DELETE_REPORTERS', 'Task: Delete Reporters');
 define('CMTX_TITLE_TASK_DELETE_SUBSCRIBERS', 'Task: Delete Subscribers');
 define('CMTX_TITLE_TASK_DELETE_VOTERS', 'Task: Delete Voters');

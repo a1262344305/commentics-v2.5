@@ -98,6 +98,7 @@ define('CMTX_TITLE_SECURITY', 'Segurança');
 define('CMTX_TITLE_SYSTEM', 'Sistema');
 define('CMTX_TITLE_VIEWERS', 'Visualizadores');
 define('CMTX_TITLE_TASK_DELETE_BANS', 'Tarefa: Excluir Bans');
+define('CMTX_TITLE_TASK_DELETE_COMMENTS', 'Task: Delete Comments');
 define('CMTX_TITLE_TASK_DELETE_REPORTERS', 'Tarefa: Excluir Repórteres');
 define('CMTX_TITLE_TASK_DELETE_SUBSCRIBERS', 'Tarefa: Excluir Inscritos');
 define('CMTX_TITLE_TASK_DELETE_VOTERS', 'Tarefa: Excluir Eleitores');

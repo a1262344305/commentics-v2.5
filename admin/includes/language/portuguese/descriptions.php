@@ -96,6 +96,7 @@ define('CMTX_DESC_SETTINGS_SECURITY', 'Estas configurações são relativas a se
 define('CMTX_DESC_SETTINGS_SYSTEM', 'Estas configurações são relativas ao sistema. Seja cuidadoso ao mudá-las.');
 define('CMTX_DESC_SETTINGS_VIEWERS', 'Estas configurações se relacionam com o recurso Reports -> Viewers.');
 define('CMTX_DESC_TASK_DELETE_BANS', 'Esta tarefa automaticamente exclui banidos que são mais velhos que o período de tempo configurado.');
+define('CMTX_DESC_TASK_DELETE_COMMENTS', 'This task automatically deletes comments that are older than the configured time period.');
 define('CMTX_DESC_TASK_DELETE_REPORTERS', 'Esta tarefa automaticamente exclui relatórios que são mais velhos que o período de tempo configurado.');
 define('CMTX_DESC_TASK_DELETE_SUBSCRIBERS', 'Esta tarefa automaticamente exclui inscritos que continuam sem confirmar por mais tempo que o período de tempo configurado.');
 define('CMTX_DESC_TASK_DELETE_VOTERS', 'Esta tarefa automaticamente exclui eleitores que são mais velhos que o período de tempo configurado.');

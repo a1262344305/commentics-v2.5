@@ -102,6 +102,7 @@ define('CMTX_MENU_TITLE_SETTINGS_VIEWERS', 'Viewers');
 /* Tasks */
 define('CMTX_MENU_TITLE_TASKS', 'Tasks');
 define('CMTX_MENU_TITLE_TASK_DELETE_BANS', 'Delete Bans');
+define('CMTX_MENU_TITLE_TASK_DELETE_COMMENTS', 'Delete Comments');
 define('CMTX_MENU_TITLE_TASK_DELETE_REPORTERS', 'Delete Reporters');
 define('CMTX_MENU_TITLE_TASK_DELETE_SUBSCRIBERS', 'Delete Subscribers');
 define('CMTX_MENU_TITLE_TASK_DELETE_VOTERS', 'Delete Voters');

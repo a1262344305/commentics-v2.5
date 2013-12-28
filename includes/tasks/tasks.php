@@ -28,6 +28,10 @@ if (cmtx_setting('task_enabled_delete_bans')) {
 require_once $cmtx_path . 'includes/tasks/delete_bans.php'; //load task to delete bans
 }
 
+if (cmtx_setting('task_enabled_delete_comments')) {
+require_once $cmtx_path . 'includes/tasks/delete_comments.php'; //load task to delete comments
+}
+
 if (cmtx_setting('task_enabled_delete_reporters')) {
 require_once $cmtx_path . 'includes/tasks/delete_reporters.php'; //load task to delete reporters
 }

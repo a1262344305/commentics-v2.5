@@ -96,6 +96,7 @@ define('CMTX_DESC_SETTINGS_SECURITY', 'Deze instellingen zijn voor de beveiligin
 define('CMTX_DESC_SETTINGS_SYSTEM', 'Deze instellingen horen bij het systeem. Wees voorzichting met wijzigingen hier.');
 define('CMTX_DESC_SETTINGS_VIEWERS', 'Deze instellinge zijn voor de Viewers optie.');
 define('CMTX_DESC_TASK_DELETE_BANS', 'Deze taak verwijderd automatisch blokkeringen/bans die ouder zijn dan de ingestelde periode.');
+define('CMTX_DESC_TASK_DELETE_COMMENTS', 'This task automatically deletes comments that are older than the configured time period.');
 define('CMTX_DESC_TASK_DELETE_REPORTERS', 'Deze taak verwijderd automatisch rapporten die ouder zijn dan de ingestelde periode.');
 define('CMTX_DESC_TASK_DELETE_SUBSCRIBERS', 'Deze taak verwijderd automatisch inschrijvers die niet hebben bevestigd en ouder zijn dan de ingestelde periode.');
 define('CMTX_DESC_TASK_DELETE_VOTERS', 'Deze taak verwijderd automatisch stemmers die ouder zijn dan de ingestelde periode.');

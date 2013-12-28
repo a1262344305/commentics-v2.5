@@ -96,6 +96,7 @@ define('CMTX_DESC_SETTINGS_SECURITY', 'These settings relate to the security of 
 define('CMTX_DESC_SETTINGS_SYSTEM', 'These settings relate to the system. Be careful when changing these.');
 define('CMTX_DESC_SETTINGS_VIEWERS', 'These settings relate to the Reports -> Viewers feature.');
 define('CMTX_DESC_TASK_DELETE_BANS', 'This task automatically deletes bans that are older than the configured time period.');
+define('CMTX_DESC_TASK_DELETE_COMMENTS', 'This task automatically deletes comments that are older than the configured time period.');
 define('CMTX_DESC_TASK_DELETE_REPORTERS', 'This task automatically deletes reporters that are older than the configured time period.');
 define('CMTX_DESC_TASK_DELETE_SUBSCRIBERS', 'This task automatically deletes subscribers who have been unconfirmed for longer than the configured time period.');
 define('CMTX_DESC_TASK_DELETE_VOTERS', 'This task automatically deletes voters that are older than the configured time period.');

@@ -175,6 +175,7 @@ ddlevelsmenu.setup("ddtopmenubar", "topbar");
 <?php if (!cmtx_restrict_page("tasks")) { ?>
 <ul id="tasks" class="ddsubmenustyle">
 <?php if (!cmtx_restrict_page("task_delete_bans")) { ?> <li><a href="index.php?page=task_delete_bans"><?php echo CMTX_MENU_TITLE_TASK_DELETE_BANS; ?></a></li> <?php } ?>
+<?php if (!cmtx_restrict_page("task_delete_comments")) { ?> <li><a href="index.php?page=task_delete_comments"><?php echo CMTX_MENU_TITLE_TASK_DELETE_COMMENTS; ?></a></li> <?php } ?>
 <?php if (!cmtx_restrict_page("task_delete_reporters")) { ?> <li><a href="index.php?page=task_delete_reporters"><?php echo CMTX_MENU_TITLE_TASK_DELETE_REPORTERS; ?></a></li> <?php } ?>
 <?php if (!cmtx_restrict_page("task_delete_subscribers")) { ?> <li><a href="index.php?page=task_delete_subscribers"><?php echo CMTX_MENU_TITLE_TASK_DELETE_SUBSCRIBERS; ?></a></li> <?php } ?>
 <?php if (!cmtx_restrict_page("task_delete_voters")) { ?> <li><a href="index.php?page=task_delete_voters"><?php echo CMTX_MENU_TITLE_TASK_DELETE_VOTERS; ?></a></li> <?php } ?>

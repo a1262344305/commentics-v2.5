@@ -42,7 +42,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<br />';
 	}
 	
-	echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+	echo '<div style="background: #FCFCFC; padding: 5px; padding-bottom: 15px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
 	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database connection</span> error:';
 	echo '<p></p>';
 	echo '<i>' . $errno . ': ' . $error . '</i>';
@@ -52,11 +52,11 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo 'This error is because the script has no database.';
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
-		echo '<ol>';
+		echo '<ol style="margin-bottom:0px;">';
 		echo '<li>Did you create the database?</li><br/>';
 		echo '<li>Does the database still exist?</li><br/>';
 		echo '<li>';
-		echo '<i>(a)</i> Open the file details.php';
+		echo '<i>(a)</i> Open the file /database/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_database</b>';
 		echo '<br/>';
@@ -71,7 +71,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file details.php';
+		echo '<i>(a)</i> Open the file /database/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_username</b>';
 		echo '<br/>';
@@ -84,7 +84,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file details.php';
+		echo '<i>(a)</i> Open the file /database/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_password</b>';
 		echo '<br/>';
@@ -97,7 +97,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file details.php';
+		echo '<i>(a)</i> Open the file /database/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_host</b>';
 		echo '<br/>';
@@ -110,7 +110,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file details.php';
+		echo '<i>(a)</i> Open the file /database/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_port</b>';
 		echo '<br/>';
@@ -128,7 +128,7 @@ function cmtx_db_error_table() { //display a database tables error to admin
 
 	echo '<img src="images/commentics/logo.png" style="padding-bottom:15px" title="Commentics" alt="Commentics"/>';
 	echo '<br />';
-	echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+	echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
 	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database tables</span> problem.';
 	echo '<p></p>';
 	echo '<u>If you haven\'t yet installed the script</u>';
@@ -138,7 +138,7 @@ function cmtx_db_error_table() { //display a database tables error to admin
 	echo '<p></p>';
 	echo '<u>If you have already installed the script</u>';
 	echo '<ul>';
-	echo '<li>Open the file details.php</li>';
+	echo '<li>Open the file /database/details.php</li>';
 	echo '<li>Is the <b>$cmtx_mysql_table_prefix</b> value correct?</li>';
 	echo '<li>Using <i>phpMyAdmin</i>, check that the tables exist.</li>';
 	echo '</ul>';
