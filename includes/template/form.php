@@ -740,6 +740,12 @@ if (!cmtx_is_form_enabled(true)) { //if form is disabled
 }
 ?>
 
+<?php
+cmtx_load_form_login(); //load login values
+cmtx_load_form_defaults(); //load default values
+cmtx_load_form_cookie(); //load cookie values
+?>
+
 <?php cmtx_clean_form_defaults(); ?>
 
 <?php if (cmtx_setting('hide_form')) { ?>
