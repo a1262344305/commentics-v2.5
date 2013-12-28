@@ -257,6 +257,7 @@ width: 125px;
 border: 1px solid #EFE1B9;
 background-color: #FEF6E0;
 padding: 3px;
+box-shadow: 3px 3px 5px #888888;
 }
 
 .options_box {
@@ -264,6 +265,7 @@ border: 1px solid #EFE1B9;
 background-color: #FEF6E0;
 padding: 3px;
 padding-bottom: 5px;
+box-shadow: 3px 3px 5px #888888;
 }
 
 span.wildcard_found {
