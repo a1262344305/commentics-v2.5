@@ -47,7 +47,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 	echo '<p></p>';
 	echo '<i>' . $errno . ': ' . $error . '</i>';
 	
-	if ($errno == '1049') {
+	if ($errno == '1049' || $errno == '1102') {
 		echo '<p></p>';
 		echo 'This error is because the script has no database.';
 		echo '<p></p>';

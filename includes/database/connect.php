@@ -30,6 +30,10 @@ require_once 'failure.php'; //load failure messages
 
 $cmtx_db_ok = true;
 
+if (empty($cmtx_mysql_database)) {
+	$cmtx_mysql_database = ' ';
+}
+
 if (empty($cmtx_mysql_port)) {
 	@$cmtx_link = mysqli_connect($cmtx_mysql_host, $cmtx_mysql_username, $cmtx_mysql_password, $cmtx_mysql_database);
 } else {
