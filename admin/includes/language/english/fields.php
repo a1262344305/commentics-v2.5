@@ -124,7 +124,6 @@ define('CMTX_FIELD_LABEL_TRUST_USERS', 'Trust Previous Users:');
 define('CMTX_FIELD_LABEL_SMTP_HOST', 'Host:');
 define('CMTX_FIELD_LABEL_SMTP_PORT', 'Port:');
 define('CMTX_FIELD_LABEL_SMTP_ENCRYPT', 'Encrypt:');
-define('CMTX_FIELD_LABEL_SMTP_AUTH', 'Auth:');
 define('CMTX_FIELD_LABEL_SENDMAIL_PATH', 'Path:');
 define('CMTX_FIELD_LABEL_SUBJECT', 'Subject:');
 define('CMTX_FIELD_LABEL_FROM_NAME', 'From Name:');

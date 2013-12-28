@@ -89,7 +89,7 @@ label.upgrade_item {
 color: #27408B;
 font-weight: bold;
 float: left;
-width: 125px;
+width: 130px;
 }
 
 .button {
@@ -108,10 +108,15 @@ white-space: nowrap;
 .error {
 background: #FCFCFC;
 padding: 5px;
-border: 1px solid #ABABAB;
+border-top: 1px solid #ABABAB;
+border-left: 1px solid #ABABAB;
+border-right: 1px solid #888888;
+border-bottom: 1px solid #888888;
 background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
 background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
 background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
 background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
 background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);
+box-shadow: 3px 3px 5px #888888;
+float: left;
 }

@@ -75,6 +75,7 @@ if (cmtx_db_num_rows(cmtx_db_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_pref
 	echo '<div class="error">';
 	echo '<span class="fail">The programme is already installed.</span>';
 	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 	echo '<p></p>';
 	echo '<a href="javascript:history.back()">back</a>';
 	echo '</body>';

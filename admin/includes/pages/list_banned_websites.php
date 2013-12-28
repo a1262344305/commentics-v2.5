@@ -54,7 +54,7 @@ fclose($handle);
 
 <p />
 
-<?php echo CMTX_DESC_WILDCARDS; ?> <a href="" onclick="show_hide('wildcards');return false;" style="text-decoration:none;"><?php echo CMTX_LINK_MORE; ?></a>
+<?php echo CMTX_DESC_WILDCARDS; ?> <a href="" id="wildcard_link" style="text-decoration:none;"><?php echo CMTX_LINK_MORE; ?></a>
 
 <div id="wildcards" style="display:none;">
 <div class="wildcard_box">

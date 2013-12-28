@@ -62,6 +62,7 @@ if (isset($_POST['submit'])) {
 	echo 'Please restart the Installer.';
 	echo '</span>';
 	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 	die();
 }
 ?>
@@ -242,13 +243,14 @@ if (!$cmtx_query_error) {
 
 <?php
 if ($cmtx_query_error) {
-echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
 echo '<span class="fail">' . 'Upgrade failed.' . '</span>';
 echo '<p></p>';
 echo 'Please consult these error messages:';
 echo '<p></p>';
 echo $cmtx_query_error;
 echo '</div>';
+echo '<div style="clear:left;"></div>';
 } else {
 echo '<span class="success">' . 'Upgrade successful.' . '</span>';
 echo '<p></p>';

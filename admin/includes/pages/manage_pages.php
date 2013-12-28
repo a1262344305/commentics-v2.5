@@ -26,7 +26,7 @@ if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 ?>
 
 <div class='page_help_block'>
-<a class='page_help_text' href="" onclick="show_hide('pages');return false;"><?php echo CMTX_LINK_OPTIONS; ?></a> /
+<a class='page_help_text' href="" id="page_options_link"><?php echo CMTX_LINK_OPTIONS; ?></a> /
 <a class='page_help_text' href="http://www.commentics.org/wiki/doku.php?id=admin:<?php echo $_GET['page']; ?>" target="_blank"><?php echo CMTX_LINK_HELP; ?></a>
 </div>
 
@@ -177,3 +177,28 @@ while ($page = cmtx_db_fetch_assoc($pages)) {
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="bulk_delete" title="<?php echo CMTX_BUTTON_DELETE; ?>" value="<?php echo CMTX_BUTTON_DELETE; ?>" onclick="return delete_bulk_confirmation()"/>
 </form>
+
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+
+	jQuery('#page_options_link').click(function(e) {
+
+		e.preventDefault();
+
+		if ($('#pages').is(':hidden')) {
+			
+			$('#pages').slideDown('slow', function() {} );
+			
+		} else {
+		
+			$('#pages').slideUp('slow', function() {} );
+
+		}
+
+		return false;
+
+	});
+});
+// ]]>
+</script>

@@ -36,6 +36,7 @@ define('CMTX_LINK_DISMISS', 'Ontslaan');
 define('CMTX_LINK_BACK', 'terug');
 
 define('CMTX_LINK_MORE', '(Meer)');
+define('CMTX_LINK_LESS', '(Less)');
 
 define('CMTX_LINK_OPTIONS', 'Opties');
 

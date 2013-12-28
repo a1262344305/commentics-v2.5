@@ -42,7 +42,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<br />';
 	}
 	
-	echo '<div style="background: #FCFCFC; padding: 5px; padding-bottom: 15px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
+	echo '<div style="background: #FCFCFC; padding: 5px; padding-bottom: 15px; padding-right: 10px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888; float:left;">';
 	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database connection</span> error:';
 	echo '<p></p>';
 	echo '<i>' . $errno . ': ' . $error . '</i>';
@@ -118,6 +118,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 	}
 	
 	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 	echo '<br/>';
 	echo '<input type="button" style="background: url(\'images/buttons/gradient.gif\') repeat-x scroll 0 100% #FFAC47; border-color: #ED6502 #A04300 #A04300 #ED6502; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; font: bold 12px arial,helvetica,sans-serif; padding: 1px 7px 2px; text-align: center !important; white-space: nowrap; margin-right: 2px;" name="refresh" title="Refresh" value="Refresh" onclick="window.location.reload()"/>';
 
@@ -128,7 +129,7 @@ function cmtx_db_error_table() { //display a database tables error to admin
 
 	echo '<img src="images/commentics/logo.png" style="padding-bottom:15px" title="Commentics" alt="Commentics"/>';
 	echo '<br />';
-	echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
+	echo '<div style="background: #FCFCFC; padding: 5px; padding-right: 10px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888; float:left;">';
 	echo 'Sorry, there is a <span style="font-weight: bold; color: #CC0000;">database tables</span> problem.';
 	echo '<p></p>';
 	echo '<u>If you haven\'t yet installed the script</u>';
@@ -143,6 +144,7 @@ function cmtx_db_error_table() { //display a database tables error to admin
 	echo '<li>Using <i>phpMyAdmin</i>, check that the tables exist.</li>';
 	echo '</ul>';
 	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 	echo '<br/>';
 	echo '<input type="button" style="background: url(\'images/buttons/gradient.gif\') repeat-x scroll 0 100% #FFAC47; border-color: #ED6502 #A04300 #A04300 #ED6502; border-style: solid; border-width: 1px; color: #FFFFFF; cursor: pointer; font: bold 12px arial,helvetica,sans-serif; padding: 1px 7px 2px; text-align: center !important; white-space: nowrap; margin-right: 2px;" name="refresh" title="Refresh" value="Refresh" onclick="window.location.reload()"/>';
 

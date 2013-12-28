@@ -208,18 +208,6 @@ function show_hide(id) {
 	} else if (id == 'sendmail') {
 		document.getElementById('smtp').style.display = 'none';
 		document.getElementById('sendmail').style.display = 'inline';
-	} else if (id == 'wildcards') {
-		if (document.getElementById('wildcards').style.display == 'none') {
-			document.getElementById('wildcards').style.display = 'inline';
-		} else {
-			document.getElementById('wildcards').style.display = 'none';
-		}
-	} else if (id == 'pages') {
-		if (document.getElementById('pages').style.display == 'none') {
-			document.getElementById('pages').style.display = 'inline';
-		} else {
-			document.getElementById('pages').style.display = 'none';
-		}
 	} else if (id == 'allowed_pages') {
 		if (document.getElementById('allowed_pages').style.display == 'none') {
 			document.getElementById('allowed_pages').style.display = 'inline';
@@ -235,6 +223,35 @@ function show_hide(id) {
 		}
 	}
 }
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function() {
+
+	jQuery('#wildcard_link').click(function(e) {
+
+		e.preventDefault();
+
+		if ($('#wildcards').is(':hidden')) {
+			
+			$('#wildcards').slideDown('slow', function() {} );
+			
+			$('#wildcard_link').text('<?php echo CMTX_LINK_LESS; ?>');
+			
+		} else {
+		
+			$('#wildcards').slideUp('slow', function() {} );
+			
+			$('#wildcard_link').text('<?php echo CMTX_LINK_MORE; ?>');
+			
+		}
+
+		return false;
+
+	});
+});
 // ]]>
 </script>
 

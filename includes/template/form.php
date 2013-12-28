@@ -805,32 +805,6 @@ if (isset($cmtx_box) && !empty($cmtx_box)) { //if a box exists
 <input type="hidden" name="cmtx_sub_def" value=""/>
 <input type="hidden" name="cmtx_prev_def" value=""/>
 
-<?php
-$cmtx_elements = explode(',', cmtx_setting('sort_order_fields'));
-foreach ($cmtx_elements as $cmtx_element) {
-	switch ($cmtx_element) {
-		case '1':
-		cmtx_output_name();
-		break;
-		case '2':
-		cmtx_output_email();
-		break;
-		case '3':
-		cmtx_output_website();
-		break;
-		case '4':
-		cmtx_output_town();
-		break;
-		case '5':
-		cmtx_output_country();
-		break;
-		case '6':
-		cmtx_output_rating();
-		break;
-	}
-}
-?>
-
 <?php function cmtx_output_name () { ?>
 <?php global $cmtx_default_name, $cmtx_set_name_value; ?>
 <?php if (isset($cmtx_set_name_value) && !empty($cmtx_set_name_value) && cmtx_setting('state_name') == 'hide') {} else { ?>
@@ -921,6 +895,32 @@ if (cmtx_setting('repeat_ratings') == 'disable' && cmtx_has_rated_form()) {
 echo $cmtx_ratings;
 ?>
 <?php } } } ?>
+
+<?php
+$cmtx_elements = explode(',', cmtx_setting('sort_order_fields'));
+foreach ($cmtx_elements as $cmtx_element) {
+	switch ($cmtx_element) {
+		case '1':
+		cmtx_output_name();
+		break;
+		case '2':
+		cmtx_output_email();
+		break;
+		case '3':
+		cmtx_output_website();
+		break;
+		case '4':
+		cmtx_output_town();
+		break;
+		case '5':
+		cmtx_output_country();
+		break;
+		case '6':
+		cmtx_output_rating();
+		break;
+	}
+}
+?>
 
 <?php if (cmtx_setting('enabled_bb_code') || cmtx_setting('enabled_smilies')) { ?>
 <div class="cmtx_height_above_bb_and_smilies"></div>
@@ -1058,20 +1058,6 @@ echo $cmtx_ratings;
 </span>
 <?php } ?>
 
-<?php
-$cmtx_elements = explode(',', cmtx_setting('sort_order_captchas'));
-foreach ($cmtx_elements as $cmtx_element) {
-	switch ($cmtx_element) {
-		case '1':
-		cmtx_output_question();
-		break;
-		case '2':
-		cmtx_output_captcha();
-		break;
-	}
-}
-?>
-
 <?php function cmtx_output_question () { ?>
 <?php if (cmtx_setting('enabled_question')) { ?>
 <?php if (cmtx_session_set() && isset($_SESSION['cmtx_question']) && $_SESSION['cmtx_question'] == cmtx_setting('session_key')) {} else { ?>
@@ -1131,29 +1117,23 @@ function cmtx_output_captcha () {
 }
 ?>
 
-<?php if ( (cmtx_setting('enabled_notify') && cmtx_setting('enabled_email')) || (cmtx_setting('enabled_remember')) || (cmtx_setting('enabled_privacy')) || (cmtx_setting('enabled_terms')) ) { ?>
-<div class='cmtx_height_above_checkboxes'></div>
-<?php } ?>
-
 <?php
-$cmtx_elements = explode(',', cmtx_setting('sort_order_checkboxes'));
+$cmtx_elements = explode(',', cmtx_setting('sort_order_captchas'));
 foreach ($cmtx_elements as $cmtx_element) {
 	switch ($cmtx_element) {
 		case '1':
-		cmtx_output_notify();
+		cmtx_output_question();
 		break;
 		case '2':
-		cmtx_output_remember();
-		break;
-		case '3':
-		cmtx_output_privacy();
-		break;
-		case '4':
-		cmtx_output_terms();
+		cmtx_output_captcha();
 		break;
 	}
 }
 ?>
+
+<?php if ( (cmtx_setting('enabled_notify') && cmtx_setting('enabled_email')) || (cmtx_setting('enabled_remember')) || (cmtx_setting('enabled_privacy')) || (cmtx_setting('enabled_terms')) ) { ?>
+<div class='cmtx_height_above_checkboxes'></div>
+<?php } ?>
 
 <?php function cmtx_output_notify () { ?>
 <?php global $cmtx_default_notify; ?>
@@ -1223,25 +1203,31 @@ if (file_exists($cmtx_path . 'agreement/' . cmtx_setting('language_frontend') . 
 <?php if (cmtx_setting('display_required_symbol')) { ?><span class="cmtx_required_symbol"><?php echo ' ' . CMTX_REQUIRED_SYMBOL; ?></span><?php } ?>
 <?php } } ?>
 
+<?php
+$cmtx_elements = explode(',', cmtx_setting('sort_order_checkboxes'));
+foreach ($cmtx_elements as $cmtx_element) {
+	switch ($cmtx_element) {
+		case '1':
+		cmtx_output_notify();
+		break;
+		case '2':
+		cmtx_output_remember();
+		break;
+		case '3':
+		cmtx_output_privacy();
+		break;
+		case '4':
+		cmtx_output_terms();
+		break;
+	}
+}
+?>
+
 <div style="clear: left;"></div>
 <div class='cmtx_height_above_buttons'></div>
 <div class="cmtx_label">&nbsp;</div>
 
 <?php if ($cmtx_is_admin) { $cmtx_admin_button = " cmtx_admin_button"; } else { $cmtx_admin_button = ""; } ?>
-
-<?php
-$cmtx_elements = explode(',', cmtx_setting('sort_order_buttons'));
-foreach ($cmtx_elements as $cmtx_element) {
-	switch ($cmtx_element) {
-		case '1':
-		cmtx_output_submit();
-		break;
-		case '2':
-		cmtx_output_preview();
-		break;
-	}
-}
-?>
 
 <?php function cmtx_output_submit () { ?>
 <?php global $cmtx_admin_button; ?>
@@ -1259,6 +1245,20 @@ foreach ($cmtx_elements as $cmtx_element) {
 <?php } else { ?>
 <input type="submit" class="cmtx_button cmtx_preview_button<?php echo $cmtx_admin_button; ?>" name="cmtx_preview" title="<?php echo CMTX_TITLE_PREVIEW; ?>" onclick="return cmtx_process_preview();" value="<?php echo CMTX_PREVIEW_BUTTON; ?>"/>
 <?php } } } ?>
+
+<?php
+$cmtx_elements = explode(',', cmtx_setting('sort_order_buttons'));
+foreach ($cmtx_elements as $cmtx_element) {
+	switch ($cmtx_element) {
+		case '1':
+		cmtx_output_submit();
+		break;
+		case '2':
+		cmtx_output_preview();
+		break;
+	}
+}
+?>
 
 <script type="text/javascript">cmtx_text_counter();</script>
 <script type="text/javascript">cmtx_enable_submit();</script>
