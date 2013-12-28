@@ -755,7 +755,7 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 			} else if (cmtx_setting('smtp_encrypt') == "tls") {
 				$transport->setEncryption('tls');
 			}
-			if (cmtx_setting('smtp_auth')) {
+			if (!cmtx_setting('smtp_username') && !cmtx_setting('smtp_password')) {
 				$transport->setUsername(cmtx_setting('smtp_username'));
 				$transport->setPassword(cmtx_setting('smtp_password'));
 			}

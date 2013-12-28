@@ -46,7 +46,6 @@ $transport_method = $_POST['transport_method'];
 $smtp_host = $_POST['smtp_host'];
 $smtp_port = $_POST['smtp_port'];
 $smtp_encrypt = $_POST['smtp_encrypt'];
-if (isset($_POST['smtp_auth'])) { $smtp_auth = 1; } else { $smtp_auth = 0; }
 $smtp_username = $_POST['smtp_username'];
 $smtp_password = $_POST['smtp_password'];
 $sendmail_path = $_POST['sendmail_path'];
@@ -63,7 +62,6 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_host_san' WHERE `title` = 'smtp_host'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_port_san' WHERE `title` = 'smtp_port'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_encrypt_san' WHERE `title` = 'smtp_encrypt'");
-cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_auth' WHERE `title` = 'smtp_auth'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_username_san' WHERE `title` = 'smtp_username'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$smtp_password_san' WHERE `title` = 'smtp_password'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$sendmail_path_san' WHERE `title` = 'sendmail_path'");
@@ -109,8 +107,6 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <option value='tls' selected='selected'><?php echo CMTX_FIELD_VALUE_TLS; ?></option>
 <?php } ?>
 </select>
-<p />
-<label class='settings_email_method'><?php echo CMTX_FIELD_LABEL_SMTP_AUTH; ?></label> <?php if (cmtx_setting('smtp_auth')) { ?> <input type="checkbox" checked="checked" name="smtp_auth"/> <?php } else { ?> <input type="checkbox" name="smtp_auth"/> <?php } ?>
 <p />
 <label class='settings_email_method'><?php echo CMTX_FIELD_LABEL_USER; ?></label> <input type="text" name="smtp_username" size="20" maxlength="250" value="<?php echo cmtx_setting('smtp_username'); ?>"/>
 <p />

@@ -71,6 +71,7 @@ if (isset($_POST['submit'])) {
 	echo 'Please restart the Installer.';
 	echo '</span>';
 	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 	die();
 }
 ?>
@@ -348,7 +349,6 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_host', 'smtp.example.com');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_port', '25');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_encrypt', 'off');"); //off, ssl, tls
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_auth', '0');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_username', '');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'smtp_password', '');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'sendmail_path', '/usr/sbin/sendmail');");
@@ -692,13 +692,14 @@ cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "voter
 
 <?php
 if ($cmtx_query_error) {
-echo '<div style="background: #FCFCFC; padding: 5px; border: 1px solid #ABABAB; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%);">';
+echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888; background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); float:left;">';
 echo '<span class="fail">' . 'Creating tables failed.' . '</span>';
 echo '<p></p>';
 echo 'Please consult these error messages:';
 echo '<p></p>';
 echo $cmtx_query_error;
 echo '</div>';
+echo '<div style="clear:left;"></div>';
 } else {
 echo '<span class="success">' . 'Tables created successfully.' . '</span>';
 echo '<p></p>';
