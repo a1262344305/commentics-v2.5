@@ -185,7 +185,11 @@ label.settings_email_editor_user_subscriber_confirmation {
 width: 80px;
 }
 
-label.settings_email_editor_user_subscriber_notification {
+label.settings_email_editor_user_subscriber_notification_basic {
+width: 80px;
+}
+
+label.settings_email_editor_user_subscriber_notification_reply {
 width: 80px;
 }
 

@@ -123,7 +123,8 @@ ddlevelsmenu.setup("ddtopmenubar", "topbar");
 			<a href="#"><?php echo CMTX_MENU_TITLE_SETTINGS_EMAIL_EDITOR_USER; ?></a>
 				<ul>
 				<?php if (!cmtx_restrict_page("settings_email_editor_user_subscriber_confirmation")) { ?> <li><a href="index.php?page=settings_email_editor_user_subscriber_confirmation"><?php echo CMTX_MENU_TITLE_SETTINGS_EMAIL_EDITOR_USER_SUBSCRIBER_CONFIRMATION; ?></a></li> <?php } ?>
-				<?php if (!cmtx_restrict_page("settings_email_editor_user_subscriber_notification")) { ?> <li><a href="index.php?page=settings_email_editor_user_subscriber_notification"><?php echo CMTX_MENU_TITLE_SETTINGS_EMAIL_EDITOR_USER_SUBSCRIBER_NOTIFICATION; ?></a></li> <?php } ?>
+				<?php if (!cmtx_restrict_page("settings_email_editor_user_subscriber_notification_basic")) { ?> <li><a href="index.php?page=settings_email_editor_user_subscriber_notification_basic"><?php echo CMTX_MENU_TITLE_SETTINGS_EMAIL_EDITOR_USER_SUBSCRIBER_NOTIFICATION_BASIC; ?></a></li> <?php } ?>
+				<?php if (!cmtx_restrict_page("settings_email_editor_user_subscriber_notification_reply")) { ?> <li><a href="index.php?page=settings_email_editor_user_subscriber_notification_reply"><?php echo CMTX_MENU_TITLE_SETTINGS_EMAIL_EDITOR_USER_SUBSCRIBER_NOTIFICATION_REPLY; ?></a></li> <?php } ?>
 				</ul>
 			</li>
 			<?php } ?>

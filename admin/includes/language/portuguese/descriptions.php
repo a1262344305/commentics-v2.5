@@ -60,7 +60,8 @@ define('CMTX_DESC_SETTINGS_EMAIL_SENDER', 'Change your sender details here to up
 define('CMTX_DESC_SETTINGS_EMAIL_SIGNATURE', 'This is your signature for the emails.');
 define('CMTX_DESC_SETTINGS_EMAIL_TEST', 'Send an email to test your email settings and preferences.<p />The email will be sent to <b>%s</b>.');
 define('CMTX_DESC_SETTINGS_EMAIL_SUB_CONFIRMATION', 'Este é o email de confirmação que o usuário recebe quando se inscreve em uma página.');
-define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION', 'Este é o email que o usuário recebe quando ele é notificado de um novo comentário.');
+define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_BASIC', 'Este é o email que o usuário recebe quando ele é notificado de um novo comentário.');
+define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_REPLY', 'This is the email the user receives when they are notified of a new reply.');
 define('CMTX_DESC_SETTINGS_EMAIL_EMAIL_TEST', 'This is the email sent from the \'Settings -> Email -> Setup\' page.');
 define('CMTX_DESC_SETTINGS_EMAIL_NEW_BAN', 'Este é o email que o administrador recebe quando há um novo banimento.');
 define('CMTX_DESC_SETTINGS_EMAIL_NEW_COMMENT_APPROVE', 'Este é o email que o administrador recebe quando um novo comentário necessita de aprovação.');

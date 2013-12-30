@@ -77,6 +77,28 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 
 cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'smtp_auth'");
 
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'subscriber_notification_basic_subject' WHERE `title` = 'subscriber_notification_subject'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'subscriber_notification_basic_from_name' WHERE `title` = 'subscriber_notification_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'subscriber_notification_basic_from_email' WHERE `title` = 'subscriber_notification_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'subscriber_notification_basic_reply_to' WHERE `title` = 'subscriber_notification_reply_to'");
+
+$from_name = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_from_name'");
+$from_name = cmtx_db_fetch_assoc($from_name);
+$from_name = $from_name["value"];
+
+$from_email = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_from_email'");
+$from_email = cmtx_db_fetch_assoc($from_email);
+$from_email = $from_email["value"];
+
+$reply_to = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'setup_reply_to'");
+$reply_to = cmtx_db_fetch_assoc($reply_to);
+$reply_to = $reply_to["value"];
+
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_subject', 'You Have a Reply');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_from_name', '$from_name');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_from_email', '$from_email');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_reply_to', '$reply_to');");
+
 cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',

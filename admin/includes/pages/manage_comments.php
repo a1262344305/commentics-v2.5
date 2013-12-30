@@ -154,7 +154,8 @@ if ($_GET['action'] == "delete") {
 		$name = $comment_result["name"];
 		$comment = $comment_result["comment"];
 		$page_id = $comment_result["page_id"];
-		cmtx_notify_subscribers($name, $comment, $page_id, $id);
+		$reply_to = $comment_result["reply_to"];
+		cmtx_notify_subscribers($name, $comment, $page_id, $id, $reply_to);
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		?>
 		<div class="success"><?php echo CMTX_MSG_COMMENT_SENT; ?></div>
@@ -245,7 +246,8 @@ for ($i = 0; $i < $count; $i++) {
 		$name = $comment_result["name"];
 		$comment = $comment_result["comment"];
 		$page_id = $comment_result["page_id"];
-		cmtx_notify_subscribers($name, $comment, $page_id, $id);
+		$reply_to = $comment_result["reply_to"];
+		cmtx_notify_subscribers($name, $comment, $page_id, $id, $reply_to);
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '1' WHERE `id` = '$id'");
 		$success ++;
 	}
