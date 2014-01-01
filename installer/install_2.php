@@ -359,6 +359,10 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_confirmation_from_name', '$site_name');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_confirmation_from_email', 'comments@$site_domain');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_confirmation_reply_to', 'no-reply@$site_domain');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_subject', 'The Admin has Posted');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_from_name', '$site_name');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_from_email', 'comments@$site_domain');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_reply_to', 'no-reply@$site_domain');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_basic_subject', 'New Comment');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_basic_from_name', '$site_name');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_basic_from_email', 'comments@$site_domain');");

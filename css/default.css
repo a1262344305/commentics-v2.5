@@ -831,8 +831,10 @@ opacity: 0.2;
 }
 
 .cmtx_admin_button {
-color: #050;
-font-weight: bold;
+background-color: #005500;
+color: #FFFFFF;
+background-image: none;
+text-shadow: none;
 }
 
 .cmtx_height_above_parsing {

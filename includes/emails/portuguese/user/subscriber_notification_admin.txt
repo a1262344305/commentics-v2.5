@@ -1,0 +1,19 @@
+﻿Hello [name],
+
+The admin has posted a comment on the page [page reference], located at the following address:
+[comment url]
+
+The comment was made by [poster] and was as follows:
+
+************************
+
+[comment]
+
+************************
+
+Regards,
+
+[signature]
+
+To cancel your subscription, you may unsubscribe by clicking here:
+[unsubscribe link]

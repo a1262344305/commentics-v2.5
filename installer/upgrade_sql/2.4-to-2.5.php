@@ -99,6 +99,11 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_from_email', '$from_email');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_reply_reply_to', '$reply_to');");
 
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_subject', 'The Admin has Posted');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_from_name', '$from_name');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_from_email', '$from_email');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('email', 'subscriber_notification_admin_reply_to', '$reply_to');");
+
 cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',

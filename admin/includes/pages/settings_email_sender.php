@@ -67,6 +67,10 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
 
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_notification_admin_from_name'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_notification_admin_from_email'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_notification_admin_reply_to'");
+
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_name_san' WHERE `title` = 'subscriber_notification_basic_from_name'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_from_email_san' WHERE `title` = 'subscriber_notification_basic_from_email'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$setup_reply_to_san' WHERE `title` = 'subscriber_notification_basic_reply_to'");

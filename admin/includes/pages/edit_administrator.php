@@ -211,12 +211,14 @@ echo cmtx_page_checkbox("settings", $id, "0") . "<span class='menu_checkbox'>Set
 		echo cmtx_page_checkbox("settings_email_editor", $id, "40") . "<b>Editor</b>" . "<br />";
 			echo cmtx_page_checkbox("settings_email_editor_user", $id, "60") . "<b>User</b>" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_confirmation", $id, "80") . "Subscriber Confirmation" . "<br />";
-				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification", $id, "80") . "Subscriber Notification" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_admin", $id, "80") . "Subscriber Notifiy (Admin)" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_basic", $id, "80") . "Subscriber Notifiy (Basic)" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_reply", $id, "80") . "Subscriber Notifiy (Reply)" . "<br />";
 			echo cmtx_page_checkbox("settings_email_editor_admin", $id, "60") . "<b>Admin</b>" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_admin_email_test", $id, "80") . "Email Test" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_admin_new_ban", $id, "80") . "New Ban" . "<br />";
-				echo cmtx_page_checkbox("settings_email_editor_admin_new_comment_approve", $id, "80") . "New Comment: Approve" . "<br />";
-				echo cmtx_page_checkbox("settings_email_editor_admin_new_comment_okay", $id, "80") . "New Comment: Okay" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_admin_new_comment_approve", $id, "80") . "New Comment - Approve" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_admin_new_comment_okay", $id, "80") . "New Comment - Okay" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_admin_new_flag", $id, "80") . "New Flag" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_admin_reset_password", $id, "80") . "Reset Password" . "<br />";
 	echo cmtx_page_checkbox("settings_error_reporting", $id, "20") . "Error Reporting" . "<br />";
@@ -255,6 +257,7 @@ echo cmtx_page_checkbox("settings", $id, "0") . "<span class='menu_checkbox'>Set
 		
 echo cmtx_page_checkbox("tasks", $id, "0") . "<span class='menu_checkbox'>Tasks</span>" . "<p />";
 	echo cmtx_page_checkbox("task_delete_bans", $id, "20") . "Delete Bans" . "<br />";
+	echo cmtx_page_checkbox("task_delete_comments", $id, "20") . "Delete Comments" . "<br />";
 	echo cmtx_page_checkbox("task_delete_reporters", $id, "20") . "Delete Reporters" . "<br />";
 	echo cmtx_page_checkbox("task_delete_subscribers", $id, "20") . "Delete Subscribers" ."<br />";
 	echo cmtx_page_checkbox("task_delete_voters", $id, "20") . "Delete Voters" . "<p />";

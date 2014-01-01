@@ -584,10 +584,10 @@ if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['c
 		//notify subscribers of new comment
 		if (cmtx_setting('enabled_notify')) {
 			if ($cmtx_is_admin) {
-				cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id, $cmtx_reply_to);
+				cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id, $cmtx_reply_to, $cmtx_is_admin);
 			} else {
 				if (!cmtx_setting('approve_notifications')) {
-					cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id, $cmtx_reply_to);
+					cmtx_notify_subscribers($cmtx_name, $cmtx_comment, $cmtx_page_id, $cmtx_comment_id, $cmtx_reply_to, $cmtx_is_admin);
 				}
 			}
 		}

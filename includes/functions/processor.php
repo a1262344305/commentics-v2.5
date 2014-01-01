@@ -118,15 +118,15 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 } //end of add-subscriber function
 
 
-function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $reply_to) { //notify subscribers of new comment
+function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $reply_to, $is_admin) { //notify subscribers of new comment
 	
-	global $parent_emails;
+	global $cmtx_parent_emails;
 	
-	$parent_emails = array();
+	$cmtx_parent_emails = array();
 
 	function cmtx_get_parent_emails($reply_to) { //get email addresses of parent comments
 	
-		global $cmtx_mysql_table_prefix, $parent_emails;
+		global $cmtx_mysql_table_prefix, $cmtx_parent_emails;
 		
 		$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$reply_to'");
 		
@@ -137,7 +137,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 		
 			$comment = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_approved` = '1'");
 			$comment = cmtx_db_fetch_assoc($comment);
-			array_push($parent_emails, $comment['email']);
+			array_push($cmtx_parent_emails, $comment['email']);
 		
 			cmtx_get_parent_emails($reply_to);
 		
@@ -147,15 +147,19 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 	
 	cmtx_get_parent_emails($reply_to);
 	
-	cmtx_notify_subscribers_basic($poster, $comment, $page_id, $comment_id);
 	cmtx_notify_subscribers_reply($poster, $comment, $page_id, $comment_id);
+	if ($is_admin) {
+		cmtx_notify_subscribers_admin($poster, $comment, $page_id, $comment_id);
+	} else {
+		cmtx_notify_subscribers_basic($poster, $comment, $page_id, $comment_id);
+	}
 
 } //end of notify-subscribers function
 
 
 function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id) { //notify subscribers of basic comment
 
-	global $cmtx_mysql_table_prefix, $cmtx_path, $parent_emails; //globalise variables
+	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
 
 	//select confirmed subscribers from database
 	$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
@@ -173,7 +177,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (!in_array($subscriber["email"], $parent_emails)) {
+		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
 
 			$body = file_get_contents($subscriber_notification_basic_email_file); //get the file's contents
 
@@ -212,7 +216,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 
 function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id) { //notify subscribers of reply
 
-	global $cmtx_mysql_table_prefix, $cmtx_path, $parent_emails; //globalise variables
+	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
 
 	//select confirmed subscribers from database
 	$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
@@ -230,7 +234,7 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (in_array($subscriber["email"], $parent_emails)) {
+		if (in_array($subscriber["email"], $cmtx_parent_emails)) {
 
 			$body = file_get_contents($subscriber_notification_reply_email_file); //get the file's contents
 
@@ -265,6 +269,63 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = `sent_to` + '$count' ORDER BY `dated` DESC LIMIT 1"); //set how many were sent (if any)
 
 } //end of notify-subscribers-reply function
+
+
+function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id) { //notify subscribers of admin comment
+
+	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
+
+	//select confirmed subscribers from database
+	$subscribers = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "subscribers` WHERE `page_id` = '$page_id' AND `is_confirmed` = '1'");
+
+	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
+	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
+
+	$subscriber_notification_admin_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_admin.txt"; //build path to subscriber notification admin email file
+
+	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
+	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
+
+	$count = 0; //count how many emails are sent
+
+	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
+	
+		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+
+			$body = file_get_contents($subscriber_notification_admin_email_file); //get the file's contents
+
+			$email = $subscriber["email"];
+
+			$name = cmtx_decode($subscriber["name"]);
+
+			$token = $subscriber["token"];
+
+			$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+
+			//convert email variables with actual variables
+			$body = str_ireplace('[name]', $name, $body);
+			$body = str_ireplace('[page reference]', $page_reference, $body);
+			$body = str_ireplace('[page url]', $page_url, $body);
+			$body = str_ireplace('[comment url]', $comment_url, $body);
+			$body = str_ireplace('[poster]', $poster, $body);
+			$body = str_ireplace('[comment]', $comment, $body);
+			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
+			$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
+
+			//send email
+			cmtx_email($email, $name, cmtx_setting('subscriber_notification_admin_subject'), $body, cmtx_setting('subscriber_notification_admin_from_email'), cmtx_setting('subscriber_notification_admin_from_name'), cmtx_setting('subscriber_notification_admin_reply_to'));
+
+			$count++; //increment email counter
+		
+		}
+
+	}
+
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent
+	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `sent_to` = `sent_to` + '$count' ORDER BY `dated` DESC LIMIT 1"); //set how many were sent (if any)
+
+} //end of notify-subscribers-admin function
 
 
 function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban

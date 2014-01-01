@@ -136,7 +136,7 @@ global $cmtx_offset;
 global $cmtx_perm_counter;
 global $cmtx_exit_loop;
 
-global $parent_emails;
+global $cmtx_parent_emails;
 
 //htmLawed
 global $C;

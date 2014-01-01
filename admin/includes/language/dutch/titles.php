@@ -73,6 +73,7 @@ define('CMTX_TITLE_EMAIL_SENDER', 'Email Sender');
 define('CMTX_TITLE_EMAIL_SIGNATURE', 'Email Signature');
 define('CMTX_TITLE_EMAIL_TEST', 'Email Test');
 define('CMTX_TITLE_EMAIL_SUB_CONFIRMATION', 'Email: Inschrijver bevestiging');
+define('CMTX_TITLE_EMAIL_SUB_NOTIFICATION_ADMIN', 'Email: Inschrijver notificatie (Admin)');
 define('CMTX_TITLE_EMAIL_SUB_NOTIFICATION_BASIC', 'Email: Inschrijver notificatie (Basic)');
 define('CMTX_TITLE_EMAIL_SUB_NOTIFICATION_REPLY', 'Email: Inschrijver notificatie (Reply)');
 define('CMTX_TITLE_EMAIL_EMAIL_TEST', 'Email: Email Test');

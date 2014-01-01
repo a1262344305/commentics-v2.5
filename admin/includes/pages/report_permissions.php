@@ -82,6 +82,15 @@ $permissions_correct = false;
 
 echo '<br />';
 
+if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt')) {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
+} else {
+echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt <span class="negative">' . CMTX_FIELD_VALUE_IS_NOT_WRITABLE . '</span>.';
+$permissions_correct = false;
+}
+
+echo '<br />';
+
 if (is_writable('../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_basic.txt')) {
 echo '/' . cmtx_setting('commentics_folder') . '/' . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_basic.txt <span class="positive">' . CMTX_FIELD_VALUE_IS_WRITABLE . '</span>.';
 } else {

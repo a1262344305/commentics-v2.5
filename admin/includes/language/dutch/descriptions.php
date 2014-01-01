@@ -60,6 +60,7 @@ define('CMTX_DESC_SETTINGS_EMAIL_SENDER', 'Change your sender details here to up
 define('CMTX_DESC_SETTINGS_EMAIL_SIGNATURE', 'This is your signature for the emails.');
 define('CMTX_DESC_SETTINGS_EMAIL_TEST', 'Send an email to test your email settings and preferences.<p />The email will be sent to <b>%s</b>.');
 define('CMTX_DESC_SETTINGS_EMAIL_SUB_CONFIRMATION', 'Dit is de bevestigingsmail die een gebruiker ontvangt na inschrijving op een pagina.');
+define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_ADMIN', 'This is the email the user receives when they are notified of a new admin comment.');
 define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_BASIC', 'Dit is de email die een gebruiker ontvangt wanneer er een nieuw berciht wordt geplaatst.');
 define('CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_REPLY', 'This is the email the user receives when they are notified of a new reply.');
 define('CMTX_DESC_SETTINGS_EMAIL_EMAIL_TEST', 'This is the email sent from the \'Settings -> Email -> Setup\' page.');
