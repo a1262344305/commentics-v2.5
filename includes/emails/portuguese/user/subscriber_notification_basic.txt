@@ -15,5 +15,5 @@ Obrigado,
 
 [signature]
 
-Para cancelar sua assinatura, você pode cancelar a assinatura, clicando aqui:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

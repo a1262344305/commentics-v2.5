@@ -15,5 +15,5 @@ Aufrichtig,
 
 [signature]
 
-Um Ihr Abonnement zu kündigen, können Sie, indem Sie hier abmelden:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

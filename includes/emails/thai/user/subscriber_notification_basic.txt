@@ -15,5 +15,5 @@
 
 [signature]
 
-ยกเลิกการสมัครสมาชิกของคุณคุณอาจยกเลิกการสมัครโดยคลิกที่นี่:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

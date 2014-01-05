@@ -58,7 +58,7 @@ $name = cmtx_sanitize($name, true, true);
 $email = cmtx_sanitize($email, true, true);
 $page_id = cmtx_sanitize($page_id);
 
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '1', NOW());");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `to_all`, `to_admin`, `to_reply`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '1', '1', '1', '1', NOW());");
 ?>
 <div class="success"><?php echo CMTX_MSG_SUB_ADDED; ?></div>
 <div style="clear: left;"></div>

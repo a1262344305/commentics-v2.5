@@ -15,5 +15,5 @@ Regards,
 
 [signature]
 
-To cancel your subscription, you may unsubscribe by clicking here:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

@@ -259,7 +259,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 			
 			$token = $subscriber["token"];
 			
-			$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -269,7 +269,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 			$body = str_ireplace('[poster]', $poster, $body);
 			$body = str_ireplace('[comment]', $comment, $body);
 			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
+			$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
 			//send email
 			cmtx_email($email, $name, cmtx_setting('subscriber_notification_basic_subject'), $body, cmtx_setting('subscriber_notification_basic_from_email'), cmtx_setting('subscriber_notification_basic_from_name'), cmtx_setting('subscriber_notification_basic_reply_to'));
@@ -322,7 +322,7 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 			
 			$token = $subscriber["token"];
 			
-			$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -332,7 +332,7 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 			$body = str_ireplace('[poster]', $poster, $body);
 			$body = str_ireplace('[comment]', $comment, $body);
 			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
+			$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
 			//send email
 			cmtx_email($email, $name, cmtx_setting('subscriber_notification_reply_subject'), $body, cmtx_setting('subscriber_notification_reply_from_email'), cmtx_setting('subscriber_notification_reply_from_name'), cmtx_setting('subscriber_notification_reply_reply_to'));
@@ -385,7 +385,7 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 			
 			$token = $subscriber["token"];
 			
-			$unsubscribe_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&unsubscribe=1"; //build unsubscribe link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -395,7 +395,7 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 			$body = str_ireplace('[poster]', $poster, $body);
 			$body = str_ireplace('[comment]', $comment, $body);
 			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[unsubscribe link]', $unsubscribe_link, $body);
+			$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
 			//send email
 			cmtx_email($email, $name, cmtx_setting('subscriber_notification_admin_subject'), $body, cmtx_setting('subscriber_notification_admin_from_email'), cmtx_setting('subscriber_notification_admin_from_name'), cmtx_setting('subscriber_notification_admin_reply_to'));

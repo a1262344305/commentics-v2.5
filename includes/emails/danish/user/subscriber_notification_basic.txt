@@ -15,5 +15,5 @@ Venligst,
 
 [signature]
 
-Hvis du ikke længere vil modtage besked om nye kommentarer, kan du afmelde ved at klikke her:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

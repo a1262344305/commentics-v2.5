@@ -15,5 +15,5 @@ Lep pozdrav,
 
 [signature]
 
-Če želite preklicati naročnino, se lahko odjavite tako, da kliknete tukaj:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

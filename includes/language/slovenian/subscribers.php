@@ -24,12 +24,30 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'Ta funkcija je bila onemogočena.');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'This feature has been disabled.');
 
-cmtx_define('CMTX_INVALID', 'Napačna zahteva.');
-cmtx_define('CMTX_CONFIRMED', 'Vaša naročnina je potrjena.');
-cmtx_define('CMTX_ALREADY_CONFIRMED', 'Vaša naročnina je že bila potrjena.');
-cmtx_define('CMTX_UNSUBSCRIBED', 'Odjavljeni ste.');
-cmtx_define('CMTX_NO_SUBSCRIPTION', 'Naročnina ni bila najdena.');
+cmtx_define('CMTX_SUB_HEADING', 'Email Subscription');
+
+cmtx_define('CMTX_SUB_MSG_CONFIRMED', 'Your subscription is confirmed.');
+cmtx_define('CMTX_SUB_MSG_ALREADY_CONFIRMED', 'Your subscription is already confirmed.');
+cmtx_define('CMTX_SUB_MSG_SETTINGS_SAVED', 'Settings saved.');
+cmtx_define('CMTX_SUB_MSG_INVALID', 'Invalid request.');
+cmtx_define('CMTX_SUB_MSG_NO_SUBSCRIPTION', 'No subscription found.');
+cmtx_define('CMTX_SUB_MSG_UNSUBSCRIBED', 'You are unsubscribed.');
+
+cmtx_define('CMTX_SUB_NAME', 'Name:');
+cmtx_define('CMTX_SUB_EMAIL', 'Email:');
+
+cmtx_define('CMTX_SUB_HEADING_TYPE', 'What Would You Like To Be Notified Of?');
+cmtx_define('CMTX_SUB_ALL_COMMENTS', 'All comments');
+cmtx_define('CMTX_SUB_CUSTOM', 'Custom');
+cmtx_define('CMTX_SUB_ONLY', 'Only notify me of these:');
+cmtx_define('CMTX_SUB_ADMIN_COMMENTS', 'Admin comments');
+cmtx_define('CMTX_SUB_REPLY_COMMENTS', 'Replies to my comments');
+cmtx_define('CMTX_SUB_SAVE', 'Save');
+
+cmtx_define('CMTX_SUB_HEADING_CANCEL', 'Cancel This Subscription');
+cmtx_define('CMTX_SUB_LINK_CANCEL', 'Click here to cancel this subscription');
+cmtx_define('CMTX_SUB_LINK_CANCEL_TITLE', 'Cancel this subscription');
 
 ?>

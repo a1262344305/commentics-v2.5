@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Copyright © 2009-2013 Commentics Development Team [commentics.org]
 License: GNU General Public License v3.0
@@ -24,12 +24,30 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
 
-cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'เธเธธเธ“เธชเธกเธเธฑเธ•เธดเธเธตเน เนเธกเนเนเธ”เนเน€เธเธดเธ”เนเธเนเธเธฒเธ');
+cmtx_define('CMTX_SUB_FEATURE_DISABLED', 'This feature has been disabled.');
 
-cmtx_define('CMTX_INVALID', 'เธเธณเธฃเนเธญเธเนเธกเนเน€เธเนเธเธเธฅ');
-cmtx_define('CMTX_CONFIRMED', 'เธเธ“เธฐเธเธตเน เธเธฒเธฃเนเธเนเธเธเธงเธฒเธกเธเธฃเธฐเธชเธเธเนเน€เธเธทเนเธญเธฃเธฑเธ เธญเธตเน€เธกเธฅเนเธเนเธเน€เธ•เธทเธญเธ เธเธญเธเธเธธเธ“เนเธ”เนเธฃเธฑเธเธเธฒเธฃเธขเธทเธเธขเธฑเธเนเธฅเนเธง');
-cmtx_define('CMTX_ALREADY_CONFIRMED', 'เธเธฒเธฃเนเธเนเธเธเธงเธฒเธกเธเธฃเธฐเธชเธเธเนเน€เธเธทเนเธญเธฃเธฑเธ เธญเธตเน€เธกเธฅเนเธเนเธเน€เธ•เธทเธญเธ เธเธญเธเธเธธเธ“เนเธ”เนเธฃเธฑเธเธเธฒเธฃเธขเธทเธเธขเธฑเธเน€เธฃเธตเธขเธเธฃเนเธญเธขเนเธฅเนเธง');
-cmtx_define('CMTX_UNSUBSCRIBED', 'เธเธ“เธฐเธเธตเน เธเธฒเธฃเธเธฑเธ”เธชเนเธเธญเธตเน€เธกเธฅเนเธเนเธเน€เธ•เธทเธญเธเนเธซเนเธเธธเธ“ เธ–เธนเธเธขเธเน€เธฅเธดเธเนเธฅเนเธง');
-cmtx_define('CMTX_NO_SUBSCRIPTION', 'เนเธกเนเธเธเธเนเธญเธกเธนเธฅเน€เธเธทเนเธญเธ—เธณเธเธฒเธฃเธขเธเน€เธฅเธดเธ เธเธฒเธฃเธเธฑเธ”เธชเนเธเธญเธตเน€เธกเธฅเนเธเนเธเน€เธ•เธทเธญเธ');
+cmtx_define('CMTX_SUB_HEADING', 'Email Subscription');
+
+cmtx_define('CMTX_SUB_MSG_CONFIRMED', 'Your subscription is confirmed.');
+cmtx_define('CMTX_SUB_MSG_ALREADY_CONFIRMED', 'Your subscription is already confirmed.');
+cmtx_define('CMTX_SUB_MSG_SETTINGS_SAVED', 'Settings saved.');
+cmtx_define('CMTX_SUB_MSG_INVALID', 'Invalid request.');
+cmtx_define('CMTX_SUB_MSG_NO_SUBSCRIPTION', 'No subscription found.');
+cmtx_define('CMTX_SUB_MSG_UNSUBSCRIBED', 'You are unsubscribed.');
+
+cmtx_define('CMTX_SUB_NAME', 'Name:');
+cmtx_define('CMTX_SUB_EMAIL', 'Email:');
+
+cmtx_define('CMTX_SUB_HEADING_TYPE', 'What Would You Like To Be Notified Of?');
+cmtx_define('CMTX_SUB_ALL_COMMENTS', 'All comments');
+cmtx_define('CMTX_SUB_CUSTOM', 'Custom');
+cmtx_define('CMTX_SUB_ONLY', 'Only notify me of these:');
+cmtx_define('CMTX_SUB_ADMIN_COMMENTS', 'Admin comments');
+cmtx_define('CMTX_SUB_REPLY_COMMENTS', 'Replies to my comments');
+cmtx_define('CMTX_SUB_SAVE', 'Save');
+
+cmtx_define('CMTX_SUB_HEADING_CANCEL', 'Cancel This Subscription');
+cmtx_define('CMTX_SUB_LINK_CANCEL', 'Click here to cancel this subscription');
+cmtx_define('CMTX_SUB_LINK_CANCEL_TITLE', 'Cancel this subscription');
 
 ?>

@@ -15,5 +15,5 @@
 
 [signature]
 
-Чтобы отменить подписку, вы можете отказаться, нажав сюда:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]

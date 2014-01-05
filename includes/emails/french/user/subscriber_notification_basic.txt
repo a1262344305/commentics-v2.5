@@ -15,5 +15,5 @@ Cordialement,
 
 [signature]
 
-Pour annuler votre abonnement, vous pouvez vous désabonner en cliquant ici:
-[unsubscribe link]
+To manage your subscription, click the link below:
+[subscription link]
