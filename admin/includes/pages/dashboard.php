@@ -293,15 +293,15 @@ if (cmtx_db_num_rows($pages) != 5) {
 if (isset($_POST['submit_notes']) && !cmtx_setting('is_demo')) {
 cmtx_check_csrf_form_key();
 $data = $_POST['admin_notes'];
-$file = "../includes/words/admin_notes.txt";
-$handle = fopen($file,"w");
+$file = 'includes/words/admin_notes.txt';
+$handle = fopen($file,'w');
 fputs($handle, $data);
 fclose($handle);
 }
 ?>
 
 <?php
-$data = file_get_contents('../includes/words/admin_notes.txt');
+$data = file_get_contents('includes/words/admin_notes.txt');
 ?>
 
 <div style="clear: left;"></div>

@@ -519,7 +519,7 @@ function cmtx_get_admin_id() { //get id of administrator
 
 function cmtx_tip_of_the_day() { //get an admin tip
 	
-	$admin_tips = file('../includes/words/admin_tips.txt');
+	$admin_tips = file('includes/words/admin_tips.txt');
 	
 	$amount = count($admin_tips);
 	
