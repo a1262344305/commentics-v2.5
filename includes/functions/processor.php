@@ -177,35 +177,37 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if ($subscriber["to_all"]) {
+	
+			if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
 
-			$body = file_get_contents($subscriber_notification_basic_email_file); //get the file's contents
+				$body = file_get_contents($subscriber_notification_basic_email_file); //get the file's contents
 
-			$email = $subscriber["email"];
+				$email = $subscriber["email"];
 
-			$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber["name"]);
 
-			$token = $subscriber["token"];
+				$token = $subscriber["token"];
 
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
-			//convert email variables with actual variables
-			$body = str_ireplace('[name]', $name, $body);
-			$body = str_ireplace('[page reference]', $page_reference, $body);
-			$body = str_ireplace('[page url]', $page_url, $body);
-			$body = str_ireplace('[comment url]', $comment_url, $body);
-			$body = str_ireplace('[poster]', $poster, $body);
-			$body = str_ireplace('[comment]', $comment, $body);
-			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[subscription link]', $subscription_link, $body);
+				//convert email variables with actual variables
+				$body = str_ireplace('[name]', $name, $body);
+				$body = str_ireplace('[page reference]', $page_reference, $body);
+				$body = str_ireplace('[page url]', $page_url, $body);
+				$body = str_ireplace('[comment url]', $comment_url, $body);
+				$body = str_ireplace('[poster]', $poster, $body);
+				$body = str_ireplace('[comment]', $comment, $body);
+				$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
+				$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
-			//send email
-			cmtx_email($email, $name, cmtx_setting('subscriber_notification_basic_subject'), $body, cmtx_setting('subscriber_notification_basic_from_email'), cmtx_setting('subscriber_notification_basic_from_name'), cmtx_setting('subscriber_notification_basic_reply_to'));
+				//send email
+				cmtx_email($email, $name, cmtx_setting('subscriber_notification_basic_subject'), $body, cmtx_setting('subscriber_notification_basic_from_email'), cmtx_setting('subscriber_notification_basic_from_name'), cmtx_setting('subscriber_notification_basic_reply_to'));
 
-			$count++; //increment email counter
-		
+				$count++; //increment email counter
+			
+			}
 		}
-
 	}
 
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent
@@ -234,35 +236,37 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if ($subscriber["to_all"] || $subscriber["to_reply"]) {
+	
+			if (in_array($subscriber["email"], $cmtx_parent_emails)) {
 
-			$body = file_get_contents($subscriber_notification_reply_email_file); //get the file's contents
+				$body = file_get_contents($subscriber_notification_reply_email_file); //get the file's contents
 
-			$email = $subscriber["email"];
+				$email = $subscriber["email"];
 
-			$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber["name"]);
 
-			$token = $subscriber["token"];
+				$token = $subscriber["token"];
 
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
-			//convert email variables with actual variables
-			$body = str_ireplace('[name]', $name, $body);
-			$body = str_ireplace('[page reference]', $page_reference, $body);
-			$body = str_ireplace('[page url]', $page_url, $body);
-			$body = str_ireplace('[comment url]', $comment_url, $body);
-			$body = str_ireplace('[poster]', $poster, $body);
-			$body = str_ireplace('[comment]', $comment, $body);
-			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[subscription link]', $subscription_link, $body);
+				//convert email variables with actual variables
+				$body = str_ireplace('[name]', $name, $body);
+				$body = str_ireplace('[page reference]', $page_reference, $body);
+				$body = str_ireplace('[page url]', $page_url, $body);
+				$body = str_ireplace('[comment url]', $comment_url, $body);
+				$body = str_ireplace('[poster]', $poster, $body);
+				$body = str_ireplace('[comment]', $comment, $body);
+				$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
+				$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
-			//send email
-			cmtx_email($email, $name, cmtx_setting('subscriber_notification_reply_subject'), $body, cmtx_setting('subscriber_notification_reply_from_email'), cmtx_setting('subscriber_notification_reply_from_name'), cmtx_setting('subscriber_notification_reply_reply_to'));
+				//send email
+				cmtx_email($email, $name, cmtx_setting('subscriber_notification_reply_subject'), $body, cmtx_setting('subscriber_notification_reply_from_email'), cmtx_setting('subscriber_notification_reply_from_name'), cmtx_setting('subscriber_notification_reply_reply_to'));
 
-			$count++; //increment email counter
-		
+				$count++; //increment email counter
+			
+			}
 		}
-
 	}
 
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent
@@ -291,35 +295,37 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if ($subscriber["to_all"] || $subscriber["to_admin"]) {
+	
+			if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
 
-			$body = file_get_contents($subscriber_notification_admin_email_file); //get the file's contents
+				$body = file_get_contents($subscriber_notification_admin_email_file); //get the file's contents
 
-			$email = $subscriber["email"];
+				$email = $subscriber["email"];
 
-			$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber["name"]);
 
-			$token = $subscriber["token"];
+				$token = $subscriber["token"];
 
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
 
-			//convert email variables with actual variables
-			$body = str_ireplace('[name]', $name, $body);
-			$body = str_ireplace('[page reference]', $page_reference, $body);
-			$body = str_ireplace('[page url]', $page_url, $body);
-			$body = str_ireplace('[comment url]', $comment_url, $body);
-			$body = str_ireplace('[poster]', $poster, $body);
-			$body = str_ireplace('[comment]', $comment, $body);
-			$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
-			$body = str_ireplace('[subscription link]', $subscription_link, $body);
+				//convert email variables with actual variables
+				$body = str_ireplace('[name]', $name, $body);
+				$body = str_ireplace('[page reference]', $page_reference, $body);
+				$body = str_ireplace('[page url]', $page_url, $body);
+				$body = str_ireplace('[comment url]', $comment_url, $body);
+				$body = str_ireplace('[poster]', $poster, $body);
+				$body = str_ireplace('[comment]', $comment, $body);
+				$body = str_ireplace('[signature]', cmtx_setting('signature'), $body);
+				$body = str_ireplace('[subscription link]', $subscription_link, $body);
 
-			//send email
-			cmtx_email($email, $name, cmtx_setting('subscriber_notification_admin_subject'), $body, cmtx_setting('subscriber_notification_admin_from_email'), cmtx_setting('subscriber_notification_admin_from_name'), cmtx_setting('subscriber_notification_admin_reply_to'));
+				//send email
+				cmtx_email($email, $name, cmtx_setting('subscriber_notification_admin_subject'), $body, cmtx_setting('subscriber_notification_admin_from_email'), cmtx_setting('subscriber_notification_admin_from_name'), cmtx_setting('subscriber_notification_admin_reply_to'));
 
-			$count++; //increment email counter
-		
+				$count++; //increment email counter
+			
+			}
 		}
-
 	}
 
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_sent` = '1' ORDER BY `dated` DESC LIMIT 1"); //mark comment as sent

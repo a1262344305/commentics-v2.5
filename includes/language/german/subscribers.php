@@ -41,7 +41,7 @@ cmtx_define('CMTX_SUB_EMAIL', 'Email:');
 cmtx_define('CMTX_SUB_HEADING_TYPE', 'What Would You Like To Be Notified Of?');
 cmtx_define('CMTX_SUB_ALL_COMMENTS', 'All comments');
 cmtx_define('CMTX_SUB_CUSTOM', 'Custom');
-cmtx_define('CMTX_SUB_ONLY', 'Only notify me of these:');
+cmtx_define('CMTX_SUB_ONLY', 'Notify me of only these specific types:');
 cmtx_define('CMTX_SUB_ADMIN_COMMENTS', 'Admin comments');
 cmtx_define('CMTX_SUB_REPLY_COMMENTS', 'Replies to my comments');
 cmtx_define('CMTX_SUB_SAVE', 'Save');
