@@ -845,8 +845,10 @@ margin-bottom: 20px;
 float: left;
 border: 1px solid #b5d3ff;
 background-color: #f7fafd;
+box-shadow: 3px 3px 5px #888888;
 color: #3B3B3B;
-padding: 3px;
+padding: 5px;
+padding-top: 6px;
 width: auto;
 }
 
