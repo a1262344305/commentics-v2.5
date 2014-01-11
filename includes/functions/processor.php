@@ -1199,7 +1199,9 @@ function cmtx_akismet ($name, $email, $website, $comment) { //check Akismet test
 	if ($website == 'http://') { $website = ''; }
 	$comment = cmtx_strip_slashes(cmtx_decode($comment));
 
-	require_once $cmtx_path . 'includes/external/akismet/akismet.php'; //load Akismet script
+	if (!class_exists('Akismet')) {
+		require_once $cmtx_path . 'includes/external/akismet/akismet.php'; //load Akismet script
+	}
 
 	$WordPressAPIKey = cmtx_setting('akismet_key'); //set API key
 
