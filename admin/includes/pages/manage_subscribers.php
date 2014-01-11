@@ -105,6 +105,10 @@ for ($i = 0; $i < $count; $i++) {
 
 <p />
 
+<?php
+$pages = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages`");
+if (cmtx_db_num_rows($pages)) {
+?>
 <form name="add_subscriber" id="add_subscriber" action="index.php?page=manage_subscribers" method="post">
 <?php echo CMTX_FIELD_LABEL_NAME; ?> <input type="text" required name="name" size="12" maxlength="250"/>&nbsp;
 <?php echo CMTX_FIELD_LABEL_EMAIL; ?> <input type="email" required name="email" size="30" maxlength="250"/>&nbsp;
@@ -119,6 +123,7 @@ while ($page = cmtx_db_fetch_assoc($pages)) { ?>
 </form>
 
 <br />
+<?php } ?>
 
 <form name="datatables" id="datatables" action="index.php?page=manage_subscribers" method="post">
 
