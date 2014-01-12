@@ -327,7 +327,7 @@ display: block;
 float: left;
 font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
 font-size: 0.8em;
-text-decoration: none;
+text-decoration: none !important;
 font-weight: bold;
 cursor: pointer;
 padding-left: 4px;
