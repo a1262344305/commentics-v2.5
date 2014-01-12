@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php
-require '../includes/database/connect.php'; //connect to database
+require '../includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 

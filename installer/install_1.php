@@ -66,7 +66,7 @@ require '../includes/functions/page.php';
 ?>
 
 <?php
-require '../includes/database/connect.php'; //connect to database
+require '../includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 

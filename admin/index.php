@@ -30,7 +30,7 @@ ob_start();
 
 $cmtx_path = '../'; //set the path
 
-require '../includes/database/connect.php'; //connect to database
+require '../includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 
 require 'includes/functions/general.php'; //load functions
@@ -342,13 +342,13 @@ if (file_exists('../installer/')) {
 /* Check Database File */
 if (isset($_POST['db_chmod'])) {
 	cmtx_check_csrf_form_key();
-	@chmod('../includes/database/details.php', 0444);
+	@chmod('../includes/db/details.php', 0444);
 }
 if (isset($_POST['db_check'])) {
 	cmtx_check_csrf_form_key();
 	cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '0' WHERE `title` = 'check_db_file'");
 }
-if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/database/details.php')) {
+if (cmtx_setting('check_db_file') && !isset($_POST['db_check']) && is_writable('../includes/db/details.php')) {
 	?>
 	<span class='negative'>The database file is writable.</span>
 	<p />

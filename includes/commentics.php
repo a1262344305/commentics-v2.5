@@ -43,7 +43,7 @@ require_once $cmtx_path . 'includes/bootstrap/functions.php'; //load bootstrap f
 
 
 /*************************************************************** DATABASE (1/2) *********************************************************/
-require_once $cmtx_path . 'includes/database/connect.php'; //connect to database
+require_once $cmtx_path . 'includes/db/connect.php'; //connect to database
 if ($cmtx_db_ok) { //if database connection okay
 /****************************************************************************************************************************************/
 

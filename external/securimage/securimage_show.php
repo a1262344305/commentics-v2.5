@@ -53,7 +53,7 @@ $img = new Securimage();
 
 define('IN_COMMENTICS', true);
 
-require '../../includes/database/connect.php';
+require '../../includes/db/connect.php';
 if (!$cmtx_db_ok) { die(); }
 
 require '../../includes/functions/page.php';
