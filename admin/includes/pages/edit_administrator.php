@@ -211,8 +211,8 @@ echo cmtx_page_checkbox("settings", $id, "0") . "<span class='menu_checkbox'>Set
 		echo cmtx_page_checkbox("settings_email_editor", $id, "40") . "<b>Editor</b>" . "<br />";
 			echo cmtx_page_checkbox("settings_email_editor_user", $id, "60") . "<b>User</b>" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_confirmation", $id, "80") . "Subscriber Confirmation" . "<br />";
-				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_admin", $id, "80") . "Subscriber Notifiy (Admin)" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_basic", $id, "80") . "Subscriber Notifiy (Basic)" . "<br />";
+				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_admin", $id, "80") . "Subscriber Notifiy (Admin)" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_user_subscriber_notification_reply", $id, "80") . "Subscriber Notifiy (Reply)" . "<br />";
 			echo cmtx_page_checkbox("settings_email_editor_admin", $id, "60") . "<b>Admin</b>" . "<br />";
 				echo cmtx_page_checkbox("settings_email_editor_admin_email_test", $id, "80") . "Email Test" . "<br />";
