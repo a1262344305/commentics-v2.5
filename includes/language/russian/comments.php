@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'Ответить');
 cmtx_define('CMTX_TITLE_REPLY', 'Ответить на комментарий');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'Эта страница');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'Все страницы');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'Получать RSS оповещения для этой страницы ');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'Получать RSS оповещения для всех страниц');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Страница %d из %d');

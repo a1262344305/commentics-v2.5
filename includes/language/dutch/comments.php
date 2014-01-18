@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'Beantwoord');
 cmtx_define('CMTX_TITLE_REPLY', 'Beantwoord dit bericht');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'Deze pagina');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'Alle paginas');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'Krijg RSS alerts voor deze pagina');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'Krijg RSS alerts voor alle paginas');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Pagina %d van %d');

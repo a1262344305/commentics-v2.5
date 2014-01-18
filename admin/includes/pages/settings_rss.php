@@ -42,7 +42,7 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 
 cmtx_check_csrf_form_key();
 
-if (isset($_POST['rss_enabled'])) { $rss_enabled = 1; } else { $rss_enabled = 0; }
+if (isset($_POST['show_rss'])) { $show_rss = 1; } else { $show_rss = 0; }
 $rss_title = $_POST['rss_title'];
 $rss_link = $_POST['rss_link'];
 if (isset($_POST['rss_image_enabled'])) { $rss_image_enabled = 1; } else { $rss_image_enabled = 0; }
@@ -59,7 +59,7 @@ $rss_image_width_san = cmtx_sanitize($rss_image_width);
 $rss_image_height_san = cmtx_sanitize($rss_image_height);
 $rss_most_recent_amount_san = cmtx_sanitize($rss_most_recent_amount);
 
-cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_enabled' WHERE `title` = 'rss_enabled'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss' WHERE `title` = 'show_rss'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_title_san' WHERE `title` = 'rss_title'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_link_san' WHERE `title` = 'rss_link'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_image_enabled' WHERE `title` = 'rss_image_enabled'");
@@ -80,7 +80,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <p />
 
 <form name="settings_rss" id="settings_rss" action="index.php?page=settings_rss" method="post">
-<label class='settings_rss'><?php echo CMTX_FIELD_LABEL_ENABLED; ?></label> <?php if (cmtx_setting('rss_enabled')) { ?> <input type="checkbox" checked="checked" name="rss_enabled"/> <?php } else { ?> <input type="checkbox" name="rss_enabled"/> <?php } ?>
+<label class='settings_rss'><?php echo CMTX_FIELD_LABEL_ENABLED; ?></label> <?php if (cmtx_setting('show_rss')) { ?> <input type="checkbox" checked="checked" name="show_rss"/> <?php } else { ?> <input type="checkbox" name="show_rss"/> <?php } ?>
 <p />
 <label class='settings_rss'><?php echo CMTX_FIELD_LABEL_TITLE; ?></label> <input type="text" required name="rss_title" size="20" maxlength="250" value="<?php echo cmtx_setting('rss_title'); ?>"/>
 <p />

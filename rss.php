@@ -35,7 +35,7 @@ require_once $cmtx_path . 'includes/bootstrap/functions.php'; //load bootstrap f
 //load language files
 require_once $cmtx_path . 'includes/bootstrap/language.php'; //load bootstrap file for language
 
-if (!cmtx_setting('rss_enabled')) {
+if (!cmtx_setting('show_rss')) {
 	die(CMTX_RSS_FEATURE_DISABLED);
 }
 

@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'ตอบ');
 cmtx_define('CMTX_TITLE_REPLY', 'ตอบข้อความคิดเห็นนี้');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'หน้านี้');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'ทุกหน้า');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของหน้านี้');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'รับโค้ด RSS เพื่อติดตามความเคลื่อนไหวของทุกหน้า');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'หน้า %d จาก %d');

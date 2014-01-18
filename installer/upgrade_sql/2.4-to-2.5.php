@@ -108,6 +108,9 @@ cmtx_db_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `to
 cmtx_db_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `to_admin` tinyint(1) unsigned NOT NULL default '1'");
 cmtx_db_query("ALTER TABLE `" . $cmtx_mysql_table_prefix . "subscribers` ADD `to_reply` tinyint(1) unsigned NOT NULL default '1'");
 
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `title` = 'show_rss' WHERE `title` = 'show_rss_this_page'");
+cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "settings` WHERE `title` = 'rss_enabled'");
+
 cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "ratings` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `page_id` int(10) unsigned NOT NULL default '0',

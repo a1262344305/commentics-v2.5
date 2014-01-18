@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'Svar');
 cmtx_define('CMTX_TITLE_REPLY', 'Svar på denne kommentar');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'Feed for denne side');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'Feed for alle sider');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'Abonner på RSS-feed for denne side');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'Abonner på RSS-feed for alle sider');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Side %d af %d');

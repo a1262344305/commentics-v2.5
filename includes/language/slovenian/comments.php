@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'Odgovor');
 cmtx_define('CMTX_TITLE_REPLY', 'Odgovorite na ta komentar');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'Ta stran');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'Vse strani');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'Prejemajte RSS obvestila za to stran');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'Prejemajte RSS obvestila za vse strani');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Stran %d od %d');

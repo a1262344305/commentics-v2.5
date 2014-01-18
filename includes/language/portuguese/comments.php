@@ -99,10 +99,8 @@ cmtx_define('CMTX_REPLY', 'Responder');
 cmtx_define('CMTX_TITLE_REPLY', 'Responder a este comentário');
 
 /* RSS */
-cmtx_define('CMTX_RSS_THIS_PAGE', 'Esta página');
-cmtx_define('CMTX_RSS_ALL_PAGES', 'Todas páginas');
-cmtx_define('CMTX_TITLE_RSS_THIS', 'Obter alertas de RSS para esta página');
-cmtx_define('CMTX_TITLE_RSS_ALL', 'Obter alertas de RSS para todas as páginas');
+cmtx_define('CMTX_RSS', 'RSS Alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Página %d de %d');

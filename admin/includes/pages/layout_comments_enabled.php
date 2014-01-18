@@ -57,8 +57,7 @@ if (isset($_POST['show_sort_by'])) { $show_sort_by = 1; } else { $show_sort_by =
 if (isset($_POST['show_topic'])) { $show_topic = 1; } else { $show_topic = 0; }
 if (isset($_POST['show_average_rating'])) { $show_average_rating = 1; } else { $show_average_rating = 0; }
 if (isset($_POST['show_social'])) { $show_social = 1; } else { $show_social = 0; }
-if (isset($_POST['show_rss_this_page'])) { $show_rss_this_page = 1; } else { $show_rss_this_page = 0; }
-if (isset($_POST['show_rss_all_pages'])) { $show_rss_all_pages = 1; } else { $show_rss_all_pages = 0; }
+if (isset($_POST['show_rss'])) { $show_rss = 1; } else { $show_rss = 0; }
 if (isset($_POST['show_page_number'])) { $show_page_number = 1; } else { $show_page_number = 0; }
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_website' WHERE `title` = 'show_website'");
@@ -76,8 +75,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_topic' WHERE `title` = 'show_topic'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_average_rating' WHERE `title` = 'show_average_rating'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_social' WHERE `title` = 'show_social'");
-cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_this_page' WHERE `title` = 'show_rss_this_page'");
-cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss_all_pages' WHERE `title` = 'show_rss_all_pages'");
+cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss' WHERE `title` = 'show_rss'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_page_number' WHERE `title` = 'show_page_number'");
 ?>
 <div class="success"><?php echo CMTX_MSG_SAVED; ?></div>
@@ -121,9 +119,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <p />
 <label class='layout_comments_enabled'><?php echo CMTX_FIELD_LABEL_SOCIAL; ?></label> <?php if (cmtx_setting('show_social')) { ?> <input type="checkbox" checked="checked" name="show_social"/> <?php } else { ?> <input type="checkbox" name="show_social"/> <?php } ?>
 <p />
-<label class='layout_comments_enabled'><?php echo CMTX_FIELD_LABEL_RSS_THIS; ?></label> <?php if (cmtx_setting('show_rss_this_page')) { ?> <input type="checkbox" checked="checked" name="show_rss_this_page"/> <?php } else { ?> <input type="checkbox" name="show_rss_this_page"/> <?php } ?>
-<p />
-<label class='layout_comments_enabled'><?php echo CMTX_FIELD_LABEL_RSS_ALL; ?></label> <?php if (cmtx_setting('show_rss_all_pages')) { ?> <input type="checkbox" checked="checked" name="show_rss_all_pages"/> <?php } else { ?> <input type="checkbox" name="show_rss_all_pages"/> <?php } ?>
+<label class='layout_comments_enabled'><?php echo CMTX_FIELD_LABEL_RSS; ?></label> <?php if (cmtx_setting('show_rss')) { ?> <input type="checkbox" checked="checked" name="show_rss"/> <?php } else { ?> <input type="checkbox" name="show_rss"/> <?php } ?>
 <p />
 <label class='layout_comments_enabled'><?php echo CMTX_FIELD_LABEL_PAGE_NUMBER; ?></label> <?php if (cmtx_setting('show_page_number')) { ?> <input type="checkbox" checked="checked" name="show_page_number"/> <?php } else { ?> <input type="checkbox" name="show_page_number"/> <?php } ?>
 <p />
