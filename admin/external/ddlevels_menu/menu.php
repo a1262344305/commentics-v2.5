@@ -24,7 +24,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 ?>
 
 <?php
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 ?>
 
 <div id="ddtopmenubar" class="mattblackmenu">

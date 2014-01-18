@@ -44,19 +44,16 @@
  *
  */
 
-// Remove the "//" from the following line for debugging problems
-// error_reporting(E_ALL); ini_set('display_errors', 1);
-
 require_once dirname(__FILE__) . '/securimage.php';
 
 $img = new Securimage();
 
-define('IN_COMMENTICS', true);
+$cmtx_path = '../../'; //set the path
 
-require '../../includes/db/connect.php';
+require $cmtx_path . 'includes/db/connect.php';
 if (!$cmtx_db_ok) { die(); }
 
-require '../../includes/functions/page.php';
+require $cmtx_path . 'includes/functions/page.php';
 
 $img->image_width = cmtx_setting('securimage_width');
 $img->image_height = cmtx_setting('securimage_height');

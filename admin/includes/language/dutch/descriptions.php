@@ -22,7 +22,7 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 define('CMTX_DESC_LAYOUT_THEME_1', 'Select a theme to style the page.');
 define('CMTX_DESC_LAYOUT_THEME_2', 'Drag & drop de onderstaande elementen om de sorteervolgorde van de belangrijkste onderdelen te bepalen.');

@@ -57,16 +57,20 @@ function check_passwords() {
 ?>
 
 <?php
-define('IN_COMMENTICS', true);
 define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php
-require '../includes/functions/page.php';
+//set the path
+$cmtx_path = '../';
 ?>
 
 <?php
-require '../includes/db/connect.php'; //connect to database
+require $cmtx_path . 'includes/functions/page.php';
+?>
+
+<?php
+require $cmtx_path . 'includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 ?>
 

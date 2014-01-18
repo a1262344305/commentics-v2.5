@@ -44,12 +44,16 @@ if (isset($_POST['submit'])) {
 <br />
 
 <?php
-define('IN_COMMENTICS', true);
 define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php
-require '../includes/functions/page.php';
+//set the path
+$cmtx_path = '../';
+?>
+
+<?php
+require $cmtx_path . 'includes/functions/page.php';
 ?>
 
 <?php

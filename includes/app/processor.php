@@ -22,7 +22,7 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 if (isset($_POST['cmtx_submit']) || isset($_POST['cmtx_sub']) || isset($_POST['cmtx_preview']) || isset($_POST['cmtx_prev'])) { //if data submitted
 	

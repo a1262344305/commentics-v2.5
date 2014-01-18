@@ -22,7 +22,7 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 if (file_exists($cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/page.php')) { //if custom language file for page exists
 	require_once $cmtx_path . 'includes/language/' . cmtx_setting('language_frontend') . '/custom/page.php'; //load custom language file for page

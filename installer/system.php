@@ -50,13 +50,17 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php
-define('IN_COMMENTICS', true);
 define('CMTX_IN_INSTALLER', true);
 ?>
 
 <?php
+//set the path
+$cmtx_path = '../';
+?>
+
+<?php
 if (extension_loaded('mysqli')) {
-require '../includes/db/connect.php'; //connect to database
+require $cmtx_path . 'includes/db/connect.php'; //connect to database
 if (!$cmtx_db_ok) { die(); }
 }
 ?>

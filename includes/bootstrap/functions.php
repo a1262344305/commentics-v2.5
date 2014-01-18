@@ -22,7 +22,7 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 require_once $cmtx_path . 'includes/functions/page.php'; //load functions file for page
 require_once $cmtx_path . 'includes/functions/comments.php'; //load functions file for comments

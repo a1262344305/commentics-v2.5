@@ -142,8 +142,6 @@ function show_hide(id) {
 </head>
 <body>
 <?php
-define('IN_COMMENTICS', true);
-
 //temporary solution while transitioning from 'uid' to 'id'
 if (isset($_GET['uid'])) {
 	$_GET['id'] = $_GET['uid'];

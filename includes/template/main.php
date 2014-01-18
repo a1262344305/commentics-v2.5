@@ -23,7 +23,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 ?>
 
-<?php if (!defined('IN_COMMENTICS')) { die('Access Denied.'); } ?>
+<?php if (!isset($cmtx_path)) { die('Access Denied.'); } ?>
 
 <?php
 if (cmtx_setting('sort_order_parts') == '1,2') { //display comments first

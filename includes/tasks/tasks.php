@@ -22,7 +22,7 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-if (!defined('IN_COMMENTICS')) { die('Access Denied.'); }
+if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 if (cmtx_setting('task_enabled_delete_bans')) {
 require_once $cmtx_path . 'includes/tasks/delete_bans.php'; //load task to delete bans

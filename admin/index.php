@@ -22,7 +22,6 @@ along with Commentics. If not, see <http://www.gnu.org/licenses/>.
 Text to help preserve UTF-8 file encoding: 汉语漢語.
 */
 
-define('IN_COMMENTICS', true);
 define('CMTX_IN_ADMIN', true);
 
 session_start();
