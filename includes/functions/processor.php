@@ -97,7 +97,12 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 	$name = cmtx_prepare_name_for_email($name); //prepare name for email
 	$email = cmtx_prepare_email_for_email($email); //prepare email address for email
 
-	$subscriber_confirmation_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt"; //build path to subscriber confirmation email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_confirmation.txt')) {
+		$subscriber_confirmation_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_confirmation.txt'; //build path to custom subscriber confirmation email file
+	} else {
+		$subscriber_confirmation_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_confirmation.txt'; //build path to subscriber confirmation email file
+	}
+	
 	$body = file_get_contents($subscriber_confirmation_email_file); //get the file's contents
 
 	$confirmation_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token . "&confirm=1"; //build confirmation link
@@ -168,7 +173,11 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
-	$subscriber_notification_basic_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_basic.txt"; //build path to subscriber notification basic email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_basic.txt')) {
+		$subscriber_notification_basic_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_basic.txt'; //build path to custom subscriber notification basic email file
+	} else {
+		$subscriber_notification_basic_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_basic.txt'; //build path to subscriber notification basic email file
+	}
 
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
@@ -227,7 +236,11 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
-	$subscriber_notification_reply_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_reply.txt"; //build path to subscriber notification reply email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt')) {
+		$subscriber_notification_reply_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt'; //build path to custom subscriber notification reply email file
+	} else {
+		$subscriber_notification_reply_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_reply.txt'; //build path to subscriber notification reply email file
+	}
 
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
@@ -286,8 +299,12 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 	$page_url = cmtx_decode(cmtx_get_page_url()); //get the URL of the current page
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, cmtx_get_page_url())); //get the permalink of the comment
 
-	$subscriber_notification_admin_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_admin.txt"; //build path to subscriber notification admin email file
-
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt')) {
+		$subscriber_notification_admin_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt'; //build path to custom subscriber notification admin email file
+	} else {
+		$subscriber_notification_admin_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt'; //build path to subscriber notification admin email file
+	}
+	
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 
@@ -340,7 +357,12 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 
 	$ip_address = cmtx_get_ip_address();
 
-	$admin_new_ban_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_ban.txt"; //build path to admin new ban email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_ban.txt')) {
+		$admin_new_ban_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_ban.txt'; //build path to custom admin new ban email file
+	} else {
+		$admin_new_ban_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_ban.txt'; //build path to admin new ban email file
+	}
+
 	$body = file_get_contents($admin_new_ban_email_file); //get the file's contents
 
 	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
@@ -369,7 +391,12 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) 
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_approve_reason; //globalise variables
 
-	$admin_new_comment_approve_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_approve.txt"; //build path to admin new comment approve email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_comment_approve.txt')) {
+		$admin_new_comment_approve_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_comment_approve.txt'; //build path to custom admin new comment approve email file
+	} else {
+		$admin_new_comment_approve_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_approve.txt'; //build path to admin new comment approve email file
+	}
+	
 	$body = file_get_contents($admin_new_comment_approve_email_file); //get the file's contents
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
@@ -409,7 +436,12 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { /
 
 	global $cmtx_mysql_table_prefix, $cmtx_is_admin, $cmtx_path; //globalise variables
 
-	$admin_new_comment_okay_email_file = $cmtx_path . "includes/emails/" . cmtx_setting('language_frontend') . "/admin/new_comment_okay.txt"; //build path to admin new comment okay email file
+	if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_comment_okay.txt')) {
+		$admin_new_comment_okay_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_comment_okay.txt'; //build path to custom admin new comment okay email file
+	} else {
+		$admin_new_comment_okay_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_comment_okay.txt'; //build path to admin new comment okay email file
+	}
+	
 	$body = file_get_contents($admin_new_comment_okay_email_file); //get the file's contents
 
 	$page_reference = cmtx_decode(cmtx_get_page_reference()); //get the reference of the current page
@@ -516,7 +548,11 @@ function cmtx_check_for_word ($file, $boundary, $entry, $action, $approve_msg, $
 
 	$word_found = false; //initialise flag as false
 
-	$words_file = $cmtx_path . "includes/words/$file.txt"; //build path to words file
+	if (file_exists($cmtx_path . 'includes/words/custom/' . $file . '.txt')) {
+		$words_file = $cmtx_path . 'includes/words/custom/' . $file . '.txt'; //build path to custom words file
+	} else {
+		$words_file = $cmtx_path . 'includes/words/' . $file . '.txt'; //build path to words file
+	}
 
 	if (filesize($words_file) != 0) { //if file is not empty
 
@@ -782,7 +818,11 @@ function cmtx_check_for_link ($entry, $action, $approve_msg, $error_msg, $ban_ms
 
 	$link_found = false; //initialise flag as false
 
-	$detect_link_file = $cmtx_path . "includes/words/detect_links.txt"; //build path to link detection file
+	if (file_exists($cmtx_path . 'includes/words/custom/detect_links.txt')) {
+		$detect_link_file = $cmtx_path . 'includes/words/custom/detect_links.txt'; //build path to custom link detection file
+	} else {
+		$detect_link_file = $cmtx_path . 'includes/words/detect_links.txt'; //build path to link detection file
+	}
 
 	if (filesize($detect_link_file) != 0) { //if file is not empty
 

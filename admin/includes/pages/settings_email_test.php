@@ -49,7 +49,11 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 
 cmtx_check_csrf_form_key();
 
-$admin_email_test_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt'; //build path to admin email test email file
+if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/email_test.txt')) {
+	$admin_email_test_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/email_test.txt'; //build path to custom admin email test email file
+} else {
+	$admin_email_test_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/email_test.txt'; //build path to admin email test email file
+}
 $body = file_get_contents($admin_email_test_email_file); //get the file's contents
 $admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
 $body = str_ireplace('[admin link]', $admin_link, $body);

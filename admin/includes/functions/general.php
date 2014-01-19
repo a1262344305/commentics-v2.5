@@ -240,8 +240,12 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 	
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
 	
-	$subscriber_notification_basic_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_basic.txt"; //build path to subscriber notification basic email file
-	
+	if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_basic.txt')) {
+		$subscriber_notification_basic_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_basic.txt'; //build path to custom subscriber notification basic email file
+	} else {
+		$subscriber_notification_basic_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_basic.txt'; //build path to subscriber notification basic email file
+	}
+		
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 	
@@ -303,7 +307,11 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 	
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
 	
-	$subscriber_notification_reply_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_reply.txt"; //build path to subscriber notification reply email file
+	if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt')) {
+		$subscriber_notification_reply_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt'; //build path to custom subscriber notification reply email file
+	} else {
+		$subscriber_notification_reply_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_reply.txt'; //build path to subscriber notification reply email file
+	}
 	
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
@@ -366,8 +374,12 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 	
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
 	
-	$subscriber_notification_admin_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_admin.txt"; //build path to subscriber notification admin email file
-	
+	if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt')) {
+		$subscriber_notification_admin_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt'; //build path to custom subscriber notification admin email file
+	} else {
+		$subscriber_notification_admin_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt'; //build path to subscriber notification admin email file
+	}
+
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 	

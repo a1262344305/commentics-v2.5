@@ -43,8 +43,10 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 cmtx_check_csrf_form_key();
 
 $data = $_POST['banned_names'];
-$file = "../includes/words/banned_names.txt";
-$handle = fopen($file,"w");
+
+$file = '../includes/words/custom/banned_names.txt';
+
+$handle = fopen($file, 'w');
 fputs($handle, $data);
 fclose($handle);
 ?>
@@ -76,7 +78,11 @@ fclose($handle);
 <p />
 
 <?php
-$data = file_get_contents('../includes/words/banned_names.txt');
+if (file_exists('../includes/words/custom/banned_names.txt')) {
+	$data = file_get_contents('../includes/words/custom/banned_names.txt');
+} else {
+	$data = file_get_contents( '../includes/words/banned_names.txt');
+}
 ?>
 
 <p />

@@ -43,20 +43,16 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 cmtx_check_csrf_form_key();
 
 $data = $_POST['dummy_emails'];
-$file = "../includes/words/dummy_emails.txt";
-$handle = fopen($file,"w");
+
+$file = '../includes/words/custom/dummy_emails.txt';
+
+$handle = fopen($file, 'w');
 fputs($handle, $data);
 fclose($handle);
 ?>
 <div class="success"><?php echo CMTX_MSG_LIST_UPDATED; ?></div>
 <div style="clear: left;"></div>
 <?php } ?>
-
-<p />
-
-<?php
-$data = file_get_contents('../includes/words/dummy_emails.txt');
-?>
 
 <p />
 
@@ -82,6 +78,16 @@ $data = file_get_contents('../includes/words/dummy_emails.txt');
 <b>C)</b> <?php echo CMTX_DESC_WILDCARDS_C; ?>
 </div>
 </div>
+
+<p />
+
+<?php
+if (file_exists('../includes/words/custom/dummy_emails.txt')) {
+	$data = file_get_contents('../includes/words/custom/dummy_emails.txt');
+} else {
+	$data = file_get_contents( '../includes/words/dummy_emails.txt');
+}
+?>
 
 <p />
 

@@ -151,7 +151,12 @@ if (isset($_POST['id'])) {
 
 		//send email
 
-		$admin_new_comment_flag_email_file = 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt'; //build path to admin new flag email file
+		if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_flag.txt')) {
+			$admin_new_comment_flag_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/new_flag.txt'; //build path to custom admin new flag email file
+		} else {
+			$admin_new_comment_flag_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/new_flag.txt'; //build path to admin new flag email file
+		}
+		
 		$body = file_get_contents($admin_new_comment_flag_email_file); //get the file's contents
 
 		$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");

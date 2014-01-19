@@ -58,8 +58,9 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_from_email_san' WHERE `title` = 'subscriber_confirmation_from_email'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_confirmation_reply_to_san' WHERE `title` = 'subscriber_confirmation_reply_to'");
 
-$file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt";
-$handle = fopen($file,"w");
+$file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_confirmation.txt';
+
+$handle = fopen($file, 'w');
 fputs($handle, $email_content);
 fclose($handle);
 ?>
@@ -72,7 +73,11 @@ fclose($handle);
 <?php echo CMTX_DESC_SETTINGS_EMAIL_SUB_CONFIRMATION; ?>
 
 <?php
-$data = file_get_contents("../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_confirmation.txt");
+if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_confirmation.txt')) {
+	$data = file_get_contents('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_confirmation.txt');
+} else {
+	$data = file_get_contents( '../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_confirmation.txt');
+}
 ?>
 
 <p />

@@ -58,8 +58,9 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_notification_admin_from_email_san' WHERE `title` = 'subscriber_notification_admin_from_email'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$subscriber_notification_admin_reply_to_san' WHERE `title` = 'subscriber_notification_admin_reply_to'");
 
-$file = "../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_admin.txt";
-$handle = fopen($file,"w");
+$file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt';
+
+$handle = fopen($file, 'w');
 fputs($handle, $email_content);
 fclose($handle);
 ?>
@@ -72,7 +73,11 @@ fclose($handle);
 <?php echo CMTX_DESC_SETTINGS_EMAIL_SUB_NOTIFICATION_ADMIN; ?>
 
 <?php
-$data = file_get_contents("../includes/emails/" . cmtx_setting('language_frontend') . "/user/subscriber_notification_admin.txt");
+if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt')) {
+	$data = file_get_contents('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt');
+} else {
+	$data = file_get_contents( '../includes/emails/' . cmtx_setting('language_frontend') . '/user/subscriber_notification_admin.txt');
+}
 ?>
 
 <p />

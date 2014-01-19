@@ -100,7 +100,7 @@ cmtx_define('CMTX_TITLE_REPLY', 'Ответить на комментарий');
 
 /* RSS */
 cmtx_define('CMTX_RSS', 'RSS Alerts');
-cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts');
+cmtx_define('CMTX_TITLE_RSS', 'Get RSS alerts for this page');
 
 /* Page Number */
 cmtx_define('CMTX_INFO_PAGE', 'Страница %d из %d');

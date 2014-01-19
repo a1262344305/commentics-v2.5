@@ -43,8 +43,10 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 cmtx_check_csrf_form_key();
 
 $data = $_POST['reserved_towns'];
-$file = "../includes/words/reserved_towns.txt";
-$handle = fopen($file,"w");
+
+$file = '../includes/words/custom/reserved_towns.txt';
+
+$handle = fopen($file, 'w');
 fputs($handle, $data);
 fclose($handle);
 ?>
@@ -76,7 +78,11 @@ fclose($handle);
 <p />
 
 <?php
-$data = file_get_contents('../includes/words/reserved_towns.txt');
+if (file_exists('../includes/words/custom/reserved_towns.txt')) {
+	$data = file_get_contents('../includes/words/custom/reserved_towns.txt');
+} else {
+	$data = file_get_contents( '../includes/words/reserved_towns.txt');
+}
 ?>
 
 <p />

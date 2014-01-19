@@ -147,7 +147,12 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 				
 					$password = cmtx_get_random_key(10);
 					
-					$reset_password_email_file = "../includes/emails/" . cmtx_setting('language_frontend') . "/admin/reset_password.txt"; //build path to reset password email file
+					if (file_exists($cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/reset_password.txt')) {
+						$reset_password_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/custom/reset_password.txt'; //build path to custom reset password email file
+					} else {
+						$reset_password_email_file = $cmtx_path . 'includes/emails/' . cmtx_setting('language_frontend') . '/admin/reset_password.txt'; //build path to reset password email file
+					}
+
 					$body = file_get_contents($reset_password_email_file); //get the file's contents
 					
 					$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
