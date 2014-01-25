@@ -45,7 +45,7 @@ cmtx_check_csrf_form_key();
 if (isset($_POST['enabled'])) { $task_enabled_delete_comments = 1; } else { $task_enabled_delete_comments = 0; }
 $days_to_delete_comments = $_POST['days'];
 
-$days_to_delete_comments_san = cmtx_sanitize($days_to_delete_comments);
+$days_to_delete_comments_san = (int)$days_to_delete_comments;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$task_enabled_delete_comments' WHERE `title` = 'task_enabled_delete_comments'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$days_to_delete_comments_san' WHERE `title` = 'days_to_delete_comments'");

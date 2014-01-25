@@ -56,7 +56,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<li>Did you create the database?</li><br/>';
 		echo '<li>Does the database still exist?</li><br/>';
 		echo '<li>';
-		echo '<i>(a)</i> Open the file /database/details.php';
+		echo '<i>(a)</i> Open the file /db/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_database</b>';
 		echo '<br/>';
@@ -71,7 +71,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file /database/details.php';
+		echo '<i>(a)</i> Open the file /db/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_username</b>';
 		echo '<br/>';
@@ -84,7 +84,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file /database/details.php';
+		echo '<i>(a)</i> Open the file /db/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_password</b>';
 		echo '<br/>';
@@ -97,7 +97,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file /database/details.php';
+		echo '<i>(a)</i> Open the file /db/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_host</b>';
 		echo '<br/>';
@@ -110,7 +110,7 @@ function cmtx_db_error_connect($errno, $error) { //display a database connection
 		echo '<p></p>';
 		echo 'The following are steps to help fix it:';
 		echo '<p></p>';
-		echo '<i>(a)</i> Open the file /database/details.php';
+		echo '<i>(a)</i> Open the file /db/details.php';
 		echo '<br/>';
 		echo '<i>(b)</i> Check the value of <b>$cmtx_mysql_port</b>';
 		echo '<br/>';
@@ -139,7 +139,7 @@ function cmtx_db_error_table() { //display a database tables error to admin
 	echo '<p></p>';
 	echo '<u>If you have already installed the script</u>';
 	echo '<ul>';
-	echo '<li>Open the file /database/details.php</li>';
+	echo '<li>Open the file /db/details.php</li>';
 	echo '<li>Is the <b>$cmtx_mysql_table_prefix</b> value correct?</li>';
 	echo '<li>Using <i>phpMyAdmin</i>, check that the tables exist.</li>';
 	echo '</ul>';

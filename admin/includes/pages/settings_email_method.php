@@ -52,7 +52,7 @@ $sendmail_path = $_POST['sendmail_path'];
 
 $transport_method_san = cmtx_sanitize($transport_method);
 $smtp_host_san = cmtx_sanitize($smtp_host);
-$smtp_port_san = cmtx_sanitize($smtp_port);
+$smtp_port_san = (int)$smtp_port;
 $smtp_encrypt_san = cmtx_sanitize($smtp_encrypt);
 $smtp_username_san = cmtx_sanitize($smtp_username);
 $smtp_password_san = cmtx_sanitize($smtp_password);

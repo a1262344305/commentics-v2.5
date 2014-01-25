@@ -48,8 +48,8 @@ if (isset($_POST['show_pagination_bottom'])) { $show_pagination_bottom = 1; } el
 $comments_per_page = $_POST['comments_per_page'];
 $range_of_pages = $_POST['range_of_pages'];
 
-$comments_per_page_san = cmtx_sanitize($comments_per_page);
-$range_of_pages_san = cmtx_sanitize($range_of_pages);
+$comments_per_page_san = (int)$comments_per_page;
+$range_of_pages_san = (int)$range_of_pages;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$enabled_pagination' WHERE `title` = 'enabled_pagination'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_pagination_top' WHERE `title` = 'show_pagination_top'");

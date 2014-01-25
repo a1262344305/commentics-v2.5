@@ -47,12 +47,12 @@ if (isset($_POST['submit']) && cmtx_setting('is_demo')) {
 cmtx_check_csrf_form_key();
 
 if (isset($_POST['enabled'])) { $captcha_type = 'securimage'; } else { $captcha_type = 'recaptcha'; }
-$securimage_width = cmtx_sanitize($_POST['securimage_width']);
-$securimage_height = cmtx_sanitize($_POST['securimage_height']);
-$securimage_length = cmtx_sanitize($_POST['securimage_length']);
-$securimage_perturbation = cmtx_sanitize($_POST['securimage_perturbation']);
-$securimage_lines = cmtx_sanitize($_POST['securimage_lines']);
-$securimage_noise = cmtx_sanitize($_POST['securimage_noise']);
+$securimage_width = (int)$_POST['securimage_width'];
+$securimage_height = (int)$_POST['securimage_height'];
+$securimage_length = (int)$_POST['securimage_length'];
+$securimage_perturbation = (float)$_POST['securimage_perturbation'];
+$securimage_lines = (int)$_POST['securimage_lines'];
+$securimage_noise = (int)$_POST['securimage_noise'];
 $securimage_text_color = cmtx_sanitize($_POST['securimage_text_color']);
 $securimage_line_color = cmtx_sanitize($_POST['securimage_line_color']);
 $securimage_back_color = cmtx_sanitize($_POST['securimage_back_color']);
@@ -83,14 +83,14 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <form name="layout_form_captchas_securimage" id="layout_form_captchas_securimage" action="index.php?page=layout_form_captchas_securimage" method="post">
 <label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_ENABLED; ?></label> <?php if (cmtx_setting('captcha_type') == 'securimage') { ?> <input type="checkbox" checked="checked" name="enabled"/> <?php } else { ?> <input type="checkbox" name="enabled"/> <?php } ?>
 <p />
-<label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_WIDTH; ?></label> <input type="text" required name="securimage_width" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_width'); ?>"/>
+<label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_WIDTH; ?></label> <input type="text" required name="securimage_width" size="2" maxlength="250" value="<?php echo cmtx_setting('securimage_width'); ?>"/>
 <p />
 <label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_HEIGHT; ?></label> <input type="text" required name="securimage_height" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_height'); ?>"/>
 <p />
 <label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_LENGTH; ?></label> <input type="text" required name="securimage_length" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_length'); ?>"/>
 <?php cmtx_generate_hint(CMTX_HINT_SECURIMAGE_LENGTH); ?>
 <p />
-<label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_PERTURBATION; ?></label> <input type="text" required name="securimage_perturbation" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_perturbation'); ?>"/>
+<label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_PERTURBATION; ?></label> <input type="text" required name="securimage_perturbation" size="2" maxlength="250" value="<?php echo cmtx_setting('securimage_perturbation'); ?>"/>
 <?php cmtx_generate_hint(CMTX_HINT_SECURIMAGE_PERTURBATION); ?>
 <p />
 <label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_LINES; ?></label> <input type="text" required name="securimage_lines" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_lines'); ?>"/>
@@ -99,13 +99,13 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <label class='layout_form_captchas_securimage_1'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_NOISE; ?></label> <input type="text" required name="securimage_noise" size="1" maxlength="250" value="<?php echo cmtx_setting('securimage_noise'); ?>"/>
 <?php cmtx_generate_hint(CMTX_HINT_SECURIMAGE_NOISE); ?>
 <div class='sub-heading'><?php echo "Styling"; ?></div>
-<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_TEXT_COLOR; ?></label> <input type="text" required name="securimage_text_color" size="6" maxlength="250" value="<?php echo cmtx_setting('securimage_text_color'); ?>"/>
+<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_TEXT_COLOR; ?></label> <input type="text" required name="securimage_text_color" size="7" maxlength="250" value="<?php echo cmtx_setting('securimage_text_color'); ?>"/>
 <p />
-<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_LINE_COLOR; ?></label> <input type="text" required name="securimage_line_color" size="6" maxlength="250" value="<?php echo cmtx_setting('securimage_line_color'); ?>"/>
+<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_LINE_COLOR; ?></label> <input type="text" required name="securimage_line_color" size="7" maxlength="250" value="<?php echo cmtx_setting('securimage_line_color'); ?>"/>
 <p />
-<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_BACK_COLOR; ?></label> <input type="text" required name="securimage_back_color" size="6" maxlength="250" value="<?php echo cmtx_setting('securimage_back_color'); ?>"/>
+<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_BACK_COLOR; ?></label> <input type="text" required name="securimage_back_color" size="7" maxlength="250" value="<?php echo cmtx_setting('securimage_back_color'); ?>"/>
 <p />
-<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_NOISE_COLOR; ?></label> <input type="text" required name="securimage_noise_color" size="6" maxlength="250" value="<?php echo cmtx_setting('securimage_noise_color'); ?>"/>
+<label class='layout_form_captchas_securimage_2'><?php echo CMTX_FIELD_LABEL_SECURIMAGE_NOISE_COLOR; ?></label> <input type="text" required name="securimage_noise_color" size="7" maxlength="250" value="<?php echo cmtx_setting('securimage_noise_color'); ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

@@ -54,8 +54,8 @@ while (!$is_unique) {
 	}
 }
 
-$name = cmtx_sanitize($name, true, true);
-$email = cmtx_sanitize($email, true, true);
+$name = cmtx_sanitize($name);
+$email = cmtx_sanitize($email);
 $page_id = cmtx_sanitize($page_id);
 
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "subscribers` (`name`, `email`, `page_id`, `token`, `to_all`, `to_admin`, `to_reply`, `is_confirmed`, `dated`) VALUES ('$name', '$email', '$page_id', '$token', '1', '1', '1', '1', NOW());");

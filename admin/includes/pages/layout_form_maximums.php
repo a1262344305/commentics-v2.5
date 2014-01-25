@@ -50,13 +50,13 @@ $comment_maximum_characters = $_POST['comment_maximum_characters'];
 $field_maximum_question = $_POST['field_maximum_question'];
 $field_maximum_captcha = $_POST['field_maximum_captcha'];
 
-$field_maximum_name_san = cmtx_sanitize($field_maximum_name);
-$field_maximum_email_san = cmtx_sanitize($field_maximum_email);
-$field_maximum_website_san = cmtx_sanitize($field_maximum_website);
-$field_maximum_town_san = cmtx_sanitize($field_maximum_town);
-$comment_maximum_characters_san = cmtx_sanitize($comment_maximum_characters);
-$field_maximum_question_san = cmtx_sanitize($field_maximum_question);
-$field_maximum_captcha_san = cmtx_sanitize($field_maximum_captcha);
+$field_maximum_name_san = (int)$field_maximum_name;
+$field_maximum_email_san = (int)$field_maximum_email;
+$field_maximum_website_san = (int)$field_maximum_website;
+$field_maximum_town_san = (int)$field_maximum_town;
+$comment_maximum_characters_san = (int)$comment_maximum_characters;
+$field_maximum_question_san = (int)$field_maximum_question;
+$field_maximum_captcha_san = (int)$field_maximum_captcha;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_name_san' WHERE `title` = 'field_maximum_name'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$field_maximum_email_san' WHERE `title` = 'field_maximum_email'");

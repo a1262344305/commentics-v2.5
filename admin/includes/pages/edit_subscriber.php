@@ -61,8 +61,8 @@ $page_id = $_POST['page_id'];
 $confirmed = $_POST['confirmed'];
 
 $id_san = cmtx_sanitize($id);
-$name_san = cmtx_sanitize($name, true, true);
-$email_san = cmtx_sanitize($email, true, true);
+$name_san = cmtx_sanitize($name);
+$email_san = cmtx_sanitize($email);
 $page_id_san = cmtx_sanitize($page_id);
 $confirmed_san = cmtx_sanitize($confirmed);
 

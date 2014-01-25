@@ -47,8 +47,8 @@ $viewers_timeout = $_POST['viewers_timeout'];
 if (isset($_POST['viewers_refresh_enabled'])) { $viewers_refresh_enabled = 1; } else { $viewers_refresh_enabled = 0; }
 $viewers_refresh_time = $_POST['viewers_refresh_time'];
 
-$viewers_timeout_san = cmtx_sanitize($viewers_timeout);
-$viewers_refresh_time_san = cmtx_sanitize($viewers_refresh_time);
+$viewers_timeout_san = (int)$viewers_timeout;
+$viewers_refresh_time_san = (int)$viewers_refresh_time;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_enabled' WHERE `title` = 'viewers_enabled'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$viewers_timeout_san' WHERE `title` = 'viewers_timeout'");

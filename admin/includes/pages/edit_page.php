@@ -61,10 +61,10 @@ $url = $_POST['url'];
 $form_enabled = $_POST['form_enabled'];
 
 $id_san = cmtx_sanitize($id);
-$identifier_san = cmtx_sanitize($identifier, true, true);
-$reference_san = cmtx_sanitize($reference, true, true);
+$identifier_san = cmtx_sanitize($identifier);
+$reference_san = cmtx_sanitize($reference);
 $url_san = cmtx_url_encode_spaces($url);
-$url_san = cmtx_sanitize($url_san, true, true);
+$url_san = cmtx_sanitize($url_san);
 $form_enabled_san = cmtx_sanitize($form_enabled);
 
 if (!empty($identifier) && cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$identifier_san' AND `id` != '$id_san'"))) {

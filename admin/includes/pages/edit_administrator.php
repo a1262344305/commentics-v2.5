@@ -133,8 +133,8 @@ $date = cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($administrator["dated"
 
 <p />
 
-<form name="administrator" id="administrator" action="index.php?page=edit_administrator&id=<?php echo $id ?>" method="post" onsubmit="return check_passwords()";>
-<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_USERNAME; ?></label> <input type="text" required name="username" size="12" maxlength="250" value="<?php echo cmtx_sanitize($username, true, false); ?>"/>
+<form name="administrator" id="administrator" action="index.php?page=edit_administrator&id=<?php echo $id ?>" method="post" onsubmit="return check_passwords()">
+<label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_USERNAME; ?></label> <input type="text" required name="username" size="12" maxlength="250" value="<?php echo $username; ?>"/>
 <p />
 <label class='edit_administrator'><?php echo CMTX_FIELD_LABEL_NEW_PASSWORD; ?></label> <input type="password" name="password_1" size="20" maxlength="250"/>
 <p />

@@ -63,8 +63,8 @@ $commentics_folder_san = cmtx_sanitize($commentics_folder);
 $commentics_url_san = cmtx_sanitize($commentics_url);
 $admin_folder_san = cmtx_sanitize($admin_folder);
 $mysqldump_path_san = cmtx_sanitize($mysqldump_path);
-$limit_comments_san = cmtx_sanitize($limit_comments);
-$admin_cookie_days_san = cmtx_sanitize($admin_cookie_days);
+$limit_comments_san = (int)$limit_comments;
+$admin_cookie_days_san = (int)$admin_cookie_days;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$site_name_san' WHERE `title` = 'site_name'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$time_zone_san' WHERE `title` = 'time_zone'");

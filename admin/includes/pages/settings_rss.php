@@ -55,9 +55,9 @@ $rss_most_recent_amount = $_POST['rss_most_recent_amount'];
 $rss_title_san = cmtx_sanitize($rss_title);
 $rss_link_san = cmtx_sanitize($rss_link);
 $rss_image_url_san = cmtx_sanitize($rss_image_url);
-$rss_image_width_san = cmtx_sanitize($rss_image_width);
-$rss_image_height_san = cmtx_sanitize($rss_image_height);
-$rss_most_recent_amount_san = cmtx_sanitize($rss_most_recent_amount);
+$rss_image_width_san = (int)$rss_image_width;
+$rss_image_height_san = (int)$rss_image_height;
+$rss_most_recent_amount_san = (int)$rss_most_recent_amount;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_rss' WHERE `title` = 'show_rss'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$rss_title_san' WHERE `title` = 'rss_title'");

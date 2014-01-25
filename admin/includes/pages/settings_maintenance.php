@@ -63,7 +63,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <form name="settings_maintenance" id="settings_maintenance" action="index.php?page=settings_maintenance" method="post">
 <label class='settings_maintenance'><?php echo CMTX_FIELD_LABEL_ENABLED; ?></label> <?php if (cmtx_setting('maintenance_mode')) { ?> <input type="checkbox" checked="checked" name="enabled"/> <?php } else { ?> <input type="checkbox" name="enabled"/> <?php } ?>
 <p />
-<label class='settings_maintenance'><?php echo CMTX_FIELD_LABEL_MESSAGE; ?></label> <input type="text" required name="message" size="40" maxlength="250" value="<?php echo cmtx_setting('maintenance_message'); ?>"/>
+<label class='settings_maintenance'><?php echo CMTX_FIELD_LABEL_MESSAGE; ?></label> <input type="text" required name="message" size="25" maxlength="250" value="<?php echo cmtx_setting('maintenance_message'); ?>"/>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

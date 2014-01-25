@@ -176,7 +176,7 @@ while ($administrator = cmtx_db_fetch_assoc($administrators)) {
 ?>
     	<tr>
 			<td><input type="checkbox" name="bulk[]" value="<?php echo $administrator["id"]; ?>" onclick="bulk_check();"/></td>
-        	<td><?php echo cmtx_sanitize($administrator["username"], true, false); ?></td>
+        	<td><?php echo $administrator["username"]; ?></td>
             <td><?php echo $administrator["email"]; ?></td>
 			<td><?php if ($administrator["is_enabled"]) { echo CMTX_TABLE_YES; } else { echo CMTX_TABLE_NO; } ?></td>
 			<td><?php if ($administrator["is_super"]) { echo CMTX_TABLE_YES; } else { echo CMTX_TABLE_NO; } ?></td>

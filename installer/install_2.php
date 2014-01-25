@@ -97,15 +97,15 @@ cmtx_set_time_zone($time_zone); //set the time zone
 ?>
 
 <?php
-$username = cmtx_sanitize($username, false, true);
-$email_address = cmtx_sanitize($email_address, false, true);
-$site_name = cmtx_sanitize($site_name, false, true);
-$time_zone = cmtx_sanitize($time_zone, false, true);
-$site_domain = cmtx_sanitize($site_domain, false, true);
-$site_url = cmtx_sanitize($site_url, false, true);
-$commentics_folder = cmtx_sanitize($commentics_folder, false, true);
-$commentics_url = cmtx_sanitize($commentics_url, false, true);
-$admin_folder = cmtx_sanitize($admin_folder, false, true);
+$username = cmtx_sanitize($username, true, true);
+$email_address = cmtx_sanitize($email_address, true, true);
+$site_name = cmtx_sanitize($site_name, true, true);
+$time_zone = cmtx_sanitize($time_zone, true, true);
+$site_domain = cmtx_sanitize($site_domain, true, true);
+$site_url = cmtx_sanitize($site_url, true, true);
+$commentics_folder = cmtx_sanitize($commentics_folder, true, true);
+$commentics_url = cmtx_sanitize($commentics_url, true, true);
+$admin_folder = cmtx_sanitize($admin_folder, true, true);
 ?>
 
 <?php
@@ -242,21 +242,21 @@ cmtx_db_query("CREATE TABLE IF NOT EXISTS `" . $cmtx_mysql_table_prefix . "quest
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;");
 
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the third letter of the word <i>castle</i>.', 's');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word <i>shark</i> backwards.', 'krahs');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the opposite word of <i>weak</i>?', 'strong');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the third letter of the word castle.', 's');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word shark backwards.', 'krahs');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the opposite word of weak?', 'strong');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Is it true or false that green is a number?', 'false');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Which word <b>in</b> this sentence is bold?', 'in');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('How many letters are in the word two?', '3|three');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Which is darker: black or white?', 'black');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the last letter of the word <i>satellite</i>.', 'e');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the opposite word of <i>small</i>?', 'big');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the last letter of the word satellite.', 'e');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the opposite word of small?', 'big');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Out of 56, 14 or 27, which is the smallest?', '14|fourteen');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word <i>hand</i> backwards.', 'dnah');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word hand backwards.', 'dnah');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Type the numbers for four hundred seventy-two.', '472');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the fifth word of this sentence.', 'of');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the third word of this sentence.', 'third');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the sum of 1 + 2 + 3?', '6|six');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word <i>table</i> backwards.', 'elbat');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Enter the word table backwards.', 'elbat');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the day after Friday?', 'saturday');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('Is ice cream hot or cold?', 'cold');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "questions` (`question`, `answer`) VALUES ('What is the next number: 10, 12, 14, ..?', '16|sixteen');");
@@ -491,7 +491,7 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_width', '150');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_height', '50');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_length', '4');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_perturbation', '.75');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_perturbation', '0.75');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_lines', '5');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_noise', '1');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('form', 'securimage_text_color', '#707070');");
@@ -501,7 +501,7 @@ cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('language', 'language_frontend', 'english');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('language', 'language_backend', 'english');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('maintenance', 'maintenance_mode', '0');");
-cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('maintenance', 'maintenance_message', '<p>Currently under general maintenance.</p><p>Please check back shortly. Thanks.</p>');");
+cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('maintenance', 'maintenance_message', 'Presently in maintenance.');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('notice', 'notice_manage_comments', '1');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('notice', 'notice_layout_form_questions', '1');");
 cmtx_db_query("INSERT INTO `" . $cmtx_mysql_table_prefix . "settings` (`category`, `title`, `value`) VALUES ('notice', 'notice_settings_admin_detection', '1');");

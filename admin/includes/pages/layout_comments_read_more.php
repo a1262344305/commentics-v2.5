@@ -45,7 +45,7 @@ cmtx_check_csrf_form_key();
 if (isset($_POST['enabled'])) { $show_read_more = 1; } else { $show_read_more = 0; }
 $read_more_limit = $_POST['read_more_limit'];
 
-$read_more_limit_san = cmtx_sanitize($read_more_limit);
+$read_more_limit_san = (int)$read_more_limit;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_read_more' WHERE `title` = 'show_read_more'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$read_more_limit_san' WHERE `title` = 'read_more_limit'");
@@ -63,7 +63,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <form name="layout_comments_read_more" id="layout_comments_read_more" action="index.php?page=layout_comments_read_more" method="post">
 <label class='layout_comments_read_more'><?php echo CMTX_FIELD_LABEL_ENABLED; ?></label> <?php if (cmtx_setting('show_read_more')) { ?> <input type="checkbox" checked="checked" name="enabled"/> <?php } else { ?> <input type="checkbox" name="enabled"/> <?php } ?>
 <p />
-<label class='layout_comments_read_more'><?php echo CMTX_FIELD_LABEL_LIMIT; ?></label> <input type="text" required name="read_more_limit" size="1" maxlength="250" value="<?php echo cmtx_setting('read_more_limit'); ?>"/> <span class='note'><?php echo CMTX_NOTE_CHARS; ?></span>
+<label class='layout_comments_read_more'><?php echo CMTX_FIELD_LABEL_LIMIT; ?></label> <input type="text" required name="read_more_limit" size="2" maxlength="250" value="<?php echo cmtx_setting('read_more_limit'); ?>"/> <span class='note'><?php echo CMTX_NOTE_CHARS; ?></span>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

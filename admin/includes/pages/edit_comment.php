@@ -60,9 +60,7 @@ $email = $_POST['email'];
 $website = $_POST['website'];
 $town = $_POST['town'];
 $country = $_POST['cmtx_country'];
-if ($country == "blank") { $country = ""; }
 $rating = $_POST['cmtx_rating'];
-if ($rating == "blank") { $rating = ""; }
 $comment = $_POST['comment'];
 $reply = $_POST['reply'];
 $page_id = $_POST['page_id'];
@@ -72,15 +70,15 @@ $is_sticky = $_POST['is_sticky'];
 $is_locked = $_POST['is_locked'];
 
 $id_san = cmtx_sanitize($id);
-$name_san = cmtx_sanitize($name, true, true);
-$email_san = cmtx_sanitize($email, true, true);
+$name_san = cmtx_sanitize($name);
+$email_san = cmtx_sanitize($email);
 $website_san = cmtx_url_encode_spaces($website);
-$website_san = cmtx_sanitize($website_san, true, true);
-$town_san = cmtx_sanitize($town, true, true);
-$country_san = cmtx_sanitize($country, true, true);
-$rating_san = cmtx_sanitize($rating, true, true);
-$comment_san = cmtx_sanitize($comment);
-$reply_san = cmtx_sanitize($reply);
+$website_san = cmtx_sanitize($website_san);
+$town_san = cmtx_sanitize($town);
+$country_san = cmtx_sanitize($country);
+$rating_san = cmtx_sanitize($rating);
+$comment_san = cmtx_sanitize($comment, false, true);
+$reply_san = cmtx_sanitize($reply, false, true);
 $page_id_san = cmtx_sanitize($page_id);
 $reply_to_san = cmtx_sanitize($reply_to);
 $is_approved_san = cmtx_sanitize($is_approved);

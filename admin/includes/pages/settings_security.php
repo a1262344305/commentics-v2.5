@@ -48,7 +48,7 @@ if (isset($_POST['check_honeypot'])) { $check_honeypot = 1; } else { $check_hone
 if (isset($_POST['check_time'])) { $check_time = 1; } else { $check_time = 0; }
 $ban_cookie_days = $_POST['ban_cookie_days'];
 
-$ban_cookie_days_san = cmtx_sanitize($ban_cookie_days);
+$ban_cookie_days_san = (int)$ban_cookie_days;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_referrer' WHERE `title` = 'check_referrer'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$check_db_file' WHERE `title` = 'check_db_file'");

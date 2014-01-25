@@ -48,8 +48,8 @@ if (isset($_POST['reply_arrow'])) { $reply_arrow = 1; } else { $reply_arrow = 0;
 if (isset($_POST['scroll_reply'])) { $scroll_reply = 1; } else { $scroll_reply = 0; }
 $scroll_speed = $_POST['scroll_speed'];
 
-$reply_depth_san = cmtx_sanitize($reply_depth);
-$scroll_speed_san = cmtx_sanitize($scroll_speed);
+$reply_depth_san = (int)$reply_depth;
+$scroll_speed_san = (int)$scroll_speed;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_reply' WHERE `title` = 'show_reply'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$reply_depth_san' WHERE `title` = 'reply_depth'");
@@ -80,7 +80,7 @@ cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '
 <label class='layout_comments_replies'><?php echo CMTX_FIELD_LABEL_SCROLL_REPLY; ?></label> <?php if (cmtx_setting('scroll_reply')) { ?> <input type="checkbox" checked="checked" name="scroll_reply"/> <?php } else { ?> <input type="checkbox" name="scroll_reply"/> <?php } ?>
 <?php cmtx_generate_hint(CMTX_HINT_SCROLL_REPLY); ?>
 <p />
-<label class='layout_comments_replies'><?php echo CMTX_FIELD_LABEL_SCROLL_SPEED; ?></label> <input type="text" required name="scroll_speed" size="2" maxlength="250" value="<?php echo cmtx_setting('scroll_speed'); ?>"/> <span class='note'><?php echo CMTX_NOTE_MILLISECONDS; ?></span>
+<label class='layout_comments_replies'><?php echo CMTX_FIELD_LABEL_SCROLL_SPEED; ?></label> <input type="text" required name="scroll_speed" size="3" maxlength="250" value="<?php echo cmtx_setting('scroll_speed'); ?>"/> <span class='note'><?php echo CMTX_NOTE_MILLISECONDS; ?></span>
 <p />
 <?php cmtx_set_csrf_form_key(); ?>
 <input type="submit" class="button" name="submit" title="<?php echo CMTX_BUTTON_UPDATE; ?>" value="<?php echo CMTX_BUTTON_UPDATE; ?>"/>

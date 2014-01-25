@@ -47,8 +47,8 @@ $flag_max_per_user = $_POST['flag_max_per_user'];
 $flag_min_per_comment = $_POST['flag_min_per_comment'];
 if (isset($_POST['flag_disapprove'])) { $flag_disapprove = 1; } else { $flag_disapprove = 0; }
 
-$flag_max_per_user_san = cmtx_sanitize($flag_max_per_user);
-$flag_min_per_comment_san = cmtx_sanitize($flag_min_per_comment);
+$flag_max_per_user_san = (int)$flag_max_per_user;
+$flag_min_per_comment_san = (int)$flag_min_per_comment;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_flag' WHERE `title` = 'show_flag'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flag_max_per_user_san' WHERE `title` = 'flag_max_per_user'");

@@ -50,7 +50,7 @@ $gravatar_rating = $_POST['gravatar_ratings'];
 
 $gravatar_default_san = cmtx_sanitize($gravatar_default);
 $gravatar_custom_san = cmtx_sanitize($gravatar_custom);
-$gravatar_size_san = cmtx_sanitize($gravatar_size);
+$gravatar_size_san = (int)$gravatar_size;
 $gravatar_rating_san = cmtx_sanitize($gravatar_rating);
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$show_gravatar' WHERE `title` = 'show_gravatar'");

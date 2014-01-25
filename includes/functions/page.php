@@ -340,9 +340,9 @@ function cmtx_page_exists() { //check if the page exists
 	global $cmtx_identifier, $cmtx_mysql_table_prefix; //globalise variables
 	
 	//sanitize data
-	$cmtx_identifier = cmtx_sanitize($cmtx_identifier, true, true);
+	$cmtx_identifier_2 = cmtx_sanitize($cmtx_identifier, true, true);
 
-	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"))) { //if page exists
+	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier_2'"))) { //if page exists
 		return true;
 	} else {
 		return false;

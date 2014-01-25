@@ -52,7 +52,7 @@ $form_cookie_days = $_POST['form_cookie_days'];
 $repeat_ratings = $_POST['repeat_ratings'];
 if (isset($_POST['agree_to_preview'])) { $agree_to_preview = 1; } else { $agree_to_preview = 0; }
 
-$form_cookie_days_san = cmtx_sanitize($form_cookie_days);
+$form_cookie_days_san = (int)$form_cookie_days;
 $repeat_ratings_san = cmtx_sanitize($repeat_ratings);
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$display_javascript_disabled' WHERE `title` = 'display_javascript_disabled'");

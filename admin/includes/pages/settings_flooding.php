@@ -50,9 +50,9 @@ $flood_control_maximum_amount = $_POST['flood_control_maximum_amount'];
 $flood_control_maximum_period = $_POST['flood_control_maximum_period'];
 if (isset($_POST['flood_control_maximum_all_pages'])) { $flood_control_maximum_all_pages = 1; } else { $flood_control_maximum_all_pages = 0; }
 
-$flood_control_delay_time_san = cmtx_sanitize($flood_control_delay_time);
-$flood_control_maximum_amount_san = cmtx_sanitize($flood_control_maximum_amount);
-$flood_control_maximum_period_san = cmtx_sanitize($flood_control_maximum_period);
+$flood_control_delay_time_san = (int)$flood_control_delay_time;
+$flood_control_maximum_amount_san = (int)$flood_control_maximum_amount;
+$flood_control_maximum_period_san = (int)$flood_control_maximum_period;
 
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_enabled' WHERE `title` = 'flood_control_delay_enabled'");
 cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "settings` SET `value` = '$flood_control_delay_time_san' WHERE `title` = 'flood_control_delay_time'");

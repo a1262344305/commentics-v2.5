@@ -47,9 +47,7 @@ $default_email = $_POST['default_email'];
 $default_website = $_POST['default_website'];
 $default_town = $_POST['default_town'];
 $default_country = $_POST['cmtx_country'];
-if ($default_country == "blank") { $default_country = ""; }
 $default_rating = $_POST['cmtx_rating'];
-if ($default_rating == "blank") { $default_rating = ""; }
 $default_comment = $_POST['default_comment'];
 if (isset($_POST['default_notify'])) { $default_notify = 1; } else { $default_notify = 0; }
 if (isset($_POST['default_remember'])) { $default_remember = 1; } else { $default_remember = 0; }

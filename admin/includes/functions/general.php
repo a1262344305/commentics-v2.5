@@ -25,7 +25,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
 
-function cmtx_sanitize ($value, $stage_one = false, $stage_two = true) { //sanitizes data
+function cmtx_sanitize ($value, $stage_one = true, $stage_two = true) { //sanitizes data
     
 	$value = trim($value); //strip any space from beginning and end of string
 	
@@ -481,7 +481,7 @@ function cmtx_get_ip_address() { //get IP address
 		}
     }
 	
-	$ip_address = cmtx_sanitize($ip_address, true, true);
+	$ip_address = cmtx_sanitize($ip_address);
 	
 	return $ip_address; //return IP address
 	

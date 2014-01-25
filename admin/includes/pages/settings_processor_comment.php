@@ -72,12 +72,12 @@ $strong_swear_words_action = $_POST['strong_swear_words_action'];
 if (isset($_POST['banned_websites_as_comment_enabled'])) { $banned_websites_as_comment_enabled = 1; } else { $banned_websites_as_comment_enabled = 0; }
 $banned_websites_as_comment_action = $_POST['banned_websites_as_comment_action'];
 
-$comment_minimum_characters_san = cmtx_sanitize($comment_minimum_characters);
-$comment_minimum_words_san = cmtx_sanitize($comment_minimum_words);
-$comment_maximum_characters_san = cmtx_sanitize($comment_maximum_characters);
-$comment_maximum_lines_san = cmtx_sanitize($comment_maximum_lines);
-$comment_maximum_smilies_san = cmtx_sanitize($comment_maximum_smilies);
-$long_word_length_to_deny_san = cmtx_sanitize($long_word_length_to_deny);
+$comment_minimum_characters_san = (int)$comment_minimum_characters;
+$comment_minimum_words_san = (int)$comment_minimum_words;
+$comment_maximum_characters_san = (int)$comment_maximum_characters;
+$comment_maximum_lines_san = (int)$comment_maximum_lines;
+$comment_maximum_smilies_san = (int)$comment_maximum_smilies;
+$long_word_length_to_deny_san = (int)$long_word_length_to_deny;
 $swear_word_masking_san = cmtx_sanitize($swear_word_masking);
 $link_in_comment_action_san = cmtx_sanitize($link_in_comment_action);
 $check_capitals_percentage_san = cmtx_sanitize($check_capitals_percentage);
