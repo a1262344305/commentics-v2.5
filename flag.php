@@ -162,16 +162,16 @@ if (isset($_POST['id'])) {
 		$comment_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 		$comment_result = cmtx_db_fetch_assoc($comment_query);
 
-		$page_id = $comment_result["page_id"];
+		$page_id = $comment_result['page_id'];
 
 		$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
 		$page_result = cmtx_db_fetch_assoc($page_query);
 
-		$page_reference = cmtx_decode($page_result["reference"]);
-		$page_url = cmtx_decode($page_result["url"]);
-		$comment_url = cmtx_decode(cmtx_get_permalink($id, $page_result["url"])); //get the permalink of the comment
-		$poster = cmtx_decode($comment_result["name"]);
-		$comment = cmtx_prepare_comment_for_email($comment_result["comment"], false);
+		$page_reference = cmtx_decode($page_result['reference']);
+		$page_url = cmtx_decode($page_result['url']);
+		$comment_url = cmtx_decode(cmtx_get_permalink($id, $page_result['url'])); //get the permalink of the comment
+		$poster = cmtx_decode($comment_result['name']);
+		$comment = cmtx_prepare_comment_for_email($comment_result['comment'], false);
 		$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
 
 		//convert email variables with actual variables
@@ -188,7 +188,7 @@ if (isset($_POST['id'])) {
 
 		while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
-			$email = $admin["email"]; //get administrator email address
+			$email = $admin['email']; //get administrator email address
 
 			cmtx_email($email, null, cmtx_setting('admin_new_flag_subject'), $body, cmtx_setting('admin_new_flag_from_email'), cmtx_setting('admin_new_flag_from_name'), cmtx_setting('admin_new_flag_reply_to'));
 

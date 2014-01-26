@@ -24,7 +24,6 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
 function cmtx_get_comment_and_replies($id) {
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id, $cmtx_loop_counter, $cmtx_comment_counter, $cmtx_offset, $cmtx_exit_loop; //globalise variables
@@ -49,7 +48,7 @@ function cmtx_get_comment_and_replies($id) {
 			$comments = cmtx_db_fetch_assoc($comments_q);
 
 			//display comment
-			echo cmtx_generate_comment (false, $alternate, $comments["id"], $comments["name"], $comments["email"], $comments["website"], $comments["town"], $comments["country"], $comments["rating"], $comments["reply_to"], $comments["comment"], $comments["reply"], $comments["is_admin"], $comments["likes"], $comments["dislikes"], $comments["is_sticky"], $comments["is_locked"], $comments["dated"]);
+			echo cmtx_generate_comment (false, $alternate, $comments['id'], $comments['name'], $comments['email'], $comments['website'], $comments['town'], $comments['country'], $comments['rating'], $comments['reply_to'], $comments['comment'], $comments['reply'], $comments['is_admin'], $comments['likes'], $comments['dislikes'], $comments['is_sticky'], $comments['is_locked'], $comments['dated']);
 
 			$cmtx_comment_counter++; //increase comment counter by 1
 
@@ -77,7 +76,7 @@ function cmtx_get_comment_and_replies($id) {
 			$comments = cmtx_db_fetch_assoc($comments_q);
 	
 			//display comment
-			echo cmtx_generate_comment (false, $alternate, $comments["id"], $comments["name"], $comments["email"], $comments["website"], $comments["town"], $comments["country"], $comments["rating"], $comments["reply_to"], $comments["comment"], $comments["reply"], $comments["is_admin"], $comments["likes"], $comments["dislikes"], $comments["is_sticky"], $comments["is_locked"], $comments["dated"]);
+			echo cmtx_generate_comment (false, $alternate, $comments['id'], $comments['name'], $comments['email'], $comments['website'], $comments['town'], $comments['country'], $comments['rating'], $comments['reply_to'], $comments['comment'], $comments['reply'], $comments['is_admin'], $comments['likes'], $comments['dislikes'], $comments['is_sticky'], $comments['is_locked'], $comments['dated']);
 
 			$cmtx_comment_counter++; //increase comment counter by 1
 
@@ -92,7 +91,7 @@ function cmtx_get_comment_and_replies($id) {
 
 		while ($replies = cmtx_db_fetch_assoc($reply_q)) { //while there are replies
 
-			cmtx_get_comment_and_replies($replies["id"]); //re-call this function to display the reply AND any replies it may have
+			cmtx_get_comment_and_replies($replies['id']); //re-call this function to display the reply AND any replies it may have
 
 		}
 
@@ -121,7 +120,7 @@ function cmtx_get_reply_to($id) {
 	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$result = cmtx_db_fetch_assoc($query);
 
-	return $result["reply_to"];
+	return $result['reply_to'];
 
 } //end of get-reply-to function
 
@@ -144,7 +143,7 @@ function cmtx_get_reply_depth($id) {
 
 		if (cmtx_db_num_rows($query)) {
 
-			$reply_to = $result["reply_to"];
+			$reply_to = $result['reply_to'];
 
 			if ($reply_to != 0) {
 				$reply_depth++;
@@ -159,71 +158,71 @@ function cmtx_get_reply_depth($id) {
 } //end of get-reply-depth function
 
 
-function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $website, $town, $country, $rating, $reply_to, $comment, $reply, $is_admin, $likes, $dislikes, $is_sticky, $is_locked, $dated) { //generate comment
+function cmtx_generate_comment($is_preview, $alternate, $id, $name, $email, $website, $town, $country, $rating, $reply_to, $comment, $reply, $is_admin, $likes, $dislikes, $is_sticky, $is_locked, $dated) { //generate comment
 
-	$cmtx_box = ""; //initialise box
+	$cmtx_box = ''; //initialise box
 
 	for ($i = 1; $i <= cmtx_get_reply_depth($id); $i++) {
 		if (cmtx_setting('reply_arrow') && $i == cmtx_get_reply_depth($id)) {
-			$cmtx_box .= "<div class='cmtx_reply_arrow'>"; //add the reply arrow
+			$cmtx_box .= '<div class="cmtx_reply_arrow">'; //add the reply arrow
 		}
 		$cmtx_box .= '<div class="cmtx_reply_indent">'; //indent the reply
 	}
 
-	$perm = "";
+	$perm = '';
 	if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) {
 		$cmtx_perm = (int) $_GET['cmtx_perm'];
 		if ($cmtx_perm == $id) {
-			$perm = " cmtx_permalink_box";
+			$perm = ' cmtx_permalink_box';
 		}
 	}
 
 	if ($alternate == 1) { //if it's the first box
 
 		if (!$reply_to && !$is_admin) {
-			$cmtx_box .= "<div class='cmtx_comment_box_1$perm' id='cmtx_perm_$id'>"; //comment and not admin
+			$cmtx_box .= '<div class="cmtx_comment_box_1' . $perm . '" id="cmtx_perm_' . $id . '">'; //comment and not admin
 		} else if ($reply_to && !$is_admin) {
-			$cmtx_box .= "<div class='cmtx_reply_box_1$perm' id='cmtx_perm_$id'>"; //reply and not admin
+			$cmtx_box .= '<div class="cmtx_reply_box_1' . $perm . '" id="cmtx_perm_' . $id . '">'; //reply and not admin
 		} else if (!$reply_to && $is_admin) {
-			$cmtx_box .= "<div class='cmtx_admin_comment_box_1$perm' id='cmtx_perm_$id'>"; //comment and is admin
+			$cmtx_box .= '<div class="cmtx_admin_comment_box_1' . $perm . '" id="cmtx_perm_' . $id . '">'; //comment and is admin
 		} else if ($reply_to && $is_admin) {
-			$cmtx_box .= "<div class='cmtx_admin_reply_box_1$perm' id='cmtx_perm_$id'>"; //reply and is admin
+			$cmtx_box .= '<div class="cmtx_admin_reply_box_1' . $perm . '" id="cmtx_perm_' . $id . '">'; //reply and is admin
 		}
 
 	} else { //if it's the second box
 
 		if (!$reply_to && !$is_admin) {
-			$cmtx_box .= "<div class='cmtx_comment_box_2$perm' id='cmtx_perm_$id'>"; //comment and not admin
+			$cmtx_box .= '<div class="cmtx_comment_box_2' . $perm . '" id="cmtx_perm_' . $id . '">'; //comment and not admin
 		} else if ($reply_to && !$is_admin) {
-			$cmtx_box .= "<div class='cmtx_reply_box_2$perm' id='cmtx_perm_$id'>"; //reply and not admin
+			$cmtx_box .= '<div class="cmtx_reply_box_2' . $perm . '" id="cmtx_perm_' . $id . '">'; //reply and not admin
 		} else if (!$reply_to && $is_admin) {
-			$cmtx_box .= "<div class='cmtx_admin_comment_box_2$perm' id='cmtx_perm_$id'>"; //comment and is admin
+			$cmtx_box .= '<div class="cmtx_admin_comment_box_2' . $perm . '" id="cmtx_perm_' . $id . '">'; //comment and is admin
 		} else if ($reply_to && $is_admin) {
-			$cmtx_box .= "<div class='cmtx_admin_reply_box_2$perm' id='cmtx_perm_$id'>"; //reply and is admin
+			$cmtx_box .= '<div class="cmtx_admin_reply_box_2' . $perm . '" id="cmtx_perm_' . $id . '">'; //reply and is admin
 		}
 
 	}
 
 	//Sticky (1/2)
 	if ($is_sticky) {
-		$cmtx_box .= "<div class='cmtx_sticky_image'>";
+		$cmtx_box .= '<div class="cmtx_sticky_image">';
 	}
 
 	//Gravatar (1/2)
 	if (cmtx_setting('show_gravatar')) {
-		$cmtx_box .= "<div class='cmtx_gravatar_block'>";
-		$gravatar_parameter = "&amp;r=" . cmtx_setting('gravatar_rating');
-		if (cmtx_setting('gravatar_default') != "default") {
-			if (cmtx_setting('gravatar_default') == "custom") {
-				$gravatar_parameter .= "&amp;d=" . cmtx_url_encode(cmtx_setting('gravatar_custom'));
+		$cmtx_box .= '<div class="cmtx_gravatar_block">';
+		$gravatar_parameter = '&amp;r=' . cmtx_setting('gravatar_rating');
+		if (cmtx_setting('gravatar_default') != 'default') {
+			if (cmtx_setting('gravatar_default') == 'custom') {
+				$gravatar_parameter .= '&amp;d=' . cmtx_url_encode(cmtx_setting('gravatar_custom'));
 			} else {
-				$gravatar_parameter .= "&amp;d=" . cmtx_setting('gravatar_default');
+				$gravatar_parameter .= '&amp;d=' . cmtx_setting('gravatar_default');
 			}
 		}
-		$cmtx_box .= "<img src='http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . ".png?s=" . cmtx_setting('gravatar_size') . $gravatar_parameter . "' alt='Gravatar' title='Gravatar'/>";
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "<div style='clear: right;'></div>";
-		$cmtx_box .= "<div style='margin-left:" . (cmtx_setting('gravatar_size') + 5) . "px;'>";
+		$cmtx_box .= '<img src="http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . '.png?s=' . cmtx_setting('gravatar_size') . $gravatar_parameter . '" alt="Gravatar" title="Gravatar"/>';
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '<div style="clear: right;"></div>';
+		$cmtx_box .= '<div style="margin-left:' . (cmtx_setting('gravatar_size') + 5) . 'px;">';
 	}
 
 	//Rating
@@ -248,190 +247,190 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 	}
 
 	//Name and Website
-	if (cmtx_setting('show_website') && !empty($website) && $website != "http://") {
-		$cmtx_website_attribute = ""; //initialize variable
-		if (cmtx_setting('website_new_window')) { $cmtx_website_attribute = " target='_blank'"; } //if website should open in new window
-		if (cmtx_setting('website_nofollow')) { $cmtx_website_attribute .= " rel='nofollow'";	} //if website should contain nofollow tag
+	if (cmtx_setting('show_website') && !empty($website) && $website != 'http://') {
+		$cmtx_website_attribute = ''; //initialize variable
+		if (cmtx_setting('website_new_window')) { $cmtx_website_attribute = ' target="_blank"'; } //if website should open in new window
+		if (cmtx_setting('website_nofollow')) { $cmtx_website_attribute .= ' rel="nofollow"';	} //if website should contain nofollow tag
 		if ($is_admin) {
-			$cmtx_box .= "<a class='cmtx_admin_name_with_website_text' href='" . $website . "'$cmtx_website_attribute>" . $name . "</a>";
+			$cmtx_box .= '<a class="cmtx_admin_name_with_website_text" href="' . $website . '"' . $cmtx_website_attribute . '>' . $name . '</a>';
 		} else {
-			$cmtx_box .= "<a class='cmtx_name_with_website_text' href='" . $website . "'$cmtx_website_attribute>" . $name . "</a>";
+			$cmtx_box .= '<a class="cmtx_name_with_website_text" href="' . $website . '"' . $cmtx_website_attribute . '>' . $name . '</a>';
 		}
 	} else {
 		if ($is_admin) {
-			$cmtx_box .= "<span class='cmtx_admin_name_without_website_text'>";
+			$cmtx_box .= '<span class="cmtx_admin_name_without_website_text">';
 			$cmtx_box .= $name;
-			$cmtx_box .= "</span>";
+			$cmtx_box .= '</span>';
 		} else {
-			$cmtx_box .= "<span class='cmtx_name_without_website_text'>";
+			$cmtx_box .= '<span class="cmtx_name_without_website_text">';
 			$cmtx_box .= $name;
-			$cmtx_box .= "</span>";
+			$cmtx_box .= '</span>';
 		}
 	}
 
 	//Town and Country
 	if (cmtx_setting('show_town') && !empty($town) && cmtx_setting('show_country') && !empty($country)) {
-		$cmtx_box .= "<span class='cmtx_town_country_text'>";
-		$cmtx_box .= " (" . $town . ", " . $country . ")";
-		$cmtx_box .= "</span>";
+		$cmtx_box .= '<span class="cmtx_town_country_text">';
+		$cmtx_box .= ' (' . $town . ', ' . $country . ')';
+		$cmtx_box .= '</span>';
 	} else if (cmtx_setting('show_town') && !empty($town)) {
-		$cmtx_box .= "<span class='cmtx_town_country_text'>";
-		$cmtx_box .= " (" . $town . ")";
-		$cmtx_box .= "</span>";
+		$cmtx_box .= '<span class="cmtx_town_country_text">';
+		$cmtx_box .= ' (' . $town . ')';
+		$cmtx_box .= '</span>';
 	} else if (cmtx_setting('show_country') && !empty($country)) {
-		$cmtx_box .= "<span class='cmtx_town_country_text'>";
-		$cmtx_box .= " (" . $country . ")";
-		$cmtx_box .= "</span>";
+		$cmtx_box .= '<span class="cmtx_town_country_text">';
+		$cmtx_box .= ' (' . $country . ')';
+		$cmtx_box .= '</span>';
 	}
 
 	//Says...
 	if (cmtx_setting('show_says')) {
-		$cmtx_box .= "<span class='cmtx_says_text'>";
-		$cmtx_box .= " " . CMTX_SAYS;
-		$cmtx_box .= "</span>";
+		$cmtx_box .= '<span class="cmtx_says_text">';
+		$cmtx_box .= ' ' . CMTX_SAYS;
+		$cmtx_box .= '</span>';
 	}
 
-	$cmtx_box .= "<div class='cmtx_height_above_comment_text'></div>";
+	$cmtx_box .= '<div class="cmtx_height_above_comment_text"></div>';
 
 	//Comment
-	$cmtx_box .= "<div class='cmtx_comment_text'>";
+	$cmtx_box .= '<div class="cmtx_comment_text">';
 	if (cmtx_setting('show_read_more') && !$is_preview && cmtx_strlen(strip_tags($comment)) > cmtx_setting('read_more_limit')) {
-		$comment_less = str_ireplace("<br />", " ", $comment);
-		$comment_less = str_ireplace("<br/>", " ", $comment_less);
-		$comment_less = str_ireplace("<br>", " ", $comment_less);
-		$comment_less = str_ireplace("<p></p>", " ", $comment_less);
-		$comment_less = str_ireplace("<p />", " ", $comment_less);
-		$comment_less = str_ireplace("<p/>", " ", $comment_less);
+		$comment_less = str_ireplace('<br />', ' ', $comment);
+		$comment_less = str_ireplace('<br/>', ' ', $comment_less);
+		$comment_less = str_ireplace('<br>', ' ', $comment_less);
+		$comment_less = str_ireplace('<p></p>', ' ', $comment_less);
+		$comment_less = str_ireplace('<p />', ' ', $comment_less);
+		$comment_less = str_ireplace('<p/>', ' ', $comment_less);
 		$comment_less = strip_tags($comment_less);
 		$comment_cut = substr($comment_less, 0, cmtx_setting('read_more_limit'));
-		$comment_less = substr($comment_cut, 0, strrpos($comment_cut, " "));
-		$cmtx_box .= "<div id='cmtx_comment_less_" . $id . "'>";
+		$comment_less = substr($comment_cut, 0, strrpos($comment_cut, ' '));
+		$cmtx_box .= '<div id="cmtx_comment_less_' . $id . '">';
 		$cmtx_box .= $comment_less;
-		$cmtx_box .= " <a href='" . cmtx_url_encode(cmtx_current_page()) . "' class='cmtx_read_more_link' title='" . CMTX_TITLE_READ_MORE . "' rel='nofollow' onclick='cmtx_read_more($id);return false;'>" . CMTX_READ_MORE . "</a>";
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "<div id='cmtx_comment_more_" . $id . "' style='display:none;'>";
+		$cmtx_box .= ' <a href="' . cmtx_url_encode(cmtx_current_page()) . '" class="cmtx_read_more_link" title="' . CMTX_TITLE_READ_MORE . '" rel="nofollow" onclick="cmtx_read_more(' . $id . ');return false;">' . CMTX_READ_MORE . '</a>';
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '<div id="cmtx_comment_more_' . $id . '" style="display:none;">';
 		$cmtx_box .= $comment;
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	} else {
 		$cmtx_box .= $comment;
 	}
-	$cmtx_box .= "</div>";
+	$cmtx_box .= '</div>';
 
 	//Admin Reply
 	if (!empty($reply)) {
-		$cmtx_box .= "<div class='cmtx_height_above_reply_text'></div>";
-		$cmtx_box .= "<div class='cmtx_reply_area'>";
-		$cmtx_box .= "<div class='cmtx_reply_intro'>";
+		$cmtx_box .= '<div class="cmtx_height_above_reply_text"></div>';
+		$cmtx_box .= '<div class="cmtx_reply_area">';
+		$cmtx_box .= '<div class="cmtx_reply_intro">';
 		$cmtx_box .= CMTX_REPLY_INTRO;
-		$cmtx_box .= "</div>";
-		$cmtx_box .= " ";
-		$cmtx_box .= "<div class='cmtx_reply_text'>";
+		$cmtx_box .= '</div>';
+		$cmtx_box .= ' ';
+		$cmtx_box .= '<div class="cmtx_reply_text">';
 		$cmtx_box .= $reply;
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '</div>';
 	}
 
-	$cmtx_box .= "<div class='cmtx_height_below_comment_text'></div>";
+	$cmtx_box .= '<div class="cmtx_height_below_comment_text"></div>';
 
 	//Preview Message
 	if ($is_preview) {
-		$cmtx_box .= "<div class='cmtx_preview_text'>";
+		$cmtx_box .= '<div class="cmtx_preview_text">';
 		$cmtx_box .= CMTX_PREVIEW_TEXT;
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 
-	$cmtx_box .= "<div class='cmtx_buttons_block'>";
+	$cmtx_box .= '<div class="cmtx_buttons_block">';
 
 	//Reply
 	if (cmtx_setting('show_reply') && !$is_preview) {
-		$cmtx_box .= "<div class='cmtx_reply_block'>";
-		$cmtx_box .= "<div class='cmtx_buttons'>";
+		$cmtx_box .= '<div class="cmtx_reply_block">';
+		$cmtx_box .= '<div class="cmtx_buttons">';
 		if (cmtx_get_reply_depth($id) < cmtx_setting('reply_depth') && !$is_locked) {
-			$cmtx_box .= "<a href='" . cmtx_url_encode(cmtx_current_page() . CMTX_ANCHOR_FORM) . "' id='cmtx_reply_" . $id . "' class='cmtx_reply_enabled' title='" . CMTX_TITLE_REPLY . "' rel='nofollow' onclick='";
+			$cmtx_box .= '<a href="' . cmtx_url_encode(cmtx_current_page() . CMTX_ANCHOR_FORM) . '" id="cmtx_reply_' . $id . '" class="cmtx_reply_enabled" title="' . CMTX_TITLE_REPLY . '" rel="nofollow" onclick="';
 			if (cmtx_setting('hide_form')) {
-				$cmtx_box .= "cmtx_open_form();";
+				$cmtx_box .= 'cmtx_open_form();';
 			}
-			$cmtx_box .= "document.getElementById(\"cmtx_hide_reply\").style.display=\"block\";";
-			$cmtx_box .= "document.getElementById(\"cmtx_reply_id\").value=\"" . $id . "\";";
-			$cmtx_box .= "document.getElementById(\"cmtx_reply_message\").innerHTML=\"" . CMTX_REPLY_MESSAGE . " " . $name . '. ' . "\";";
-			$cmtx_box .= "document.getElementById(\"cmtx_reset_reply\").style.display=\"inline\"'>";
-			$cmtx_box .= "<img src='" . cmtx_commentics_url() . "images/buttons/reply.png' alt='Reply' title='" . CMTX_TITLE_REPLY . "'/>" . CMTX_REPLY . "</a>";
+			$cmtx_box .= 'document.getElementById(\'cmtx_hide_reply\').style.display=\'block\';';
+			$cmtx_box .= 'document.getElementById(\'cmtx_reply_id\').value=\'' . $id . '\';';
+			$cmtx_box .= 'document.getElementById(\'cmtx_reply_message\').innerHTML=\'' . CMTX_REPLY_MESSAGE . ' ' . $name . '. ' . '\';';
+			$cmtx_box .= 'document.getElementById(\'cmtx_reset_reply\').style.display=\'inline\'">';
+			$cmtx_box .= '<img src="' . cmtx_commentics_url() . 'images/buttons/reply.png" alt="Reply" title="' . CMTX_TITLE_REPLY . '"/>' . CMTX_REPLY . '</a>';
 		} else {
-			$cmtx_box .= "<a href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_reply_" . $id . "' class='cmtx_reply_disabled' title='' rel='nofollow' onclick='return false;'>";
-			$cmtx_box .= "<img src='" . cmtx_commentics_url() . "images/buttons/reply.png' alt='Reply' title=''/>" . CMTX_REPLY . "</a>";
+			$cmtx_box .= '<a href="' . cmtx_url_encode(cmtx_current_page()) . '" id="cmtx_reply_' . $id . '" class="cmtx_reply_disabled" title="" rel="nofollow" onclick="return false;">';
+			$cmtx_box .= '<img src="' . cmtx_commentics_url() . 'images/buttons/reply.png" alt="Reply" title=""/>' . CMTX_REPLY . '</a>';
 		}
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '</div>';
 	}
 
 	//Permalink
 	if (cmtx_setting('show_permalink') && !$is_preview) {
-		$cmtx_box .= "<div class='cmtx_permalink_block'>";
-		$cmtx_box .= "<div class='cmtx_buttons'>";
-		$cmtx_box .= "<a class='cmtx_permalink' href='" . cmtx_get_permalink($id, cmtx_get_page_url()) . "' id='cmtx_permalink_" . $id . "' title='" . CMTX_TITLE_PERMALINK . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/permalink.png' alt='Permalink' title='" . CMTX_TITLE_PERMALINK . "'/>" . CMTX_PERMALINK . "</a>";
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '<div class="cmtx_permalink_block">';
+		$cmtx_box .= '<div class="cmtx_buttons">';
+		$cmtx_box .= '<a class="cmtx_permalink" href="' . cmtx_get_permalink($id, cmtx_get_page_url()) . '" id="cmtx_permalink_' . $id . '" title="' . CMTX_TITLE_PERMALINK . '" rel="nofollow"><img src="' . cmtx_commentics_url() . 'images/buttons/permalink.png" alt="Permalink" title="' . CMTX_TITLE_PERMALINK . '"/>' . CMTX_PERMALINK . '</a>';
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '</div>';
 	}
 
 	//Flag
 	if (cmtx_setting('show_flag') && !$is_preview) {
-		$cmtx_box .= "<div class='cmtx_flag_block'>";
-		$cmtx_box .= "<div class='cmtx_buttons'>";
-		$cmtx_box .= "<a class='cmtx_flag' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_flag_" . $id . "' title='" . CMTX_TITLE_FLAG . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/flag.png' alt='Flag' title='" . CMTX_TITLE_FLAG . "'/>" . CMTX_FLAG . "</a>";
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '<div class="cmtx_flag_block">';
+		$cmtx_box .= '<div class="cmtx_buttons">';
+		$cmtx_box .= '<a class="cmtx_flag" href="' . cmtx_url_encode(cmtx_current_page()) . '" id="cmtx_flag_' . $id . '" title="' . CMTX_TITLE_FLAG . '" rel="nofollow"><img src="' . cmtx_commentics_url() . 'images/buttons/flag.png" alt="Flag" title="' . CMTX_TITLE_FLAG . '"/>' . CMTX_FLAG . '</a>';
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '</div>';
 	}
 
 	//Like/Dislike
 	if ((cmtx_setting('show_like') || cmtx_setting('show_dislike')) && !$is_preview) {
-		$cmtx_box .= "<div class='cmtx_like_block'>";
-		$cmtx_box .= "<div class='cmtx_buttons'>";
+		$cmtx_box .= '<div class="cmtx_like_block">';
+		$cmtx_box .= '<div class="cmtx_buttons">';
 		if (cmtx_setting('show_like')) {
-			$cmtx_box .= "<a class='cmtx_vote cmtx_like' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_like_" . $id . "' title='" . CMTX_TITLE_LIKE . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/>" . $likes . "</a>";
+			$cmtx_box .= '<a class="cmtx_vote cmtx_like" href="' . cmtx_url_encode(cmtx_current_page()) . '" id="cmtx_like_' . $id . '" title="' . CMTX_TITLE_LIKE . '" rel="nofollow"><img src="' . cmtx_commentics_url() . 'images/buttons/like.png" alt="Like" title="' . CMTX_TITLE_LIKE . '"/>' . $likes . '</a>';
 		}
 		if (cmtx_setting('show_dislike')) {
-			$cmtx_box .= "<a class='cmtx_vote cmtx_dislike' href='" . cmtx_url_encode(cmtx_current_page()) . "' id='cmtx_dislike_" . $id . "' title='" . CMTX_TITLE_DISLIKE . "' rel='nofollow'><img src='" . cmtx_commentics_url() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/>" . $dislikes . "</a>";
+			$cmtx_box .= '<a class="cmtx_vote cmtx_dislike" href="' . cmtx_url_encode(cmtx_current_page()) . '" id="cmtx_dislike_' . $id . '" title="' . CMTX_TITLE_DISLIKE . '" rel="nofollow"><img src="' . cmtx_commentics_url() . 'images/buttons/dislike.png" alt="Dislike" title="' . CMTX_TITLE_DISLIKE . '"/>' . $dislikes . '</a>';
 		}
-		$cmtx_box .= "</div>";
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
+		$cmtx_box .= '</div>';
 	}
 
-	$cmtx_box .= "</div>";
+	$cmtx_box .= '</div>';
 
 	//Date
 	if (cmtx_setting('show_date')) {
-		$cmtx_box .= "<div class='cmtx_date_text'>";
-		if (date("Y-m-d", strtotime($dated)) == date("Y-m-d")) { //if comment's date is today
-			$cmtx_box .= CMTX_TODAY . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
-		} else if (date("Y-m-d", strtotime($dated)) == date("Y-m-d", mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y")))) { //if comment's date is yesterday
-			$cmtx_box .= CMTX_YESTERDAY . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
+		$cmtx_box .= '<div class="cmtx_date_text">';
+		if (date('Y-m-d', strtotime($dated)) == date('Y-m-d')) { //if comment's date is today
+			$cmtx_box .= CMTX_TODAY . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
+		} else if (date('Y-m-d', strtotime($dated)) == date('Y-m-d', mktime(date('H'), date('i'), date('s'), date('m'), date('d')-1, date('Y')))) { //if comment's date is yesterday
+			$cmtx_box .= CMTX_YESTERDAY . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
 		} else {
-			$cmtx_box .= cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($dated))) . " " . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
+			$cmtx_box .= cmtx_format_date(date(CMTX_DATE_FORMAT, strtotime($dated))) . ' ' . cmtx_format_date(date(CMTX_TIME_FORMAT, strtotime($dated)));
 		}
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 
 	//Sticky (2/2)
 	if ($is_sticky) {
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 
 	//Gravatar (2/2)
 	if (cmtx_setting('show_gravatar')) {
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 
-	$cmtx_box .= "</div>"; //end div
+	$cmtx_box .= '</div>'; //end div
 
 	for ($i = 1; $i <= cmtx_get_reply_depth($id); $i++) {
 		if (cmtx_setting('reply_arrow') && $i == cmtx_get_reply_depth($id)) {
-			$cmtx_box .= "</div>";
+			$cmtx_box .= '</div>';
 		}
-		$cmtx_box .= "</div>";
+		$cmtx_box .= '</div>';
 	}
 	
 	if ($is_preview) {
-		$cmtx_box .= "<div class='cmtx_height_below_preview_box'></div>";
+		$cmtx_box .= '<div class="cmtx_height_below_preview_box"></div>';
 	}
 
 	return $cmtx_box;
@@ -439,34 +438,34 @@ function cmtx_generate_comment ($is_preview, $alternate, $id, $name, $email, $we
 } //end of generate-comment function
 
 
-function cmtx_paginate ($current_page, $range_of_pages, $total_pages) { //display pagination
+function cmtx_paginate($current_page, $range_of_pages, $total_pages) { //display pagination
 
-	if ($current_page > 1) { //if not on page 1
-		echo " <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=1" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_FIRST . "'>" . CMTX_PAGINATION_FIRST . "</a></span> "; // show link to go back to page 1
-		$previous_page = $current_page - 1; //get previous page number
-		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$previous_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_PREVIOUS . "'>" . CMTX_PAGINATION_PREVIOUS . "</a></span> "; //show link to go back 1 page
+	if ($current_page > 1) { //if not on the first page
+		echo ' <span class="cmtx_pagination_box"><a href="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_page=1' . cmtx_get_query('page') . CMTX_ANCHOR_COMMENTS) . '" class="cmtx_pagination_link" title="' . CMTX_TITLE_PAG_FIRST . '">' . CMTX_PAGINATION_FIRST . '</a></span> '; //display link to go to first page
+		$previous_page = $current_page - 1; //get the previous page number
+		echo ' <span class="cmtx_pagination_box"><a href="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_page=' . $previous_page . cmtx_get_query('page') . CMTX_ANCHOR_COMMENTS) . '" class="cmtx_pagination_link" title="' . CMTX_TITLE_PAG_PREVIOUS . '">' . CMTX_PAGINATION_PREVIOUS . '</a></span> '; //display link to go back one page
 	}
 
-	for ($x = ($current_page - $range_of_pages); $x < (($current_page + $range_of_pages) + 1); $x++) { //loop to show links to range of pages around current page
+	for ($x = ($current_page - $range_of_pages); $x < (($current_page + $range_of_pages) + 1); $x++) { //loop to display links to range of pages around current page
 		if (($x > 0) && ($x <= $total_pages)) { //if it's a valid page number
-			if ($x == $current_page) { //if we're on current page
-				echo "  <span class='cmtx_pagination_box cmtx_pagination_box_active'>$x</span> "; //show it but don't make it a link
-			} else { //if not current page
-				echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$x" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='$x'>$x</a></span> "; //make it a link
+			if ($x == $current_page) { //if it's the current page
+				echo ' <span class="cmtx_pagination_box cmtx_pagination_box_active">' . $x . '</span> '; //display it but don't make it a link
+			} else { //if it's not the current page
+				echo ' <span class="cmtx_pagination_box"><a href="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_page=' . $x . cmtx_get_query('page') . CMTX_ANCHOR_COMMENTS) . '" class="cmtx_pagination_link" title="' . $x . '">' . $x . '</a></span> '; //display it and make it a link
 			}
 		}
 	}
 
-	if ($current_page != $total_pages) { //if not on last page, show forward and last page links
-		$next_page = $current_page + 1; //get next page number
-		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$next_page" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_NEXT . "'>" . CMTX_PAGINATION_NEXT . "</a></span> "; //display forward link for next page 
-		echo "  <span class='cmtx_pagination_box'><a href='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_page=$total_pages" . cmtx_get_query("page") . CMTX_ANCHOR_COMMENTS) . "' class='cmtx_pagination_link' title='" . CMTX_TITLE_PAG_LAST . "'>" . CMTX_PAGINATION_LAST . "</a></span> "; //display forward link for last page
+	if ($current_page != $total_pages) { //if not on the last page
+		$next_page = $current_page + 1; //get the next page number
+		echo ' <span class="cmtx_pagination_box"><a href="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_page=' . $next_page . cmtx_get_query('page') . CMTX_ANCHOR_COMMENTS) . '" class="cmtx_pagination_link" title="' . CMTX_TITLE_PAG_NEXT . '">' . CMTX_PAGINATION_NEXT . '</a></span> '; //display link for next page 
+		echo ' <span class="cmtx_pagination_box"><a href="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_page=' . $total_pages . cmtx_get_query('page') . CMTX_ANCHOR_COMMENTS) . '" class="cmtx_pagination_link" title="' . CMTX_TITLE_PAG_LAST . '">' . CMTX_PAGINATION_LAST . '</a></span> '; //display link for last page
 	}
 
 } //end of paginate function
 
 
-function cmtx_star_full ($amount, $title) { //star full
+function cmtx_star_full($amount, $title) { //star full
 
 	$star_full = '';
 
@@ -479,7 +478,7 @@ function cmtx_star_full ($amount, $title) { //star full
 } //end of star-full function
 
 
-function cmtx_star_empty ($amount, $title) { //star empty
+function cmtx_star_empty($amount, $title) { //star empty
 
 	$star_empty = '';
 
@@ -590,7 +589,7 @@ function cmtx_calc_permalink($id) { //calculate the page of the permalink
 
 		while ($replies = cmtx_db_fetch_assoc($reply_q)) { //while there are replies
 
-			cmtx_calc_permalink($replies["id"]); //re-call this function to calculate the reply AND any replies it may have
+			cmtx_calc_permalink($replies['id']); //re-call this function to calculate the reply AND any replies it may have
 
 		}
 
@@ -603,26 +602,26 @@ function cmtx_get_sort_by() { //get Sort By or set default
 
 	if (isset($_GET['cmtx_sort'])) {
 		switch ($_GET['cmtx_sort']) {
-			case "1":
+			case '1':
 			$cmtx_sort = "`is_sticky` DESC, `dated` DESC"; //newest
 			break;
-			case "2":
+			case '2':
 			$cmtx_sort = "`is_sticky` DESC, `dated` ASC"; //oldest
 			break;
-			case "3":
+			case '3':
 			$cmtx_sort = "`is_sticky` DESC, `likes` DESC"; //likes
 			break;
-			case "4":
+			case '4':
 			$cmtx_sort = "`is_sticky` DESC, `dislikes` DESC"; //dislikes
 			break;
-			case "5":
+			case '5':
 			$cmtx_sort = "`is_sticky` DESC, `rating` DESC"; //positive
 			break;
-			case "6":
+			case '6':
 			$cmtx_sort = "`is_sticky` DESC, `rating` = 0, `rating` ASC"; //critical
 			break;
 			default:
-			if (cmtx_setting('comments_order') == "1") {
+			if (cmtx_setting('comments_order') == '1') {
 				$cmtx_sort = "`is_sticky` DESC, `dated` DESC"; //newest
 			} else if (cmtx_setting('comments_order') == "2") {
 				$cmtx_sort = "`is_sticky` DESC, `dated` ASC"; //oldest
@@ -637,7 +636,7 @@ function cmtx_get_sort_by() { //get Sort By or set default
 			}
 		}
 	} else {
-			if (cmtx_setting('comments_order') == "1") {
+			if (cmtx_setting('comments_order') == '1') {
 				$cmtx_sort = "`is_sticky` DESC, `dated` DESC"; //newest
 			} else if (cmtx_setting('comments_order') == "2") {
 				$cmtx_sort = "`is_sticky` DESC, `dated` ASC"; //oldest

@@ -24,8 +24,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
-function cmtx_sanitize ($value, $stage_one, $stage_two) { //sanitizes data
+function cmtx_sanitize($value, $stage_one, $stage_two) { //sanitizes data
 
 	$value = trim($value); //strip any space from beginning and end of string
 	
@@ -44,7 +43,7 @@ function cmtx_sanitize ($value, $stage_one, $stage_two) { //sanitizes data
 } //end of sanitize function
 
 
-function cmtx_encode ($value) { //encode text
+function cmtx_encode($value) { //encode text
 
 	$value = htmlspecialchars($value, ENT_QUOTES);
 
@@ -53,7 +52,7 @@ function cmtx_encode ($value) { //encode text
 } //end of encode function
 
 
-function cmtx_decode ($value) { //decode text
+function cmtx_decode($value) { //decode text
 
 	$value = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
 
@@ -62,7 +61,7 @@ function cmtx_decode ($value) { //decode text
 } //end of decode function
 
 
-function cmtx_url_encode ($value) { //encode URL
+function cmtx_url_encode($value) { //encode URL
 
 	$value = cmtx_url_encode_spaces($value);
 	$value = cmtx_encode($value);
@@ -72,7 +71,7 @@ function cmtx_url_encode ($value) { //encode URL
 } //end of url-encode function
 
 
-function cmtx_url_decode ($value) { //decode URL
+function cmtx_url_decode($value) { //decode URL
 
 	$value = cmtx_url_decode_spaces($value);
 	$value = cmtx_decode($value);
@@ -82,18 +81,18 @@ function cmtx_url_decode ($value) { //decode URL
 } //end of url-decode function
 
 
-function cmtx_url_encode_spaces ($value) { //encode URL spaces
+function cmtx_url_encode_spaces($value) { //encode URL spaces
 
-	$value = str_ireplace(" ", "%20", $value);
+	$value = str_ireplace(' ', '%20', $value);
 
 	return $value;
 
 } //end of url-encode-spaces function
 
 
-function cmtx_url_decode_spaces ($value) { //decode URL spaces
+function cmtx_url_decode_spaces($value) { //decode URL spaces
 
-	$value = str_ireplace("%20", " ", $value);
+	$value = str_ireplace('%20', ' ', $value);
 
 	return $value;
 
@@ -113,7 +112,7 @@ function cmtx_define($name, $value) { //defines a constant
 } //end of define function
 
 
-function cmtx_strip_slashes ($value) { //strip slashes
+function cmtx_strip_slashes($value) { //strip slashes
 
 	if (is_array($value)) {
 		$value = array_map('cmtx_strip_slashes', $value);
@@ -164,8 +163,8 @@ function cmtx_identifier_exists() { //check identifier exists
 	
 	if (empty($cmtx_identifier)) { //if no identifier
 
-		echo "<h3>Commentics</h3>";
-		echo "<div style='margin-bottom: 10px;'></div>";
+		echo '<h3>Commentics</h3>';
+		echo '<div style="margin-bottom: 10px;"></div>';
 		?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_NO_IDENTIFIER; ?></span><?php
 		die();
 
@@ -183,29 +182,29 @@ function cmtx_get_page_details() { //get page details
 
 	//remove URL parameters if configured
 	if (isset($cmtx_parameters)) {
-		if (empty($cmtx_parameters) || $cmtx_parameters == "none") {
-			$url = strtok($url, "?");
+		if (empty($cmtx_parameters) || $cmtx_parameters == 'none') {
+			$url = strtok($url, '?');
 		} else {
-			$queries = explode(",", $cmtx_parameters);
-			$query_string = "";
+			$queries = explode(',', $cmtx_parameters);
+			$query_string = '';
 			foreach ($queries as $query) {
-				if (isset($_GET[$query])) { $query_string .= $query . "=" . $_GET[$query] . "&"; } else { die(); }
+				if (isset($_GET[$query])) { $query_string .= $query . '=' . $_GET[$query] . '&'; } else { die(); }
 			}
 			if (preg_match('/[&$]/i', $query_string)) { //if query ends in &
 				$query_string = substr($query_string, 0, -1); //remove &
 			}
-			$url = strtok($url, "?");
-			$url .= "?" . $query_string;
+			$url = strtok($url, '?');
+			$url .= '?' . $query_string;
 		}
 	}
 
 	//ensure reference is set
 	if (!isset($cmtx_reference)) {
-		$cmtx_reference = "";
+		$cmtx_reference = '';
 	}
 
 	//get title/heading
-	if (stristr($cmtx_identifier, "cmtx_title") || stristr($cmtx_reference, "cmtx_title") || stristr($cmtx_identifier, "cmtx_h1") || stristr($cmtx_reference, "cmtx_h1")) {
+	if (stristr($cmtx_identifier, 'cmtx_title') || stristr($cmtx_reference, 'cmtx_title') || stristr($cmtx_identifier, 'cmtx_h1') || stristr($cmtx_reference, 'cmtx_h1')) {
 
 		@ini_set('user_agent', 'Commentics'); //set user-agent
 		
@@ -221,7 +220,7 @@ function cmtx_get_page_details() { //get page details
 			curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-			curl_setopt($ch, CURLOPT_USERAGENT, "Commentics");
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Commentics');
 			curl_setopt($ch, CURLOPT_URL, $path);
 			$file = curl_exec($ch);
 			curl_close($ch);
@@ -229,78 +228,78 @@ function cmtx_get_page_details() { //get page details
 			$file = file_get_contents($path);
 		}
 		if (isset($file) && !empty($file)) {
-			if (stristr($cmtx_identifier, "cmtx_title") || stristr($cmtx_reference, "cmtx_title")) {
-				if (preg_match("/<title>(.+?)<\/title>/i", $file, $match)) {
-					$cmtx_identifier = str_ireplace("cmtx_title", $match[1], $cmtx_identifier);
-					$cmtx_reference = str_ireplace("cmtx_title", $match[1], $cmtx_reference);
+			if (stristr($cmtx_identifier, 'cmtx_title') || stristr($cmtx_reference, 'cmtx_title')) {
+				if (preg_match('/<title>(.+?)<\/title>/i', $file, $match)) {
+					$cmtx_identifier = str_ireplace('cmtx_title', $match[1], $cmtx_identifier);
+					$cmtx_reference = str_ireplace('cmtx_title', $match[1], $cmtx_reference);
 				} else {
-					$cmtx_identifier = str_ireplace("cmtx_title", "Title tag not found", $cmtx_identifier);
-					$cmtx_reference = str_ireplace("cmtx_title", "Title tag not found", $cmtx_reference);
+					$cmtx_identifier = str_ireplace('cmtx_title', 'Title tag not found', $cmtx_identifier);
+					$cmtx_reference = str_ireplace('cmtx_title', 'Title tag not found', $cmtx_reference);
 				}
 			}
-			if (stristr($cmtx_identifier, "cmtx_h1") || stristr($cmtx_reference, "cmtx_h1")) {
-				if (preg_match("/<h1>(.+?)<\/h1>/i", $file, $match)) {
-					$cmtx_identifier = str_ireplace("cmtx_h1", $match[1], $cmtx_identifier);
-					$cmtx_reference = str_ireplace("cmtx_h1", $match[1], $cmtx_reference);
+			if (stristr($cmtx_identifier, 'cmtx_h1') || stristr($cmtx_reference, 'cmtx_h1')) {
+				if (preg_match('/<h1>(.+?)<\/h1>/i', $file, $match)) {
+					$cmtx_identifier = str_ireplace('cmtx_h1', $match[1], $cmtx_identifier);
+					$cmtx_reference = str_ireplace('cmtx_h1', $match[1], $cmtx_reference);
 				} else {
 					$cmtx_identifier = str_ireplace('cmtx_h1', 'H1 tag not found', $cmtx_identifier);
 					$cmtx_reference = str_ireplace('cmtx_h1', 'H1 tag not found', $cmtx_reference);
 				}
 			}
 		} else {
-			$cmtx_identifier = str_ireplace("cmtx_title", "Server incapable", $cmtx_identifier);
-			$cmtx_reference = str_ireplace("cmtx_title", "Server incapable", $cmtx_reference);
-			$cmtx_identifier = str_ireplace("cmtx_h1", "Server incapable", $cmtx_identifier);
-			$cmtx_reference = str_ireplace("cmtx_h1", "Server incapable", $cmtx_reference);
+			$cmtx_identifier = str_ireplace('cmtx_title', 'Server incapable', $cmtx_identifier);
+			$cmtx_reference = str_ireplace('cmtx_title', 'Server incapable', $cmtx_reference);
+			$cmtx_identifier = str_ireplace('cmtx_h1', 'Server incapable', $cmtx_identifier);
+			$cmtx_reference = str_ireplace('cmtx_h1', 'Server incapable', $cmtx_reference);
 		}
 	}
 
 	//get page filename
-	if (stristr($cmtx_identifier, "cmtx_filename") || stristr($cmtx_reference, "cmtx_filename")) {
+	if (stristr($cmtx_identifier, 'cmtx_filename') || stristr($cmtx_reference, 'cmtx_filename')) {
 		if (isset($_SERVER['SCRIPT_NAME'])) {
-			$cmtx_identifier = str_ireplace("cmtx_filename", $_SERVER['SCRIPT_NAME'], $cmtx_identifier);
-			$cmtx_reference = str_ireplace("cmtx_filename", basename($_SERVER['SCRIPT_NAME']), $cmtx_reference);
+			$cmtx_identifier = str_ireplace('cmtx_filename', $_SERVER['SCRIPT_NAME'], $cmtx_identifier);
+			$cmtx_reference = str_ireplace('cmtx_filename', basename($_SERVER['SCRIPT_NAME']), $cmtx_reference);
 		} else {
-			$cmtx_identifier = str_ireplace("cmtx_filename", "Server incapable", $cmtx_identifier);
-			$cmtx_reference = str_ireplace("cmtx_filename", "Server incapable", $cmtx_reference);
+			$cmtx_identifier = str_ireplace('cmtx_filename', 'Server incapable', $cmtx_identifier);
+			$cmtx_reference = str_ireplace('cmtx_filename', 'Server incapable', $cmtx_reference);
 		}
 	}
 
 	//set identifier as reference
-	if (stristr($cmtx_identifier, "cmtx_reference")) {
-		$cmtx_identifier = str_ireplace("cmtx_reference", $cmtx_reference, $cmtx_identifier);
+	if (stristr($cmtx_identifier, 'cmtx_reference')) {
+		$cmtx_identifier = str_ireplace('cmtx_reference', $cmtx_reference, $cmtx_identifier);
 	}
 
 	//set reference as identifier
-	if (stristr($cmtx_reference, "cmtx_identifier")) {
-		$cmtx_reference = str_ireplace("cmtx_identifier", $cmtx_identifier, $cmtx_reference);
+	if (stristr($cmtx_reference, 'cmtx_identifier')) {
+		$cmtx_reference = str_ireplace('cmtx_identifier', $cmtx_identifier, $cmtx_reference);
 	}
 
 	//set reference as URL
-	if (stristr($cmtx_reference, "cmtx_url")) {
-		$cmtx_reference = str_ireplace("cmtx_url", $cmtx_url, $cmtx_reference);
+	if (stristr($cmtx_reference, 'cmtx_url')) {
+		$cmtx_reference = str_ireplace('cmtx_url', $cmtx_url, $cmtx_reference);
 	}
 
 	//set identifier as URL
-	if (stristr($cmtx_identifier, "cmtx_url")) {
+	if (stristr($cmtx_identifier, 'cmtx_url')) {
 		$cmtx_temp = $url;
-		$cmtx_temp = str_ireplace("www.", "", $cmtx_temp); //remove 'www.' if there
-		$cmtx_temp = str_ireplace("index.php", "", $cmtx_temp); //remove 'index.php' if there
-		$cmtx_temp = str_ireplace("index.htm", "", $cmtx_temp); //remove 'index.htm' if there
-		$cmtx_temp = str_ireplace("index.html", "", $cmtx_temp); //remove 'index.html' if there
-		$cmtx_temp = str_ireplace("index.shtml", "", $cmtx_temp); //remove 'index.shtml' if there
-		$cmtx_temp = str_ireplace("https://", "http://", $cmtx_temp); //remove SSL if there
-		$cmtx_temp = preg_replace("/&cmtx_page=[0-9]*/", "", $cmtx_temp); //remove cmtx_page=x if there (1)
-		$cmtx_temp = preg_replace("/cmtx_page=[0-9]*&/", "", $cmtx_temp); //remove cmtx_page=x if there (2)
-		$cmtx_temp = preg_replace("/cmtx_page=[0-9]*/", "", $cmtx_temp); //remove cmtx_page=x if there (3)
-		$cmtx_temp = preg_replace("/&cmtx_sort=[0-9]*/", "", $cmtx_temp); //remove cmtx_sort=x if there (1)
-		$cmtx_temp = preg_replace("/cmtx_sort=[0-9]*&/", "", $cmtx_temp); //remove cmtx_sort=x if there (2)
-		$cmtx_temp = preg_replace("/cmtx_sort=[0-9]*/", "", $cmtx_temp); //remove cmtx_sort=x if there (3)
-		$cmtx_temp = preg_replace("/&cmtx_perm=[0-9]*/", "", $cmtx_temp); //remove cmtx_perm=x if there (1)
-		$cmtx_temp = preg_replace("/cmtx_perm=[0-9]*&/", "", $cmtx_temp); //remove cmtx_perm=x if there (2)
-		$cmtx_temp = preg_replace("/cmtx_perm=[0-9]*/", "", $cmtx_temp); //remove cmtx_perm=x if there (3)
+		$cmtx_temp = str_ireplace('www.', '', $cmtx_temp); //remove 'www.' if there
+		$cmtx_temp = str_ireplace('index.php', '', $cmtx_temp); //remove 'index.php' if there
+		$cmtx_temp = str_ireplace('index.htm', '', $cmtx_temp); //remove 'index.htm' if there
+		$cmtx_temp = str_ireplace('index.html', '', $cmtx_temp); //remove 'index.html' if there
+		$cmtx_temp = str_ireplace('index.shtml', '', $cmtx_temp); //remove 'index.shtml' if there
+		$cmtx_temp = str_ireplace('https://', 'http://', $cmtx_temp); //remove SSL if there
+		$cmtx_temp = preg_replace('/&cmtx_page=[0-9]*/', '', $cmtx_temp); //remove cmtx_page=x if there (1)
+		$cmtx_temp = preg_replace('/cmtx_page=[0-9]*&/', '', $cmtx_temp); //remove cmtx_page=x if there (2)
+		$cmtx_temp = preg_replace('/cmtx_page=[0-9]*/', '', $cmtx_temp); //remove cmtx_page=x if there (3)
+		$cmtx_temp = preg_replace('/&cmtx_sort=[0-9]*/', '', $cmtx_temp); //remove cmtx_sort=x if there (1)
+		$cmtx_temp = preg_replace('/cmtx_sort=[0-9]*&/', '', $cmtx_temp); //remove cmtx_sort=x if there (2)
+		$cmtx_temp = preg_replace('/cmtx_sort=[0-9]*/', '', $cmtx_temp); //remove cmtx_sort=x if there (3)
+		$cmtx_temp = preg_replace('/&cmtx_perm=[0-9]*/', '', $cmtx_temp); //remove cmtx_perm=x if there (1)
+		$cmtx_temp = preg_replace('/cmtx_perm=[0-9]*&/', '', $cmtx_temp); //remove cmtx_perm=x if there (2)
+		$cmtx_temp = preg_replace('/cmtx_perm=[0-9]*/', '', $cmtx_temp); //remove cmtx_perm=x if there (3)
 		$cmtx_temp = strtolower($cmtx_temp); //convert to lowercase
-		$cmtx_identifier = str_ireplace("cmtx_url", $cmtx_temp, $cmtx_identifier);
+		$cmtx_identifier = str_ireplace('cmtx_url', $cmtx_temp, $cmtx_identifier);
 	}
 	
 	//get URL
@@ -321,12 +320,12 @@ function cmtx_validate_page_details() { //validate page details
 
 	if (cmtx_strlen($cmtx_identifier) > 250 || cmtx_strlen($cmtx_reference) > 250 || cmtx_strlen($cmtx_url) > 250) { //if invalid details
 
-		echo "<h3>Commentics</h3>";
-		echo "<div style='margin-bottom: 10px;'></div>";
+		echo '<h3>Commentics</h3>';
+		echo '<div style="margin-bottom: 10px;"></div>';
 	
-		if (cmtx_strlen($cmtx_identifier) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER; ?></span><div style='margin-bottom:5px;'></div><?php }
-		if (cmtx_strlen($cmtx_reference) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_REFERENCE; ?></span><div style='margin-bottom:5px;'></div><?php }
-		if (cmtx_strlen($cmtx_url) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_URL; ?></span><div style='margin-bottom:5px;'></div><?php }
+		if (cmtx_strlen($cmtx_identifier) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_IDENTIFIER; ?></span><div style="margin-bottom:5px;"></div><?php }
+		if (cmtx_strlen($cmtx_reference) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_REFERENCE; ?></span><div style="margin-bottom:5px;"></div><?php }
+		if (cmtx_strlen($cmtx_url) > 250) { ?><span class="cmtx_page_alert"><?php echo CMTX_ALERT_MESSAGE_INVALID_URL; ?></span><div style="margin-bottom:5px;"></div><?php }
 		
 		die();
 		
@@ -360,7 +359,7 @@ function cmtx_get_page_id() { //get the page ID
 
 	$query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `identifier` = '$cmtx_identifier'"); //get page ID
 	$result = cmtx_db_fetch_assoc($query);
-	$cmtx_page_id = $result["id"];
+	$cmtx_page_id = $result['id'];
 	
 	return $cmtx_page_id;
 
@@ -389,7 +388,7 @@ function cmtx_get_page_reference() { //get page reference
 
 	$query = cmtx_db_query("SELECT `reference` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
 	$result = cmtx_db_fetch_assoc($query);
-	$page_reference = $result["reference"];
+	$page_reference = $result['reference'];
 
 	return $page_reference;
 
@@ -402,7 +401,7 @@ function cmtx_get_page_url() { //get page URL
 
 	$query = cmtx_db_query("SELECT `url` FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$cmtx_page_id'");
 	$result = cmtx_db_fetch_assoc($query);
-	$page_url = $result["url"];
+	$page_url = $result['url'];
 
 	return $page_url;
 
@@ -442,7 +441,7 @@ function cmtx_get_user_agent() { //get user agent
 		$user_agent = $_SERVER['HTTP_USER_AGENT'];
 		$user_agent = cmtx_sanitize($user_agent, true, true);
 	} else {
-		$user_agent = "";
+		$user_agent = '';
 	}
 
 	return $user_agent; //return user agent
@@ -477,7 +476,7 @@ function cmtx_is_administrator() { //is the user the administrator
 	$admin_ip_address_found = false;
 	$admin_cookie_found = false;
 	$detect_admin = false;
-	$detect_method = "both";
+	$detect_method = 'both';
 
 	//check IP address
 	$ip_address = cmtx_get_ip_address();
@@ -500,15 +499,15 @@ function cmtx_is_administrator() { //is the user the administrator
 
 			$detection_settings = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `ip_address` = '$ip_address' AND `is_enabled` = '1' LIMIT 1");
 			$detection_settings = cmtx_db_fetch_assoc($detection_settings);
-			$detect_admin = $detection_settings["detect_admin"];
-			$detect_method = $detection_settings["detect_method"];
+			$detect_admin = $detection_settings['detect_admin'];
+			$detect_method = $detection_settings['detect_method'];
 
 		} else {
 
 			$detection_settings = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1");
 			$detection_settings = cmtx_db_fetch_assoc($detection_settings);
-			$detect_admin = $detection_settings["detect_admin"];
-			$detect_method = $detection_settings["detect_method"];		
+			$detect_admin = $detection_settings['detect_admin'];
+			$detect_method = $detection_settings['detect_method'];		
 
 		}
 
@@ -516,19 +515,19 @@ function cmtx_is_administrator() { //is the user the administrator
 
 	if ($detect_admin) { //if administrator should be detected
 
-		if ($detect_method == "ip_address") {
+		if ($detect_method == 'ip_address') {
 			if ($admin_ip_address_found) {
 				$administrator_found = true;
 			}
-		} else if ($detect_method == "cookie") {
+		} else if ($detect_method == 'cookie') {
 			if ($admin_cookie_found) {
 				$administrator_found = true;
 			}
-		} else if ($detect_method == "either") {
+		} else if ($detect_method == 'either') {
 			if ($admin_ip_address_found || $admin_cookie_found) {
 				$administrator_found = true;
 			}
-		} else if ($detect_method == "both") {
+		} else if ($detect_method == 'both') {
 			if ($admin_ip_address_found && $admin_cookie_found) {
 				$administrator_found = true;
 			}
@@ -541,7 +540,7 @@ function cmtx_is_administrator() { //is the user the administrator
 } //end of is-administrator function
 
 
-function cmtx_prepare_name_for_email ($name) { //prepares name for email
+function cmtx_prepare_name_for_email($name) { //prepares name for email
 
 	$name = cmtx_strip_slashes($name);
 
@@ -552,7 +551,7 @@ function cmtx_prepare_name_for_email ($name) { //prepares name for email
 } //end of prepare-name-for-email function
 
 
-function cmtx_prepare_email_for_email ($email) { //prepares email address for email
+function cmtx_prepare_email_for_email($email) { //prepares email address for email
 
 	$email = cmtx_strip_slashes($email);
 
@@ -563,7 +562,7 @@ function cmtx_prepare_email_for_email ($email) { //prepares email address for em
 } //end of prepare-email-for-email function
 
 
-function cmtx_prepare_comment_for_email ($comment, $slashes = true) { //prepares comment for email
+function cmtx_prepare_comment_for_email($comment, $slashes = true) { //prepares comment for email
 
 	if ($slashes) {
 		$comment = cmtx_strip_slashes($comment);
@@ -583,10 +582,10 @@ function cmtx_prepare_comment_for_email ($comment, $slashes = true) { //prepares
 	$comment = str_ireplace("\r\n</ol>", "", $comment);
 
 	$comment = strip_tags($comment);
-
+	
 	$comment = cmtx_decode($comment);
 
-	$comment = preg_replace('/(\r\n){3,}/', "\r\n\r\n", $comment);
+	$comment = preg_replace("/(\r\n){3,}/", "\r\n\r\n", $comment);
 
 	$comment = trim($comment);
 
@@ -595,10 +594,10 @@ function cmtx_prepare_comment_for_email ($comment, $slashes = true) { //prepares
 } //end of prepare-comment-for-email function
 
 
-function cmtx_get_random_key ($length) { //generates a random key
+function cmtx_get_random_key($length) { //generates a random key
 
-	$characters = "0123456789abcdefghijklmnopqrstuvwxyz"; //allowed characters
-	$key = "";
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyz'; //allowed characters
+	$key = '';
 	for ($i = 0; $i < $length; $i++) {
 		$key .= $characters[mt_rand(0, cmtx_strlen($characters)-1)];
 	}
@@ -633,35 +632,35 @@ function cmtx_add_viewer() { //add viewer to database
 } //end of add-viewer function
 
 
-function cmtx_get_query ($type) { //gets query string from URL
+function cmtx_get_query($type) { //gets query string from URL
 
 	$query = parse_url(cmtx_current_page(), PHP_URL_QUERY);
 
-	if ($type == "form" && !empty($query)) {
-		$query = "?" . $query;
-	} else if ($type == "page" && !empty($query)) {
-		$query = "&" . $query;
-	} else if ($type == "sort" && !empty($query)) {
-		$query = "&" . $query;
+	if ($type == 'form' && !empty($query)) {
+		$query = '?' . $query;
+	} else if ($type == 'page' && !empty($query)) {
+		$query = '&' . $query;
+	} else if ($type == 'sort' && !empty($query)) {
+		$query = '&' . $query;
 	} else {
-		$query = "";
+		$query = '';
 	}
 
-	$query = preg_replace("/&cmtx_page=[0-9]*/", "", $query);
-	$query = preg_replace("/cmtx_page=[0-9]*&/", "", $query);
-	$query = preg_replace("/cmtx_page=[0-9]*/", "", $query);
+	$query = preg_replace('/&cmtx_page=[0-9]*/', '', $query);
+	$query = preg_replace('/cmtx_page=[0-9]*&/', '', $query);
+	$query = preg_replace('/cmtx_page=[0-9]*/', '', $query);
 
-	$query = preg_replace("/&cmtx_perm=[0-9]*/", "", $query);
-	$query = preg_replace("/cmtx_perm=[0-9]*&/", "", $query);
-	$query = preg_replace("/cmtx_perm=[0-9]*/", "", $query);
+	$query = preg_replace('/&cmtx_perm=[0-9]*/', '', $query);
+	$query = preg_replace('/cmtx_perm=[0-9]*&/', '', $query);
+	$query = preg_replace('/cmtx_perm=[0-9]*/', '', $query);
 
-	if ($type != "page") {
-		$query = preg_replace("/&cmtx_sort=[0-9]*/", "", $query);
-		$query = preg_replace("/cmtx_sort=[0-9]*&/", "", $query);
-		$query = preg_replace("/cmtx_sort=[0-9]*/", "", $query);
+	if ($type != 'page') {
+		$query = preg_replace('/&cmtx_sort=[0-9]*/', '', $query);
+		$query = preg_replace('/cmtx_sort=[0-9]*&/', '', $query);
+		$query = preg_replace('/cmtx_sort=[0-9]*/', '', $query);
 	}
 
-	$query = rtrim($query, "?");
+	$query = rtrim($query, '?');
 
 	return $query;
 
@@ -713,7 +712,7 @@ function cmtx_unapprove_replies($id) { //unapprove replies of given comment
 
 	while ($comments = cmtx_db_fetch_assoc($query)) {
 
-		$id = $comments["id"];
+		$id = $comments['id'];
 
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
 
@@ -728,7 +727,7 @@ function cmtx_error_reporting($path) { //error reporting
 
 	if (cmtx_setting('error_reporting_frontend')) { //if error reporting is turned on for frontend
 		@error_reporting(-1); //show every possible error
-		if (cmtx_setting('error_reporting_method') == "log") { //if errors should be logged to file
+		if (cmtx_setting('error_reporting_method') == 'log') { //if errors should be logged to file
 			@ini_set('display_errors', 0); //don't display errors
 			@ini_set('log_errors', 1); //log errors
 			@ini_set('error_log', $path); //set log path
@@ -769,7 +768,7 @@ function cmtx_set_time_zone($time_zone) { //set the time zone
 
 	@date_default_timezone_set($time_zone); //set time zone PHP
 
-	@cmtx_db_query("SET time_zone = '" . date("P") . "'"); //set time zone DB
+	@cmtx_db_query("SET time_zone = '" . date('P') . "'"); //set time zone DB
 
 } //end of set-time-zone function
 
@@ -791,7 +790,7 @@ function cmtx_commentics_url() { //gets the URL to Commentics
 
 function cmtx_current_page() { //gets the URL of the current page
 
-	$url = cmtx_url_decode("http" . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "s" : "") . "://" . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
+	$url = cmtx_url_decode('http' . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 's' : '') . '://' . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
 
 	return $url;
 
@@ -802,7 +801,7 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 
 	global $cmtx_path; //globalise variables
 	
-	if (cmtx_setting('transport_method') == "php-basic") {
+	if (cmtx_setting('transport_method') == 'php-basic') {
 	
 		//set email headers
 		$headers = 'From: ' . $from_name . ' <' . $from_email . '>' . "\r\n";
@@ -822,22 +821,22 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 		}
 
 		//set the transport method
-		if (cmtx_setting('transport_method') == "php") {
+		if (cmtx_setting('transport_method') == 'php') {
 			$transport = Swift_MailTransport::newInstance();
-		} else if (cmtx_setting('transport_method') == "smtp") {
+		} else if (cmtx_setting('transport_method') == 'smtp') {
 			$transport = Swift_SmtpTransport::newInstance();
 			$transport->setHost(cmtx_setting('smtp_host'));
 			$transport->setPort(cmtx_setting('smtp_port'));
-			if (cmtx_setting('smtp_encrypt') == "ssl") {
+			if (cmtx_setting('smtp_encrypt') == 'ssl') {
 				$transport->setEncryption('ssl');
-			} else if (cmtx_setting('smtp_encrypt') == "tls") {
+			} else if (cmtx_setting('smtp_encrypt') == 'tls') {
 				$transport->setEncryption('tls');
 			}
 			if (cmtx_setting('smtp_username') && cmtx_setting('smtp_password')) {
 				$transport->setUsername(cmtx_setting('smtp_username'));
 				$transport->setPassword(cmtx_setting('smtp_password'));
 			}
-		} else if (cmtx_setting('transport_method') == "sendmail") {
+		} else if (cmtx_setting('transport_method') == 'sendmail') {
 			$transport = Swift_SendmailTransport::newInstance(cmtx_setting('sendmail_path') . ' -bs');
 		}
 
@@ -863,10 +862,10 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 		$message->setBody($body);
 
 		//set the format of message
-		$message->setContentType("text/plain");
+		$message->setContentType('text/plain');
 
 		//set the charset as UTF-8
-		$message->setCharset("UTF-8");
+		$message->setCharset('UTF-8');
 
 		//set the content-transfer-encoding to 8bit
 		$message->setEncoder(Swift_Encoding::get8BitEncoding());

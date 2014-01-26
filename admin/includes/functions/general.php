@@ -24,8 +24,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
-function cmtx_sanitize ($value, $stage_one = true, $stage_two = true) { //sanitizes data
+function cmtx_sanitize($value, $stage_one = true, $stage_two = true) { //sanitizes data
     
 	$value = trim($value); //strip any space from beginning and end of string
 	
@@ -44,7 +43,7 @@ function cmtx_sanitize ($value, $stage_one = true, $stage_two = true) { //saniti
 } //end of sanitize function
 
 
-function cmtx_encode ($value) { //encode text
+function cmtx_encode($value) { //encode text
 
 	$value = htmlspecialchars($value, ENT_QUOTES);
 	
@@ -53,7 +52,7 @@ function cmtx_encode ($value) { //encode text
 } //end of encode function
 
 
-function cmtx_decode ($value) { //decode text
+function cmtx_decode($value) { //decode text
 
 	$value = html_entity_decode($value, ENT_QUOTES, 'UTF-8');
 	
@@ -62,7 +61,7 @@ function cmtx_decode ($value) { //decode text
 } //end of decode function
 
 
-function cmtx_url_encode ($value) { //encode URL
+function cmtx_url_encode($value) { //encode URL
 
 	$value = cmtx_url_encode_spaces($value);
 	$value = cmtx_encode($value);
@@ -72,7 +71,7 @@ function cmtx_url_encode ($value) { //encode URL
 } //end of url-encode function
 
 
-function cmtx_url_decode ($value) { //decode URL
+function cmtx_url_decode($value) { //decode URL
 
 	$value = cmtx_url_decode_spaces($value);
 	$value = cmtx_decode($value);
@@ -82,18 +81,18 @@ function cmtx_url_decode ($value) { //decode URL
 } //end of url-decode function
 
 
-function cmtx_url_encode_spaces ($value) { //encode URL spaces
+function cmtx_url_encode_spaces($value) { //encode URL spaces
 
-	$value = str_ireplace(" ", "%20", $value);
+	$value = str_ireplace(' ', '%20', $value);
 	
 	return $value;
 	
 } //end of url-encode-spaces function
 
 
-function cmtx_url_decode_spaces ($value) { //decode URL spaces
+function cmtx_url_decode_spaces($value) { //decode URL spaces
 
-	$value = str_ireplace("%20", " ", $value);
+	$value = str_ireplace('%20', ' ', $value);
 	
 	return $value;
 	
@@ -115,53 +114,53 @@ function cmtx_define($name, $value) { //defines a constant
 
 function cmtx_current_page() { //gets the URL of the current page
 
-	$url = cmtx_url_decode("http" . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "s" : "") . "://" . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
+	$url = cmtx_url_decode('http' . ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 's' : '') . '://' . strtolower($_SERVER['HTTP_HOST']) . $_SERVER['REQUEST_URI']);
 
 	return $url;
 
 } //end of current-page function
 
 
-function cmtx_get_viewer ($user_agent) { //get the viewer
+function cmtx_get_viewer($user_agent) { //get the viewer
 
-	if (stristr($user_agent, "AOL")) {
-		$title = "AOL";
-		$image = "aol.png";
-	} else if (stristr($user_agent, "Ask Jeeves")) {
-		$title = "Ask Jeeves";
-		$image = "ask.png";
-	} else if (stristr($user_agent, "Baidu")) {
-		$title = "Baidu";
-		$image = "baidu.png";
-	} else if (stristr($user_agent, "Bingbot")) {
-		$title = "Bing";
-		$image = "bing.png";
-	} else if (stristr($user_agent, "Googlebot")) {
-		$title = "Google";
-		$image = "google.png";
-	} else if (stristr($user_agent, "Yahoo")) {
-		$title = "Yahoo";
-		$image = "yahoo.png";
-	} else if (stristr($user_agent, "Yandex")) {
-		$title = "Yandex";
-		$image = "yandex.png";
+	if (stristr($user_agent, 'AOL')) {
+		$title = 'AOL';
+		$image = 'aol.png';
+	} else if (stristr($user_agent, 'Ask Jeeves')) {
+		$title = 'Ask Jeeves';
+		$image = 'ask.png';
+	} else if (stristr($user_agent, 'Baidu')) {
+		$title = 'Baidu';
+		$image = 'baidu.png';
+	} else if (stristr($user_agent, 'Bingbot')) {
+		$title = 'Bing';
+		$image = 'bing.png';
+	} else if (stristr($user_agent, 'Googlebot')) {
+		$title = 'Google';
+		$image = 'google.png';
+	} else if (stristr($user_agent, 'Yahoo')) {
+		$title = 'Yahoo';
+		$image = 'yahoo.png';
+	} else if (stristr($user_agent, 'Yandex')) {
+		$title = 'Yandex';
+		$image = 'yandex.png';
 	} else {
 		$title = CMTX_TABLE_PERSON;
-		$image = "person.png";
+		$image = 'person.png';
 	}
 	
-	$viewer = "<td><img src='images/viewers/$image' class='viewer' title='$title' alt='$title'></td>";
-	$viewer .= "<td>$title</td>";
+	$viewer = '<td><img src="images/viewers/' . $image . '" class="viewer" title="' . $title . '" alt="' . $title . '"></td>';
+	$viewer .= '<td>' . $title . '</td>';
 
     return $viewer;
 	
 } //end of get-viewer function
 
 
-function cmtx_get_random_key ($length) { //generates a random key
+function cmtx_get_random_key($length) { //generates a random key
 
-    $characters = "0123456789abcdefghijklmnopqrstuvwxyz";
-    $key = "";
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $key = '';
     for ($i = 0; $i < $length; $i++) {
         $key .= $characters[mt_rand(0, strlen($characters)-1)];
     }
@@ -177,14 +176,14 @@ function cmtx_get_current_version() { //gets current version
 
 	$current_version_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "version` ORDER BY `dated` DESC LIMIT 1");
 	$current_version_result = cmtx_db_fetch_assoc($current_version_query);
-	$current_version = $current_version_result["version"];
+	$current_version = $current_version_result['version'];
 	
 	return $current_version;
 
 } //end of get-current-version function
 
 
-function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $reply_to, $is_admin) { //notify subscribers of new comment
+function cmtx_notify_subscribers($poster, $comment, $page_id, $comment_id, $reply_to, $is_admin) { //notify subscribers of new comment
 	
 	global $cmtx_parent_emails;
 	
@@ -198,8 +197,8 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 		
 		while ($comments = cmtx_db_fetch_assoc($query)) {
 		
-			$id = $comments["id"];
-			$reply_to = $comments["reply_to"];
+			$id = $comments['id'];
+			$reply_to = $comments['reply_to'];
 		
 			$comment = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_approved` = '1'");
 			$comment = cmtx_db_fetch_assoc($comment);
@@ -223,7 +222,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 } //end of notify-subscribers function
 
 
-function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id) { //notify subscribers of basic comment
+function cmtx_notify_subscribers_basic($poster, $comment, $page_id, $comment_id) { //notify subscribers of basic comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_parent_emails; //globalise variables
 	
@@ -235,8 +234,8 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 	
 	$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
 	$page_result = cmtx_db_fetch_assoc($page_query);
-	$page_reference = cmtx_decode($page_result["reference"]);
-	$page_url = cmtx_decode($page_result["url"]);
+	$page_reference = cmtx_decode($page_result['reference']);
+	$page_url = cmtx_decode($page_result['url']);
 	
 	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
 	
@@ -253,17 +252,17 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 	
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if (!in_array($subscriber['email'], $cmtx_parent_emails)) {
 		
 			$body = file_get_contents($subscriber_notification_basic_email_file); //get the file's contents
 			
-			$email = $subscriber["email"];
+			$email = $subscriber['email'];
 			
-			$name = cmtx_prepare_name_for_email($subscriber["name"]); //prepare name for email
+			$name = cmtx_prepare_name_for_email($subscriber['name']); //prepare name for email
 			
-			$token = $subscriber["token"];
+			$token = $subscriber['token'];
 			
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -290,7 +289,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-basic function
 
 
-function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id) { //notify subscribers of reply
+function cmtx_notify_subscribers_reply($poster, $comment, $page_id, $comment_id) { //notify subscribers of reply
 
 	global $cmtx_mysql_table_prefix, $cmtx_parent_emails; //globalise variables
 	
@@ -302,10 +301,10 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 	
 	$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
 	$page_result = cmtx_db_fetch_assoc($page_query);
-	$page_reference = cmtx_decode($page_result["reference"]);
-	$page_url = cmtx_decode($page_result["url"]);
+	$page_reference = cmtx_decode($page_result['reference']);
+	$page_url = cmtx_decode($page_result['url']);
 	
-	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result['url'])); //get the permalink of the comment
 	
 	if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt')) {
 		$subscriber_notification_reply_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_reply.txt'; //build path to custom subscriber notification reply email file
@@ -320,17 +319,17 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 	
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if (in_array($subscriber['email'], $cmtx_parent_emails)) {
 		
 			$body = file_get_contents($subscriber_notification_reply_email_file); //get the file's contents
 			
-			$email = $subscriber["email"];
+			$email = $subscriber['email'];
 			
-			$name = cmtx_prepare_name_for_email($subscriber["name"]); //prepare name for email
+			$name = cmtx_prepare_name_for_email($subscriber['name']); //prepare name for email
 			
-			$token = $subscriber["token"];
+			$token = $subscriber['token'];
 			
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -357,7 +356,7 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-reply function
 
 
-function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id) { //notify subscribers of admin comment
+function cmtx_notify_subscribers_admin($poster, $comment, $page_id, $comment_id) { //notify subscribers of admin comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_parent_emails; //globalise variables
 	
@@ -369,10 +368,10 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 	
 	$page_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "pages` WHERE `id` = '$page_id'");
 	$page_result = cmtx_db_fetch_assoc($page_query);
-	$page_reference = cmtx_decode($page_result["reference"]);
-	$page_url = cmtx_decode($page_result["url"]);
+	$page_reference = cmtx_decode($page_result['reference']);
+	$page_url = cmtx_decode($page_result['url']);
 	
-	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result["url"])); //get the permalink of the comment
+	$comment_url = cmtx_decode(cmtx_get_permalink($comment_id, $page_result['url'])); //get the permalink of the comment
 	
 	if (file_exists('../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt')) {
 		$subscriber_notification_admin_email_file = '../includes/emails/' . cmtx_setting('language_frontend') . '/user/custom/subscriber_notification_admin.txt'; //build path to custom subscriber notification admin email file
@@ -387,17 +386,17 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 	
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+		if (!in_array($subscriber['email'], $cmtx_parent_emails)) {
 		
 			$body = file_get_contents($subscriber_notification_admin_email_file); //get the file's contents
 			
-			$email = $subscriber["email"];
+			$email = $subscriber['email'];
 			
-			$name = cmtx_prepare_name_for_email($subscriber["name"]); //prepare name for email
+			$name = cmtx_prepare_name_for_email($subscriber['name']); //prepare name for email
 			
-			$token = $subscriber["token"];
+			$token = $subscriber['token'];
 			
-			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+			$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 			//convert email variables with actual variables
 			$body = str_ireplace('[name]', $name, $body);
@@ -424,7 +423,7 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-admin function
 
 
-function cmtx_prepare_name_for_email ($name) { //prepares name for email
+function cmtx_prepare_name_for_email($name) { //prepares name for email
 	
 	$name = cmtx_decode($name);
 	
@@ -433,7 +432,7 @@ function cmtx_prepare_name_for_email ($name) { //prepares name for email
 } //end of prepare-name-for-email function
 
 
-function cmtx_prepare_comment_for_email ($comment) { //prepares comment for email
+function cmtx_prepare_comment_for_email($comment) { //prepares comment for email
 	
 	$comment = str_ireplace("<br />", "\r\n", $comment);
 	$comment = str_ireplace("<br/>", "\r\n", $comment);
@@ -488,7 +487,7 @@ function cmtx_get_ip_address() { //get IP address
 } //end of get-ip-address function
 
 
-function cmtx_valid_account ($username, $password) { //check whether account is valid
+function cmtx_valid_account($username, $password) { //check whether account is valid
 	
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -496,15 +495,15 @@ function cmtx_valid_account ($username, $password) { //check whether account is 
 	$password = cmtx_sanitize($password);
 	
 	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `is_enabled` = '0'"))) {
-		return "1"; //Disabled
+		return '1'; //Disabled
 	}
 	
 	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `login_attempts` >= 10"))) {
-		return "2"; //Locked
+		return '2'; //Locked
 	}
 	
 	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username' AND `password` = '$password'"))) {
-		return "3"; //Okay
+		return '3'; //Okay
 	}
 	
 	return; //Wrong
@@ -522,7 +521,7 @@ function cmtx_get_admin_id() { //get id of administrator
 	
 	$query = cmtx_db_query("SELECT `id` FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `username` = '$username'");
 	$result = cmtx_db_fetch_assoc($query);
-	$admin_id = $result["id"];
+	$admin_id = $result['id'];
 	
 	return cmtx_sanitize($admin_id);
 	
@@ -556,7 +555,7 @@ function cmtx_delete_replies($id) { //delete replies of given comment
 	
 	while ($comments = cmtx_db_fetch_assoc($query)) {
 	
-		$id = $comments["id"];
+		$id = $comments['id'];
 	
 		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 		cmtx_db_query("DELETE FROM `" . $cmtx_mysql_table_prefix . "voters` WHERE `comment_id` = '$id'");
@@ -579,7 +578,7 @@ function cmtx_unapprove_replies($id) { //unapprove replies of given comment
 	
 	while ($comments = cmtx_db_fetch_assoc($query)) {
 	
-		$id = $comments["id"];
+		$id = $comments['id'];
 
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "comments` SET `is_approved` = '0' WHERE `id` = '$id'");
 	
@@ -594,7 +593,7 @@ function cmtx_error_reporting($path) { //error reporting
 
 	if (cmtx_setting('error_reporting_admin')) { //if error reporting is turned on for admin panel
 		@error_reporting(-1); //show every possible error
-		if (cmtx_setting('error_reporting_method') == "log") { //if errors should be logged to file
+		if (cmtx_setting('error_reporting_method') == 'log') { //if errors should be logged to file
 			@ini_set('display_errors', 0); //don't display errors
 			@ini_set('log_errors', 1); //log errors
 			@ini_set('error_log', $path); //set log path
@@ -611,7 +610,7 @@ function cmtx_error_reporting($path) { //error reporting
 } //end of error-reporting function
 
 
-function cmtx_text_finder ($text, $file, $case) { //search file
+function cmtx_text_finder($text, $file, $case) { //search file
 
 	global $text_found;
 	
@@ -640,19 +639,19 @@ function cmtx_text_finder ($text, $file, $case) { //search file
 				if ($case) { //if case-sensitive
 					if (strpos($value, $text) !== false) {
 						printf(CMTX_FIELD_VALUE_FOUND_AT, $line_number);
-						echo " " . $path;
-						echo "<br/>";
-						echo "<code>" . $line . "</code>";
-						echo "<p/>";
+						echo ' ' . $path;
+						echo '<br/>';
+						echo '<code>' . $line . '</code>';
+						echo '<p/>';
 						$text_found = true;
 					}
 				} else {
 					if (stripos($value, $text) !== false) {
 						printf(CMTX_FIELD_VALUE_FOUND_AT, $line_number);
-						echo " " . $path;
-						echo "<br/>";
-						echo "<code>" . $line . "</code>";
-						echo "<p/>";
+						echo ' ' . $path;
+						echo '<br/>';
+						echo '<code>' . $line . '</code>';
+						echo '<p/>';
 						$text_found = true;
 					}
 				}
@@ -665,7 +664,7 @@ function cmtx_text_finder ($text, $file, $case) { //search file
 
 function cmtx_set_csrf_form_key() { //apply CSRF protection to form
 
-	echo "<input type='hidden' name='csrf_key' value='" . $_SESSION['cmtx_csrf_key'] . "'/>";
+	echo '<input type="hidden" name="csrf_key" value="' . $_SESSION['cmtx_csrf_key'] . '"/>';
 	
 } //end of set-csrf-form-key function
 
@@ -673,12 +672,12 @@ function cmtx_set_csrf_form_key() { //apply CSRF protection to form
 function cmtx_check_csrf_form_key() { //check the CSRF protection key in form
 
 	if (!isset($_POST['csrf_key']) || !isset($_SESSION['cmtx_csrf_key'])) {
-		echo "A CSRF attack has been prevented.";
+		echo 'A CSRF attack has been prevented.';
 		die();
 	}
 
 	if ($_POST['csrf_key'] != $_SESSION['cmtx_csrf_key']) {
-		echo "A CSRF attack has been prevented.";
+		echo 'A CSRF attack has been prevented.';
 		die();
 	}
 	
@@ -741,10 +740,10 @@ function cmtx_restrict_page($page) { //check whether page is restricted
 
 	$allowed_pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '" . cmtx_get_admin_id() . "'");
 	$allowed_pages_result = cmtx_db_fetch_assoc($allowed_pages_query);
-	$restrict_pages = $allowed_pages_result["restrict_pages"];
-	$allowed_pages = $allowed_pages_result["allowed_pages"];
+	$restrict_pages = $allowed_pages_result['restrict_pages'];
+	$allowed_pages = $allowed_pages_result['allowed_pages'];
 	
-	if ($page != "dashboard" && $restrict_pages && !in_array($page, explode(",", $allowed_pages))) {
+	if ($page != 'dashboard' && $restrict_pages && !in_array($page, explode(',', $allowed_pages))) {
 		return true;
 	} else {
 		return false;
@@ -759,14 +758,14 @@ function cmtx_page_checkbox($page, $id, $indent) { //display page checkbox in ed
 
 	$allowed_pages_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `id` = '$id'");
 	$allowed_pages_result = cmtx_db_fetch_assoc($allowed_pages_query);
-	$allowed_pages = $allowed_pages_result["allowed_pages"];
+	$allowed_pages = $allowed_pages_result['allowed_pages'];
 	
-	echo "<label class='edit_administrator'>&nbsp;</label>";
+	echo '<label class="edit_administrator">&nbsp;</label>';
 	
-	if (in_array($page, explode(",", $allowed_pages))) {
-		echo "<input type='checkbox' style='margin-left:" . $indent . "px;' checked='checked' name='allowed_pages[]' value='" . $page . "'/>";
+	if (in_array($page, explode(',', $allowed_pages))) {
+		echo '<input type="checkbox" style="margin-left:' . $indent . 'px;" checked="checked" name="allowed_pages[]" value="' . $page . '"/>';
 	} else {
-		echo "<input type='checkbox' style='margin-left:" . $indent . "px;' name='allowed_pages[]' value='" . $page . "'/>";
+		echo '<input type="checkbox" style="margin-left:' . $indent . 'px;" name="allowed_pages[]" value="' . $page . '"/>';
 	}
 
 } //end of page-checkbox function
@@ -784,7 +783,7 @@ function cmtx_check_attempts() { //check attempts on login page
 		$time = strtotime($result['dated']);
 		$difference = time() - $time;
 		if ($difference < 60 * 30) {
-			header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?action=failed");
+			header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?action=failed');
 			die();
 		}
 	}
@@ -817,14 +816,14 @@ function cmtx_last_activity($seconds) { //converts seconds to a friendly time
 	$days = floor($seconds / 86400);
 
 	if ($days >= 1 && $days <= 9) {
-		$time = '0' . $days . 'd ' . gmdate("H\h i\m s\s", $seconds);
+		$time = '0' . $days . 'd ' . gmdate('H\h i\m s\s', $seconds);
 	} else if ($days >= 10) {
-		$time = $days . 'd ' . gmdate("H\h i\m s\s", $seconds);
+		$time = $days . 'd ' . gmdate('H\h i\m s\s', $seconds);
 	} else {
 		if ($seconds >= 3600) {
-			$time = gmdate("H\h i\m s\s", $seconds);
+			$time = gmdate('H\h i\m s\s', $seconds);
 		} else {
-			$time = gmdate("i\m s\s", $seconds);
+			$time = gmdate('i\m s\s', $seconds);
 		}
 	}
 	
@@ -852,7 +851,7 @@ function cmtx_is_approved($id) { //is comment approved
 	
 	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$result = cmtx_db_fetch_assoc($query);
-	$is_approved = $result["is_approved"];
+	$is_approved = $result['is_approved'];
 	
 	if ($is_approved) {
 		return true;
@@ -871,7 +870,7 @@ function cmtx_is_sent($id) { //is comment sent
 	
 	$query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$result = cmtx_db_fetch_assoc($query);
-	$is_sent = $result["is_sent"];
+	$is_sent = $result['is_sent'];
 	
 	if ($is_sent) {
 		return true;
@@ -888,7 +887,7 @@ function cmtx_log_out($text) { //log out
 	session_destroy();
 	session_unset();
 	session_write_close();
-	header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?action=" . $text);
+	header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?action=' . $text);
 	die();
 
 } //end of log-out function
@@ -907,7 +906,7 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 
 	global $cmtx_path; //globalise variables
 	
-	if (cmtx_setting('transport_method') == "php-basic") {
+	if (cmtx_setting('transport_method') == 'php-basic') {
 	
 		//set email headers
 		$headers = 'From: ' . $from_name . ' <' . $from_email . '>' . "\r\n";
@@ -925,22 +924,22 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 		require_once $cmtx_path . 'includes/external/swift_mailer/lib/swift_required.php'; //load Swift Mailer
 
 		//set the transport method
-		if (cmtx_setting('transport_method') == "php") {
+		if (cmtx_setting('transport_method') == 'php') {
 			$transport = Swift_MailTransport::newInstance();
-		} else if (cmtx_setting('transport_method') == "smtp") {
+		} else if (cmtx_setting('transport_method') == 'smtp') {
 			$transport = Swift_SmtpTransport::newInstance();
 			$transport->setHost(cmtx_setting('smtp_host'));
 			$transport->setPort(cmtx_setting('smtp_port'));
-			if (cmtx_setting('smtp_encrypt') == "ssl") {
+			if (cmtx_setting('smtp_encrypt') == 'ssl') {
 				$transport->setEncryption('ssl');
-			} else if (cmtx_setting('smtp_encrypt') == "tls") {
+			} else if (cmtx_setting('smtp_encrypt') == 'tls') {
 				$transport->setEncryption('tls');
 			}
 			if (cmtx_setting('smtp_username') && cmtx_setting('smtp_password')) {
 				$transport->setUsername(cmtx_setting('smtp_username'));
 				$transport->setPassword(cmtx_setting('smtp_password'));
 			}
-		} else if (cmtx_setting('transport_method') == "sendmail") {
+		} else if (cmtx_setting('transport_method') == 'sendmail') {
 			$transport = Swift_SendmailTransport::newInstance(cmtx_setting('sendmail_path') . ' -bs');
 		}
 
@@ -966,10 +965,10 @@ function cmtx_email($to_email, $to_name, $subject, $body, $from_email, $from_nam
 		$message->setBody($body);
 
 		//set the format of message
-		$message->setContentType("text/plain");
+		$message->setContentType('text/plain');
 
 		//set the charset as UTF-8
-		$message->setCharset("UTF-8");
+		$message->setCharset('UTF-8');
 
 		//set the content-transfer-encoding to 8bit
 		$message->setEncoder(Swift_Encoding::get8BitEncoding());

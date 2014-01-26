@@ -775,7 +775,7 @@ if (isset($cmtx_box) && !empty($cmtx_box)) { //if a box exists
 <input type="hidden" name="cmtx_reply_id" id="cmtx_reply_id" value="<?php echo $cmtx_reply_id; ?>"/>
 <div class="cmtx_reply_bar">
 <span id="cmtx_reply_message" class="cmtx_reply_message"></span>
-<a id="cmtx_reset_reply" class="cmtx_reset_reply" href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" onclick='this.style.display="none"; document.getElementById("cmtx_reply_id").value="0"; document.getElementById("cmtx_reply_message").innerHTML="<?php echo CMTX_REPLY_NOBODY; ?>"; return false;'><?php echo CMTX_REPLY_CANCEL; ?></a>
+<a id="cmtx_reset_reply" class="cmtx_reset_reply" href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" onclick="this.style.display='none'; document.getElementById('cmtx_reply_id').value='0'; document.getElementById('cmtx_reply_message').innerHTML='<?php echo CMTX_REPLY_NOBODY; ?>'; return false;"><?php echo CMTX_REPLY_CANCEL; ?></a>
 </div>
 <div style="clear: left;"></div>
 <div class="cmtx_height_below_reply_bar"></div>
@@ -933,52 +933,52 @@ foreach ($cmtx_elements as $cmtx_element) {
 <div class="cmtx_label">&nbsp;</div>
 <div class="cmtx_bb_code_block">
 <?php if (cmtx_setting('enabled_bb_code_bold')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/bold.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_BOLD; ?>" alt="Bold" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_BOLD_1; ?>', '<?php echo CMTX_BB_CODE_TAG_BOLD_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/bold.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_BOLD; ?>" alt="Bold" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_BOLD_1; ?>', '<?php echo CMTX_BB_CODE_TAG_BOLD_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_italic')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/italic.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_ITALIC; ?>" alt="Italic" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_ITALIC_1; ?>', '<?php echo CMTX_BB_CODE_TAG_ITALIC_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/italic.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_ITALIC; ?>" alt="Italic" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_ITALIC_1; ?>', '<?php echo CMTX_BB_CODE_TAG_ITALIC_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_underline')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/underline.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_UNDERLINE; ?>" alt="Underline" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_UNDERLINE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_UNDERLINE_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/underline.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_UNDERLINE; ?>" alt="Underline" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_UNDERLINE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_UNDERLINE_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_strike')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/strike.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_STRIKE; ?>" alt="Strike" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_STRIKE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_STRIKE_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/strike.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_STRIKE; ?>" alt="Strike" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_STRIKE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_STRIKE_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_superscript')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/superscript.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_SUPERSCRIPT; ?>" alt="Superscript" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_SUPERSCRIPT_1; ?>', '<?php echo CMTX_BB_CODE_TAG_SUPERSCRIPT_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/superscript.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_SUPERSCRIPT; ?>" alt="Superscript" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_SUPERSCRIPT_1; ?>', '<?php echo CMTX_BB_CODE_TAG_SUPERSCRIPT_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_subscript')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/subscript.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_SUBSCRIPT; ?>" alt="Subscript" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_SUBSCRIPT_1; ?>', '<?php echo CMTX_BB_CODE_TAG_SUBSCRIPT_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/subscript.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_SUBSCRIPT; ?>" alt="Subscript" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_SUBSCRIPT_1; ?>', '<?php echo CMTX_BB_CODE_TAG_SUBSCRIPT_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_code')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/code.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_CODE; ?>" alt="Code" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_CODE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_CODE_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/code.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_CODE; ?>" alt="Code" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_CODE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_CODE_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_php')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/php.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_PHP; ?>" alt="PHP" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_PHP_1; ?>', '<?php echo CMTX_BB_CODE_TAG_PHP_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/php.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_PHP; ?>" alt="PHP" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_PHP_1; ?>', '<?php echo CMTX_BB_CODE_TAG_PHP_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_quote')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/quote.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_QUOTE; ?>" alt="Quote" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_QUOTE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_QUOTE_2; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/quote.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_QUOTE; ?>" alt="Quote" class="cmtx_bb_code_image" onclick="cmtx_add_tags('<?php echo CMTX_BB_CODE_TAG_QUOTE_1; ?>', '<?php echo CMTX_BB_CODE_TAG_QUOTE_2; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_line')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/line.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_LINE; ?>" alt="Line" class="cmtx_bb_code_image" onclick="cmtx_add_tags('', '<?php echo CMTX_BB_CODE_TAG_LINE; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/line.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_LINE; ?>" alt="Line" class="cmtx_bb_code_image" onclick="cmtx_add_tags('', '<?php echo CMTX_BB_CODE_TAG_LINE; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_bullet')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/bullet.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_BULLET; ?>" alt="Bullet" class="cmtx_bb_code_image" id="cmtx_bb_code_bullet"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/bullet.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_BULLET; ?>" alt="Bullet" class="cmtx_bb_code_image" id="cmtx_bb_code_bullet"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_numeric')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/numeric.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_NUMERIC; ?>" alt="Numeric" class="cmtx_bb_code_image" id="cmtx_bb_code_numeric"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/numeric.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_NUMERIC; ?>" alt="Numeric" class="cmtx_bb_code_image" id="cmtx_bb_code_numeric"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_link')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/link.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_LINK; ?>" alt="Link" class="cmtx_bb_code_image" id="cmtx_bb_code_link"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/link.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_LINK; ?>" alt="Link" class="cmtx_bb_code_image" id="cmtx_bb_code_link"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_email')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/email.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_EMAIL; ?>" alt="Email" class="cmtx_bb_code_image" id="cmtx_bb_code_email"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/email.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_EMAIL; ?>" alt="Email" class="cmtx_bb_code_image" id="cmtx_bb_code_email"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_image')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/image.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_IMAGE; ?>" alt="Image" class="cmtx_bb_code_image" id="cmtx_bb_code_image"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/image.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_IMAGE; ?>" alt="Image" class="cmtx_bb_code_image" id="cmtx_bb_code_image"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_bb_code_video')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/video.png';?>" title="<?php echo CMTX_BB_CODE_TITLE_VIDEO; ?>" alt="Video" class="cmtx_bb_code_image" id="cmtx_bb_code_video"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/bb_code/video.png'; ?>" title="<?php echo CMTX_BB_CODE_TITLE_VIDEO; ?>" alt="Video" class="cmtx_bb_code_image" id="cmtx_bb_code_video"/>
 <?php } ?>
 </div>
 <?php } ?>
@@ -992,49 +992,49 @@ foreach ($cmtx_elements as $cmtx_element) {
 <div class="cmtx_label">&nbsp;</div>
 <div class="cmtx_smilies_block">
 <?php if (cmtx_setting('enabled_smilies_smile')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/smile.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_SMILE; ?>" alt="Smile" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SMILE; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/smile.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_SMILE; ?>" alt="Smile" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SMILE; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_sad')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/sad.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_SAD; ?>" alt="Sad" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SAD; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/sad.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_SAD; ?>" alt="Sad" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SAD; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_huh')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/huh.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_HUH; ?>" alt="Huh" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_HUH; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/huh.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_HUH; ?>" alt="Huh" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_HUH; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_laugh')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/laugh.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_LAUGH; ?>" alt="Laugh" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_LAUGH; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/laugh.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_LAUGH; ?>" alt="Laugh" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_LAUGH; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_mad')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/mad.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_MAD; ?>" alt="Mad" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_MAD; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/mad.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_MAD; ?>" alt="Mad" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_MAD; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_tongue')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/tongue.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_TONGUE; ?>" alt="Tongue" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_TONGUE; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/tongue.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_TONGUE; ?>" alt="Tongue" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_TONGUE; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_crying')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/crying.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_CRYING; ?>" alt="Crying" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_CRYING; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/crying.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_CRYING; ?>" alt="Crying" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_CRYING; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_grin')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/grin.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_GRIN; ?>" alt="Grin" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_GRIN; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/grin.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_GRIN; ?>" alt="Grin" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_GRIN; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_wink')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/wink.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_WINK; ?>" alt="Wink" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_WINK; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/wink.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_WINK; ?>" alt="Wink" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_WINK; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_scared')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/scared.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_SCARED; ?>" alt="Scared" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SCARED; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/scared.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_SCARED; ?>" alt="Scared" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SCARED; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_cool')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/cool.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_COOL; ?>" alt="Cool" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_COOL; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/cool.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_COOL; ?>" alt="Cool" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_COOL; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_sleep')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/sleep.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_SLEEP; ?>" alt="Sleep" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SLEEP; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/sleep.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_SLEEP; ?>" alt="Sleep" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SLEEP; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_blush')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/blush.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_BLUSH; ?>" alt="Blush" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_BLUSH; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/blush.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_BLUSH; ?>" alt="Blush" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_BLUSH; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_unsure')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/unsure.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_UNSURE; ?>" alt="Unsure" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_UNSURE; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/unsure.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_UNSURE; ?>" alt="Unsure" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_UNSURE; ?>')"/>
 <?php } ?>
 <?php if (cmtx_setting('enabled_smilies_shocked')) { ?>
-<img src="<?php echo cmtx_commentics_url() . 'images/smilies/shocked.gif';?>" title="<?php echo CMTX_SMILEY_TITLE_SHOCKED; ?>" alt="Shocked" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SHOCKED; ?>')"/>
+<img src="<?php echo cmtx_commentics_url() . 'images/smilies/shocked.gif'; ?>" title="<?php echo CMTX_SMILEY_TITLE_SHOCKED; ?>" alt="Shocked" class="cmtx_smiley_image" onclick="cmtx_add_tags('', '<?php echo CMTX_SMILEY_TAG_SHOCKED; ?>')"/>
 <?php } ?>
 </div>
 <?php } ?>
@@ -1104,7 +1104,7 @@ function cmtx_output_captcha () {
 			</label>
 			<div class="cmtx_recaptcha"><?php
 			if ((cmtx_setting('recaptcha_public_key') == '') || (cmtx_setting('recaptcha_private_key') == '')) {
-				echo "<span class='cmtx_recaptcha_no_key'>" . CMTX_RECAPTCHA_NO_KEY . "</span>.";
+				echo '<span class="cmtx_recaptcha_no_key">' . CMTX_RECAPTCHA_NO_KEY . '</span>.';
 			} else {
 				require_once $cmtx_path . 'includes/external/recaptcha/recaptchalib.php';
 				$cmtx_recaptcha_public_key = cmtx_setting('recaptcha_public_key');
@@ -1132,7 +1132,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 ?>
 
 <?php if ( (cmtx_setting('enabled_notify') && cmtx_setting('enabled_email')) || (cmtx_setting('enabled_remember')) || (cmtx_setting('enabled_privacy')) || (cmtx_setting('enabled_terms')) ) { ?>
-<div class='cmtx_height_above_checkboxes'></div>
+<div class="cmtx_height_above_checkboxes"></div>
 <?php } ?>
 
 <?php function cmtx_output_notify () { ?>
@@ -1224,10 +1224,10 @@ foreach ($cmtx_elements as $cmtx_element) {
 ?>
 
 <div style="clear: left;"></div>
-<div class='cmtx_height_above_buttons'></div>
+<div class="cmtx_height_above_buttons"></div>
 <div class="cmtx_label">&nbsp;</div>
 
-<?php if ($cmtx_is_admin) { $cmtx_admin_button = " cmtx_admin_button"; } else { $cmtx_admin_button = ""; } ?>
+<?php if ($cmtx_is_admin) { $cmtx_admin_button = ' cmtx_admin_button'; } else { $cmtx_admin_button = ''; } ?>
 
 <?php function cmtx_output_submit () { ?>
 <?php global $cmtx_admin_button; ?>
@@ -1284,7 +1284,7 @@ foreach ($cmtx_elements as $cmtx_element) {
 <a href="http://www.commentics.org"<?php echo $cmtx_powered_attribute; ?>><img src="<?php echo cmtx_commentics_url() . "images/commentics/powered_by.png";?>" title="Commentics" alt="Commentics"/></a>
 <?php } else if (cmtx_setting('powered_by') == 'text') { ?>
 <div style="clear: left;"></div>
-<div class='cmtx_height_above_powered'></div>
+<div class="cmtx_height_above_powered"></div>
 <div class="cmtx_label">&nbsp;</div>
 <span class="cmtx_powered_by"><?php echo CMTX_POWERED_BY . ' '; ?><a href="http://www.commentics.org"<?php echo $cmtx_powered_attribute; ?> title="Commentics">Commentics</a></span>
 <?php } ?>

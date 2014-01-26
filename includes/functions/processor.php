@@ -24,8 +24,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
-function cmtx_subscriber_exists ($email, $page_id) { //check whether subscriber exists
+function cmtx_subscriber_exists($email, $page_id) { //check whether subscriber exists
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -41,7 +40,7 @@ function cmtx_subscriber_exists ($email, $page_id) { //check whether subscriber 
 } //end of subscriber-exists function
 
 
-function cmtx_subscriber_email_attempts ($email) { //check whether email address has any unconfirmed subscriptions
+function cmtx_subscriber_email_attempts($email) { //check whether email address has any unconfirmed subscriptions
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -73,7 +72,7 @@ function cmtx_subscriber_ip_attempts() { //check whether IP address has any unco
 } //end of subscriber-ip-attempts function
 
 
-function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
+function cmtx_add_subscriber($name, $email, $page_id) { //adds new subscriber
 
 	global $cmtx_mysql_table_prefix, $cmtx_path; //globalise variables
 
@@ -123,7 +122,7 @@ function cmtx_add_subscriber ($name, $email, $page_id) { //adds new subscriber
 } //end of add-subscriber function
 
 
-function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $reply_to, $is_admin) { //notify subscribers of new comment
+function cmtx_notify_subscribers($poster, $comment, $page_id, $comment_id, $reply_to, $is_admin) { //notify subscribers of new comment
 	
 	global $cmtx_parent_emails;
 	
@@ -137,8 +136,8 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 		
 		while ($comments = cmtx_db_fetch_assoc($query)) {
 		
-			$id = $comments["id"];
-			$reply_to = $comments["reply_to"];
+			$id = $comments['id'];
+			$reply_to = $comments['reply_to'];
 		
 			$comment = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id' AND `is_approved` = '1'");
 			$comment = cmtx_db_fetch_assoc($comment);
@@ -162,7 +161,7 @@ function cmtx_notify_subscribers ($poster, $comment, $page_id, $comment_id, $rep
 } //end of notify-subscribers function
 
 
-function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id) { //notify subscribers of basic comment
+function cmtx_notify_subscribers_basic($poster, $comment, $page_id, $comment_id) { //notify subscribers of basic comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
 
@@ -186,19 +185,19 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if ($subscriber["to_all"]) {
+		if ($subscriber['to_all']) {
 	
-			if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
+			if (!in_array($subscriber['email'], $cmtx_parent_emails)) {
 
 				$body = file_get_contents($subscriber_notification_basic_email_file); //get the file's contents
 
-				$email = $subscriber["email"];
+				$email = $subscriber['email'];
 
-				$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber['name']);
 
-				$token = $subscriber["token"];
+				$token = $subscriber['token'];
 
-				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 				//convert email variables with actual variables
 				$body = str_ireplace('[name]', $name, $body);
@@ -225,7 +224,7 @@ function cmtx_notify_subscribers_basic ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-basic function
 
 
-function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id) { //notify subscribers of reply
+function cmtx_notify_subscribers_reply($poster, $comment, $page_id, $comment_id) { //notify subscribers of reply
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
 
@@ -249,19 +248,19 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if ($subscriber["to_all"] || $subscriber["to_reply"]) {
+		if ($subscriber['to_all'] || $subscriber['to_reply']) {
 	
-			if (in_array($subscriber["email"], $cmtx_parent_emails)) {
+			if (in_array($subscriber['email'], $cmtx_parent_emails)) {
 
 				$body = file_get_contents($subscriber_notification_reply_email_file); //get the file's contents
 
-				$email = $subscriber["email"];
+				$email = $subscriber['email'];
 
-				$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber['name']);
 
-				$token = $subscriber["token"];
+				$token = $subscriber['token'];
 
-				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 				//convert email variables with actual variables
 				$body = str_ireplace('[name]', $name, $body);
@@ -288,7 +287,7 @@ function cmtx_notify_subscribers_reply ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-reply function
 
 
-function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id) { //notify subscribers of admin comment
+function cmtx_notify_subscribers_admin($poster, $comment, $page_id, $comment_id) { //notify subscribers of admin comment
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_parent_emails; //globalise variables
 
@@ -312,19 +311,19 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 
 	while ($subscriber = cmtx_db_fetch_assoc($subscribers)) { //while there are subscribers
 	
-		if ($subscriber["to_all"] || $subscriber["to_admin"]) {
+		if ($subscriber['to_all'] || $subscriber['to_admin']) {
 	
 			if (!in_array($subscriber["email"], $cmtx_parent_emails)) {
 
 				$body = file_get_contents($subscriber_notification_admin_email_file); //get the file's contents
 
-				$email = $subscriber["email"];
+				$email = $subscriber['email'];
 
-				$name = cmtx_decode($subscriber["name"]);
+				$name = cmtx_decode($subscriber['name']);
 
-				$token = $subscriber["token"];
+				$token = $subscriber['token'];
 
-				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . "subscribers.php" . "?id=" . $token; //build subscription link
+				$subscription_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url')) . 'subscribers.php' . '?id=' . $token; //build subscription link
 
 				//convert email variables with actual variables
 				$body = str_ireplace('[name]', $name, $body);
@@ -351,7 +350,7 @@ function cmtx_notify_subscribers_admin ($poster, $comment, $page_id, $comment_id
 } //end of notify-subscribers-admin function
 
 
-function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
+function cmtx_notify_admin_new_ban($reason) { //notify admin of new ban
 
 	global $cmtx_mysql_table_prefix, $cmtx_path; //globalise variables
 
@@ -365,7 +364,7 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 
 	$body = file_get_contents($admin_new_ban_email_file); //get the file's contents
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[ip address]', $ip_address, $body);
@@ -378,7 +377,7 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 
 	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
-		$email = $admin["email"]; //get administrator email address
+		$email = $admin['email']; //get administrator email address
 		
 		cmtx_email($email, null, cmtx_setting('admin_new_ban_subject'), $body, cmtx_setting('admin_new_ban_from_email'), cmtx_setting('admin_new_ban_from_name'), cmtx_setting('admin_new_ban_reply_to'));
 
@@ -387,7 +386,7 @@ function cmtx_notify_admin_new_ban ($reason) { //notify admin of new ban
 } //end of notify-admin-new-ban function
 
 
-function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) { //notify admin of new comment to approve
+function cmtx_notify_admin_new_comment_approve($poster, $comment, $comment_id) { //notify admin of new comment to approve
 
 	global $cmtx_mysql_table_prefix, $cmtx_path, $cmtx_approve_reason; //globalise variables
 
@@ -406,7 +405,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) 
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
@@ -423,7 +422,7 @@ function cmtx_notify_admin_new_comment_approve ($poster, $comment, $comment_id) 
 
 	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
-		$email = $admin["email"]; //get administrator email address
+		$email = $admin['email']; //get administrator email address
 		
 		cmtx_email($email, null, cmtx_setting('admin_new_comment_approve_subject'), $body, cmtx_setting('admin_new_comment_approve_from_email'), cmtx_setting('admin_new_comment_approve_from_name'), cmtx_setting('admin_new_comment_approve_reply_to'));
 
@@ -451,7 +450,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { /
 	$poster = cmtx_prepare_name_for_email($poster); //prepare name for email
 	$comment = cmtx_prepare_comment_for_email($comment); //prepare comment for email
 
-	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+	$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
 
 	//convert email variables with actual variables
 	$body = str_ireplace('[page reference]', $page_reference, $body);
@@ -467,7 +466,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { /
 
 	while ($admin = cmtx_db_fetch_assoc($admins)) { //while there are administrators
 
-		$email = $admin["email"]; //get administrator email address
+		$email = $admin['email']; //get administrator email address
 
 		if ($cmtx_is_admin && cmtx_is_admin_email($email)) {} else { //if not detected admin who submitted
 
@@ -480,7 +479,7 @@ function cmtx_notify_admin_new_comment_okay ($poster, $comment, $comment_id) { /
 } //end of notify-admin-new-comment-okay function
 
 
-function cmtx_is_admin_email ($email) { //checks whether email address belongs to detected admin
+function cmtx_is_admin_email($email) { //checks whether email address belongs to detected admin
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -491,7 +490,7 @@ function cmtx_is_admin_email ($email) { //checks whether email address belongs t
 	if (isset($_COOKIE['Commentics-Admin']) && ctype_alnum($_COOKIE['Commentics-Admin']) && cmtx_strlen($_COOKIE['Commentics-Admin']) == 20) {
 		$cookie_value = cmtx_sanitize($_COOKIE['Commentics-Admin'], true, true);
 	} else {
-		$cookie_value = "";
+		$cookie_value = '';
 	}
 
 	if (cmtx_db_num_rows(cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `cookie_key` = '$cookie_value' AND `is_enabled` = '1' LIMIT 1"))) {
@@ -515,7 +514,7 @@ function cmtx_is_admin_email ($email) { //checks whether email address belongs t
 } //end of is-admin-email function
 
 
-function cmtx_check_for_one_name ($name) { //checks whether a single name was entered
+function cmtx_check_for_one_name($name) { //checks whether a single name was entered
 
 	$number_of_names = count(explode(' ', $name)); //get number of names
 
@@ -526,7 +525,7 @@ function cmtx_check_for_one_name ($name) { //checks whether a single name was en
 } //end of check-for-one-name function
 
 
-function cmtx_validate_name ($name) { //checks whether name was valid
+function cmtx_validate_name($name) { //checks whether name was valid
 
 	if (!preg_match('/^[\p{L}]+/u', $name)) { //if the submitted name does not start with a letter
 		cmtx_error(CMTX_ERROR_MESSAGE_START_NAME); //reject user for not starting with a letter
@@ -542,7 +541,7 @@ function cmtx_validate_name ($name) { //checks whether name was valid
 } //end of validate-name function
 
 
-function cmtx_check_for_word ($file, $boundary, $entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks whether a specific word was entered
+function cmtx_check_for_word($file, $boundary, $entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks whether a specific word was entered
 
 	global $cmtx_path; //globalise variables
 
@@ -562,7 +561,7 @@ function cmtx_check_for_word ($file, $boundary, $entry, $action, $approve_msg, $
 
 			$word = preg_quote($word, '/'); //escape any special characters
 
-			$word = str_ireplace("\*", "[^ .,]*", $word); //allow use of wildcard symbol
+			$word = str_ireplace('\*', '[^ .,]*', $word); //allow use of wildcard symbol
 
 			if ($boundary) {
 				$regexp = "/\b$word\b/i"; //pattern (b = word boundary, i = case-insensitive)
@@ -575,18 +574,18 @@ function cmtx_check_for_word ($file, $boundary, $entry, $action, $approve_msg, $
 				$word_found = true; //set flag as true
 			}
 
-			if ( ($action == "mask" || $action == "mask_approve") && (!isset($_POST['cmtx_preview']) && !isset($_POST['cmtx_prev'])) ) { //if entering the word should result in masking and not in preview mode
+			if ( ($action == 'mask' || $action == 'mask_approve') && (!isset($_POST['cmtx_preview']) && !isset($_POST['cmtx_prev'])) ) { //if entering the word should result in masking and not in preview mode
 				$entry = preg_replace($regexp, cmtx_setting('swear_word_masking'), $entry); //mask words
 			}
 
 		} //end of for-each-word
 
 		if ($word_found) { //if word was entered
-			if ($action == "approve" || $action == "mask_approve") { //if entering the word should require approval
+			if ($action == 'approve' || $action == 'mask_approve') { //if entering the word should require approval
 				cmtx_approve($approve_msg); //approve user for entering word
-			} else if ($action == "reject") { //if entering the word should be rejected
+			} else if ($action == 'reject') { //if entering the word should be rejected
 				cmtx_error($error_msg); //reject user for entering word
-			} else if ($action == "ban") { //if entering the word should result in a ban
+			} else if ($action == 'ban') { //if entering the word should result in a ban
 				cmtx_ban($ban_msg); //ban user for entering word
 			}
 		} //end of if-word-was-entered
@@ -598,7 +597,7 @@ function cmtx_check_for_word ($file, $boundary, $entry, $action, $approve_msg, $
 } //end of check-for-word function
 
 
-function cmtx_validate_email ($email) { //checks whether email address was valid
+function cmtx_validate_email($email) { //checks whether email address was valid
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_EMAIL); //reject user for invalid email address	
@@ -607,7 +606,7 @@ function cmtx_validate_email ($email) { //checks whether email address was valid
 } //end of validate-email function
 
 
-function cmtx_validate_website ($website) { //checks whether website was valid
+function cmtx_validate_website($website) { //checks whether website was valid
 
 	if (!filter_var($website, FILTER_VALIDATE_URL)) {
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_WEBSITE); //reject user for invalid website address
@@ -666,7 +665,7 @@ function cmtx_validate_website ($website) { //checks whether website was valid
 } //end of validate-website function
 
 
-function cmtx_validate_town ($town) { //checks whether town was valid
+function cmtx_validate_town($town) { //checks whether town was valid
 
 	if (!preg_match('/^[\p{L}]+/u', $town)) { //if the submitted town does not start with a letter
 		cmtx_error(CMTX_ERROR_MESSAGE_START_TOWN); //reject user for not starting with a letter
@@ -682,7 +681,7 @@ function cmtx_validate_town ($town) { //checks whether town was valid
 } //end of validate-town function
 
 
-function cmtx_validate_country ($country) { //checks whether country was valid
+function cmtx_validate_country($country) { //checks whether country was valid
 
 	if (!preg_match('/^[\p{L}&\-\'. ]+$/u', $country) || !preg_match('/^[\p{L}]+/u', $country)) { //if the submitted country does not validate
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_COUNTRY); //reject user for submitting invalid country
@@ -694,7 +693,7 @@ function cmtx_validate_country ($country) { //checks whether country was valid
 } //end of validate-country function
 
 
-function cmtx_validate_rating ($rating) { //checks whether rating was valid
+function cmtx_validate_rating($rating) { //checks whether rating was valid
 
 	if (!preg_match('/[1-5]/', $rating)) { //if the submitted rating does not validate
 		cmtx_error(CMTX_ERROR_MESSAGE_INVALID_RATING); //reject user for submitting invalid rating
@@ -703,7 +702,7 @@ function cmtx_validate_rating ($rating) { //checks whether rating was valid
 } //end of validate-rating function
 
 
-function cmtx_delete_rating () { //delete guest rating if rated
+function cmtx_delete_rating() { //delete guest rating if rated
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 	
@@ -714,7 +713,7 @@ function cmtx_delete_rating () { //delete guest rating if rated
 } //end of delete-rating function
 
 
-function cmtx_validate_reply ($reply_id, $page_id) { //checks whether reply was valid
+function cmtx_validate_reply($reply_id, $page_id) { //checks whether reply was valid
 
 	global $cmtx_mysql_table_prefix; //globalise variables
 
@@ -727,17 +726,17 @@ function cmtx_validate_reply ($reply_id, $page_id) { //checks whether reply was 
 } //end of validate_reply function
 
 
-function cmtx_comment_minimum ($comment) { //checks whether comment is less than minimum settings
+function cmtx_comment_minimum($comment) { //checks whether comment is less than minimum settings
 
-	$comment = str_ireplace("<br />", " ", $comment); //remove <br /> tags
-	$comment = str_ireplace("<p></p>", " ", $comment); //remove <p></p> tags
+	$comment = str_ireplace('<br />', ' ', $comment); //remove <br /> tags
+	$comment = str_ireplace('<p></p>', ' ', $comment); //remove <p></p> tags
 	$comment = html_entity_decode($comment); //decode HTML entities
 	$comment = strip_tags($comment); //strip any tags from comment
 	$comment = trim($comment); //remove any space at beginning and end of comment
 
 	$comment_number_of_characters = cmtx_strlen($comment); //number of characters in comment
 
-	$comment_number_of_words = count(explode(" ", $comment)); //number of words in comment
+	$comment_number_of_words = count(explode(' ', $comment)); //number of words in comment
 
 	if ($comment_number_of_characters < cmtx_setting('comment_minimum_characters') || $comment_number_of_words < cmtx_setting('comment_minimum_words')) { //if comment is less than minimum
 		cmtx_error(CMTX_ERROR_MESSAGE_COMMENT_MIN); //reject user for entering short comment
@@ -746,7 +745,7 @@ function cmtx_comment_minimum ($comment) { //checks whether comment is less than
 } //end of comment-minimum function
 
 
-function cmtx_comment_maximum ($comment) { //checks whether comment exceeds maximum
+function cmtx_comment_maximum($comment) { //checks whether comment exceeds maximum
 
 	$comment = trim($comment); //remove any space at beginning and end of comment
 	
@@ -763,9 +762,9 @@ function cmtx_comment_maximum ($comment) { //checks whether comment exceeds maxi
 } //end of comment-maximum function
 
 
-function cmtx_comment_max_lines ($comment) { //checks whether comment contains too many lines
+function cmtx_comment_max_lines($comment) { //checks whether comment contains too many lines
 
-	$comment_number_of_lines = substr_count($comment, "<br />") + (substr_count($comment, "<p></p>") * 2); //number of lines in comment
+	$comment_number_of_lines = substr_count($comment, '<br />') + (substr_count($comment, '<p></p>') * 2); //number of lines in comment
 
 	if ($comment_number_of_lines > cmtx_setting('comment_maximum_lines')) { //if comment contains too many lines
 		cmtx_error(CMTX_ERROR_MESSAGE_COMMENT_MAX_LINES); //reject user for entering too many lines
@@ -787,7 +786,7 @@ function cmtx_comment_resubmit() { //checks whether comment is new
 } //end of comment-resubmit function
 
 
-function cmtx_check_repeats ($entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks entry for repeating characters
+function cmtx_check_repeats($entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks entry for repeating characters
 
 	$repeats_found = false; //initialise flag as false
 
@@ -800,11 +799,11 @@ function cmtx_check_repeats ($entry, $action, $approve_msg, $error_msg, $ban_msg
 	//3 or more non-numeric characters
 
 	if ($repeats_found) { //if repeats found
-		if ($action == "approve") { //if entering repeats should require approval
+		if ($action == 'approve') { //if entering repeats should require approval
 			cmtx_approve($approve_msg); //approve user for entering repeats
-		} else if ($action == "reject") { //if entering repeats should be rejected
+		} else if ($action == 'reject') { //if entering repeats should be rejected
 			cmtx_error($error_msg); //reject user for entering repeats
-		} else if ($action == "ban") { //if entering repeats should result in a ban
+		} else if ($action == 'ban') { //if entering repeats should result in a ban
 			cmtx_ban($ban_msg); //ban user for entering repeats
 		}
 	} //end of if-repeats-found
@@ -812,7 +811,7 @@ function cmtx_check_repeats ($entry, $action, $approve_msg, $error_msg, $ban_msg
 } //end of check-repeats function
 
 
-function cmtx_check_for_link ($entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks entry for link
+function cmtx_check_for_link($entry, $action, $approve_msg, $error_msg, $ban_msg) { //checks entry for link
 
 	global $cmtx_path; //globalise variables
 
@@ -841,11 +840,11 @@ function cmtx_check_for_link ($entry, $action, $approve_msg, $error_msg, $ban_ms
 		} //end of for-each-link-detection
 
 		if ($link_found) { //if link was entered
-			if ($action == "approve") { //if entering a link should require approval
+			if ($action == 'approve') { //if entering a link should require approval
 				cmtx_approve($approve_msg); //approve user for entering link
-			} else if ($action == "reject") { //if entering a link should be rejected
+			} else if ($action == 'reject') { //if entering a link should be rejected
 				cmtx_error($error_msg); //reject user for entering link
-			} else if ($action == "ban") { //if entering a link should result in a ban
+			} else if ($action == 'ban') { //if entering a link should result in a ban
 				cmtx_ban($ban_msg); //ban user for entering link
 			}
 		} //end of if-link-was-entered		
@@ -855,7 +854,7 @@ function cmtx_check_for_link ($entry, $action, $approve_msg, $error_msg, $ban_ms
 } //end of check-for-link function
 
 
-function cmtx_comment_detect_image ($comment) { //checks comment for images
+function cmtx_comment_detect_image($comment) { //checks comment for images
 
 	$image_found = stripos($comment, '[IMG]'); //check for image tag
 
@@ -866,7 +865,7 @@ function cmtx_comment_detect_image ($comment) { //checks comment for images
 } //end of comment-detect-image function
 
 
-function cmtx_comment_detect_video ($comment) { //checks comment for videos
+function cmtx_comment_detect_video($comment) { //checks comment for videos
 
 	$video_found = stripos($comment, '[VIDEO]'); //check for video tag
 
@@ -877,7 +876,7 @@ function cmtx_comment_detect_video ($comment) { //checks comment for videos
 } //end of comment-detect-video function
 
 
-function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
+function cmtx_comment_add_bb_code($comment) { //add BB Code to comment
 
 	$code_box_styling = 'background-color:#FAFAFA; width:500px; padding:4px; white-space:nowrap; overflow:auto; border:1px inset;';
 	$php_box_styling = 'background-color:#FAFAFA; width:500px; font-size:medium; padding:4px; white-space:nowrap; overflow:auto; border:1px inset;';
@@ -920,15 +919,15 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 	}
 
 	if (cmtx_setting('enabled_bb_code_php')) {
-		$comment = preg_replace("/\[PHP\]\s*\[\/PHP\]/is", "", $comment);
-		while (preg_match("/\[PHP\](.*?)\[\/PHP\]/is", $comment, $matches)) {
-			$code = html_entity_decode($matches[1]);
+		$comment = preg_replace('/\[PHP\]\s*\[\/PHP\]/is', '', $comment);
+		while (preg_match('/\[PHP\](.*?)\[\/PHP\]/is', $comment, $matches)) {
+			$code = html_entity_decode($matches[1], ENT_QUOTES);
 			$code = trim($code);
 			$code = highlight_string($code, true);
-			$code = str_ireplace("\r", "", $code);
-			$code = str_ireplace("\n", "", $code);
-			$code = str_ireplace("&nbsp;", " ", $code);
-			$comment = str_ireplace("[PHP]" . $matches[1] . "[/PHP]", "<div style='" . $php_box_styling . "'>$code</div>", $comment);
+			$code = str_ireplace("\r", '', $code);
+			$code = str_ireplace("\n", '', $code);
+			$code = str_ireplace('&nbsp;', ' ', $code);
+			$comment = str_ireplace('[PHP]' . $matches[1] . '[/PHP]', '<div style="' . $php_box_styling . '">' . $code . '</div>', $comment);
 		}
 	}
 
@@ -962,21 +961,21 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 		$cmtx_bb_code_link_attribute = ''; //initialize variable
 
 		if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
-			$cmtx_bb_code_link_attribute = " target=\"_blank\"";
+			$cmtx_bb_code_link_attribute = ' target="_blank"';
 		}
 
 		if (cmtx_setting('comment_links_nofollow')) { //if links should contain nofollow tag
-			$cmtx_bb_code_link_attribute .= " rel=\"nofollow\"";
+			$cmtx_bb_code_link_attribute .= ' rel="nofollow"';
 		}
 
-		function cmtx_link_1 (array $matches) {
+		function cmtx_link_1(array $matches) {
 
 			global $cmtx_bb_code_link_attribute;
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[1] . "</a>";
+				return '<a href="' . $matches[1] . '"' . $cmtx_bb_code_link_attribute . '>' . $matches[1] . '</a>';
 			} else {
 				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_LINK);
 				return;
@@ -985,7 +984,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_LINK_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_LINK_4, '/') . '/is', 'cmtx_link_1', $comment);
 
-		function cmtx_link_2 (array $matches) {
+		function cmtx_link_2(array $matches) {
 
 			global $cmtx_bb_code_link_attribute;
 
@@ -999,7 +998,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				return "<a href='" . $matches[1] . "'$cmtx_bb_code_link_attribute>" . $matches[2] . "</a>";
+				return '<a href="' . $matches[1] . '"' . $cmtx_bb_code_link_attribute . '>' . $matches[2] . '</a>';
 			} else {
 				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_LINK);
 				return;
@@ -1017,21 +1016,21 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 		$cmtx_bb_code_email_attribute = ''; //initialize variable
 
 		if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
-			$cmtx_bb_code_email_attribute = " target=\"_blank\"";
+			$cmtx_bb_code_email_attribute = ' target="_blank"';
 		}
 
 		if (cmtx_setting('comment_links_nofollow')) { //if links should contain nofollow tag
-			$cmtx_bb_code_email_attribute .= " rel=\"nofollow\"";
+			$cmtx_bb_code_email_attribute .= ' rel="nofollow"';
 		}
 
-		function cmtx_email_1 (array $matches) {
+		function cmtx_email_1(array $matches) {
 
 			global $cmtx_bb_code_email_attribute;
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
 
 			if (filter_var($matches[1], FILTER_VALIDATE_EMAIL)) {
-				return "<a href='mailto:" . $matches[1] . "'$cmtx_bb_code_email_attribute>" . $matches[1] . "</a>";
+				return '<a href="mailto:' . $matches[1] . '"' . $cmtx_bb_code_email_attribute . '>' . $matches[1] . '</a>';
 			} else {
 				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL);
 				return;
@@ -1040,7 +1039,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 		$comment = preg_replace_callback('/' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_1, '/') . '(.*?)' . preg_quote(CMTX_BB_CODE_TAG_EMAIL_4, '/') . '/is', 'cmtx_email_1', $comment);
 
-		function cmtx_email_2 (array $matches) {
+		function cmtx_email_2(array $matches) {
 
 			global $cmtx_bb_code_email_attribute;
 
@@ -1054,7 +1053,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 			}
 
 			if (filter_var($matches[1], FILTER_VALIDATE_EMAIL)) {
-				return "<a href='mailto:" . $matches[1] . "'$cmtx_bb_code_email_attribute>" . $matches[2] . "</a>";
+				return '<a href="mailto:' . $matches[1] . '"' . $cmtx_bb_code_email_attribute . '>' . $matches[2] . '</a>';
 			} else {
 				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_EMAIL);
 				return;
@@ -1067,14 +1066,14 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 	if (cmtx_setting('enabled_bb_code_image')) {
 
-		function cmtx_image_1 (array $matches) {
+		function cmtx_image_1(array $matches) {
 
 			$image_styling = 'max-width:508px; height:auto;';
 
 			$matches[1] = cmtx_url_encode_spaces($matches[1]);
 
 			if (filter_var($matches[1], FILTER_VALIDATE_URL)) {
-				return "<img src='" . $matches[1] . "' style='" . $image_styling . "'/>";
+				return '<img src="' . $matches[1] . '" style="' . $image_styling . '"/>';
 			} else {
 				cmtx_error(CMTX_ERROR_MESSAGE_BB_INVALID_IMAGE);
 				return;
@@ -1088,7 +1087,7 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 
 	if (cmtx_setting('enabled_bb_code_video')) {
 
-		function cmtx_video_1 (array $matches) {
+		function cmtx_video_1(array $matches) {
 
 			global $cmtx_path;
 
@@ -1115,68 +1114,68 @@ function cmtx_comment_add_bb_code ($comment) { //add BB Code to comment
 } //end of comment-add-bb-code function
 
 
-function cmtx_comment_add_smilies ($comment) { //add smilies to comment
+function cmtx_comment_add_smilies($comment) { //add smilies to comment
 
 	$smiley_styling = 'border-style: none; vertical-align: bottom;';
 
 	if (cmtx_setting('enabled_smilies_smile')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SMILE, "<img src='" . cmtx_commentics_url() . "images/smilies/smile.gif' title='" . CMTX_SMILEY_TITLE_SMILE . "' alt='Smile' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SMILE, '<img src="' . cmtx_commentics_url() . 'images/smilies/smile.gif" title="' . CMTX_SMILEY_TITLE_SMILE . '" alt="Smile" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sad')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SAD, "<img src='" . cmtx_commentics_url() . "images/smilies/sad.gif' title='" . CMTX_SMILEY_TITLE_SAD . "' alt='Sad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SAD, '<img src="' . cmtx_commentics_url() . 'images/smilies/sad.gif" title="' . CMTX_SMILEY_TITLE_SAD . '" alt="Sad" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_huh')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_HUH, "<img src='" . cmtx_commentics_url() . "images/smilies/huh.gif' title='" . CMTX_SMILEY_TITLE_HUH . "' alt='Huh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_HUH, '<img src="' . cmtx_commentics_url() . 'images/smilies/huh.gif" title="' . CMTX_SMILEY_TITLE_HUH . '" alt="Huh" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_laugh')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_LAUGH, "<img src='" . cmtx_commentics_url() . "images/smilies/laugh.gif' title='" . CMTX_SMILEY_TITLE_LAUGH . "' alt='Laugh' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_LAUGH, '<img src="' . cmtx_commentics_url() . 'images/smilies/laugh.gif" title="' . CMTX_SMILEY_TITLE_LAUGH . '" alt="Laugh" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_mad')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_MAD, "<img src='" . cmtx_commentics_url() . "images/smilies/mad.gif' title='" . CMTX_SMILEY_TITLE_MAD . "' alt='Mad' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_MAD, '<img src="' . cmtx_commentics_url() . 'images/smilies/mad.gif" title="' . CMTX_SMILEY_TITLE_MAD . '" alt="Mad" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_tongue')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_TONGUE, "<img src='" . cmtx_commentics_url() . "images/smilies/tongue.gif' title='" . CMTX_SMILEY_TITLE_TONGUE . "' alt='Tongue' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_TONGUE, '<img src="' . cmtx_commentics_url() . 'images/smilies/tongue.gif" title="' . CMTX_SMILEY_TITLE_TONGUE . '" alt="Tongue" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_crying')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_CRYING, "<img src='" . cmtx_commentics_url() . "images/smilies/crying.gif' title='" . CMTX_SMILEY_TITLE_CRYING . "' alt='Crying' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_CRYING, '<img src="' . cmtx_commentics_url() . 'images/smilies/crying.gif" title="' . CMTX_SMILEY_TITLE_CRYING . '" alt="Crying" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_grin')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_GRIN, "<img src='" . cmtx_commentics_url() . "images/smilies/grin.gif' title='" . CMTX_SMILEY_TITLE_GRIN . "' alt='Grin' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_GRIN, '<img src="' . cmtx_commentics_url() . 'images/smilies/grin.gif" title="' . CMTX_SMILEY_TITLE_GRIN . '" alt="Grin" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_wink')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_WINK, "<img src='" . cmtx_commentics_url() . "images/smilies/wink.gif' title='" . CMTX_SMILEY_TITLE_WINK . "' alt='Wink' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_WINK, '<img src="' . cmtx_commentics_url() . 'images/smilies/wink.gif" title="' . CMTX_SMILEY_TITLE_WINK . '" alt="Wink" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_scared')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SCARED, "<img src='" . cmtx_commentics_url() . "images/smilies/scared.gif' title='" . CMTX_SMILEY_TITLE_SCARED . "' alt='Scared' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SCARED, '<img src="' . cmtx_commentics_url() . 'images/smilies/scared.gif" title="' . CMTX_SMILEY_TITLE_SCARED . '" alt="Scared" style="' . $smiley_styling . '"/>', $comment);
 	}	
 
 	if (cmtx_setting('enabled_smilies_cool')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_COOL, "<img src='" . cmtx_commentics_url() . "images/smilies/cool.gif' title='" . CMTX_SMILEY_TITLE_COOL . "' alt='Cool' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_COOL, '<img src="' . cmtx_commentics_url() . 'images/smilies/cool.gif" title="' . CMTX_SMILEY_TITLE_COOL . '" alt="Cool" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_sleep')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SLEEP, "<img src='" . cmtx_commentics_url() . "images/smilies/sleep.gif' title='" . CMTX_SMILEY_TITLE_SLEEP . "' alt='Sleep' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SLEEP, '<img src="' . cmtx_commentics_url() . 'images/smilies/sleep.gif" title="' . CMTX_SMILEY_TITLE_SLEEP . '" alt="Sleep" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_blush')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_BLUSH, "<img src='" . cmtx_commentics_url() . "images/smilies/blush.gif' title='" . CMTX_SMILEY_TITLE_BLUSH . "' alt='Blush' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_BLUSH, '<img src="' . cmtx_commentics_url() . 'images/smilies/blush.gif" title="' . CMTX_SMILEY_TITLE_BLUSH . '" alt="Blush" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_unsure')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_UNSURE, "<img src='" . cmtx_commentics_url() . "images/smilies/unsure.gif' title='" . CMTX_SMILEY_TITLE_UNSURE . "' alt='Unsure' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_UNSURE, '<img src="' . cmtx_commentics_url() . 'images/smilies/unsure.gif" title="' . CMTX_SMILEY_TITLE_UNSURE . '" alt="Unsure" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	if (cmtx_setting('enabled_smilies_shocked')) {
-		$comment = str_ireplace(CMTX_SMILEY_TAG_SHOCKED, "<img src='" . cmtx_commentics_url() . "images/smilies/shocked.gif' title='" . CMTX_SMILEY_TITLE_SHOCKED . "' alt='Shocked' style='" . $smiley_styling . "'/>", $comment);
+		$comment = str_ireplace(CMTX_SMILEY_TAG_SHOCKED, '<img src="' . cmtx_commentics_url() . 'images/smilies/shocked.gif" title="' . CMTX_SMILEY_TITLE_SHOCKED . '" alt="Shocked" style="' . $smiley_styling . '"/>', $comment);
 	}
 
 	return $comment;
@@ -1184,7 +1183,7 @@ function cmtx_comment_add_smilies ($comment) { //add smilies to comment
 } //end of comment-add-smilies function
 
 
-function cmtx_check_maximum_smilies ($comment) { //checks whether number of smilies exceeds maximum
+function cmtx_check_maximum_smilies($comment) { //checks whether number of smilies exceeds maximum
 
 	$number_of_smilies = substr_count($comment, '<img src='); //number of smilies in comment
 
@@ -1214,7 +1213,7 @@ function cmtx_set_form_cookie($name, $email, $website, $town, $country) { //save
 } //end of set-form-cookie function
 
 
-function cmtx_purify ($comment) { //purifies HTML
+function cmtx_purify($comment) { //purifies HTML
 
 	global $cmtx_path; //globalise variables
 
@@ -1229,7 +1228,7 @@ function cmtx_purify ($comment) { //purifies HTML
 } //end of purify function
 
 
-function cmtx_akismet ($name, $email, $website, $comment) { //check Akismet test for spam
+function cmtx_akismet($name, $email, $website, $comment) { //check Akismet test for spam
 
 	global $cmtx_path; //globalise variables
 
@@ -1285,13 +1284,13 @@ function cmtx_repopulate() { //repopulate the form with posted data
 } //end of repopulate function
 
 
-function cmtx_get_name ($id) { //get name from comment ID
+function cmtx_get_name($id) { //get name from comment ID
 
 	global $cmtx_mysql_table_prefix;
 
 	$name_query = cmtx_db_query("SELECT `name` FROM `" . $cmtx_mysql_table_prefix . "comments` WHERE `id` = '$id'");
 	$name_result = cmtx_db_fetch_assoc($name_query);
-	$name = $name_result["name"];
+	$name = $name_result['name'];
 
 	return $name;
 	
@@ -1345,7 +1344,7 @@ function cmtx_check_maximums() { //check field data does not exceed maximum leng
 } //end of check-maximums function
 
 
-function cmtx_fix_entry ($entry) { //converts words to lowercase except first letter
+function cmtx_fix_entry($entry) { //converts words to lowercase except first letter
 
 	if (cmtx_is_encoding_iso($entry)) { //if encoding is ISO-8859-1
 		$entry = ucwords(strtolower($entry)); //convert
@@ -1356,16 +1355,16 @@ function cmtx_fix_entry ($entry) { //converts words to lowercase except first le
 } //end of fix-entry function
 
 
-function cmtx_is_encoding_iso ($entry) { //checks whether character encoding is ISO-8859-1
+function cmtx_is_encoding_iso($entry) { //checks whether character encoding is ISO-8859-1
 
 	if (function_exists('mb_check_encoding') && is_callable('mb_check_encoding')) {
-		if (mb_check_encoding($entry, "ASCII")) {
+		if (mb_check_encoding($entry, 'ASCII')) {
 			return true;
 		} else {
 			return false;
 		}
 	} else {
-		if (preg_match("/^[\\x00-\\xFF]*$/u", $entry) === 1) {
+		if (preg_match('/^[\\x00-\\xFF]*$/u', $entry) === 1) {
 			return true;
 		} else {
 			return false;
@@ -1375,7 +1374,7 @@ function cmtx_is_encoding_iso ($entry) { //checks whether character encoding is 
 } //end of is-encoding-iso function
 
 
-function cmtx_is_injected ($entry) { //checks if entry contains injection attempt
+function cmtx_is_injected($entry) { //checks if entry contains injection attempt
 
 	$injections = array('(\n+)','(\r+)','(\t+)','(%0A+)','(%0D+)','(%08+)','(%09+)');
 	$inject = join('|', $injections);
@@ -1388,16 +1387,16 @@ function cmtx_is_injected ($entry) { //checks if entry contains injection attemp
 } //end of is-injected function
 
 
-function cmtx_comment_parse_links ($comment) { //convert plain text links to html
+function cmtx_comment_parse_links($comment) { //convert plain text links to html
 
-	$attribute = ""; //initialize variable
+	$attribute = ''; //initialize variable
 
 	if (cmtx_setting('comment_links_new_window')) { //if links should open in new window
-		$attribute = " target=\"_blank\"";
+		$attribute = ' target="_blank"';
 	}
 
 	if (cmtx_setting('comment_links_nofollow')) { //if links should contain nofollow tag
-		$attribute .= " rel=\"nofollow\"";
+		$attribute .= ' rel="nofollow"';
 	}
 
 	if (cmtx_setting('comment_parser_convert_links')) { //if web links should be converted
@@ -1414,43 +1413,43 @@ function cmtx_comment_parse_links ($comment) { //convert plain text links to htm
 } //end of comment-parse-links function
 
 
-function cmtx_comment_add_breaks ($comment) { //add line breaks
+function cmtx_comment_add_breaks($comment) { //add line breaks
 
 	$comment = trim($comment);
 
-	$comment = preg_replace('/(\r\n){2,}/', "<p></p>", $comment); //replace instances of 2 or more \r\n with <p></p>
+	$comment = preg_replace("/(\r\n){2,}/", '<p></p>', $comment); //replace instances of 2 or more \r\n with <p></p>
 
-	$comment = preg_replace('/(\<br \/\>){2,}/', "<p></p>", $comment); //replace instances of 2 or more <br />s with  <p></p>
+	$comment = preg_replace('/(\<br \/\>){2,}/', '<p></p>', $comment); //replace instances of 2 or more <br />s with  <p></p>
 
-	$comment = str_ireplace("\r\n", "<br />", $comment); //replace remaining line breaks with <br />s
+	$comment = str_ireplace("\r\n", '<br />', $comment); //replace remaining line breaks with <br />s
 
 	return $comment; //return breaked string
 
 } //end of comment-add-breaks function
 
 
-function cmtx_comment_remove_breaks ($comment) { //remove line breaks
+function cmtx_comment_remove_breaks($comment) { //remove line breaks
 
 	$comment = trim($comment);
 
-	$comment = preg_replace('/(\r\n){2,}/', " ", $comment); //replace instances of 2 or more \r\n with a space
+	$comment = preg_replace("/(\r\n){2,}/", ' ', $comment); //replace instances of 2 or more \r\n with a space
 
-	$comment = str_ireplace("\r\n", " ", $comment); //replace remaining line breaks with a space
+	$comment = str_ireplace("\r\n", ' ', $comment); //replace remaining line breaks with a space
 
 	return $comment; //return non-breaked string
 
 } //end of comment-remove-breaks function
 
 
-function cmtx_comment_deny_long_words ($comment) { //deny very long words
+function cmtx_comment_deny_long_words($comment) { //deny very long words
 
 	$long_word_found = false; //initialise flag as false
 
-	$comment = str_ireplace("<br />", " ", $comment); //remove any <br /> tags
-	$comment = str_ireplace("<p></p>", " ", $comment); //remove any <p></p> tags
+	$comment = str_ireplace('<br />', ' ', $comment); //remove any <br /> tags
+	$comment = str_ireplace('<p></p>', ' ', $comment); //remove any <p></p> tags
 	$comment = strip_tags($comment); //strip any tags
 
-	$words = explode(" ", $comment); //get words into array
+	$words = explode(' ', $comment); //get words into array
 
 	foreach ($words as $word) { //for each word
 		if (cmtx_strlen($word) >= cmtx_setting('long_word_length_to_deny')) { //if word length is longer than allowed word length
@@ -1480,11 +1479,11 @@ function cmtx_comment_check_capitals ($comment) { //checks comment for too many 
 			$percentage_of_capitals = ($number_of_capitals / $number_of_letters) * 100; //percentage of capitals
 
 			if ($percentage_of_capitals >= cmtx_setting('check_capitals_percentage')) { //if too many capitals
-				if (cmtx_setting('check_capitals_action') == "approve") { //if entering too many capitals should require approval
+				if (cmtx_setting('check_capitals_action') == 'approve') { //if entering too many capitals should require approval
 					cmtx_approve(CMTX_APPROVE_REASON_CAPITALS); //approve user for too many capitals
-				} else if (cmtx_setting('check_capitals_action') == "reject") { //if entering too many capitals should be rejected
+				} else if (cmtx_setting('check_capitals_action') == 'reject') { //if entering too many capitals should be rejected
 					cmtx_error(CMTX_ERROR_MESSAGE_CAPITALS); //reject user for too many capitals
-				} else if (cmtx_setting('check_capitals_action') == "ban") { //if entering too many capitals should result in a ban
+				} else if (cmtx_setting('check_capitals_action') == 'ban') { //if entering too many capitals should result in a ban
 					cmtx_ban(CMTX_BAN_REASON_CAPITALS); //ban user for too many capitals
 				}
 			} //end of if-too-many-capitals
@@ -1529,9 +1528,9 @@ function cmtx_flood_control_maximum() { //check amount of comments does not exce
 
 	$ip_address = cmtx_get_ip_address();
 
-	$now = strtotime(date("Y-m-d H:i:s")); //get current time
+	$now = strtotime(date('Y-m-d H:i:s')); //get current time
 	$earlier = $now - (3600 * cmtx_setting('flood_control_maximum_period')); //subtract time period from current time
-	$earlier = date("Y-m-d H:is", $earlier); //convert to normal date
+	$earlier = date('Y-m-d H:is', $earlier); //convert to normal date
 
 	//count number of comments (if any) within past period by current user
 	if (cmtx_setting('flood_control_maximum_all_pages')) { //for all pages
@@ -1574,7 +1573,7 @@ function cmtx_check_if_banned() { //check if user is banned
 } //end of check-if-banned function
 
 
-function cmtx_ban ($reason) { //ban user
+function cmtx_ban($reason) { //ban user
 
 	global $cmtx_mysql_table_prefix, $cmtx_is_admin; //globalise variables
 
@@ -1595,8 +1594,8 @@ function cmtx_ban ($reason) { //ban user
 
 		cmtx_notify_admin_new_ban($reason); //notify admin of new ban
 
-		echo "<h3>Commentics</h3>";
-		echo "<div style='margin-bottom: 10px;'></div>";
+		echo '<h3>Commentics</h3>';
+		echo '<div style="margin-bottom: 10px;"></div>';
 		die(CMTX_BAN_MESSAGE_BANNED_NEW); //end scripting and output message to user explaining they are now banned
 
 	}
@@ -1604,20 +1603,20 @@ function cmtx_ban ($reason) { //ban user
 } //end of ban function
 
 
-function cmtx_error ($message) { //process error
+function cmtx_error($message) { //process error
 
 	global $cmtx_error, $cmtx_error_message, $cmtx_error_total; //globalise variables
 
 	$cmtx_error = true; //there is an error
 
-	$cmtx_error_message .= "<li>" . $message . "</li>"; //concatenate to error message
+	$cmtx_error_message .= '<li>' . $message . '</li>'; //concatenate to error message
 
 	$cmtx_error_total ++; //accumulate total number of errors
 
 } //end of error function
 
 
-function cmtx_approve ($reason) { //process approval
+function cmtx_approve($reason) { //process approval
 
 	global $cmtx_approve, $cmtx_approve_reason; //globalise variables
 

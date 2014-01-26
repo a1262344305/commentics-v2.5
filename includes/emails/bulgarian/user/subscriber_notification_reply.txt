@@ -1,4 +1,4 @@
-﻿Hello [name],
+Hello [name],
 
 You have a reply on the page [page reference], located at the following address:
 [comment url]

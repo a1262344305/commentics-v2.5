@@ -30,101 +30,101 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 <meta name="robots" content="noindex"/>
 <style type="text/css"><!--
 body {
-padding-left: 5px;
+	padding-left: 5px;
 }
 
 h1 {
-color: #636E75;
-font-size: 32px;
-font-weight: normal;
-margin-bottom: 10px;
-margin-top: 0;
+	color: #636E75;
+	font-size: 32px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	margin-top: 0;
 }
 
 .subscription_info_block {
-margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .subscription_info_label {
-float: left;
-width: 55px;
-font-weight: bold;
+	float: left;
+	width: 55px;
+	font-weight: bold;
 }
 
 .subscription_header {
-background: none repeat scroll 0 0 #585858;
-color: #FFFFFF;
-height: 25px;
-padding-left: 5px;
-padding-top: 5px;
+	background: none repeat scroll 0 0 #585858;
+	color: #FFFFFF;
+	height: 25px;
+	padding-left: 5px;
+	padding-top: 5px;
 }
 
 .subscription_block {
-margin-top: 10px;
-margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .subscription_custom_block {
-margin-bottom: -15px;
-margin-top: -13px;
+	margin-bottom: -15px;
+	margin-top: -13px;
 }
 
 .subscription_custom_text {
-color: #838B8B;
-font-size: 0.8em;
-margin-bottom: 8px;
+	color: #838B8B;
+	font-size: 0.8em;
+	margin-bottom: 8px;
 }
 
 .button {
-margin-top: 7px;
-background: url("images/buttons/gradient.gif") repeat-x scroll 0 100% #FFAC47;
-border-color: #ED6502 #A04300 #A04300 #ED6502;
-border-style: solid;
-border-width: 1px;
-color: #FFFFFF;
-cursor: pointer;
-font: bold 12px arial,helvetica,sans-serif;
-padding: 1px 7px 2px;
-text-align: center !important;
-white-space: nowrap;
+	margin-top: 7px;
+	background: url("images/buttons/gradient.gif") repeat-x scroll 0 100% #FFAC47;
+	border-color: #ED6502 #A04300 #A04300 #ED6502;
+	border-style: solid;
+	border-width: 1px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font: bold 12px arial,helvetica,sans-serif;
+	padding: 1px 7px 2px;
+	text-align: center !important;
+	white-space: nowrap;
 }
 
 .cancel_link {
-font-size: 0.8em;
+	font-size: 0.8em;
 }
 
 .info, .success, .warning, .error {
-border: 1px solid;
-padding: 5px 5px 5px 25px;
-background-repeat: no-repeat;
-background-position: 5px center;
-position: relative;
-float: left;
-margin-bottom: 10px;
+	border: 1px solid;
+	padding: 5px 5px 5px 25px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	position: relative;
+	float: left;
+	margin-bottom: 10px;
 }
 
 .info {
-color: #00529B;
-background-color: #BDE5F8;
-background-image: url('images/messages/information.png');
+	color: #00529B;
+	background-color: #BDE5F8;
+	background-image: url('images/messages/information.png');
 }
 
 .success {
-color: #4F8A10;
-background-color: #E8FCDC;
-background-image: url('images/messages/success.gif');
+	color: #4F8A10;
+	background-color: #E8FCDC;
+	background-image: url('images/messages/success.gif');
 }
 
 .warning {
-color: #9F6000;
-background-color: #FEEFB3;
-background-image: url('images/messages/warning.png');
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url('images/messages/warning.png');
 }
 
 .error {
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('images/messages/error.gif');
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('images/messages/error.gif');
 }
 }--></style>
 
@@ -254,32 +254,32 @@ $subscriber = cmtx_db_fetch_assoc($subscriber);
 ?>
 
 <div class="subscription_info_block">
-<label class='subscription_info_label'><?php echo CMTX_SUB_NAME; ?></label> <?php echo $subscriber["name"]; ?>
+<label class="subscription_info_label"><?php echo CMTX_SUB_NAME; ?></label> <?php echo $subscriber['name']; ?>
 <br/>
-<label class='subscription_info_label'><?php echo CMTX_SUB_EMAIL; ?></label> <?php echo $subscriber["email"]; ?>
+<label class="subscription_info_label"><?php echo CMTX_SUB_EMAIL; ?></label> <?php echo $subscriber['email']; ?>
 </div>
 
 
 <div class="subscription_header"><?php echo CMTX_SUB_HEADING_TYPE; ?></div>
 
 <div class="subscription_block">
-	<form action="<?php echo "subscribers.php?id=" . $token;?>" method="post">
-		<?php if ($subscriber["to_all"]) { ?> <input type="radio" name="to_all" value="1" checked="checked" onclick="show_hide('all')"/> <?php } else { ?> <input type="radio" name="to_all" value="1" onclick="show_hide('all')"/> <?php } ?> <?php echo CMTX_SUB_ALL_COMMENTS; ?>
+	<form action="<?php echo 'subscribers.php?id=' . $token; ?>" method="post">
+		<?php if ($subscriber['to_all']) { ?> <input type="radio" name="to_all" value="1" checked="checked" onclick="show_hide('all')"/> <?php } else { ?> <input type="radio" name="to_all" value="1" onclick="show_hide('all')"/> <?php } ?> <?php echo CMTX_SUB_ALL_COMMENTS; ?>
 		<br/>
-		<?php if (!$subscriber["to_all"]) { ?> <input type="radio" name="to_all" value="0" checked="checked" onclick="show_hide('custom')"/> <?php } else { ?> <input type="radio" name="to_all" value="0" onclick="show_hide('custom')"/> <?php } ?> <?php echo CMTX_SUB_CUSTOM; ?>
+		<?php if (!$subscriber['to_all']) { ?> <input type="radio" name="to_all" value="0" checked="checked" onclick="show_hide('custom')"/> <?php } else { ?> <input type="radio" name="to_all" value="0" onclick="show_hide('custom')"/> <?php } ?> <?php echo CMTX_SUB_CUSTOM; ?>
 
-		<div id="subscription_custom_block" class="subscription_custom_block" <?php if ($subscriber["to_all"]) { echo "style='display:none;'"; } ?>>
+		<div id="subscription_custom_block" class="subscription_custom_block" <?php if ($subscriber['to_all']) { echo 'style="display:none;"'; } ?>>
 			<br/>
 			<div class="subscription_custom_text"><?php echo CMTX_SUB_ONLY; ?></div>
 
-			<?php if ($subscriber["to_admin"]) { ?> <input type="checkbox" name="to_admin" checked="checked"/> <?php } else { ?> <input type="checkbox" name="to_admin"/> <?php } ?> <?php echo CMTX_SUB_ADMIN_COMMENTS; ?>
+			<?php if ($subscriber['to_admin']) { ?> <input type="checkbox" name="to_admin" checked="checked"/> <?php } else { ?> <input type="checkbox" name="to_admin"/> <?php } ?> <?php echo CMTX_SUB_ADMIN_COMMENTS; ?>
 			<?php if (cmtx_setting('show_reply')) { ?>
 				<br/>
-				<?php if ($subscriber["to_reply"]) { ?> <input type="checkbox" name="to_reply" checked="checked"/> <?php } else { ?> <input type="checkbox" name="to_reply"/> <?php } ?> <?php echo CMTX_SUB_REPLY_COMMENTS; ?>
+				<?php if ($subscriber['to_reply']) { ?> <input type="checkbox" name="to_reply" checked="checked"/> <?php } else { ?> <input type="checkbox" name="to_reply"/> <?php } ?> <?php echo CMTX_SUB_REPLY_COMMENTS; ?>
 			<?php } ?>
 		</div>
 		<br/>
-		<input type="submit" class="button" name="submit" value="Save" title="Save"/>
+		<input type="submit" class="button" name="submit" value="<?php echo CMTX_SUB_SAVE; ?>" title="<?php echo CMTX_SUB_SAVE; ?>"/>
 	</form>
 </div>
 
@@ -287,7 +287,7 @@ $subscriber = cmtx_db_fetch_assoc($subscriber);
 <div class="subscription_header"><?php echo CMTX_SUB_HEADING_CANCEL; ?></div>
 
 <div class="subscription_block">
-<a href="<?php echo "subscribers.php?id=" . $token . "&amp;unsubscribe=1";?>" class="cancel_link" title="<?php echo CMTX_SUB_LINK_CANCEL_TITLE; ?>"><?php echo CMTX_SUB_LINK_CANCEL; ?></a>
+<a href="<?php echo 'subscribers.php?id=' . $token . '&amp;unsubscribe=1'; ?>" class="cancel_link" title="<?php echo CMTX_SUB_LINK_CANCEL_TITLE; ?>"><?php echo CMTX_SUB_LINK_CANCEL; ?></a>
 </div>
 
 </body>

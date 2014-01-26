@@ -244,8 +244,8 @@ jQuery(document).ready(function() {
 </div>
 <?php } ?>
 
-<div class='cmtx_success_ajax'></div>
-<div class='cmtx_error_ajax'></div>
+<div class="cmtx_success_ajax"></div>
+<div class="cmtx_error_ajax"></div>
 
 <?php
 //Permalink (Calculation Only)
@@ -262,7 +262,7 @@ if (isset($_GET['cmtx_perm']) && ctype_digit($_GET['cmtx_perm'])) {
 
 	while ($cmtx_comments = cmtx_db_fetch_assoc($cmtx_comments_query)) {
 
-		cmtx_calc_permalink($cmtx_comments["id"]);
+		cmtx_calc_permalink($cmtx_comments['id']);
 		
 		if ($cmtx_exit_loop) {
 			break;
@@ -305,31 +305,31 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 		
 			$cmtx_rich_snippets = true;
 		
-			if (cmtx_setting('rich_snippets_markup') == "Microdata") {
-				echo "<div itemscope='itemscope' itemtype='http://data-vocabulary.org/Review-aggregate'>";
-				echo "<div class='cmtx_topic_block'>";
-				echo "<span class='cmtx_topic_intro'>" . CMTX_TOPIC_INTRO . "</span>: ";
-				echo "<span class='cmtx_topic_page' itemprop='itemreviewed'>" . $cmtx_topic . "</span>";
-				echo "</div>";
-			} else if (cmtx_setting('rich_snippets_markup') == "Microformats") {
-				echo "<div class='hreview-aggregate'>";
-				echo "<div class='cmtx_topic_block'>";
-				echo "<span class='cmtx_topic_intro'>" . CMTX_TOPIC_INTRO . "</span>: ";
-				echo "<span class='item'><span class='fn cmtx_topic_page'>" . $cmtx_topic . "</span></span>";
-				echo "</div>";
-			} else if (cmtx_setting('rich_snippets_markup') == "RDFa") {
-				echo "<div xmlns:v='http://rdf.data-vocabulary.org/#' typeof='v:Review-aggregate'>";
-				echo "<div class='cmtx_topic_block'>";
-				echo "<span class='cmtx_topic_intro'>" . CMTX_TOPIC_INTRO . "</span>: ";
-				echo "<span class='cmtx_topic_page' property='v:itemreviewed'>" . $cmtx_topic . "</span>";
-				echo "</div>";
+			if (cmtx_setting('rich_snippets_markup') == 'Microdata') {
+				echo '<div itemscope="itemscope" itemtype="http://data-vocabulary.org/Review-aggregate">';
+				echo '<div class="cmtx_topic_block">';
+				echo '<span class="cmtx_topic_intro">' . CMTX_TOPIC_INTRO . '</span>: ';
+				echo '<span class="cmtx_topic_page" itemprop="itemreviewed">' . $cmtx_topic . '</span>';
+				echo '</div>';
+			} else if (cmtx_setting('rich_snippets_markup') == 'Microformats') {
+				echo '<div class="hreview-aggregate">';
+				echo '<div class="cmtx_topic_block">';
+				echo '<span class="cmtx_topic_intro">' . CMTX_TOPIC_INTRO . '</span>: ';
+				echo '<span class="item"><span class="fn cmtx_topic_page">' . $cmtx_topic . '</span></span>';
+				echo '</div>';
+			} else if (cmtx_setting('rich_snippets_markup') == 'RDFa') {
+				echo '<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Review-aggregate">';
+				echo '<div class="cmtx_topic_block">';
+				echo '<span class="cmtx_topic_intro">' . CMTX_TOPIC_INTRO . '</span>: ';
+				echo '<span class="cmtx_topic_page" property="v:itemreviewed">' . $cmtx_topic . '</span>';
+				echo '</div>';
 			}
 		
 		} else {
-			echo "<div class='cmtx_topic_block'>";
-			echo "<span class='cmtx_topic_intro'>" . CMTX_TOPIC_INTRO . "</span>: ";
-			echo "<span class='cmtx_topic_page'>" . $cmtx_topic . "</span>";
-			echo "</div>";
+			echo '<div class="cmtx_topic_block">';
+			echo '<span class="cmtx_topic_intro">' . CMTX_TOPIC_INTRO . '</span>: ';
+			echo '<span class="cmtx_topic_page">' . $cmtx_topic . '</span>';
+			echo '</div>';
 		}
 
 	}
@@ -364,48 +364,48 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	
 	echo '<span class="cmtx_sort_text">' . CMTX_SORT_TEXT . '</span>';
 
-	echo "<select class='cmtx_sort_field' title='" . CMTX_SORT_TITLE . "' onchange='window.location.href = this.options[selectedIndex].value;'>";
+	echo '<select class="cmtx_sort_field" title="' . CMTX_SORT_TITLE . '" onchange="window.location.href = this.options[selectedIndex].value;">';
 
 	if (cmtx_setting('show_sort_by_1') && cmtx_setting('show_date')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "1") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "1") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=1" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_1 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '1') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '1') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=1' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_1 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=1" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_1 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=1' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_1 . '</option>';
 		}
 	}
 	if (cmtx_setting('show_sort_by_2') && cmtx_setting('show_date')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "2") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "2") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=2" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_2 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '2') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '2') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=2' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_2 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=2" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_2 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=2' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_2 . '</option>';
 		}
 	}
 	if (cmtx_setting('show_sort_by_3') && cmtx_setting('show_like')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "3") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "3") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=3" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_3 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '3') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '3') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=3' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_3 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=3" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_3 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=3' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_3 . '</option>';
 		}
 	}
 	if (cmtx_setting('show_sort_by_4') && cmtx_setting('show_dislike')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "4") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "4") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=4" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_4 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '4') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '4') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=4' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_4 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=4" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_4 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=4' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_4 . '</option>';
 		}
 	}
 	if (cmtx_setting('show_sort_by_5') && cmtx_setting('show_rating')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "5") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "5") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=5" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_5 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '5') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '5') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=5' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_5 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=5" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_5 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=5' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_5 . '</option>';
 		}
 	}
 	if (cmtx_setting('show_sort_by_6') && cmtx_setting('show_rating')) {
-		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == "6") || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == "6") ) {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=6" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "' selected='selected'>". CMTX_SORT_6 . "</option>";
+		if ( (isset($_GET['cmtx_sort']) && $_GET['cmtx_sort'] == '6') || (!isset($_GET['cmtx_sort']) && cmtx_setting('comments_order') == '6') ) {
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=6' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '" selected="selected">'. CMTX_SORT_6 . '</option>';
 		} else {
-			echo "<option value='" . cmtx_url_encode(strtok(cmtx_current_page(), "?") . "?cmtx_sort=6" . cmtx_get_query("sort") . CMTX_ANCHOR_COMMENTS) . "'>". CMTX_SORT_6 . "</option>";
+			echo '<option value="' . cmtx_url_encode(strtok(cmtx_current_page(), '?') . '?cmtx_sort=6' . cmtx_get_query('sort') . CMTX_ANCHOR_COMMENTS) . '">'. CMTX_SORT_6 . '</option>';
 		}
 	}
 
@@ -434,36 +434,36 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 		echo '<span class="cmtx_average_rating_text">';
 		if (isset($cmtx_rich_snippets)) {
 		
-			if (cmtx_setting('rich_snippets_markup') == "Microdata") {
-				echo "<span itemprop='rating' itemscope='itemscope' itemtype='http://data-vocabulary.org/Rating'>";
-				echo "<span itemprop='average'>" . $cmtx_average_rating . "</span>";
-				echo "/";
-				echo "<span itemprop='best'>5</span>";
-				echo "</span>";
-				echo " (<span itemprop='votes'>" . cmtx_number_of_ratings() . "</span>)";
-				echo "</span>";
-			} else if (cmtx_setting('rich_snippets_markup') == "Microformats") {
-				echo "<span class='rating'>";
-				echo "<span class='average'>" . $cmtx_average_rating . "</span>";
-				echo "/";
-				echo "<span class='best'>5</span>";
-				echo "</span>";
-				echo " (<span class='votes'>" . cmtx_number_of_ratings() . "</span>)";
-				echo "</span>";
-			} else if (cmtx_setting('rich_snippets_markup') == "RDFa") {
-				echo "<span rel='v:rating'>";
-				echo "<span typeof='v:Rating'>";
-				echo "<span property='v:average'>" . $cmtx_average_rating . "</span>";
-				echo "/";
-				echo "<span property='v:best'>5</span>";
-				echo "</span>";
-				echo "</span>";
-				echo " (<span property='v:votes'>" . cmtx_number_of_ratings() . "</span>)";
-				echo "</span>";
+			if (cmtx_setting('rich_snippets_markup') == 'Microdata') {
+				echo '<span itemprop="rating" itemscope="itemscope" itemtype="http://data-vocabulary.org/Rating">';
+				echo '<span itemprop="average">' . $cmtx_average_rating . '</span>';
+				echo '/';
+				echo '<span itemprop="best">5</span>';
+				echo '</span>';
+				echo ' (<span itemprop="votes">' . cmtx_number_of_ratings() . '</span>)';
+				echo '</span>';
+			} else if (cmtx_setting('rich_snippets_markup') == 'Microformats') {
+				echo '<span class="rating">';
+				echo '<span class="average">' . $cmtx_average_rating . '</span>';
+				echo '/';
+				echo '<span class="best">5</span>';
+				echo '</span>';
+				echo ' (<span class="votes">' . cmtx_number_of_ratings() . '</span>)';
+				echo '</span>';
+			} else if (cmtx_setting('rich_snippets_markup') == 'RDFa') {
+				echo '<span rel="v:rating">';
+				echo '<span typeof="v:Rating">';
+				echo '<span property="v:average">' . $cmtx_average_rating . '</span>';
+				echo '/';
+				echo '<span property="v:best">5</span>';
+				echo '</span>';
+				echo '</span>';
+				echo ' (<span property="v:votes">' . cmtx_number_of_ratings() . '</span>)';
+				echo '</span>';
 			}
 		
 		} else {
-			echo $cmtx_average_rating . "/5 (" . cmtx_number_of_ratings() . ")</span>";
+			echo $cmtx_average_rating . '/5 (' . cmtx_number_of_ratings() . ')</span>';
 		}
 			
 	}
@@ -493,40 +493,40 @@ if ($cmtx_number_of_comments == 0) { //if no comments
 	$cmtx_social_attribute = ''; //initialize variable
 
 	if (cmtx_setting('social_new_window')) {
-		$cmtx_social_attribute = " target='_blank'";
+		$cmtx_social_attribute = ' target="_blank"';
 	}
 
-	echo "<div class='cmtx_social_images'>";
+	echo '<div class="cmtx_social_images">';
 
 	if (cmtx_setting('show_social_facebook')) {
-		echo "<a href='http://www.facebook.com/sharer.php?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/facebook.png' class='cmtx_social_image' title='Facebook' alt='Facebook'/></a>";
+		echo '<a href="http://www.facebook.com/sharer.php?u=' . $cmtx_social_url . '&amp;t=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/facebook.png" class="cmtx_social_image" title="Facebook" alt="Facebook"/></a>';
 	}
 	if (cmtx_setting('show_social_delicious')) {
-		echo "<a href='http://delicious.com/post?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/delicious.png' class='cmtx_social_image' title='del.icio.us' alt='del.icio.us'/></a>";
+		echo '<a href="http://delicious.com/post?url=' . $cmtx_social_url . '&amp;title=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/delicious.png" class="cmtx_social_image" title="del.icio.us" alt="del.icio.us"/></a>';
 	}
 	if (cmtx_setting('show_social_stumbleupon')) {
-		echo "<a href='http://www.stumbleupon.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/stumbleupon.png' class='cmtx_social_image' title='StumbleUpon' alt='StumbleUpon'/></a>";
+		echo '<a href="http://www.stumbleupon.com/submit?url=' . $cmtx_social_url . '&amp;title=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/stumbleupon.png" class="cmtx_social_image" title="StumbleUpon" alt="StumbleUpon"/></a>';
 	}
 	if (cmtx_setting('show_social_digg')) {
-		echo "<a href='http://digg.com/submit?phase=2&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/digg.png' class='cmtx_social_image' title='Digg' alt='Digg'/></a>";
+		echo '<a href="http://digg.com/submit?phase=2&amp;url=' . $cmtx_social_url . '&amp;title=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/digg.png" class="cmtx_social_image" title="Digg" alt="Digg"/></a>';
 	}
 	if (cmtx_setting('show_social_technorati')) {
-		echo "<a href='http://technorati.com/faves?add=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/technorati.png' class='cmtx_social_image' title='Technorati' alt='Technorati'/></a>";
+		echo '<a href="http://technorati.com/faves?add=' . $cmtx_social_url . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/technorati.png" class="cmtx_social_image" title="Technorati" alt="Technorati"/></a>';
 	}
 	if (cmtx_setting('show_social_google')) {
-		echo "<a href='https://plus.google.com/share?url=" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/google.png' class='cmtx_social_image' title='Google+' alt='Google+'/></a>";
+		echo '<a href="https://plus.google.com/share?url=' . $cmtx_social_url . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/google.png" class="cmtx_social_image" title="Google+" alt="Google+"/></a>';
 	}
 	if (cmtx_setting('show_social_reddit')) {
-		echo "<a href='http://reddit.com/submit?url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/reddit.png' class='cmtx_social_image' title='Reddit' alt='Reddit'/></a>";
+		echo '<a href="http://reddit.com/submit?url=' . $cmtx_social_url . '&amp;title=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/reddit.png" class="cmtx_social_image" title="Reddit" alt="Reddit"/></a>';
 	}
 	if (cmtx_setting('show_social_myspace')) {
-		echo "<a href='http://www.myspace.com/Modules/PostTo/Pages/?u=" . $cmtx_social_url . "&amp;t=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/myspace.png' class='cmtx_social_image' title='MySpace' alt='MySpace'/></a>";
+		echo '<a href="http://www.myspace.com/Modules/PostTo/Pages/?u=' . $cmtx_social_url . '&amp;t=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/myspace.png" class="cmtx_social_image" title="MySpace" alt="MySpace"/></a>';
 	}
 	if (cmtx_setting('show_social_twitter')) {
-		echo "<a href='http://twitter.com/home?status=" . $cmtx_social_title . "%20-%20" . $cmtx_social_url . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/twitter.png' class='cmtx_social_image' title='Twitter' alt='Twitter'/></a>";
+		echo '<a href="http://twitter.com/home?status=' . $cmtx_social_title . '%20-%20' . $cmtx_social_url . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/twitter.png" class="cmtx_social_image" title="Twitter" alt="Twitter"/></a>';
 	}
 	if (cmtx_setting('show_social_linkedin')) {
-		echo "<a href='http://www.linkedin.com/shareArticle?mini=true&amp;url=" . $cmtx_social_url . "&amp;title=" . $cmtx_social_title . "' rel='nofollow'$cmtx_social_attribute><img src='" . cmtx_commentics_url() . "images/social/linkedin.png' class='cmtx_social_image' title='LinkedIn' alt='LinkedIn'/></a>";
+		echo '<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=' . $cmtx_social_url . '&amp;title=' . $cmtx_social_title . '" rel="nofollow"' . $cmtx_social_attribute . '><img src="' . cmtx_commentics_url() . 'images/social/linkedin.png" class="cmtx_social_image" title="LinkedIn" alt="LinkedIn"/></a>';
 	}
 
 	echo '</div>';

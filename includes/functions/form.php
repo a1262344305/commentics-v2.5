@@ -24,8 +24,7 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
-function cmtx_is_form_enabled ($display_message) { //checks whether form is enabled
+function cmtx_is_form_enabled($display_message) { //checks whether form is enabled
 
 	global $cmtx_mysql_table_prefix, $cmtx_page_id; //globalise variables
 

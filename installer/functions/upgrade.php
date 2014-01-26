@@ -24,7 +24,6 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-
 function cmtx_get_version() { //get version
 
 	global $mysql_table_prefix;

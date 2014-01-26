@@ -118,7 +118,7 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 			$likes = 0;
 		}
 		
-		echo "<img src='" . cmtx_commentics_url() . "images/buttons/like.png' alt='Like' title='" . CMTX_TITLE_LIKE . "'/><span id='cmtx_flash_like_$id'>" . $likes . "</span>";
+		echo '<img src="' . cmtx_commentics_url() . 'images/buttons/like.png" alt="Like" title="' . CMTX_TITLE_LIKE . '"/><span id="cmtx_flash_like_' . $id . '">' . $likes . '</span>';
 	
 	} else if ($type == 'dislike') {
 	
@@ -130,7 +130,7 @@ if (isset($_POST['id']) && isset($_POST['type'])) {
 			$dislikes = 0;
 		}
 		
-		echo "<img src='" . cmtx_commentics_url() . "images/buttons/dislike.png' alt='Dislike' title='" . CMTX_TITLE_DISLIKE . "'/><span id='cmtx_flash_dislike_$id'>" . $dislikes . "</span>";
+		echo '<img src="' . cmtx_commentics_url() . 'images/buttons/dislike.png" alt="Dislike" title="' . CMTX_TITLE_DISLIKE . '"/><span id="cmtx_flash_dislike_' . $id . '">' . $dislikes . '</span>';
 		
 	}
 

@@ -1,4 +1,4 @@
-﻿Hello [name],
+Hello [name],
 
 You have requested a subscription to the page [page reference], located at the following address:
 [page url]

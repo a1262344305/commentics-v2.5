@@ -1,4 +1,4 @@
-# secure .htaccess files
+# Secure .htaccess files
 <Files .htaccess>
 order allow,deny
 deny from all
