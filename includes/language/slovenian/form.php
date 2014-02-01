@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'Pozor: nekatere storitve so na razpolag
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'Odgovarjate na');
 cmtx_define('CMTX_REPLY_CANCEL', '[preklic]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'Ne odgovarjate nikomur.');
 
 /* Required */

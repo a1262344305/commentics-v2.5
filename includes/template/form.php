@@ -775,7 +775,7 @@ if (isset($cmtx_box) && !empty($cmtx_box)) { //if a box exists
 <input type="hidden" name="cmtx_reply_id" id="cmtx_reply_id" value="<?php echo $cmtx_reply_id; ?>"/>
 <div class="cmtx_reply_bar">
 <span id="cmtx_reply_message" class="cmtx_reply_message"></span>
-<a id="cmtx_reset_reply" class="cmtx_reset_reply" href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" onclick="this.style.display='none'; document.getElementById('cmtx_reply_id').value='0'; document.getElementById('cmtx_reply_message').innerHTML='<?php echo CMTX_REPLY_NOBODY; ?>'; return false;"><?php echo CMTX_REPLY_CANCEL; ?></a>
+<a href="<?php echo cmtx_url_encode(cmtx_current_page()); ?>" id="cmtx_reset_reply" class="cmtx_reset_reply" title="<?php echo CMTX_REPLY_CANCEL_TITLE; ?>" onclick="this.style.display='none'; document.getElementById('cmtx_reply_id').value='0'; document.getElementById('cmtx_reply_message').innerHTML='<?php echo CMTX_REPLY_NOBODY; ?>'; return false;"><?php echo CMTX_REPLY_CANCEL; ?></a>
 </div>
 <div style="clear: left;"></div>
 <div class="cmtx_height_below_reply_bar"></div>

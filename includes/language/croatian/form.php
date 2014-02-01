@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'Upozorenje: neke usluge dostupne su sam
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'Odgovor na');
 cmtx_define('CMTX_REPLY_CANCEL', '[Odustani]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'Ne odgovarate nikomu.');
 
 /* Required */

@@ -36,6 +36,17 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 <br />
 
+<div class="installer_steps">
+	<div class="step past">Welcome</div>
+	<div class="step past">Database</div>
+	<div class="step past">System</div>
+	<div class="step past">Menu</div>
+	<div class="step past">Action</div>
+	<div class="step active">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 <?php
 @error_reporting(0); //turn off all error reporting
 @ini_set('display_errors', 0); //don't display errors
@@ -62,9 +73,7 @@ if (isset($_POST['submit'])) {
 	$latest_version = $_POST['latest_version'];
 } else {
 	echo '<div class="error">';
-	echo '<span class="fail">';
 	echo 'Please restart the Installer.';
-	echo '</span>';
 	echo '</div>';
 	echo '<div style="clear:left;"></div>';
 	die();
@@ -247,24 +256,19 @@ if (!$cmtx_query_error) {
 
 <?php
 if ($cmtx_query_error) {
-echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
-echo '<span class="fail">' . 'Upgrade failed.' . '</span>';
-echo '<p></p>';
-echo 'Please consult these error messages:';
-echo '<p></p>';
-echo $cmtx_query_error;
-echo '</div>';
-echo '<div style="clear:left;"></div>';
+	echo '<div style="background: #FCFCFC; padding: 5px; border-top: 1px solid #ABABAB; border-left: 1px solid #ABABAB; border-right: 1px solid #888888; border-bottom: 1px solid #888888; background-image: linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -o-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -moz-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); background-image: -ms-linear-gradient(top, #FFFFFF 1%, #F5F5F5 65%); box-shadow: 3px 3px 5px #888888;">';
+	echo '<span class="fail">' . 'Upgrade failed.' . '</span>';
+	echo '<p></p>';
+	echo 'Please consult these error messages:';
+	echo '<p></p>';
+	echo $cmtx_query_error;
+	echo '</div>';
+	echo '<div style="clear:left;"></div>';
 } else {
-echo '<span class="success">' . 'Upgrade successful.' . '</span>';
-echo '<p></p>';
-echo 'You are now using the latest version.';
-echo '<p></p>';
-echo '1. Please now delete the /installer/ folder.';
-echo '<br />';
-echo '<i>' . cmtx_setting('commentics_url') . '<b>installer</b>/</i>';
-echo '<p></p>';
-echo '2. Then proceed to your <a href="../' . $admin_folder . '/">admin panel</a>.';;
+	echo '<div class="success">Upgrade complete!</div>';
+	echo '<div style="clear:left"></div>';
+	echo '<p></p>';
+	echo '<div class="info">You can now go to your <a href="../' . $admin_folder . '/">admin panel</a>.</div>';
 }
 ?>
 

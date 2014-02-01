@@ -24,11 +24,24 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 if (!isset($cmtx_path)) { die('Access Denied.'); }
 
-require_once 'details.php'; //load database details
+$cmtx_db_ok = true;
+
 require_once 'functions.php'; //load database functions
 require_once 'failure.php'; //load failure messages
 
-$cmtx_db_ok = true;
+if (file_exists($cmtx_path . 'includes/db/details.php')) { //if database details file exists
+	require_once 'details.php'; //load database details
+} else {
+	if (defined('CMTX_IN_ADMIN')) {
+		cmtx_db_error_details();
+		$cmtx_db_ok = false;
+		return;
+	} else {
+		cmtx_db_error_general();
+		$cmtx_db_ok = false;
+		return;
+	}
+}
 
 if (empty($cmtx_mysql_database)) {
 	$cmtx_mysql_database = ' ';

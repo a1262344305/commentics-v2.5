@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'ต้องเปิดใช้งา
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'คุณกำลังตอบข้อความคิดเห็นของ');
 cmtx_define('CMTX_REPLY_CANCEL', '[ยกเลิก]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'คุณไม่ได้กำลังตอบข้อความคิดเห็นของผู้ใด');
 
 /* Required */

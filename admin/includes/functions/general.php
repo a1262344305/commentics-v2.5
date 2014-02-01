@@ -1121,4 +1121,28 @@ function cmtx_format_date($date) { //format a date
 	return $date;
 
 } //end of format-date function
+
+
+function cmtx_delete_installer($dir) { //delete installer folder
+
+	if (is_dir($dir)) {
+	
+		$objects = scandir($dir);
+		
+		foreach ($objects as $object) {
+			if ($object != '.' && $object != '..') {
+				if (filetype($dir . '/' . $object) == 'dir') {
+					cmtx_delete_installer($dir . '/' . $object);
+				} else {
+					@unlink($dir . '/' . $object);
+				}
+			}
+		}
+		
+	reset($objects);
+	@rmdir($dir);
+	
+   }
+
+} //end of delete-installer function
 ?>

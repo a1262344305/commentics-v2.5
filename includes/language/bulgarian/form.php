@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'Трябва да включите Java
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'Вие отговаряте на');
 cmtx_define('CMTX_REPLY_CANCEL', '[Откажи]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'Вие не отговаряте на никого.');
 
 /* Required */

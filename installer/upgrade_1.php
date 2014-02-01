@@ -36,6 +36,17 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 
 <br />
 
+<div class="installer_steps">
+	<div class="step past">Welcome</div>
+	<div class="step past">Database</div>
+	<div class="step past">System</div>
+	<div class="step past">Menu</div>
+	<div class="step active">Action</div>
+	<div class="step">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 <?php
 @error_reporting(0); //turn off all error reporting
 @ini_set('display_errors', 0); //don't display errors
@@ -64,9 +75,9 @@ if (!$cmtx_db_ok) { die(); }
 <?php
 if (cmtx_db_num_rows(cmtx_db_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_prefix . "comments'")) == 0) {
 	echo '<div class="error">';
-	echo '<span class="fail">There are no database tables.</span>';
-	echo '<p></p>';
-	echo '<span class="fail">Have you installed the script?</span>';
+	echo 'There are no database tables.';
+	echo '<br/>';
+	echo 'Have you installed the script?';
 	echo '</div>';
 	echo '<div style="clear:left;"></div>';
 	echo '<p></p>';
@@ -91,7 +102,7 @@ echo '<p></p>';
 <?php
 if ($installed_version == $latest_version) {
 	echo '<div class="error">';
-	echo '<span class="fail">You already have the latest version.</span>';
+	echo 'You already have the latest version.';
 	echo '</div>';
 	echo '<div style="clear:left;"></div>';
 	echo '<p></p>';

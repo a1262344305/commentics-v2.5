@@ -46,6 +46,17 @@ if (isset($_POST['submit'])) {
 
 <br />
 
+<div class="installer_steps">
+	<div class="step past">Welcome</div>
+	<div class="step past">Database</div>
+	<div class="step past">System</div>
+	<div class="step active">Menu</div>
+	<div class="step">Action</div>
+	<div class="step">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 Would you like to install or upgrade the programme?
 
 <p></p>

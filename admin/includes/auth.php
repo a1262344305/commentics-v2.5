@@ -30,17 +30,17 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 
 	$account = cmtx_valid_account($_POST['username'], md5($_POST['password']));
 
-	if ($account == "1") { //Disabled
+	if ($account == '1') { //Disabled
 	
-		header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?action=disabled");
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?action=disabled');
 		die();
 	
-	} else if ($account == "2") { //Locked
+	} else if ($account == '2') { //Locked
 
-		header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?action=locked");
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?action=locked');
 		die();
 	
-	} else if ($account == "3") { //Okay
+	} else if ($account == '3') { //Okay
 	
 		session_regenerate_id(true);
 		$_SESSION['cmtx_username'] = $_POST['username'];
@@ -55,7 +55,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `login_attempts` = '0' WHERE `id` = '" . cmtx_get_admin_id() . "'");
 		cmtx_delete_attempts();
 		cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "logins` SET `dated` = NOW() ORDER BY `dated` ASC LIMIT 1");
-		header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?page=dashboard");
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?page=dashboard');
 		die();
 		
 	} else { //Wrong
@@ -64,37 +64,37 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 			cmtx_add_attempt();
 		}
 		
-		header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?action=attempt");
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?action=attempt');
 		die();
 		
 	}
 
-} else if (isset($_SESSION['cmtx_username']) && isset($_SESSION['cmtx_password']) && cmtx_valid_account($_SESSION['cmtx_username'], $_SESSION['cmtx_password']) == "3") {
+} else if (isset($_SESSION['cmtx_username']) && isset($_SESSION['cmtx_password']) && cmtx_valid_account($_SESSION['cmtx_username'], $_SESSION['cmtx_password']) == '3') {
 
 	//currently logged in, no action required.
 	
 	//verify user-agent
 	if ($_SESSION['cmtx_user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
-		cmtx_log_out("exit");
+		cmtx_log_out('exit');
 	}
 	
 	//verify user-language
 	if ($_SESSION['cmtx_user_lang'] != $_SERVER['HTTP_ACCEPT_LANGUAGE']) {
-		cmtx_log_out("exit");
+		cmtx_log_out('exit');
 	}
 	
 	//verify ip-address
 	if ($_SESSION['cmtx_ip_address'] != cmtx_get_ip_address()) {
-		//cmtx_log_out("exit");
+		//cmtx_log_out('exit');
 	}
 
-} else if (isset($_SESSION['cmtx_username']) && isset($_SESSION['cmtx_password']) && cmtx_valid_account($_SESSION['cmtx_username'], $_SESSION['cmtx_password']) != "3") {
+} else if (isset($_SESSION['cmtx_username']) && isset($_SESSION['cmtx_password']) && cmtx_valid_account($_SESSION['cmtx_username'], $_SESSION['cmtx_password']) != '3') {
 
 	//logged in, but shouldn't be
 
-	cmtx_log_out("exit");
+	cmtx_log_out('exit');
 	
-} else if (isset($_GET['page']) && $_GET['page'] == "reset") {
+} else if (isset($_GET['page']) && $_GET['page'] == 'reset') {
 
 	?>
 	<!DOCTYPE html>
@@ -123,7 +123,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 	
 		if (cmtx_setting('is_demo')) {
 		
-			echo "<span class='negative'>" . CMTX_RESET_DEMO . "</span><p />";
+			echo '<span class="negative">' . CMTX_RESET_DEMO . '</span><p />';
 		
 		} else {
 
@@ -134,16 +134,16 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 				$admin_query = cmtx_db_query("SELECT * FROM `" . $cmtx_mysql_table_prefix . "admins` WHERE `email` = '$email'");
 				$admin_result = cmtx_db_fetch_assoc($admin_query);
 				
-				$resets = $admin_result["resets"];
+				$resets = $admin_result['resets'];
 				
 				if ($resets >= 5) {
-					echo "<span class='negative'>" . CMTX_RESET_LIMIT . "</span><p />";
+					echo '<span class="negative">' . CMTX_RESET_LIMIT . '</span><p />';
 				} else {
 				
 					$resets++;
 					cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `resets` = '$resets' WHERE `email` = '$email'");
 				
-					$username = $admin_result["username"];
+					$username = $admin_result['username'];
 				
 					$password = cmtx_get_random_key(10);
 					
@@ -155,7 +155,7 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 
 					$body = file_get_contents($reset_password_email_file); //get the file's contents
 					
-					$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . "/"; //build admin panel link
+					$admin_link = cmtx_url_encode_spaces(cmtx_setting('commentics_url') . cmtx_setting('admin_folder')) . '/'; //build admin panel link
 					
 					//convert email variables with actual variables
 					$body = str_ireplace('[username]', $username, $body);
@@ -171,13 +171,13 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 					
 					cmtx_db_query("UPDATE `" . $cmtx_mysql_table_prefix . "admins` SET `password` = '$password' WHERE `email` = '$email'");
 				
-					echo "<span class='positive'>" . CMTX_RESET_SENT . "</span>";
+					echo '<span class="positive">' . CMTX_RESET_SENT . '</span>';
 				
 				}
 				
 			} else {
 			
-				echo "<span class='negative'>" . CMTX_RESET_ADDR . "</span>";
+				echo '<span class="negative">' . CMTX_RESET_ADDR . '</span>';
 				
 			}
 		
@@ -223,18 +223,18 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 	<div style="text-align:center; margin-top:10px;">
 	<?php
 	if (isset($_GET['action'])) {
-		if ($_GET['action'] == "disabled") {
-			echo "<span class='negative'>" . CMTX_LOGIN_DISABLED . "</span>";
-		} if ($_GET['action'] == "locked") {
-			echo "<span class='negative'>" . CMTX_LOGIN_LOCKED . "</span>";
-		} else if ($_GET['action'] == "attempt") {
-			echo "<span class='negative'>" . CMTX_LOGIN_ATTEMPT . "</span>";
-		} else if ($_GET['action'] == "failed") {
-			echo "<span class='negative'>" . CMTX_LOGIN_FAILED . "</span>";
-		} else if ($_GET['action'] == "logout") {
-			echo "<span class='positive'>" . CMTX_LOGIN_LOGOUT . "</span>";
-		} else if ($_GET['action'] == "exit") {
-			echo "<span class='negative'>" . CMTX_LOGIN_EXIT . "</span>";
+		if ($_GET['action'] == 'disabled') {
+			echo '<span class="negative">' . CMTX_LOGIN_DISABLED . '</span>';
+		} if ($_GET['action'] == 'locked') {
+			echo '<span class="negative">' . CMTX_LOGIN_LOCKED . '</span>';
+		} else if ($_GET['action'] == 'attempt') {
+			echo '<span class="negative">' . CMTX_LOGIN_ATTEMPT . '</span>';
+		} else if ($_GET['action'] == 'failed') {
+			echo '<span class="negative">' . CMTX_LOGIN_FAILED . '</span>';
+		} else if ($_GET['action'] == 'logout') {
+			echo '<span class="positive">' . CMTX_LOGIN_LOGOUT . '</span>';
+		} else if ($_GET['action'] == 'exit') {
+			echo '<span class="negative">' . CMTX_LOGIN_EXIT . '</span>';
 		}
 	}
 	?>
@@ -246,6 +246,9 @@ if (!isset($_SESSION['cmtx_username']) && !isset($_SESSION['cmtx_password']) && 
 	</body>
 	</html>
 	<?php
+	if (file_exists('../installer')) {
+		cmtx_delete_installer('../installer');
+	}
 	die();
 
 }

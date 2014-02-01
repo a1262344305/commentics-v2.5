@@ -25,8 +25,13 @@ Text to help preserve UTF-8 file encoding: 汉语漢語.
 session_start();
 
 if (isset($_POST['submit'])) {
-	header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/system.php');
-	die();
+	if (file_exists('../includes/db/details.php')) {
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/system.php');
+		die();
+	} else {
+		header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/database.php');
+		die();
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -43,6 +48,17 @@ if (isset($_POST['submit'])) {
 
 <br />
 
+<div class="installer_steps">
+	<div class="step active">Welcome</div>
+	<div class="step">Database</div>
+	<div class="step">System</div>
+	<div class="step">Menu</div>
+	<div class="step">Action</div>
+	<div class="step">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 <?php
 define('CMTX_IN_INSTALLER', true);
 ?>
@@ -50,16 +66,6 @@ define('CMTX_IN_INSTALLER', true);
 <?php
 //set the path
 $cmtx_path = '../';
-?>
-
-<?php
-require $cmtx_path . 'includes/functions/page.php';
-?>
-
-<?php
-//Commentics Folder
-$tokens = explode('/', cmtx_current_page());
-$commentics_folder = $tokens[sizeof($tokens)-3];
 ?>
 
 Welcome to the Installer for Commentics.
@@ -72,9 +78,6 @@ If you are <b>installing</b> the programme make sure that:
 
 <ul>
 <li>You have created the database.</li>
-<li>You have entered its details in /<?php echo $commentics_folder; ?>/includes/db/details.php</li>
-<li>Your MySQL user has <b>at least</b> the following privileges:
-	<ul><li>Select, Insert, Update, Delete, Create, Alter, Index and Drop.</li></ul>
 </ul>
 
 <p></p>

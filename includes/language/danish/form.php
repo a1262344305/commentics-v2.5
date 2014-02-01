@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript skal være slået til, hvis 
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'Du svarer');
 cmtx_define('CMTX_REPLY_CANCEL', '[fortryd]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'Du svarer ikke nogen.');
 
 /* Required */

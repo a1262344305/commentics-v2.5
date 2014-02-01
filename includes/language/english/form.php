@@ -43,6 +43,7 @@ cmtx_define('CMTX_JAVASCRIPT_DISABLED', 'JavaScript must be enabled for certain 
 /* Reply */
 cmtx_define('CMTX_REPLY_MESSAGE', 'You are replying to');
 cmtx_define('CMTX_REPLY_CANCEL', '[cancel]');
+cmtx_define('CMTX_REPLY_CANCEL_TITLE', 'Cancel this reply');
 cmtx_define('CMTX_REPLY_NOBODY', 'You are not replying to anyone.');
 
 /* Required */

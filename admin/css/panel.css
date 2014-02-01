@@ -4,6 +4,7 @@ body {
 
 .logo {
 	padding-bottom: 10px;
+	margin-left: -3px;
 }
 
 h3 {
@@ -276,12 +277,12 @@ label.settings_processor_comment {
 	box-shadow: 3px 3px 5px #888888;
 }
 
-span.wildcard_found {
+.wildcard_found {
 	color: #006600;
 	font-weight: bold;
 }
 
-span.wildcard_not_found {
+.wildcard_not_found {
 	color: #CC0000;
 	font-weight: bold;
 }
@@ -375,7 +376,7 @@ label.task_delete_voters {
 	cursor: default;
 }
 
-span.note {
+.note {
 	color: #838B8B;
 	font-size: 0.9em;
 	font-style: italic;

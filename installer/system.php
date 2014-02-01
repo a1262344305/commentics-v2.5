@@ -43,6 +43,17 @@ if (isset($_POST['submit'])) {
 
 <br />
 
+<div class="installer_steps">
+	<div class="step past">Welcome</div>
+	<div class="step past">Database</div>
+	<div class="step active">System</div>
+	<div class="step">Menu</div>
+	<div class="step">Action</div>
+	<div class="step">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 <?php
 @error_reporting(0); //turn off all error reporting
 @ini_set('display_errors', 0); //don't display errors

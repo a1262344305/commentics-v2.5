@@ -50,6 +50,17 @@ function check_passwords() {
 
 <br />
 
+<div class="installer_steps">
+	<div class="step past">Welcome</div>
+	<div class="step past">Database</div>
+	<div class="step past">System</div>
+	<div class="step past">Menu</div>
+	<div class="step active">Action</div>
+	<div class="step">Done</div>
+</div>
+
+<div style="clear: left"></div>
+
 <?php
 @error_reporting(0); //turn off all error reporting
 @ini_set('display_errors', 0); //don't display errors
@@ -77,7 +88,7 @@ if (!$cmtx_db_ok) { die(); }
 <?php
 if (cmtx_db_num_rows(cmtx_db_query("SHOW TABLES LIKE '" . $cmtx_mysql_table_prefix . "comments'"))) {
 	echo '<div class="error">';
-	echo '<span class="fail">The programme is already installed.</span>';
+	echo 'The programme is already installed.';
 	echo '</div>';
 	echo '<div style="clear:left;"></div>';
 	echo '<p></p>';
@@ -104,16 +115,16 @@ The Installer will now create the tables in the database.
 
 <p></p>
 
-<span class="field">Admin Username:</span><br />
+<span class="field">Admin Username:</span> <span class="required_symbol">*</span><br />
 <input type="text" required autofocus name="admin_username" size="35"/> <span class="field_note">(enter your admin panel username)</span>
 <p></p>
-<span class="field">Admin Password:</span><br />
+<span class="field">Admin Password:</span> <span class="required_symbol">*</span><br />
 <input type="password" required name="admin_password_1" size="35"/> <span class="field_note">(enter your admin panel password)</span>
 <p></p>
-<span class="field">Repeat Password:</span><br />
+<span class="field">Repeat Password:</span> <span class="required_symbol">*</span><br />
 <input type="password" required name="admin_password_2" size="35"/> <span class="field_note">(repeat your admin panel password)</span>
 <p></p>
-<span class="field">Email Address:</span><br />
+<span class="field">Email Address:</span> <span class="required_symbol">*</span><br />
 <input type="email" required name="email_address" size="35"/> <span class="field_note">(enter your admin email address)</span>
 
 <p></p>
@@ -128,12 +139,12 @@ The Installer will now create the tables in the database.
 
 <p></p>
 
-<span class="field">Site Name:</span><br />
+<span class="field">Site Name:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="site_name" size="35" value="My Site"/> <span class="field_note">(enter the name of your site)</span>
 
 <p></p>
 
-<span class="field">Time Zone:</span><br />
+<span class="field">Time Zone:</span> <span class="required_symbol">*</span><br />
 <?php
 $time_zones = DateTimeZone::listIdentifiers();
 echo '<select name="time_zone">';
@@ -183,19 +194,19 @@ foreach ($folders as $folder) {
 }
 ?>
 
-<span class="field">Site Domain:</span><br />
+<span class="field">Site Domain:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="site_domain" size="35" value="<?php echo $site_domain; ?>"/> <span class="field_note">(the domain of your site)</span>
 <p></p>
-<span class="field">Site URL:</span><br />
+<span class="field">Site URL:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="site_url" size="35" value="<?php echo $site_url; ?>"/> <span class="field_note">(the URL to your site)</span>
 <p></p>
-<span class="field">Commentics Folder:</span><br />
+<span class="field">Commentics Folder:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="commentics_folder" size="35" value="<?php echo $commentics_folder; ?>"/> <span class="field_note">(the folder you uploaded)</span>
 <p></p>
-<span class="field">Commentics URL:</span><br />
+<span class="field">Commentics URL:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="commentics_url" size="35" value="<?php echo $commentics_url; ?>"/> <span class="field_note">(the URL to the folder)</span>
 <p></p>
-<span class="field">Admin Folder:</span><br />
+<span class="field">Admin Folder:</span> <span class="required_symbol">*</span><br />
 <input type="text" required name="admin_folder" size="35" value="<?php echo $admin_folder; ?>"/> <span class="field_note">(the admin folder name)</span>
 
 <p></p>
