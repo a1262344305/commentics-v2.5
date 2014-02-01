@@ -101,6 +101,7 @@ h1 {
 	position: relative;
 	float: left;
 	margin-bottom: 10px;
+	box-shadow: 3px 3px 5px #888888;
 }
 
 .info {
