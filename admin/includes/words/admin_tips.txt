@@ -1,12 +1,11 @@
 The comment boxes can have alternate CSS styling.
-Check the forum regularly for solutions to reported bugs.
 Secure your admin folder with .htpasswd for extra protection.
 If using the RSS feature check the FAQ about RSS Auto-Discovery.
 When modifying the code you can put the script in maintenance mode.
-Use robots.txt to help prevent the comments folder from being indexed.
-Customize the terms & privacy text in the 'comments/agreement' folder.
+Use robots.txt to help prevent the upload folder from being indexed.
+Customize the terms & privacy text in the 'agreement' folder.
 Add-ons can help make the experience of you and your users better.
-See who is viewing your pages in Tools -> Viewers.
+See who is viewing your pages in Reports -> Viewers.
 Customize the emails you send and receive using the Settings menu.
 Back up your database regularly using Tools -> Database Backup.
 Add your own captcha questions in Layout -> Form -> Questions.
@@ -18,10 +17,7 @@ Optimize your tables now and again using Tools -> Optimize Tables.
 Add some notes below to keep track of admin related tasks.
 You can share ideas and submit feature requests on the forum.
 Enabling the image captcha helps prevent robotic submission.
-Don't forget to check for comments that require approval.
-Modify the frontend text in the 'comments/includes/language' folder.
-You can customize the time and date format in the Layout menu.
-Click on the 'Get help for this page' link at the top right of pages.
+Click the 'Get help for this page' link at the top right of pages.
 Select which emails you receive in Settings -> Administrator.
 Check frequently for any reports in Manage -> Comments.
 Keep track of admin panel usage in Reports -> Access.
@@ -36,3 +32,6 @@ Enable Rich Snippets for a better search engine result.
 Change the state of the form fields in Layout -> Form -> States.
 Customize the image captcha in Layout -> Form -> Captchas.
 Adjust the reply scroll speed in Layout -> Comments -> Replies.
+Enable parsing in Settings -> System if pages are slow to load.
+You can select a different CSS theme in Layout -> Theme.
+Make use of the /custom/ folders so that upgrades are safe.
