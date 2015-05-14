@@ -1,2 +1,1 @@
-# Perform LF normalization for text content
-* text=auto
+*.txt eol=crlf
